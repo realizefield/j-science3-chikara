@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🧱 中学理科 力・圧力・浮力② 圧力</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+.eq-frac{margin:10px 0;padding:10px 4px;overflow-x:auto;}
+.eq-frac .katex-display{margin:.4em 0;}
+:root{
+  --pri:#e11d48;--pri-d:#881337;--pri-l:#fecdd3;
+  --pink:#db2777;--pink-d:#9d174d;--pink-bg:#fce7f3;
+  --gray:#6b7280;--light:#f0fdf4;--card:#fff;
+  --radius:14px;--shadow:0 4px 18px rgba(0,0,0,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#fff1f2;font-family:'Helvetica Neue',Arial,'Hiragino Sans',sans-serif;color:#1e293b;}
+header{background:linear-gradient(135deg,var(--pri-d),var(--pri));color:#fff;text-align:center;padding:28px 20px 22px;}
+header h1{font-size:clamp(1.3rem,4vw,2rem);font-weight:900;letter-spacing:.04em;}
+header p{margin-top:6px;font-size:.93rem;opacity:.88;}
+.units{max-width:860px;margin:30px auto;padding:0 16px;}
+.unit-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:32px;overflow:hidden;}
+.unit-header{background:linear-gradient(90deg,var(--pri-d),var(--pri));color:#fff;padding:14px 22px;display:flex;align-items:center;gap:12px;}
+.unit-num{background:#fff;color:var(--pri-d);font-weight:900;font-size:1.1rem;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.unit-header h2{font-size:1.1rem;font-weight:800;}
+.unit-body{padding:22px;}
+.exp-img{margin:14px 0;}
+.exp-text{line-height:1.95;font-size:.97rem;margin:10px 0;}
+.exp-text p{margin-bottom:.85em;}
+.exp-text h3{font-size:.97rem;color:var(--pri-d);margin:1em 0 .5em;border-left:3px solid var(--pri);padding-left:8px;font-weight:800;}
+.pt-box{background:#dcfce7;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.warn-box{background:#fee2e2;border-left:4px solid #dc2626;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.memo-box{background:#fff1f2;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.88rem;line-height:1.8;}
+.amber-box{background:#fef3c7;border-left:4px solid #b45309;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.info-box{background:#f0fdff;border-left:4px solid #0e7490;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.eq-box{background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;margin:10px 0;text-align:center;}
+.eq-box .eq{font-size:1rem;font-weight:800;color:var(--pri-d);letter-spacing:.03em;}
+.exp-tbl{width:100%;border-collapse:collapse;font-size:.85rem;margin:10px 0;}
+.exp-tbl th{background:var(--pri);color:#fff;padding:8px 10px;text-align:left;}
+.exp-tbl td{padding:8px 10px;border-bottom:1px solid #e5e7eb;vertical-align:top;line-height:1.65;}
+.exp-tbl tr:nth-child(even) td{background:#f9fafb;}
+.exp-tbl .nc{font-weight:700;white-space:nowrap;}
+.badge-p{background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:10px;display:inline-block;margin-left:4px;}
+.kw-list{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px;}
+.kw{background:var(--pri-l);color:var(--pri-d);border-radius:20px;padding:4px 14px;font-size:.88rem;font-weight:700;}
+/* mini-test toggle */
+.mini-btn{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;background:var(--pink-bg);border:2.5px solid var(--pink);color:var(--pink-d);font-size:.97rem;font-weight:800;padding:10px 22px;border-radius:40px;margin:14px 0 0;transition:.2s;}
+.mini-btn:hover{background:var(--pink);color:#fff;}
+.mini-section{display:none;margin-top:16px;background:#fdf2f8;border:2px solid #f9a8d4;border-radius:12px;padding:18px;}
+.mini-section.open{display:block;}
+.q-block{margin-bottom:22px;}
+.q-block h4{font-size:.98rem;font-weight:800;color:var(--pri-d);margin-bottom:10px;}
+/* Word bank chips */
+.mchips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.mchip{background:#fff;border:2.5px solid var(--pink);color:var(--pink-d);border-radius:20px;padding:5px 16px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.mchip:hover{background:var(--pink);color:#fff;}
+.mchip.used{opacity:.35;pointer-events:none;}
+/* Blanks */
+.mdz-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0;}
+.mdz{display:inline-flex;align-items:center;justify-content:center;min-width:80px;height:36px;border:2.5px dashed var(--pink);border-radius:8px;padding:0 10px;font-size:.93rem;font-weight:700;cursor:pointer;color:var(--pink-d);transition:.18s;background:#fff;}
+.mdz.filled{border-style:solid;background:#fce7f3;}
+.mdz.correct{border-color:#16a34a;background:#dcfce7;color:#166534;}
+.mdz.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.mdz-label{font-size:.9rem;color:#374151;}
+/* 4択 */
+.choice-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+@media(max-width:480px){.choice-list{grid-template-columns:1fr;}}
+.choice-btn{padding:10px 14px;border:2.5px solid #d1d5db;border-radius:10px;background:#fff;font-size:.93rem;cursor:pointer;text-align:left;transition:.18s;}
+.choice-btn:hover{border-color:var(--pri);background:var(--pri-l);}
+.choice-btn.correct{border-color:#16a34a;background:#dcfce7;color:#166534;font-weight:700;}
+.choice-btn.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.choice-btn:disabled{cursor:default;}
+/* Check / Sample buttons */
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.check-btn{background:var(--pri);color:#fff;border:none;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.check-btn:hover{background:var(--pri-d);}
+.sample-btn{background:#fff;color:var(--gray);border:2px solid #d1d5db;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.sample-btn:hover{background:#f3f4f6;}
+.msample{display:none;background:#fef9c3;border:1.5px solid #fbbf24;border-radius:8px;padding:8px 14px;font-size:.9rem;margin-top:8px;}
+.msample.show{display:block;}
+.fb-msg{font-size:.9rem;margin-top:6px;font-weight:600;}
+/* Score pips */
+.mini-score-row{display:flex;gap:6px;align-items:center;margin-bottom:10px;}
+.mini-score-pip{width:14px;height:14px;border-radius:50%;background:#e5e7eb;border:2px solid #d1d5db;transition:.3s;}
+.mini-score-pip.pass{background:#16a34a;border-color:#166534;}
+/* Pass banner */
+.pass-banner{display:none;background:linear-gradient(90deg,#166534,#16a34a);color:#fff;text-align:center;padding:16px;border-radius:10px;margin-top:16px;font-size:1.1rem;font-weight:900;}
+.pass-banner.show{display:block;}
+canvas#confetti-canvas{position:fixed;top:0;left:0;pointer-events:none;width:100%;height:100%;z-index:9999;}
+
+.q-img{max-width:100%;border-radius:10px;margin:6px auto 10px;display:block;}
+.q-note{font-size:.88rem;color:#555;margin-bottom:6px;line-height:1.8;}
+.src{font-size:.78rem;color:#6b7280;font-weight:600;margin-left:6px;}
+.chap-nav{max-width:860px;margin:0 auto 40px;padding:0 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.chap-nav a{background:#fff;border:2px solid var(--pri);color:var(--pri-d);text-decoration:none;font-weight:800;padding:8px 18px;border-radius:24px;font-size:.92rem;}
+.chap-nav a.now{background:var(--pri);color:#fff;}
+.exp-tbl td b{color:var(--pri-d);}
+</style>
+</head>
+<body>
+<canvas id="confetti-canvas"></canvas>
+<header>
+  <h1>🧱 中学理科 力・圧力・浮力② 圧力</h1>
+  <p>中学理科 物理分野（圧力）　図で確認・ミニテストで実力チェック</p>
+</header>
+<div class="units">
+
+<div class="unit-card" id="card_mt1">
+  <div class="unit-header">
+    <div class="unit-num">1</div>
+    <h2>圧力とは（スポンジの実験）</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="chikara2.png" alt="スポンジの実験" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p>スポンジの上に、P・Qという同じ質量（1000g）で同じ形をした物体を置いた。しかし、Pはスポンジと接する面積が20cm²、Qは100cm²と異なっている。</p>
+<p>同じ質量（1000g）であっても、スポンジと接する面積が違うと、スポンジのへこみ方（圧力）が変わる。<b>面積が小さいほど</b>、同じ力でも「へこみ（圧力）」は<b>大きく</b>なる。</p>
+<div class="pt-box"><b>【重要】</b><br>
+・力の大きさが同じでも、力がはたらく面積によって圧力は変わる<br>
+・面積が小さいほど、圧力は大きくなる</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('mt1')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-mt1" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 3</span>
+    </button>
+    <div class="mini-section" id="mini_mt1">
+      <div class="mini-score-row" id="pips_mt1"><div class="mini-score-pip" id="pip_mt1_1"></div><div class="mini-score-pip" id="pip_mt1_2"></div><div class="mini-score-pip" id="pip_mt1_3"></div></div>
+      <div class="q-block" id="qblock_mt1_q1">
+  <h4>Q1. 文中の①②に当てはまる語句を語群から選んで入れよう。</h4>
+  <p class="q-note">同じ質量でも、接触する面積が①ほど、圧力は②なる。</p>
+  <div class="mchips" id="chips_mt1_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_mt1_q1_0" onclick="returnChip('mt1',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_mt1_q1_1" onclick="returnChip('mt1',1,1)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('mt1',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('mt1',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_mt1_q1"></div>
+  <div class="msample" id="samp_mt1_q1">答え: ①=小さい / ②=大きく</div>
+</div>
+<div class="q-block" id="qblock_mt1_q2">
+  <h4>Q2. 面積が小さいほど、圧力はどうなるか。</h4>
+  <div class="choice-list" id="choices_mt1_q2">
+    <button class="choice-btn" onclick="pick4('mt1',2,0,0,'mt1_q2')">ア：大きくなる</button>
+    <button class="choice-btn" onclick="pick4('mt1',2,1,0,'mt1_q2')">イ：小さくなる</button>
+    <button class="choice-btn" onclick="pick4('mt1',2,2,0,'mt1_q2')">ウ：変わらない</button>
+    <button class="choice-btn" onclick="pick4('mt1',2,3,0,'mt1_q2')">エ：0になる</button>
+  </div>
+  <div class="fb-msg" id="fb_mt1_q2"></div>
+  <div class="msample" id="samp_mt1_q2">正解: ア：大きくなる　同じ力がはたらく場合、面積が小さいほど圧力は大きくなります。</div>
+</div>
+<div class="q-block" id="qblock_mt1_q3">
+  <h4>Q3. 図のPとQ（どちらも質量1000g）のうち、スポンジとの接触面積が小さいのはどちらか（P=20cm²、Q=100cm²）。</h4>
+  <div class="choice-list" id="choices_mt1_q3">
+    <button class="choice-btn" onclick="pick4('mt1',3,0,0,'mt1_q3')">ア：P</button>
+    <button class="choice-btn" onclick="pick4('mt1',3,1,0,'mt1_q3')">イ：Q</button>
+    <button class="choice-btn" onclick="pick4('mt1',3,2,0,'mt1_q3')">ウ：どちらも同じ</button>
+    <button class="choice-btn" onclick="pick4('mt1',3,3,0,'mt1_q3')">エ：わからない</button>
+  </div>
+  <div class="fb-msg" id="fb_mt1_q3"></div>
+  <div class="msample" id="samp_mt1_q3">正解: ア：P　Pの接触面積は20cm²でQより小さいため、Pの方がスポンジのへこみ（圧力）は大きくなります。</div>
+</div>
+      <div class="pass-banner" id="pass_mt1">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_mt2">
+  <div class="unit-header">
+    <div class="unit-num">2</div>
+    <h2>1Nの復習</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="chikara3.png" alt="1Nの大きさ（復習）" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p>圧力を求める前に、力の単位N（ニュートン）を復習しよう。<b>100gの物体にかかる重力を1N</b>とする。</p>
+<p>したがって、200gの物体では2N、300gの物体では3N、1kg（1000g）の物体では10Nの重力がはたらく。</p>
+<div class="pt-box"><b>【重要】</b><br>
+・100gの物体にかかる重力＝1N</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('mt2')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-mt2" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 1</span>
+    </button>
+    <div class="mini-section" id="mini_mt2">
+      <div class="mini-score-row" id="pips_mt2"><div class="mini-score-pip" id="pip_mt2_1"></div></div>
+      <div class="q-block" id="qblock_mt2_q1">
+  <h4>Q1. 文中の①〜④に当てはまる数値を語群から選んで入れよう。</h4>
+  <p class="q-note">100gの物体にはたらく重力は①Nである。200gの物体では②N、300gの物体では③N、1kg（1000g）の物体では④Nの重力がはたらく。</p>
+  <div class="mchips" id="chips_mt2_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_mt2_q1_0" onclick="returnChip('mt2',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_mt2_q1_1" onclick="returnChip('mt2',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_mt2_q1_2" onclick="returnChip('mt2',1,2)">&nbsp;</span>
+    <span class="mdz-label">④</span><span class="mdz" id="mdz_mt2_q1_3" onclick="returnChip('mt2',1,3)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('mt2',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('mt2',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_mt2_q1"></div>
+  <div class="msample" id="samp_mt2_q1">答え: ①=1 / ②=2 / ③=3 / ④=10</div>
+</div>
+      <div class="pass-banner" id="pass_mt2">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_mt3">
+  <div class="unit-header">
+    <div class="unit-num">3</div>
+    <h2>圧力の単位と求め方</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="chikara11.png" alt="大きさの異なる3つの立方体" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p>単位面積（1m²）あたりにかかる力の大きさを<b>圧力</b>という。圧力の単位は<b>N/m²</b>で表す。</p>
+<p>圧力を求めるときの注意点は次の2つである。</p>
+<p>①力の単位をN（ニュートン）にする。<br>②面積の単位をcm²からm²に換算する（<b>10000で割る</b>）。</p>
+<div class="warn-box"><b>【計算のコツ】</b>cm²を10000で割ると小数になって計算しにくい。<b>小数にせず分数のままにしておく</b>と、力(N)をその分数で割る＝<b>分数をひっくり返してかける</b>だけで、10000をかける計算になり、暗算しやすくなる。</div>
+<h3>【例題】図のA、B、Cの机にかかる圧力を求めよう</h3>
+<div class="eq-frac">
+<p><b>A：</b>1200g→12N、16cm²</p>
+\[16\text{cm}^2 \div 10000 = \frac{16}{10000}\text{m}^2\]
+\[12\text{N} \div \frac{16}{10000}\text{m}^2 = 12 \times \frac{10000}{16} = 7500\text{N/m}^2\]
+<p><b>B：</b>1500g→15N、25cm²</p>
+\[15\text{N} \div \frac{25}{10000}\text{m}^2 = 15 \times \frac{10000}{25} = 6000\text{N/m}^2\]
+<p><b>C：</b>1800g→18N、36cm²</p>
+\[18\text{N} \div \frac{36}{10000}\text{m}^2 = 18 \times \frac{10000}{36} = 5000\text{N/m}^2\]
+</div>
+<table class="exp-tbl">
+<thead><tr><th></th><th>質量・面積</th><th>力（N）</th><th>圧力（N/m²）</th></tr></thead>
+<tbody>
+<tr><td class="nc">A</td><td>1200g／16cm²</td><td>12N</td><td><b>7500N/m²</b></td></tr>
+<tr><td class="nc">B</td><td>1500g／25cm²</td><td>15N</td><td><b>6000N/m²</b></td></tr>
+<tr><td class="nc">C</td><td>1800g／36cm²</td><td>18N</td><td><b>5000N/m²</b></td></tr>
+</tbody></table>
+<div class="pt-box"><b>【重要】</b><br>
+・圧力＝力（N）÷面積（m²）　単位はN/m²<br>
+・cm²をm²に直すときは10000で割る（分数のままにして、あとで10000をかける形にすると小数計算をしなくてすむ）</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('mt3')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-mt3" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 3</span>
+    </button>
+    <div class="mini-section" id="mini_mt3">
+      <div class="mini-score-row" id="pips_mt3"><div class="mini-score-pip" id="pip_mt3_1"></div><div class="mini-score-pip" id="pip_mt3_2"></div><div class="mini-score-pip" id="pip_mt3_3"></div></div>
+      <div class="q-block" id="qblock_mt3_q1">
+  <h4>Q1. 文中の①〜③に当てはまる数値を語群から選んで入れよう。</h4>
+  <p class="q-note">図のAの圧力は①N/m²、Bの圧力は②N/m²、Cの圧力は③N/m²である。</p>
+  <div class="mchips" id="chips_mt3_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_mt3_q1_0" onclick="returnChip('mt3',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_mt3_q1_1" onclick="returnChip('mt3',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_mt3_q1_2" onclick="returnChip('mt3',1,2)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('mt3',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('mt3',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_mt3_q1"></div>
+  <div class="msample" id="samp_mt3_q1">答え: ①=7500 / ②=6000 / ③=5000</div>
+</div>
+<div class="q-block" id="qblock_mt3_q2">
+  <h4>Q2. 圧力を求める式として正しいものはどれか。</h4>
+  <div class="choice-list" id="choices_mt3_q2">
+    <button class="choice-btn" onclick="pick4('mt3',2,0,1,'mt3_q2')">ア：面積(m²)÷力(N)</button>
+    <button class="choice-btn" onclick="pick4('mt3',2,1,1,'mt3_q2')">イ：力(N)÷面積(m²)</button>
+    <button class="choice-btn" onclick="pick4('mt3',2,2,1,'mt3_q2')">ウ：力(N)×面積(m²)</button>
+    <button class="choice-btn" onclick="pick4('mt3',2,3,1,'mt3_q2')">エ：力(N)＋面積(m²)</button>
+  </div>
+  <div class="fb-msg" id="fb_mt3_q2"></div>
+  <div class="msample" id="samp_mt3_q2">正解: イ：力(N)÷面積(m²)　圧力は、力の大きさを、力がはたらく面積で割って求めます。</div>
+</div>
+<div class="q-block" id="qblock_mt3_q3">
+  <h4>Q3. 面積の単位をcm²からm²に直すには、何で割ればよいか。</h4>
+  <div class="choice-list" id="choices_mt3_q3">
+    <button class="choice-btn" onclick="pick4('mt3',3,0,2,'mt3_q3')">ア：10</button>
+    <button class="choice-btn" onclick="pick4('mt3',3,1,2,'mt3_q3')">イ：100</button>
+    <button class="choice-btn" onclick="pick4('mt3',3,2,2,'mt3_q3')">ウ：10000</button>
+    <button class="choice-btn" onclick="pick4('mt3',3,3,2,'mt3_q3')">エ：1000000</button>
+  </div>
+  <div class="fb-msg" id="fb_mt3_q3"></div>
+  <div class="msample" id="samp_mt3_q3">正解: ウ：10000　1m²＝10000cm²なので、cm²をm²に直すときは10000で割ります。</div>
+</div>
+      <div class="pass-banner" id="pass_mt3">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_mt4">
+  <div class="unit-header">
+    <div class="unit-num">4</div>
+    <h2>練習1（直方体の圧力）</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="chikara12.png" alt="直方体（4cm×5cm×10cm、1200g）" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p>図のような、4cm×5cm×10cmで質量1200gの直方体がある。A面（4cm×5cm＝20cm²）、B面（4cm×10cm＝40cm²）、C面（5cm×10cm＝50cm²）のいずれかを下にしてスポンジの上に置く。</p>
+<p><b>(1) A、B、C面をそれぞれ下にしたときの圧力</b></p>
+<table class="exp-tbl">
+<thead><tr><th>面</th><th>面積</th><th>圧力</th></tr></thead>
+<tbody>
+<tr><td class="nc">A面</td><td>20cm²</td><td><b>6000N/m²</b></td></tr>
+<tr><td class="nc">B面</td><td>40cm²</td><td><b>3000N/m²</b></td></tr>
+<tr><td class="nc">C面</td><td>50cm²</td><td><b>2400N/m²</b></td></tr>
+</tbody></table>
+<p><b>(2)</b> 最もスポンジがへこむのは、面積が最も小さい<b>A面</b>を下にしたとき（圧力が最大になる）。</p>
+<p><b>(3)</b> 質量600gの直方体（10cm×20cmの面をふくむ）をスポンジに置いたとき、物体にはたらく力は6N。10cm×20cm＝200cm²である。</p>
+<div class="eq-frac">
+\[200\text{cm}^2 \div 10000 = \frac{200}{10000}\text{m}^2\]
+\[6\text{N} \div \frac{200}{10000}\text{m}^2 = 6 \times \frac{10000}{200} = 300\text{N/m}^2\]
+</div>
+<div class="pt-box"><b>【重要】</b><br>
+・同じ質量でも、下にする面の面積が小さいほど圧力は大きくなる<br>
+・面積が最小のA面を下にしたとき、最もスポンジがへこむ</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('mt4')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-mt4" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 4</span>
+    </button>
+    <div class="mini-section" id="mini_mt4">
+      <div class="mini-score-row" id="pips_mt4"><div class="mini-score-pip" id="pip_mt4_1"></div><div class="mini-score-pip" id="pip_mt4_2"></div><div class="mini-score-pip" id="pip_mt4_3"></div><div class="mini-score-pip" id="pip_mt4_4"></div></div>
+      <div class="q-block" id="qblock_mt4_q1">
+  <h4>Q1. 図の直方体について、①〜③に当てはまる数値を語群から選んで入れよう。</h4>
+  <img class="q-img" src="chikara12.png" alt="直方体（4cm×5cm×10cm、1200g）">
+  <p class="q-note">A面を下にしたときの圧力は①N/m²、B面を下にしたときは②N/m²、C面を下にしたときは③N/m²である。</p>
+  <div class="mchips" id="chips_mt4_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_mt4_q1_0" onclick="returnChip('mt4',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_mt4_q1_1" onclick="returnChip('mt4',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_mt4_q1_2" onclick="returnChip('mt4',1,2)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('mt4',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('mt4',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_mt4_q1"></div>
+  <div class="msample" id="samp_mt4_q1">答え: ①=6000 / ②=3000 / ③=2400<br><br><b>【解説】</b>まず質量1200gを力の単位Nに直す。100gが1Nなので、1200g＝<b>12N</b>。<br>・A面（20cm²）：20cm²÷10000＝\(\frac{20}{10000}\)m²　12N÷\(\frac{20}{10000}\)m²＝12×\(\frac{10000}{20}\)＝<b>6000N/m²</b><br>・B面（40cm²）：40cm²÷10000＝\(\frac{40}{10000}\)m²　12N÷\(\frac{40}{10000}\)m²＝12×\(\frac{10000}{40}\)＝<b>3000N/m²</b><br>・C面（50cm²）：50cm²÷10000＝\(\frac{50}{10000}\)m²　12N÷\(\frac{50}{10000}\)m²＝12×\(\frac{10000}{50}\)＝<b>2400N/m²</b><br>力（12N）は変わらないが、面積が大きくなるほど、圧力（N/m²）は小さくなっていることに注目しよう。</div>
+</div>
+<div class="q-block" id="qblock_mt4_q2">
+  <h4>Q2. スポンジが最もへこむのは、どの面を下にしたときか。</h4>
+  <div class="choice-list" id="choices_mt4_q2">
+    <button class="choice-btn" onclick="pick4('mt4',2,0,0,'mt4_q2')">ア：A面</button>
+    <button class="choice-btn" onclick="pick4('mt4',2,1,0,'mt4_q2')">イ：B面</button>
+    <button class="choice-btn" onclick="pick4('mt4',2,2,0,'mt4_q2')">ウ：C面</button>
+    <button class="choice-btn" onclick="pick4('mt4',2,3,0,'mt4_q2')">エ：どの面でも同じ</button>
+  </div>
+  <div class="fb-msg" id="fb_mt4_q2"></div>
+  <div class="msample" id="samp_mt4_q2">正解: ア：A面　面積が最も小さいA面を下にしたとき、圧力が最大になり、スポンジが最もへこみます。</div>
+</div>
+<div class="q-block" id="qblock_mt4_q3">
+  <h4>Q3. 質量600gの直方体を、10cm×20cm（200cm²）の面を下にして置いたときの圧力は何N/m²か。</h4>
+  <div class="choice-list" id="choices_mt4_q3">
+    <button class="choice-btn" onclick="pick4('mt4',3,0,1,'mt4_q3')">ア：30N/m²</button>
+    <button class="choice-btn" onclick="pick4('mt4',3,1,1,'mt4_q3')">イ：300N/m²</button>
+    <button class="choice-btn" onclick="pick4('mt4',3,2,1,'mt4_q3')">ウ：600N/m²</button>
+    <button class="choice-btn" onclick="pick4('mt4',3,3,1,'mt4_q3')">エ：3000N/m²</button>
+  </div>
+  <div class="fb-msg" id="fb_mt4_q3"></div>
+  <div class="msample" id="samp_mt4_q3">正解: イ：300N/m²　600g＝6N、200cm²＝\(\frac{200}{10000}\)m²なので、6N÷\(\frac{200}{10000}\)m²＝6×\(\frac{10000}{200}\)＝300N/m²です。</div>
+</div>
+<div class="q-block" id="qblock_mt4_q4">
+  <h4>Q4. 質量1200gの直方体にはたらく重力は何Nか。</h4>
+  <div class="choice-list" id="choices_mt4_q4">
+    <button class="choice-btn" onclick="pick4('mt4',4,0,2,'mt4_q4')">ア：1.2N</button>
+    <button class="choice-btn" onclick="pick4('mt4',4,1,2,'mt4_q4')">イ：120N</button>
+    <button class="choice-btn" onclick="pick4('mt4',4,2,2,'mt4_q4')">ウ：12N</button>
+    <button class="choice-btn" onclick="pick4('mt4',4,3,2,'mt4_q4')">エ：1200N</button>
+  </div>
+  <div class="fb-msg" id="fb_mt4_q4"></div>
+  <div class="msample" id="samp_mt4_q4">正解: ウ：12N　100gで1Nなので、1200gでは12Nになります。</div>
+</div>
+      <div class="pass-banner" id="pass_mt4">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_mt5">
+  <div class="unit-header">
+    <div class="unit-num">5</div>
+    <h2>入試問題にチャレンジ！圧力</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><p>ここまで学んだ「圧力の求め方」を使って、入試問題で確認しましょう。</p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('mt5')">
+      🧪 確認問題に挑戦！
+      <span id="mini-badge-mt5" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 3</span>
+    </button>
+    <div class="mini-section" id="mini_mt5">
+      <div class="mini-score-row" id="pips_mt5"><div class="mini-score-pip" id="pip_mt5_1"></div><div class="mini-score-pip" id="pip_mt5_2"></div><div class="mini-score-pip" id="pip_mt5_3"></div></div>
+      <div class="q-block" id="qblock_mt5_q1">
+  <h4>Q1. 質量1000gの物体を、10cm×10cm（100cm²）の面を下にして置いたとき、圧力は何N/m²か。</h4>
+  <p class="q-note">ヒント：①まず質量1000gを力の単位Nに直す（100gが1N）→1000g＝10N。②面積100cm²をm²に直すには10000で割る→100÷10000＝\(\dfrac{100}{10000}\)（この分数は小数にせず、そのままの形で使う）。③圧力＝力÷面積なので、10N÷\(\dfrac{100}{10000}\)m²を計算する（分数で割るときは、その分数をひっくり返してかけ算にする）。</p>
+  <div class="choice-list" id="choices_mt5_q1">
+    <button class="choice-btn" onclick="pick4('mt5',1,0,2,'mt5_q1')">ア：10N/m²</button>
+    <button class="choice-btn" onclick="pick4('mt5',1,1,2,'mt5_q1')">イ：100N/m²</button>
+    <button class="choice-btn" onclick="pick4('mt5',1,2,2,'mt5_q1')">ウ：1000N/m²</button>
+    <button class="choice-btn" onclick="pick4('mt5',1,3,2,'mt5_q1')">エ：10000N/m²</button>
+  </div>
+  <div class="fb-msg" id="fb_mt5_q1"></div>
+  <div class="msample" id="samp_mt5_q1">正解: ウ：1000N/m²　1000g＝10N、100cm²＝\(\frac{100}{10000}\)m²なので、10N÷\(\frac{100}{10000}\)m²＝10×\(\frac{10000}{100}\)＝1000N/m²です。</div>
+</div>
+<div class="q-block" id="qblock_mt5_q2">
+  <h4>Q2. 質量2000gの物体を、20cm×25cm（500cm²）の面を下にして置いたとき、圧力は何N/m²か。</h4>
+  <p class="q-note">ヒント：①質量2000gを力の単位Nに直す（100gが1N）→2000g＝20N。②面積500cm²をm²に直すには10000で割る→500÷10000＝\(\dfrac{500}{10000}\)（分数のままでよい）。③圧力＝力÷面積なので、20N÷\(\dfrac{500}{10000}\)m²を計算する。</p>
+  <div class="choice-list" id="choices_mt5_q2">
+    <button class="choice-btn" onclick="pick4('mt5',2,0,1,'mt5_q2')">ア：40N/m²</button>
+    <button class="choice-btn" onclick="pick4('mt5',2,1,1,'mt5_q2')">イ：400N/m²</button>
+    <button class="choice-btn" onclick="pick4('mt5',2,2,1,'mt5_q2')">ウ：4000N/m²</button>
+    <button class="choice-btn" onclick="pick4('mt5',2,3,1,'mt5_q2')">エ：40000N/m²</button>
+  </div>
+  <div class="fb-msg" id="fb_mt5_q2"></div>
+  <div class="msample" id="samp_mt5_q2">正解: イ：400N/m²　2000g＝20N、500cm²＝\(\frac{500}{10000}\)m²なので、20N÷\(\frac{500}{10000}\)m²＝20×\(\frac{10000}{500}\)＝400N/m²です。</div>
+</div>
+<div class="q-block" id="qblock_mt5_q3">
+  <h4>Q3. 物体にはたらく力の大きさが同じとき、面積が半分になると、圧力はどうなるか。</h4>
+  <div class="choice-list" id="choices_mt5_q3">
+    <button class="choice-btn" onclick="pick4('mt5',3,0,1,'mt5_q3')">ア：半分になる</button>
+    <button class="choice-btn" onclick="pick4('mt5',3,1,1,'mt5_q3')">イ：2倍になる</button>
+    <button class="choice-btn" onclick="pick4('mt5',3,2,1,'mt5_q3')">ウ：変わらない</button>
+    <button class="choice-btn" onclick="pick4('mt5',3,3,1,'mt5_q3')">エ：4倍になる</button>
+  </div>
+  <div class="fb-msg" id="fb_mt5_q3"></div>
+  <div class="msample" id="samp_mt5_q3">正解: イ：2倍になる　圧力＝力÷面積なので、力が同じで面積が半分になると、圧力は2倍になります。</div>
+</div>
+      <div class="pass-banner" id="pass_mt5">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="chap-nav">
+<a href="index.html">🏠 目次</a>
+<a href="chikara_ch01.html">① 力の性質</a>
+<a href="atsuryoku_ch01.html" class="now">② 圧力</a>
+<a href="suiatsu_ch01.html">③ 水圧</a>
+<a href="furyoku_ch01.html">④ 浮力</a>
+</div>
+<script>
+// ============================================================
+// State
+// ============================================================
+const miniState = {};
+const miniScore = {};
+const miniTotal = {};
+const miniDone = {};
+
+miniScore['mt1'] = 0; miniTotal['mt1'] = 3; miniDone['mt1'] = [false, false, false];
+miniScore['mt2'] = 0; miniTotal['mt2'] = 1; miniDone['mt2'] = [false];
+miniScore['mt3'] = 0; miniTotal['mt3'] = 3; miniDone['mt3'] = [false, false, false];
+miniScore['mt4'] = 0; miniTotal['mt4'] = 4; miniDone['mt4'] = [false, false, false, false];
+miniScore['mt5'] = 0; miniTotal['mt5'] = 3; miniDone['mt5'] = [false, false, false];
+
+
+// ============================================================
+// Toggle mini section
+// ============================================================
+function toggleMini(secId) {
+  const el = document.getElementById('mini_' + secId);
+  el.classList.toggle('open');
+}
+
+// ============================================================
+// Word bank: initialize
+// ============================================================
+function initMiniBank(secId, qNum, words, answers, freeGroups) {
+  const key = secId + '_q' + qNum;
+  miniState[key] = {
+    words: [...words],
+    answers: [...answers],
+    filled: new Array(answers.length).fill(null),
+    chipUsed: new Array(words.length).fill(false),
+    freeGroups: freeGroups || []
+  };
+  // Build chips in shuffled order
+  const container = document.getElementById('chips_' + key);
+  if (!container) return;
+  container.innerHTML = '';
+  const order = [...Array(words.length).keys()];
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  order.forEach(i => {
+    const btn = document.createElement('button');
+    btn.className = 'mchip';
+    btn.id = 'chip_' + key + '_' + i;
+    btn.textContent = words[i];
+    btn.onclick = () => fillMDZ(secId, qNum, i);
+    container.appendChild(btn);
+  });
+}
+
+// ============================================================
+// Fill blank
+// ============================================================
+function fillMDZ(secId, qNum, chipIdx) {
+  const key = secId + '_q' + qNum;
+  const st = miniState[key];
+  if (!st || st.chipUsed[chipIdx]) return;
+  // Find first empty blank
+  const emptyIdx = st.filled.findIndex(v => v === null);
+  if (emptyIdx < 0) return;
+  st.filled[emptyIdx] = chipIdx;
+  st.chipUsed[chipIdx] = true;
+  document.getElementById('chip_' + key + '_' + chipIdx).classList.add('used');
+  const mdz = document.getElementById('mdz_' + key + '_' + emptyIdx);
+  if (mdz) { mdz.textContent = st.words[chipIdx]; mdz.classList.add('filled'); }
+}
+
+// ============================================================
+// Return chip (click on filled blank)
+// ============================================================
+function returnChip(secId, qNum, blankIdx) {
+  const key = secId + '_q' + qNum;
+  const st = miniState[key];
+  if (!st || st.filled[blankIdx] === null) return;
+  const chipIdx = st.filled[blankIdx];
+  st.filled[blankIdx] = null;
+  st.chipUsed[chipIdx] = false;
+  document.getElementById('chip_' + key + '_' + chipIdx).classList.remove('used');
+  const mdz = document.getElementById('mdz_' + key + '_' + blankIdx);
+  if (mdz) { mdz.textContent = ' '; mdz.className = 'mdz'; }
+}
+
+// ============================================================
+// Check word bank answer
+// ============================================================
+function checkMiniBank(secId, qNum) {
+  const key = secId + '_q' + qNum;
+  const st = miniState[key];
+  if (!st) return;
+  // Pre-compute which blank indices belong to freeGroups and whether each group is satisfied
+  const freeBlankSet = new Set();
+  const freeBlankCorrect = {};
+  (st.freeGroups || []).forEach(group => {
+    const filledVals = group.map(bi => st.filled[bi] !== null ? st.words[st.filled[bi]].replace(/（.*?）/,'') : null);
+    const correctVals = group.map(bi => st.answers[bi].replace(/（.*?）/,'')).slice().sort();
+    const filledSorted = [...filledVals].sort();
+    const groupOK = filledVals.every(v => v !== null) && filledSorted.every((v,i) => v === correctVals[i]);
+    group.forEach(bi => { freeBlankSet.add(bi); freeBlankCorrect[bi] = groupOK; });
+  });
+
+  let allCorrect = true;
+  st.filled.forEach((chipIdx, bi) => {
+    const mdz = document.getElementById('mdz_' + key + '_' + bi);
+    if (!mdz) return;
+    if (chipIdx === null) { allCorrect = false; return; }
+    let isCorrect;
+    if (freeBlankSet.has(bi)) {
+      isCorrect = freeBlankCorrect[bi];
+    } else {
+      const word = st.words[chipIdx];
+      const correct = st.answers[bi];
+      isCorrect = (word === correct || word.replace(/（.*?）/,'') === correct.replace(/（.*?）/,''));
+    }
+    if (isCorrect) {
+      mdz.classList.remove('wrong'); mdz.classList.add('correct');
+    } else {
+      mdz.classList.remove('correct'); mdz.classList.add('wrong');
+      allCorrect = false;
+    }
+  });
+  const fb = document.getElementById('fb_' + key);
+  if (allCorrect) {
+    if (fb) fb.textContent = '✅ 正解！すばらしい！';
+    markPass(secId, qNum - 1);
+    flowerPetals();
+  } else {
+    if (fb) fb.textContent = '❌ もう一度確認しよう！';
+  }
+}
+
+// ============================================================
+// Show sample answer
+// ============================================================
+function showSample(secId, qNum) {
+  const key = secId + '_q' + qNum;
+  const el = document.getElementById('samp_' + key);
+  if (el) el.classList.toggle('show');
+}
+
+// ============================================================
+// 4-choice picker
+// ============================================================
+function pick4(secId, qNum, chosen, correct, qid) {
+  const btns = document.querySelectorAll('#choices_' + qid + ' .choice-btn');
+  btns.forEach(b => b.disabled = true);
+  const fb = document.getElementById('fb_' + qid);
+  if (chosen === correct) {
+    btns[chosen].classList.add('correct');
+    if (fb) fb.textContent = '✅ 正解！';
+    markPass(secId, qNum - 1);
+    flowerPetals();
+  } else {
+    btns[chosen].classList.add('wrong');
+    btns[correct].classList.add('correct');
+    if (fb) fb.textContent = '❌ 残念！正解は上の緑のボタンです。';
+    document.getElementById('samp_' + qid).classList.add('show');
+  }
+}
+
+// ============================================================
+// Mark pass & check unit completion
+// ============================================================
+function markPass(secId, qIdx) {
+  if (miniDone[secId][qIdx]) return;
+  miniDone[secId][qIdx] = true;
+  miniScore[secId]++;
+  const pip = document.getElementById('pip_' + secId + '_' + (qIdx + 1));
+  if (pip) pip.classList.add('pass');
+  const badge = document.getElementById('mini-badge-' + secId);
+  if (badge) badge.textContent = miniScore[secId] + ' / ' + miniTotal[secId];
+  if (miniScore[secId] >= miniTotal[secId]) {
+    const banner = document.getElementById('pass_' + secId);
+    if (banner) banner.classList.add('show');
+    fireConfetti();
+  }
+}
+
+// ============================================================
+// Flower petals animation (single question correct)
+// ============================================================
+function flowerPetals() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const petals = [];
+  const colors = ['#f472b6','#fb7185','#fbbf24','#34d399','#60a5fa','#a78bfa'];
+  for (let i = 0; i < 60; i++) {
+    petals.push({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * 200,
+      r: 4 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 3,
+      vy: 2 + Math.random() * 3,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.15
+    });
+  }
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    petals.forEach(p => {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.r, p.r * 0.55, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+      p.x += p.vx; p.y += p.vy; p.rot += p.rotV;
+    });
+    frame++;
+    if (frame < 80) requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw();
+}
+
+// ============================================================
+// Confetti (unit complete)
+// ============================================================
+function fireConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const pieces = [];
+  const colors = ['#f472b6','#fbbf24','#34d399','#60a5fa','#a78bfa','#fb7185','#fff'];
+  for (let i = 0; i < 150; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * 300,
+      w: 8 + Math.random() * 10,
+      h: 4 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 5,
+      vy: 3 + Math.random() * 4,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.2
+    });
+  }
+  let frame2 = 0;
+  function draw2() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+      p.x += p.vx; p.y += p.vy; p.rot += p.rotV;
+    });
+    frame2++;
+    if (frame2 < 140) requestAnimationFrame(draw2);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw2();
+}
+
+
+
+// ============================================================
+// Initialize all word banks
+// ============================================================
+
+initMiniBank('mt1',1,["小さい", "大きく"],["小さい", "大きく"],[]);
+initMiniBank('mt2',1,["1", "2", "3", "10"],["1", "2", "3", "10"],[]);
+initMiniBank('mt3',1,["7500", "6000", "5000"],["7500", "6000", "5000"],[]);
+initMiniBank('mt4',1,["6000", "3000", "2400"],["6000", "3000", "2400"],[]);
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ]
+    });
+  }
+});
+</script>
+
+</body></html>

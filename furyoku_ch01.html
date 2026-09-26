@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🎈 中学理科 力・圧力・浮力④ 浮力</title>
+<style>
+:root{
+  --pri:#e11d48;--pri-d:#881337;--pri-l:#fecdd3;
+  --pink:#db2777;--pink-d:#9d174d;--pink-bg:#fce7f3;
+  --gray:#6b7280;--light:#f0fdf4;--card:#fff;
+  --radius:14px;--shadow:0 4px 18px rgba(0,0,0,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#fff1f2;font-family:'Helvetica Neue',Arial,'Hiragino Sans',sans-serif;color:#1e293b;}
+header{background:linear-gradient(135deg,var(--pri-d),var(--pri));color:#fff;text-align:center;padding:28px 20px 22px;}
+header h1{font-size:clamp(1.3rem,4vw,2rem);font-weight:900;letter-spacing:.04em;}
+header p{margin-top:6px;font-size:.93rem;opacity:.88;}
+.units{max-width:860px;margin:30px auto;padding:0 16px;}
+.unit-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:32px;overflow:hidden;}
+.unit-header{background:linear-gradient(90deg,var(--pri-d),var(--pri));color:#fff;padding:14px 22px;display:flex;align-items:center;gap:12px;}
+.unit-num{background:#fff;color:var(--pri-d);font-weight:900;font-size:1.1rem;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.unit-header h2{font-size:1.1rem;font-weight:800;}
+.unit-body{padding:22px;}
+.exp-img{margin:14px 0;}
+.exp-text{line-height:1.95;font-size:.97rem;margin:10px 0;}
+.exp-text p{margin-bottom:.85em;}
+.exp-text h3{font-size:.97rem;color:var(--pri-d);margin:1em 0 .5em;border-left:3px solid var(--pri);padding-left:8px;font-weight:800;}
+.pt-box{background:#dcfce7;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.warn-box{background:#fee2e2;border-left:4px solid #dc2626;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.memo-box{background:#fff1f2;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.88rem;line-height:1.8;}
+.amber-box{background:#fef3c7;border-left:4px solid #b45309;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.info-box{background:#f0fdff;border-left:4px solid #0e7490;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.eq-box{background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;margin:10px 0;text-align:center;}
+.eq-box .eq{font-size:1rem;font-weight:800;color:var(--pri-d);letter-spacing:.03em;}
+.exp-tbl{width:100%;border-collapse:collapse;font-size:.85rem;margin:10px 0;}
+.exp-tbl th{background:var(--pri);color:#fff;padding:8px 10px;text-align:left;}
+.exp-tbl td{padding:8px 10px;border-bottom:1px solid #e5e7eb;vertical-align:top;line-height:1.65;}
+.exp-tbl tr:nth-child(even) td{background:#f9fafb;}
+.exp-tbl .nc{font-weight:700;white-space:nowrap;}
+.badge-p{background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:10px;display:inline-block;margin-left:4px;}
+.kw-list{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px;}
+.kw{background:var(--pri-l);color:var(--pri-d);border-radius:20px;padding:4px 14px;font-size:.88rem;font-weight:700;}
+/* mini-test toggle */
+.mini-btn{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;background:var(--pink-bg);border:2.5px solid var(--pink);color:var(--pink-d);font-size:.97rem;font-weight:800;padding:10px 22px;border-radius:40px;margin:14px 0 0;transition:.2s;}
+.mini-btn:hover{background:var(--pink);color:#fff;}
+.mini-section{display:none;margin-top:16px;background:#fdf2f8;border:2px solid #f9a8d4;border-radius:12px;padding:18px;}
+.mini-section.open{display:block;}
+.q-block{margin-bottom:22px;}
+.q-block h4{font-size:.98rem;font-weight:800;color:var(--pri-d);margin-bottom:10px;}
+/* Word bank chips */
+.mchips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.mchip{background:#fff;border:2.5px solid var(--pink);color:var(--pink-d);border-radius:20px;padding:5px 16px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.mchip:hover{background:var(--pink);color:#fff;}
+.mchip.used{opacity:.35;pointer-events:none;}
+/* Blanks */
+.mdz-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0;}
+.mdz{display:inline-flex;align-items:center;justify-content:center;min-width:80px;height:36px;border:2.5px dashed var(--pink);border-radius:8px;padding:0 10px;font-size:.93rem;font-weight:700;cursor:pointer;color:var(--pink-d);transition:.18s;background:#fff;}
+.mdz.filled{border-style:solid;background:#fce7f3;}
+.mdz.correct{border-color:#16a34a;background:#dcfce7;color:#166534;}
+.mdz.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.mdz-label{font-size:.9rem;color:#374151;}
+/* 4択 */
+.choice-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+@media(max-width:480px){.choice-list{grid-template-columns:1fr;}}
+.choice-btn{padding:10px 14px;border:2.5px solid #d1d5db;border-radius:10px;background:#fff;font-size:.93rem;cursor:pointer;text-align:left;transition:.18s;}
+.choice-btn:hover{border-color:var(--pri);background:var(--pri-l);}
+.choice-btn.correct{border-color:#16a34a;background:#dcfce7;color:#166534;font-weight:700;}
+.choice-btn.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.choice-btn:disabled{cursor:default;}
+/* Check / Sample buttons */
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.check-btn{background:var(--pri);color:#fff;border:none;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.check-btn:hover{background:var(--pri-d);}
+.sample-btn{background:#fff;color:var(--gray);border:2px solid #d1d5db;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.sample-btn:hover{background:#f3f4f6;}
+.msample{display:none;background:#fef9c3;border:1.5px solid #fbbf24;border-radius:8px;padding:8px 14px;font-size:.9rem;margin-top:8px;}
+.msample.show{display:block;}
+.fb-msg{font-size:.9rem;margin-top:6px;font-weight:600;}
+.hint-btn{background:#fff;color:#b45309;border:2px solid #fcd34d;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.hint-btn:hover{background:#fffbeb;}
+.hint-box{display:none;background:#fffbeb;border:1.5px dashed #fbbf24;border-radius:8px;padding:8px 14px;font-size:.88rem;margin-top:8px;color:#92400e;}
+.hint-box.show{display:block;}
+/* Score pips */
+.mini-score-row{display:flex;gap:6px;align-items:center;margin-bottom:10px;}
+.mini-score-pip{width:14px;height:14px;border-radius:50%;background:#e5e7eb;border:2px solid #d1d5db;transition:.3s;}
+.mini-score-pip.pass{background:#16a34a;border-color:#166534;}
+/* Pass banner */
+.pass-banner{display:none;background:linear-gradient(90deg,#166534,#16a34a);color:#fff;text-align:center;padding:16px;border-radius:10px;margin-top:16px;font-size:1.1rem;font-weight:900;}
+.pass-banner.show{display:block;}
+canvas#confetti-canvas{position:fixed;top:0;left:0;pointer-events:none;width:100%;height:100%;z-index:9999;}
+
+.q-img{max-width:100%;border-radius:10px;margin:6px auto 10px;display:block;}
+.q-note{font-size:.88rem;color:#555;margin-bottom:6px;line-height:1.8;}
+.src{font-size:.78rem;color:#6b7280;font-weight:600;margin-left:6px;}
+.chap-nav{max-width:860px;margin:0 auto 40px;padding:0 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.chap-nav a{background:#fff;border:2px solid var(--pri);color:var(--pri-d);text-decoration:none;font-weight:800;padding:8px 18px;border-radius:24px;font-size:.92rem;}
+.chap-nav a.now{background:var(--pri);color:#fff;}
+.exp-tbl td b{color:var(--pri-d);}
+</style>
+</head>
+<body>
+<canvas id="confetti-canvas"></canvas>
+<header>
+  <h1>🎈 中学理科 力・圧力・浮力④ 浮力</h1>
+  <p>中学理科 物理分野（力・圧力）　図で確認・ミニテストで実力チェック</p>
+</header>
+<div class="units">
+<div class="unit-card" id="card_f1">
+  <div class="unit-header">
+    <div class="unit-num">1</div>
+    <h2>浮力とアルキメデスの原理</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="furyoku1.png" alt="水中の立方体の上下左右の面にはたらく水圧" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p>一辺10cmの立方体を、上面が水面下5cmになるように水中に入れると、立方体の上下左右のA〜D面には、それぞれの深さに応じた水圧がかかります。</p>
+<p>左右の面にかかる水圧は、同じ深さであれば打ち消し合いますが、<b>下面は上面より深い位置</b>にあるため、下面が受ける上向きの水圧のほうが、上面が受ける下向きの水圧より大きくなります。この差し引きによって、物体全体には<b>上向きの力</b>がはたらきます。これが<b>浮力</b>です。</p>
+<p><b>【アルキメデスの原理】</b>浮力の大きさは、物体が水中に入っている部分の体積（＝おしのけた水の体積）にはたらく重力の大きさに等しくなります。浮力は物体がある深さには関係なく、水中にある体積だけで決まります。</p>
+<div class="pt-box"><b>【重要】</b><br>
+・下面が受ける水圧（上向き）＞上面が受ける水圧（下向き）→ 差が浮力になる<br>
+・アルキメデスの原理…浮力＝おしのけた水の重さ<br>
+・浮力の大きさは、水中にある部分の体積で決まり、深さには関係しない</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('f1')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-f1" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 2</span>
+    </button>
+    <div class="mini-section" id="mini_f1">
+      <div class="mini-score-row" id="pips_f1"><div class="mini-score-pip" id="pip_f1_1"></div><div class="mini-score-pip" id="pip_f1_2"></div></div>
+      <div class="q-block" id="qblock_f1_q1">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  
+  <p class="q-note">物体の①面が受ける水圧より、より深い位置にある②面が受ける水圧のほうが大きいため、物体全体には上向きの③がはたらく。③の大きさは、物体がおしのけた④の重さに等しい。これを⑤の原理という。</p>
+  <div class="mchips" id="chips_f1_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_f1_q1_0" onclick="returnChip('f1',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_f1_q1_1" onclick="returnChip('f1',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_f1_q1_2" onclick="returnChip('f1',1,2)">&nbsp;</span>
+    <span class="mdz-label">④</span><span class="mdz" id="mdz_f1_q1_3" onclick="returnChip('f1',1,3)">&nbsp;</span>
+    <span class="mdz-label">⑤</span><span class="mdz" id="mdz_f1_q1_4" onclick="returnChip('f1',1,4)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('f1',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('f1',1)">💡 答えを見る</button>
+    <button class="hint-btn" onclick="toggleHint('f1_q1')">💡 ヒント</button>
+  </div>
+  <div class="hint-box" id="hint_f1_q1">上面と下面、どちらが深い位置にあるかを考えよう。水は深いところほど水圧が大きくなるよ。</div>
+  <div class="fb-msg" id="fb_f1_q1"></div>
+  <div class="msample" id="samp_f1_q1">答え: ①=上 / ②=下 / ③=浮力 / ④=水 / ⑤=アルキメデス</div>
+</div>
+<div class="q-block" id="qblock_f1_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">アルキメデスの原理によれば、物体にはたらく浮力の大きさは、次のうちどれによって決まるか。</p>
+  <button class="hint-btn" onclick="toggleHint('f1_q2')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f1_q2">浮力の大きさを決めるのは、物体の「水中にある部分」の何か（アルキメデスの原理）を思い出そう。</div>
+  <div class="choice-list" id="choices_f1_q2">
+    <button class="choice-btn" onclick="pick4('f1',2,0,1,'f1_q2')">ア：物体の重さ</button>
+    <button class="choice-btn" onclick="pick4('f1',2,1,1,'f1_q2')">イ：物体の水中にある部分の体積</button>
+    <button class="choice-btn" onclick="pick4('f1',2,2,1,'f1_q2')">ウ：水の温度</button>
+    <button class="choice-btn" onclick="pick4('f1',2,3,1,'f1_q2')">エ：物体の色</button>
+  </div>
+  <div class="fb-msg" id="fb_f1_q2"></div>
+  <div class="msample" id="samp_f1_q2">正解: イ：物体の水中にある部分の体積　浮力の大きさは、物体が水中に入っている部分の体積（おしのけた水の体積）で決まります。</div>
+</div>
+      <div class="pass-banner" id="pass_f1">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_f2">
+  <div class="unit-header">
+    <div class="unit-num">2</div>
+    <h2>例題2：浮力とばねはかり</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="furyoku2.png" alt="ばねはかりにつるした物体を水中に入れる装置図" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p><b>【例題2】</b>体積100cm³、質量800gの物体を、図のようにばねはかりにつるして水中に完全に沈めた（水は1cm³あたり1g）。</p>
+<p>(1) 浮力は何Nか。→ 浮力は、おしのけた水の質量に等しいので、物体の体積100cm³＝100gの水の重さ、すなわち<b>1N</b>となる。</p>
+<p>(2) ばねはかりは何gを示すか。→ 物体の重さ800g（＝8N）から浮力の分（100g＝1N）を差し引けばよいので、8N－1N＝<b>7N（＝700g）</b>を示す。</p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('f2')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-f2" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 2</span>
+    </button>
+    <div class="mini-section" id="mini_f2">
+      <div class="mini-score-row" id="pips_f2"><div class="mini-score-pip" id="pip_f2_1"></div><div class="mini-score-pip" id="pip_f2_2"></div></div>
+      <div class="q-block" id="qblock_f2_q1">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  <img class="q-img" src="furyoku3.png" alt="浮力1N・重さ8Nの力のつり合い図">
+  <p class="q-note">体積100cm³、質量800gの物体を水中に沈めると、おしのけた水は①cm³で重さは②gなので、浮力は③Nである。ばねはかりの示す値は、物体の重さ8Nから浮力③Nを引いて④Nとなる。</p>
+  <div class="mchips" id="chips_f2_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_f2_q1_0" onclick="returnChip('f2',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_f2_q1_1" onclick="returnChip('f2',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_f2_q1_2" onclick="returnChip('f2',1,2)">&nbsp;</span>
+    <span class="mdz-label">④</span><span class="mdz" id="mdz_f2_q1_3" onclick="returnChip('f2',1,3)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('f2',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('f2',1)">💡 答えを見る</button>
+    <button class="hint-btn" onclick="toggleHint('f2_q1')">💡 ヒント</button>
+  </div>
+  <div class="hint-box" id="hint_f2_q1">おしのけた水の体積＝物体の体積。水は1cm³で1gなので、そのままgの単位で考えよう。</div>
+  <div class="fb-msg" id="fb_f2_q1"></div>
+  <div class="msample" id="samp_f2_q1">答え: ①=100 / ②=100 / ③=1 / ④=7</div>
+</div>
+<div class="q-block" id="qblock_f2_q2">
+  <h4>次の問いに答えよう。</h4>
+  <img class="q-img" src="furyoku2.png" alt="ばねはかりにつるした物体を水中に入れる装置図">
+  <p class="q-note">体積100cm³、質量800gの物体を、図のようにばねはかりにつるして水中に完全に沈めた（水は1cm³あたり1g）。このとき、ばねはかりは何gを示すか。</p>
+  <button class="hint-btn" onclick="toggleHint('f2_q2')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f2_q2">ばねはかりの値＝物体の重さ－浮力、で計算しよう。</div>
+  <div class="choice-list" id="choices_f2_q2">
+    <button class="choice-btn" onclick="pick4('f2',2,0,1,'f2_q2')">ア：800g</button>
+    <button class="choice-btn" onclick="pick4('f2',2,1,1,'f2_q2')">イ：700g</button>
+    <button class="choice-btn" onclick="pick4('f2',2,2,1,'f2_q2')">ウ：100g</button>
+    <button class="choice-btn" onclick="pick4('f2',2,3,1,'f2_q2')">エ：900g</button>
+  </div>
+  <div class="fb-msg" id="fb_f2_q2"></div>
+  <div class="msample" id="samp_f2_q2">正解: イ：700g　物体の重さ800gから浮力にあたる100gを差し引いた700gをばねはかりが示します。</div>
+</div>
+      <div class="pass-banner" id="pass_f2">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_f3">
+  <div class="unit-header">
+    <div class="unit-num">3</div>
+    <h2>練習2：直方体・円柱の浮力</h2>
+  </div>
+  <div class="unit-body">
+    
+    <div class="exp-text"><p>【群馬県入試・改】水中の直方体について考える。浅い位置にある側面a、深い位置にある側面bのうち、水圧が大きいのはbのほうである。また、下面が受ける圧力は上面より大きいため、物体は全体として上向きの力（浮力）を受ける。</p>
+<p>【アルキメデスの原理の確認】水中に沈めた物体の体積が600cm³のとき、おしのけた水の重さは600gなので、浮力は<b>6N</b>である（100gの物体にはたらく重力を1Nとする）。</p>
+<p>【円柱の例】体積150cm³、質量600gの円柱を水中に完全に沈めた場合。</p>
+    <div class="exp-img"><img src="furyoku12.png" alt="円柱をばねはかりにつるして水中に沈めた図と、円柱にはたらく重力600gと浮力150gの図" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p>(1) 浮力は何Nか。→ おしのけた水150cm³＝150g＝<b>1.5N</b>。</p>
+<p>(2) ばねはかりは何gを示すか。→ 図のように、円柱の重力600gから浮力にあたる150gを差し引いた600g－150g＝<b>450g</b>。</p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('f3')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-f3" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 4</span>
+    </button>
+    <div class="mini-section" id="mini_f3">
+      <div class="mini-score-row" id="pips_f3"><div class="mini-score-pip" id="pip_f3_1"></div><div class="mini-score-pip" id="pip_f3_2"></div><div class="mini-score-pip" id="pip_f3_3"></div><div class="mini-score-pip" id="pip_f3_4"></div></div>
+      <div class="q-block" id="qblock_f3_q1">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  
+  <p class="q-note">水中の直方体について、浅い位置にある側面aが受ける圧力は、深い位置にある側面bより①。下面が受ける圧力は上面より②。よって物体は全体として③に向かう力を受ける。これを④という。</p>
+  <div class="mchips" id="chips_f3_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_f3_q1_0" onclick="returnChip('f3',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_f3_q1_1" onclick="returnChip('f3',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_f3_q1_2" onclick="returnChip('f3',1,2)">&nbsp;</span>
+    <span class="mdz-label">④</span><span class="mdz" id="mdz_f3_q1_3" onclick="returnChip('f3',1,3)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('f3',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('f3',1)">💡 答えを見る</button>
+    <button class="hint-btn" onclick="toggleHint('f3_q1')">💡 ヒント</button>
+  </div>
+  <div class="hint-box" id="hint_f3_q1">同じ深さでは水圧は同じ。深い位置ほど水圧は大きくなることを思い出そう。</div>
+  <div class="fb-msg" id="fb_f3_q1"></div>
+  <div class="msample" id="samp_f3_q1">答え: ①=小さい / ②=大きい / ③=上 / ④=浮力</div>
+</div>
+<div class="q-block" id="qblock_f3_q2">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  
+  <p class="q-note">アルキメデスの原理により、水中の体積が600cm³の物体にはたらく浮力は①Nである（100gの物体にはたらく重力を1Nとする）。</p>
+  <div class="mchips" id="chips_f3_q2"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_f3_q2_0" onclick="returnChip('f3',2,0)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('f3',2)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('f3',2)">💡 答えを見る</button>
+    <button class="hint-btn" onclick="toggleHint('f3_q2')">💡 ヒント</button>
+  </div>
+  <div class="hint-box" id="hint_f3_q2">おしのけた水の重さ(g)を100で割ると、力の単位(N)に変換できるよ。</div>
+  <div class="fb-msg" id="fb_f3_q2"></div>
+  <div class="msample" id="samp_f3_q2">答え: ①=6</div>
+</div>
+<div class="q-block" id="qblock_f3_q3">
+  <h4>次の問いに答えよう。</h4>
+  <img class="q-img" src="furyoku12.png" alt="円柱をばねはかりにつるして水中に沈めた図">
+  <p class="q-note">体積150cm³、質量600gの円柱を、図のように水中に完全に沈めた。このとき円柱にはたらく浮力は何Nか（100gの物体にはたらく重力を1Nとする）。</p>
+  <button class="hint-btn" onclick="toggleHint('f3_q3')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f3_q3">円柱がおしのけた水の体積（150cm³）から浮力を求めよう。水100gが1Nだよ。</div>
+  <div class="choice-list" id="choices_f3_q3">
+    <button class="choice-btn" onclick="pick4('f3',3,0,0,'f3_q3')">ア：1.5N</button>
+    <button class="choice-btn" onclick="pick4('f3',3,1,0,'f3_q3')">イ：6N</button>
+    <button class="choice-btn" onclick="pick4('f3',3,2,0,'f3_q3')">ウ：15N</button>
+    <button class="choice-btn" onclick="pick4('f3',3,3,0,'f3_q3')">エ：0.6N</button>
+  </div>
+  <div class="fb-msg" id="fb_f3_q3"></div>
+  <div class="msample" id="samp_f3_q3">正解: ア：1.5N　おしのけた水150cm³は150gの重さなので、浮力は1.5Nです。</div>
+</div>
+<div class="q-block" id="qblock_f3_q4">
+  <h4>次の問いに答えよう。</h4>
+  <img class="q-img" src="furyoku12.png" alt="円柱をばねはかりにつるして水中に沈めた図">
+  <p class="q-note">同じ円柱（質量600g）を図のように水中に完全に沈めたとき、ばねはかりは何gを示すか。</p>
+  <button class="hint-btn" onclick="toggleHint('f3_q4')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f3_q4">円柱の重さ(g)から浮力にあたる重さ(g)を引くと、ばねはかりの値になるよ。</div>
+  <div class="choice-list" id="choices_f3_q4">
+    <button class="choice-btn" onclick="pick4('f3',4,0,1,'f3_q4')">ア：600g</button>
+    <button class="choice-btn" onclick="pick4('f3',4,1,1,'f3_q4')">イ：450g</button>
+    <button class="choice-btn" onclick="pick4('f3',4,2,1,'f3_q4')">ウ：150g</button>
+    <button class="choice-btn" onclick="pick4('f3',4,3,1,'f3_q4')">エ：750g</button>
+  </div>
+  <div class="fb-msg" id="fb_f3_q4"></div>
+  <div class="msample" id="samp_f3_q4">正解: イ：450g　物体の重さ600gから浮力にあたる150gを差し引いた450gを示します。</div>
+</div>
+      <div class="pass-banner" id="pass_f3">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_f4">
+  <div class="unit-header">
+    <div class="unit-num">4</div>
+    <h2>練習2の続き：ばねはかりの変化から浮力・体積を求める</h2>
+  </div>
+  <div class="unit-body">
+    
+    <div class="exp-text"><p>ある物体をばねはかりではかると750gを示し、水中に完全に入れると630gを示した。</p>
+<p>(1) 浮力は何Nか。→ 750g－630g＝120g＝<b>1.2N</b>。</p>
+<p>(2) 物体の体積は何cm³か。→ 浮力にあたる質量120g分の水の体積、すなわち<b>120cm³</b>が水中にある部分の体積である。</p>
+<p>また、質量2kg・体積1500cm³の物体（100gの物体にはたらく重力を1Nとする）を水中に完全に沈めた場合、浮力は物体の水中体積1500cm³分の水の重さなので<b>15N</b>となり、ばねはかりは物体の重さ20N－浮力15N＝<b>5N（500g相当）</b>を示す。</p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('f4')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-f4" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 3</span>
+    </button>
+    <div class="mini-section" id="mini_f4">
+      <div class="mini-score-row" id="pips_f4"><div class="mini-score-pip" id="pip_f4_1"></div><div class="mini-score-pip" id="pip_f4_2"></div><div class="mini-score-pip" id="pip_f4_3"></div></div>
+      <div class="q-block" id="qblock_f4_q1">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">ある物体をばねはかりではかると750gを示した。この物体を水中に完全に入れると、ばねはかりは630gを示した。このとき、物体にはたらく<b>浮力</b>の大きさは何Nか。</p>
+  <button class="hint-btn" onclick="toggleHint('f4_q1')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f4_q1">空気中の値と水中の値の差が浮力になるよ。</div>
+  <div class="choice-list" id="choices_f4_q1">
+    <button class="choice-btn" onclick="pick4('f4',1,0,2,'f4_q1')">ア：0.63N</button>
+    <button class="choice-btn" onclick="pick4('f4',1,1,2,'f4_q1')">イ：0.75N</button>
+    <button class="choice-btn" onclick="pick4('f4',1,2,2,'f4_q1')">ウ：1.2N</button>
+    <button class="choice-btn" onclick="pick4('f4',1,3,2,'f4_q1')">エ：1.38N</button>
+  </div>
+  <div class="fb-msg" id="fb_f4_q1"></div>
+  <div class="msample" id="samp_f4_q1">正解: ウ：1.2N　750g－630g＝120g＝1.2Nが浮力の大きさです。</div>
+</div>
+<div class="q-block" id="qblock_f4_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">同じ物体（ばねはかりが750g→630gに変わったもの）について、水中に沈んでいる部分の<b>体積</b>は何cm³か。</p>
+  <button class="hint-btn" onclick="toggleHint('f4_q2')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f4_q2">浮力にあたる重さ(g)が、そのままおしのけた水の体積(cm³)になるよ。</div>
+  <div class="choice-list" id="choices_f4_q2">
+    <button class="choice-btn" onclick="pick4('f4',2,0,1,'f4_q2')">ア：60cm³</button>
+    <button class="choice-btn" onclick="pick4('f4',2,1,1,'f4_q2')">イ：120cm³</button>
+    <button class="choice-btn" onclick="pick4('f4',2,2,1,'f4_q2')">ウ：630cm³</button>
+    <button class="choice-btn" onclick="pick4('f4',2,3,1,'f4_q2')">エ：750cm³</button>
+  </div>
+  <div class="fb-msg" id="fb_f4_q2"></div>
+  <div class="msample" id="samp_f4_q2">正解: イ：120cm³　浮力120g分は、おしのけた水120cm³にあたるので、物体の体積は120cm³です。</div>
+</div>
+<div class="q-block" id="qblock_f4_q3">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  
+  <p class="q-note">質量2kg・体積1500cm³の物体を水中に完全に沈めると、浮力は①Nとなり、ばねはかりの値は物体の重さ20Nから浮力①Nを引いて②Nとなる（100gの物体にはたらく重力を1Nとする）。</p>
+  <div class="mchips" id="chips_f4_q3"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_f4_q3_0" onclick="returnChip('f4',3,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_f4_q3_1" onclick="returnChip('f4',3,1)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('f4',3)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('f4',3)">💡 答えを見る</button>
+    <button class="hint-btn" onclick="toggleHint('f4_q3')">💡 ヒント</button>
+  </div>
+  <div class="hint-box" id="hint_f4_q3">物体の重さ(N)から浮力(N)を引くと、ばねはかりの値になるよ。</div>
+  <div class="fb-msg" id="fb_f4_q3"></div>
+  <div class="msample" id="samp_f4_q3">答え: ①=15 / ②=5</div>
+</div>
+      <div class="pass-banner" id="pass_f4">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_f5">
+  <div class="unit-header">
+    <div class="unit-num">5</div>
+    <h2>物体A・Bの浮力比較（長崎県入試）</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="furyoku4.png" alt="物体Aを空気中・水中でばねばかりにつるした図1・図2" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p>【長崎県入試・改】図1のように物体Aを空気中でばねばかりにつるすと、ばねばかりは<b>1.0N</b>を示した。次に図2のように、物体Aをすべて水に入れると、ばねばかりは<b>0.8N</b>を示した。</p>
+<p>図2の状態で物体Aにはたらく浮力の大きさは、空気中の値から水中の値を引いて、1.0N－0.8N＝<b>0.2N</b>である。</p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('f5')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-f5" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 1</span>
+    </button>
+    <div class="mini-section" id="mini_f5">
+      <div class="mini-score-row" id="pips_f5"><div class="mini-score-pip" id="pip_f5_1"></div></div>
+      <div class="q-block" id="qblock_f5_q1">
+  <h4>次の問いに答えよう。</h4>
+  <img class="q-img" src="furyoku4.png" alt="物体Aを空気中・水中でばねばかりにつるした図1・図2">
+  <p class="q-note">図1のように物体Aを空気中でばねばかりにつるすと1.0Nを示し、図2のように物体Aをすべて水に入れると0.8Nを示した。図2の状態で、物体Aにはたらく浮力の大きさは何Nか。</p>
+  <button class="hint-btn" onclick="toggleHint('f5_q1')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f5_q1">空気中でのばねはかりの値と、水中でのばねはかりの値の差を計算しよう。</div>
+  <div class="choice-list" id="choices_f5_q1">
+    <button class="choice-btn" onclick="pick4('f5',1,0,1,'f5_q1')">ア：0.1N</button>
+    <button class="choice-btn" onclick="pick4('f5',1,1,1,'f5_q1')">イ：0.2N</button>
+    <button class="choice-btn" onclick="pick4('f5',1,2,1,'f5_q1')">ウ：0.5N</button>
+    <button class="choice-btn" onclick="pick4('f5',1,3,1,'f5_q1')">エ：1N</button>
+  </div>
+  <div class="fb-msg" id="fb_f5_q1"></div>
+  <div class="msample" id="samp_f5_q1">正解: イ：0.2N　図2のように水中に入れると、ばねばかりの値が空気中のときより浮力の分だけ小さくなります。ここでは浮力は0.2Nです。</div>
+</div>
+      <div class="pass-banner" id="pass_f5">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_f6">
+  <div class="unit-header">
+    <div class="unit-num">6</div>
+    <h2>水面から物体を沈めていく問題（グラフ読み取り・発展1）</h2>
+  </div>
+  <div class="unit-body">
+    
+    <div class="exp-text"><p>円柱を水中からばねはかりで引き上げていく実験で、横軸を円柱の移動距離(cm)、縦軸をばねはかりの目盛り(g)としてグラフをかいた（図参照）。</p>
+<p>グラフは、P(0cm,14g)からQ(15cm,14g)まで一定、Q〜R(23cm,18g)まで直線的に増加、R以降のS(23cm〜)は18gで一定になっている。</p>
+<p>0〜15cmの間は円柱が完全に水中に沈んだままなので浮力は変化せず、ばねはかりの値は14gで一定である。15〜23cmの間は円柱が水面から出はじめ、水中に残る体積が減るので浮力が減り、ばねはかりの値は増加する。23cm以降は完全に水から出たので、ばねはかりの値は真の重さ18gで一定になる。</p>
+<p>・円柱の真の重さ（空気中の重さ）＝18g　・水中に完全に沈んでいるときの浮力に相当する重さ＝18g－14g＝<b>4g</b>　・円柱の高さ＝Rの位置－Qの位置＝23cm－15cm＝<b>8cm</b></p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('f6')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-f6" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 2</span>
+    </button>
+    <div class="mini-section" id="mini_f6">
+      <div class="mini-score-row" id="pips_f6"><div class="mini-score-pip" id="pip_f6_1"></div><div class="mini-score-pip" id="pip_f6_2"></div></div>
+      <div class="q-block" id="qblock_f6_q1">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  <img class="q-img" src="furyoku5.png" alt="円柱を引き上げる実験とグラフ">
+  <p class="q-note">グラフより、円柱の真の重さは①gであり、水中に完全に沈んでいるときの浮力に相当する重さは②gである。円柱の高さは③cmである。</p>
+  <div class="mchips" id="chips_f6_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_f6_q1_0" onclick="returnChip('f6',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_f6_q1_1" onclick="returnChip('f6',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_f6_q1_2" onclick="returnChip('f6',1,2)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('f6',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('f6',1)">💡 答えを見る</button>
+    <button class="hint-btn" onclick="toggleHint('f6_q1')">💡 ヒント</button>
+  </div>
+  <div class="hint-box" id="hint_f6_q1">グラフのS（水から完全に出た後）の値が真の重さ。P〜Q間（完全に水中）の値との差が浮力にあたる重さだよ。</div>
+  <div class="fb-msg" id="fb_f6_q1"></div>
+  <div class="msample" id="samp_f6_q1">答え: ①=18 / ②=4 / ③=8</div>
+</div>
+<div class="q-block" id="qblock_f6_q2">
+  <h4>次の問いに答えよう。</h4>
+  <img class="q-img" src="furyoku5.png" alt="円柱を引き上げる実験とグラフ">
+  <p class="q-note">円柱を水中からばねはかりで引き上げていく実験で、円柱の移動距離が0〜15cm（グラフのP〜Q間）の間、ばねはかりの値が14gで一定になっているのはなぜか。</p>
+  <button class="hint-btn" onclick="toggleHint('f6_q2')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f6_q2">円柱が完全に水中にあるとき、水中にある体積は変化するかどうかを考えよう。</div>
+  <div class="choice-list" id="choices_f6_q2">
+    <button class="choice-btn" onclick="pick4('f6',2,0,0,'f6_q2')">ア：円柱が完全に水中にあり、浮力が一定だから</button>
+    <button class="choice-btn" onclick="pick4('f6',2,1,0,'f6_q2')">イ：円柱がまだ水にふれていないから</button>
+    <button class="choice-btn" onclick="pick4('f6',2,2,0,'f6_q2')">ウ：円柱が完全に水から出ているから</button>
+    <button class="choice-btn" onclick="pick4('f6',2,3,0,'f6_q2')">エ：ばねはかりが故障しているから</button>
+  </div>
+  <div class="fb-msg" id="fb_f6_q2"></div>
+  <div class="msample" id="samp_f6_q2">正解: ア：円柱が完全に水中にあり、浮力が一定だから　P〜Q間は円柱が完全に水中に沈んだままなので、水中にある体積が変わらず浮力が一定になります。</div>
+</div>
+      <div class="pass-banner" id="pass_f6">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_f7">
+  <div class="unit-header">
+    <div class="unit-num">7</div>
+    <h2>水面に沈めていく問題（グラフ読み取り・発展2）</h2>
+  </div>
+  <div class="unit-body">
+    
+    <div class="exp-text"><p>物体を水面から沈めていく実験で、横軸を水面から物体の下面までの距離(cm)、縦軸をばねはかりの値(N)としてグラフをかいた（図参照）。x=0のとき45N、x=15cmまで直線的に減少して30Nになり、x=15〜20cmは30Nで一定である。</p>
+<p>x=0は物体の下面がちょうど水面にある状態（まだ沈んでいない）なので、ばねはかりは真の重さ45Nを示す。沈めていくと水中に入る体積が増えて浮力が増加するので、ばねはかりの値は減っていく。x=15cmで物体は完全に水中に沈み、それ以上沈めても浮力は変わらないので、ばねはかりの値は30Nで一定になる。</p>
+<p>・物体の真の重さ＝45N　・完全に水中に沈んだときの浮力＝45N－30N＝<b>15N</b>　・物体の高さ＝15cm（完全に水面下に沈むまでの距離＝物体の高さに等しい）</p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('f7')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-f7" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 2</span>
+    </button>
+    <div class="mini-section" id="mini_f7">
+      <div class="mini-score-row" id="pips_f7"><div class="mini-score-pip" id="pip_f7_1"></div><div class="mini-score-pip" id="pip_f7_2"></div></div>
+      <div class="q-block" id="qblock_f7_q1">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  <img class="q-img" src="furyoku6.png" alt="物体を沈めていく実験とグラフ">
+  <p class="q-note">グラフより、物体の真の重さは①Nであり、完全に水中に沈んだときの浮力は②Nである。物体の高さは③cmである。</p>
+  <div class="mchips" id="chips_f7_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_f7_q1_0" onclick="returnChip('f7',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_f7_q1_1" onclick="returnChip('f7',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_f7_q1_2" onclick="returnChip('f7',1,2)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('f7',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('f7',1)">💡 答えを見る</button>
+    <button class="hint-btn" onclick="toggleHint('f7_q1')">💡 ヒント</button>
+  </div>
+  <div class="hint-box" id="hint_f7_q1">x=0のときの値が真の重さ。x=15cm以降の一定の値との差が浮力になるよ。</div>
+  <div class="fb-msg" id="fb_f7_q1"></div>
+  <div class="msample" id="samp_f7_q1">答え: ①=45 / ②=15 / ③=15</div>
+</div>
+<div class="q-block" id="qblock_f7_q2">
+  <h4>次の問いに答えよう。</h4>
+  <img class="q-img" src="furyoku6.png" alt="物体を沈めていく実験とグラフ">
+  <p class="q-note">物体を水面から沈めていく実験で、物体の下面が水面から15cm沈んだ後（x=15〜20cm、物体が完全に水中に沈んだ後）、ばねはかりの値は何Nを示すか。</p>
+  <button class="hint-btn" onclick="toggleHint('f7_q2')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f7_q2">x=15cm以降、物体はどんな状態になっているか（完全に沈んだ後、浮力はどうなるか）を考えよう。</div>
+  <div class="choice-list" id="choices_f7_q2">
+    <button class="choice-btn" onclick="pick4('f7',2,0,3,'f7_q2')">ア：45N</button>
+    <button class="choice-btn" onclick="pick4('f7',2,1,3,'f7_q2')">イ：40N</button>
+    <button class="choice-btn" onclick="pick4('f7',2,2,3,'f7_q2')">ウ：35N</button>
+    <button class="choice-btn" onclick="pick4('f7',2,3,3,'f7_q2')">エ：30N</button>
+  </div>
+  <div class="fb-msg" id="fb_f7_q2"></div>
+  <div class="msample" id="samp_f7_q2">正解: エ：30N　x=15cm ですでに物体は完全に水中にあり、それ以上沈めても浮力は変わらないので、ばねはかりの値は30Nのままです。</div>
+</div>
+      <div class="pass-banner" id="pass_f7">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_f8">
+  <div class="unit-header">
+    <div class="unit-num">8</div>
+    <h2>浮いている物体にはたらく力のつり合い</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="furyoku7.png" alt="水に浮かぶ物体にはたらく浮力と重力の矢印" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p>図のように、水に浮かんでいる物体には、上向きの<b>浮力</b>と下向きの<b>重力（7N）</b>がはたらいている。</p>
+<p>物体は静止して水に浮いている、つまり<b>力がつり合っている</b>ので、浮力の大きさは重力と等しく<b>7N</b>である。</p>
+<div class="pt-box"><b>【重要】</b><br>
+・物体が水に浮いて静止しているとき、浮力＝重力（力がつり合っている）</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('f8')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-f8" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 2</span>
+    </button>
+    <div class="mini-section" id="mini_f8">
+      <div class="mini-score-row" id="pips_f8"><div class="mini-score-pip" id="pip_f8_1"></div><div class="mini-score-pip" id="pip_f8_2"></div></div>
+      <div class="q-block" id="qblock_f8_q1">
+  <h4>次の問いに答えよう。</h4>
+  <img class="q-img" src="furyoku7.png" alt="水に浮かぶ物体にはたらく浮力と重力の矢印">
+  <p class="q-note">図のように、水に浮かんでいる物体には下向きの重力7Nがはたらいている。この物体が静止して水に浮いているとき、浮力の大きさは何Nか。</p>
+  <button class="hint-btn" onclick="toggleHint('f8_q1')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f8_q1">水に浮いて静止している物体は、上向きの力と下向きの力がつり合っているよ。</div>
+  <div class="choice-list" id="choices_f8_q1">
+    <button class="choice-btn" onclick="pick4('f8',1,0,2,'f8_q1')">ア：3.5N</button>
+    <button class="choice-btn" onclick="pick4('f8',1,1,2,'f8_q1')">イ：5N</button>
+    <button class="choice-btn" onclick="pick4('f8',1,2,2,'f8_q1')">ウ：7N</button>
+    <button class="choice-btn" onclick="pick4('f8',1,3,2,'f8_q1')">エ：14N</button>
+  </div>
+  <div class="fb-msg" id="fb_f8_q1"></div>
+  <div class="msample" id="samp_f8_q1">正解: ウ：7N　物体は静止して浮いているので、浮力と重力がつり合っています。重力が7Nなので浮力も7Nです。</div>
+</div>
+<div class="q-block" id="qblock_f8_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">物体が水に浮いて静止しているとき、その物体にはたらく浮力と重力の関係として正しいものはどれか。</p>
+  <button class="hint-btn" onclick="toggleHint('f8_q2')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f8_q2">静止しているということは、上向きの力と下向きの力の大きさがどうなっているかを考えよう。</div>
+  <div class="choice-list" id="choices_f8_q2">
+    <button class="choice-btn" onclick="pick4('f8',2,0,2,'f8_q2')">ア：浮力＞重力</button>
+    <button class="choice-btn" onclick="pick4('f8',2,1,2,'f8_q2')">イ：浮力＜重力</button>
+    <button class="choice-btn" onclick="pick4('f8',2,2,2,'f8_q2')">ウ：浮力＝重力</button>
+    <button class="choice-btn" onclick="pick4('f8',2,3,2,'f8_q2')">エ：浮力と重力は関係ない</button>
+  </div>
+  <div class="fb-msg" id="fb_f8_q2"></div>
+  <div class="msample" id="samp_f8_q2">正解: ウ：浮力＝重力　静止して浮いている物体は力がつり合っているので、浮力の大きさと重力の大きさは等しくなります。</div>
+</div>
+      <div class="pass-banner" id="pass_f8">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_f9">
+  <div class="unit-header">
+    <div class="unit-num">9</div>
+    <h2>糸でつないだ2つの物体の浮力（発展・応用）</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="furyoku8.png" alt="物体Aが単独で浮く図1と、物体Bを糸でつないで沈めた図2" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p><b>【問題】</b>図1のように物体Aが単独で水面に浮いている。図2のように、物体Aの下に物体Bを糸でつなぎ、両方とも水中に沈めて静止させた（力がつり合っている）。このとき、物体Bの重力（重さ）は何Nか、求めなさい。</p>
+<p>力の関係は図の通りで、Aの浮力＝1N、Aの重力＝0.5N、Bの浮力＝1N、Bの重力＝xNである。</p>
+<p><b>物体Aについて：</b>浮力1N（上）＝重力0.5N（下）＋糸がAを引く力T（下）　よってT＝1N－0.5N＝<b>0.5N</b></p>
+<p><b>物体Bについて：</b>浮力1N（上）＋糸がBを引く力T=0.5N（上、Aとの反作用）＝重力xN（下）　よってx＝1N＋0.5N＝<b>1.5N</b></p>
+<p>したがって、Bの重さ（重力）は<b>1.5N</b>である。</p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('f9')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-f9" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 2</span>
+    </button>
+    <div class="mini-section" id="mini_f9">
+      <div class="mini-score-row" id="pips_f9"><div class="mini-score-pip" id="pip_f9_1"></div><div class="mini-score-pip" id="pip_f9_2"></div></div>
+      <div class="q-block" id="qblock_f9_q1">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  <img class="q-img" src="furyoku9.png" alt="力のつり合いの図（AとB）">
+  <p class="q-note">物体Aについて、浮力1N＝重力0.5N＋糸がAを引く力なので、糸がAを引く力は①Nである。物体Bについて、浮力1N＋糸がBを引く力①N＝Bの重力なので、Bの重力は②Nである。</p>
+  <div class="mchips" id="chips_f9_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_f9_q1_0" onclick="returnChip('f9',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_f9_q1_1" onclick="returnChip('f9',1,1)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('f9',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('f9',1)">💡 答えを見る</button>
+    <button class="hint-btn" onclick="toggleHint('f9_q1')">💡 ヒント</button>
+  </div>
+  <div class="hint-box" id="hint_f9_q1">物体Aについての力のつり合い式「浮力＝重力＋糸の力」を先に考えよう。</div>
+  <div class="fb-msg" id="fb_f9_q1"></div>
+  <div class="msample" id="samp_f9_q1">答え: ①=0.5 / ②=1.5</div>
+</div>
+<div class="q-block" id="qblock_f9_q2">
+  <h4>次の問いに答えよう。</h4>
+  <img class="q-img" src="furyoku9.png" alt="力のつり合いの図（AとB）">
+  <p class="q-note">物体Aと物体Bを糸でつないだ「A＋B」全体で考える。A＋B全体も水中で静止している（A・Bの浮力の合計＝1N＋1N＝2N、A・Bの重力の合計＝0.5N＋1.5N＝2N）。このとき、AとBをつなぐ糸の力は、A＋B全体の運動にはどう関係するか。</p>
+  <button class="hint-btn" onclick="toggleHint('f9_q2')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f9_q2">AとBをひとつのまとまりとして見ると、AB間の糸の力は内側どうしで引き合う「内力」になるよ。外から見た全体のつり合いに影響するかな？</div>
+  <div class="choice-list" id="choices_f9_q2">
+    <button class="choice-btn" onclick="pick4('f9',2,0,1,'f9_q2')">ア：糸の力の分だけ浮力が増える</button>
+    <button class="choice-btn" onclick="pick4('f9',2,1,1,'f9_q2')">イ：AB内部で打ち消し合い、全体のつり合いには関係しない</button>
+    <button class="choice-btn" onclick="pick4('f9',2,2,1,'f9_q2')">ウ：糸の力の分だけ重力が増える</button>
+    <button class="choice-btn" onclick="pick4('f9',2,3,1,'f9_q2')">エ：全体が浮き上がる</button>
+  </div>
+  <div class="fb-msg" id="fb_f9_q2"></div>
+  <div class="msample" id="samp_f9_q2">正解: イ：AB内部で打ち消し合い、全体のつり合いには関係しない　糸がAを引く力とAがBを引く力（作用・反作用）はA＋B全体で見ると内部の力どうしで打ち消し合うので、全体では「浮力の合計2N＝重力の合計2N」というつり合いだけが残ります。</div>
+</div>
+      <div class="pass-banner" id="pass_f9">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_f10">
+  <div class="unit-header">
+    <div class="unit-num">10</div>
+    <h2>練習5・入試問題にチャレンジ！浮力</h2>
+  </div>
+  <div class="unit-body">
+    
+    <div class="exp-text"><p>ここまで学んだ「浮力」について、応用問題で確認しましょう。</p>
+<p><b>【テキスト23ページ・練習5】</b>一辺10cmの立方体の木片（680g）の下に、糸で300g・体積100cm³のおもりを取り付けて、下の図のように水に浮かべた。木片は何cmだけ水中に沈んでいるか。ただし、糸の重さは考えないものとする。</p>
+    <div class="exp-img"><img src="furyoku10.png" alt="木片とおもりを糸でつないで水に浮かべた図" style="max-width:60%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p>木片とおもりは糸でつながれた状態で全体が静止している（力がつり合っている）ので、次の関係が成り立つ。</p>
+    <div class="exp-img"><img src="furyoku11.png" alt="木片とおもりにはたらく力（①木片の浮力・②木片の重力・③おもりの浮力・④おもりの重力）の図" style="max-width:45%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p class="eq-frac" style="text-align:center;font-weight:700;">①木片の浮力＋③おもりの浮力＝②木片の重力＋④おもりの重力</p>
+<p>おもりは完全に水中にあるので、おもりの浮力＝100cm³の水の重さ＝100g＝1N。おもりの重力＝300g＝3N。木片の重力＝680g＝6.8N。よって木片の浮力＝(6.8N＋3N)－1N＝8.8N。したがって、木片がおしのけた水の体積は880cm³。木片の底面積は10cm×10cm＝100cm²なので、沈んでいる深さ（図のxcm）＝880cm³÷100cm²＝8.8cmとなる。</p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('f10')">
+      🧪 確認問題に挑戦！
+      <span id="mini-badge-f10" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 4</span>
+    </button>
+    <div class="mini-section" id="mini_f10">
+      <div class="mini-score-row" id="pips_f10"><div class="mini-score-pip" id="pip_f10_1"></div><div class="mini-score-pip" id="pip_f10_2"></div><div class="mini-score-pip" id="pip_f10_3"></div><div class="mini-score-pip" id="pip_f10_4"></div></div>
+      <div class="q-block" id="qblock_f10_q1">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">一辺10cmの立方体の木片（680g）の下に、糸で300g・体積100cm³のおもりを取り付けて水に浮かべた（上の図）。このとき、<b>おもり</b>にはたらく浮力は何Nか。</p>
+  <button class="hint-btn" onclick="toggleHint('f10_q1')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f10_q1">おもりの体積100cm³が、そのままおしのけた水の体積になるよ。</div>
+  <div class="choice-list" id="choices_f10_q1">
+    <button class="choice-btn" onclick="pick4('f10',1,0,1,'f10_q1')">ア：0.5N</button>
+    <button class="choice-btn" onclick="pick4('f10',1,1,1,'f10_q1')">イ：1N</button>
+    <button class="choice-btn" onclick="pick4('f10',1,2,1,'f10_q1')">ウ：3N</button>
+    <button class="choice-btn" onclick="pick4('f10',1,3,1,'f10_q1')">エ：10N</button>
+  </div>
+  <div class="fb-msg" id="fb_f10_q1"></div>
+  <div class="msample" id="samp_f10_q1">正解: イ：1N　おしのけた水100cm³は100gの重さなので、浮力は1Nです。</div>
+</div>
+<div class="q-block" id="qblock_f10_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">同じく、木片の下につけた<b>おもり（300g）</b>にはたらく重力は何Nか（100gの物体にはたらく重力を1Nとする）。</p>
+  <button class="hint-btn" onclick="toggleHint('f10_q2')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f10_q2">100gの物体にはたらく重力は1Nだったね。300gなら？</div>
+  <div class="choice-list" id="choices_f10_q2">
+    <button class="choice-btn" onclick="pick4('f10',2,0,2,'f10_q2')">ア：1N</button>
+    <button class="choice-btn" onclick="pick4('f10',2,1,2,'f10_q2')">イ：2N</button>
+    <button class="choice-btn" onclick="pick4('f10',2,2,2,'f10_q2')">ウ：3N</button>
+    <button class="choice-btn" onclick="pick4('f10',2,3,2,'f10_q2')">エ：30N</button>
+  </div>
+  <div class="fb-msg" id="fb_f10_q2"></div>
+  <div class="msample" id="samp_f10_q2">正解: ウ：3N　300gの物体にはたらく重力は3Nです（100gあたり1N）。</div>
+</div>
+<div class="q-block" id="qblock_f10_q3">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  
+  <p class="q-note">木片（680g）の重力は①Nである。木片とおもりの全体でつり合っているので、木片の浮力は(①N＋3N)－1N＝②Nとなる。よって木片がおしのけた水の体積は③cm³である。</p>
+  <div class="mchips" id="chips_f10_q3"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_f10_q3_0" onclick="returnChip('f10',3,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_f10_q3_1" onclick="returnChip('f10',3,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_f10_q3_2" onclick="returnChip('f10',3,2)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('f10',3)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('f10',3)">💡 答えを見る</button>
+    <button class="hint-btn" onclick="toggleHint('f10_q3')">💡 ヒント</button>
+  </div>
+  <div class="hint-box" id="hint_f10_q3">木片とおもりの全体でつり合っていることを利用して式を立てよう。</div>
+  <div class="fb-msg" id="fb_f10_q3"></div>
+  <div class="msample" id="samp_f10_q3">答え: ①=6.8 / ②=8.8 / ③=880</div>
+</div>
+<div class="q-block" id="qblock_f10_q4">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">木片がおしのけた水の体積が880cm³、木片の底面積が100cm²であるとき、木片が水中に沈んでいる深さ（図のxcm）は何cmか。</p>
+  <button class="hint-btn" onclick="toggleHint('f10_q4')">💡 ヒント</button>
+  <div class="hint-box" id="hint_f10_q4">おしのけた水の体積を、木片の底面積で割ろう。</div>
+  <div class="choice-list" id="choices_f10_q4">
+    <button class="choice-btn" onclick="pick4('f10',4,0,2,'f10_q4')">ア：6.8cm</button>
+    <button class="choice-btn" onclick="pick4('f10',4,1,2,'f10_q4')">イ：8cm</button>
+    <button class="choice-btn" onclick="pick4('f10',4,2,2,'f10_q4')">ウ：8.8cm</button>
+    <button class="choice-btn" onclick="pick4('f10',4,3,2,'f10_q4')">エ：10cm</button>
+  </div>
+  <div class="fb-msg" id="fb_f10_q4"></div>
+  <div class="msample" id="samp_f10_q4">正解: ウ：8.8cm　木片がおしのけた水の体積880cm³を底面積100cm²で割ると、沈んでいる深さは8.8cmになります。</div>
+</div>
+      <div class="pass-banner" id="pass_f10">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="chap-nav">
+<a href="index.html">🏠 目次</a>
+<a href="chikara_ch01.html">① 力の性質</a>
+<a href="atsuryoku_ch01.html">② 圧力</a>
+<a href="suiatsu_ch01.html" class="">③ 水圧</a>
+<a href="furyoku_ch01.html" class="now">④ 浮力</a>
+</div>
+<script>
+// ============================================================
+// State
+// ============================================================
+const miniState = {};
+const miniScore = {};
+const miniTotal = {};
+const miniDone = {};
+
+miniScore['f1'] = 0; miniTotal['f1'] = 2; miniDone['f1'] = [false, false];
+miniScore['f2'] = 0; miniTotal['f2'] = 2; miniDone['f2'] = [false, false];
+miniScore['f3'] = 0; miniTotal['f3'] = 4; miniDone['f3'] = [false, false, false, false];
+miniScore['f4'] = 0; miniTotal['f4'] = 3; miniDone['f4'] = [false, false, false];
+miniScore['f5'] = 0; miniTotal['f5'] = 1; miniDone['f5'] = [false];
+miniScore['f6'] = 0; miniTotal['f6'] = 2; miniDone['f6'] = [false, false];
+miniScore['f7'] = 0; miniTotal['f7'] = 2; miniDone['f7'] = [false, false];
+miniScore['f8'] = 0; miniTotal['f8'] = 2; miniDone['f8'] = [false, false];
+miniScore['f9'] = 0; miniTotal['f9'] = 2; miniDone['f9'] = [false, false];
+miniScore['f10'] = 0; miniTotal['f10'] = 4; miniDone['f10'] = [false, false, false, false];
+
+// ============================================================
+// Toggle mini section
+// ============================================================
+function toggleMini(secId) {
+  const el = document.getElementById('mini_' + secId);
+  el.classList.toggle('open');
+}
+
+// ============================================================
+// Word bank: initialize
+// ============================================================
+function initMiniBank(secId, qNum, words, answers, freeGroups) {
+  const key = secId + '_q' + qNum;
+  miniState[key] = {
+    words: [...words],
+    answers: [...answers],
+    filled: new Array(answers.length).fill(null),
+    chipUsed: new Array(words.length).fill(false),
+    freeGroups: freeGroups || []
+  };
+  // Build chips in shuffled order
+  const container = document.getElementById('chips_' + key);
+  if (!container) return;
+  container.innerHTML = '';
+  const order = [...Array(words.length).keys()];
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  order.forEach(i => {
+    const btn = document.createElement('button');
+    btn.className = 'mchip';
+    btn.id = 'chip_' + key + '_' + i;
+    btn.textContent = words[i];
+    btn.onclick = () => fillMDZ(secId, qNum, i);
+    container.appendChild(btn);
+  });
+}
+
+// ============================================================
+// Fill blank
+// ============================================================
+function fillMDZ(secId, qNum, chipIdx) {
+  const key = secId + '_q' + qNum;
+  const st = miniState[key];
+  if (!st || st.chipUsed[chipIdx]) return;
+  // Find first empty blank
+  const emptyIdx = st.filled.findIndex(v => v === null);
+  if (emptyIdx < 0) return;
+  st.filled[emptyIdx] = chipIdx;
+  st.chipUsed[chipIdx] = true;
+  document.getElementById('chip_' + key + '_' + chipIdx).classList.add('used');
+  const mdz = document.getElementById('mdz_' + key + '_' + emptyIdx);
+  if (mdz) { mdz.textContent = st.words[chipIdx]; mdz.classList.add('filled'); }
+}
+
+// ============================================================
+// Return chip (click on filled blank)
+// ============================================================
+function returnChip(secId, qNum, blankIdx) {
+  const key = secId + '_q' + qNum;
+  const st = miniState[key];
+  if (!st || st.filled[blankIdx] === null) return;
+  const chipIdx = st.filled[blankIdx];
+  st.filled[blankIdx] = null;
+  st.chipUsed[chipIdx] = false;
+  document.getElementById('chip_' + key + '_' + chipIdx).classList.remove('used');
+  const mdz = document.getElementById('mdz_' + key + '_' + blankIdx);
+  if (mdz) { mdz.textContent = '\u00a0'; mdz.className = 'mdz'; }
+}
+
+// ============================================================
+// Check word bank answer
+// ============================================================
+function checkMiniBank(secId, qNum) {
+  const key = secId + '_q' + qNum;
+  const st = miniState[key];
+  if (!st) return;
+  // Pre-compute which blank indices belong to freeGroups and whether each group is satisfied
+  const freeBlankSet = new Set();
+  const freeBlankCorrect = {};
+  (st.freeGroups || []).forEach(group => {
+    const filledVals = group.map(bi => st.filled[bi] !== null ? st.words[st.filled[bi]].replace(/（.*?）/,'') : null);
+    const correctVals = group.map(bi => st.answers[bi].replace(/（.*?）/,'')).slice().sort();
+    const filledSorted = [...filledVals].sort();
+    const groupOK = filledVals.every(v => v !== null) && filledSorted.every((v,i) => v === correctVals[i]);
+    group.forEach(bi => { freeBlankSet.add(bi); freeBlankCorrect[bi] = groupOK; });
+  });
+
+  let allCorrect = true;
+  st.filled.forEach((chipIdx, bi) => {
+    const mdz = document.getElementById('mdz_' + key + '_' + bi);
+    if (!mdz) return;
+    if (chipIdx === null) { allCorrect = false; return; }
+    let isCorrect;
+    if (freeBlankSet.has(bi)) {
+      isCorrect = freeBlankCorrect[bi];
+    } else {
+      const word = st.words[chipIdx];
+      const correct = st.answers[bi];
+      isCorrect = (word === correct || word.replace(/（.*?）/,'') === correct.replace(/（.*?）/,''));
+    }
+    if (isCorrect) {
+      mdz.classList.remove('wrong'); mdz.classList.add('correct');
+    } else {
+      mdz.classList.remove('correct'); mdz.classList.add('wrong');
+      allCorrect = false;
+    }
+  });
+  const fb = document.getElementById('fb_' + key);
+  if (allCorrect) {
+    if (fb) fb.textContent = '✅ 正解！すばらしい！';
+    markPass(secId, qNum - 1);
+    flowerPetals();
+    const samp = document.getElementById('samp_' + key);
+    if (samp) samp.classList.add('show');
+  } else {
+    if (fb) fb.textContent = '❌ もう一度確認しよう！';
+  }
+}
+
+// ============================================================
+// Show sample answer
+// ============================================================
+function showSample(secId, qNum) {
+  const key = secId + '_q' + qNum;
+  const el = document.getElementById('samp_' + key);
+  if (el) el.classList.toggle('show');
+}
+
+// ============================================================
+// Toggle hint (shows how to approach the problem, not the answer)
+// ============================================================
+function toggleHint(qid) {
+  const el = document.getElementById('hint_' + qid);
+  if (el) el.classList.toggle('show');
+}
+
+// ============================================================
+// 4-choice picker
+// ============================================================
+function pick4(secId, qNum, chosen, correct, qid) {
+  const btns = document.querySelectorAll('#choices_' + qid + ' .choice-btn');
+  btns.forEach(b => b.disabled = true);
+  const fb = document.getElementById('fb_' + qid);
+  if (chosen === correct) {
+    btns[chosen].classList.add('correct');
+    if (fb) fb.textContent = '✅ 正解！';
+    markPass(secId, qNum - 1);
+    flowerPetals();
+  } else {
+    btns[chosen].classList.add('wrong');
+    btns[correct].classList.add('correct');
+    if (fb) fb.textContent = '❌ 残念！正解は上の緑のボタンです。';
+  }
+  const samp = document.getElementById('samp_' + qid);
+  if (samp) samp.classList.add('show');
+}
+
+// ============================================================
+// Mark pass & check unit completion
+// ============================================================
+function markPass(secId, qIdx) {
+  if (miniDone[secId][qIdx]) return;
+  miniDone[secId][qIdx] = true;
+  miniScore[secId]++;
+  const pip = document.getElementById('pip_' + secId + '_' + (qIdx + 1));
+  if (pip) pip.classList.add('pass');
+  const badge = document.getElementById('mini-badge-' + secId);
+  if (badge) badge.textContent = miniScore[secId] + ' / ' + miniTotal[secId];
+  if (miniScore[secId] >= miniTotal[secId]) {
+    const banner = document.getElementById('pass_' + secId);
+    if (banner) banner.classList.add('show');
+    fireConfetti();
+  }
+}
+
+// ============================================================
+// Flower petals animation (single question correct)
+// ============================================================
+function flowerPetals() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const petals = [];
+  const colors = ['#f472b6','#fb7185','#fbbf24','#34d399','#60a5fa','#a78bfa'];
+  for (let i = 0; i < 60; i++) {
+    petals.push({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * 200,
+      r: 4 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 3,
+      vy: 2 + Math.random() * 3,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.15
+    });
+  }
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    petals.forEach(p => {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.r, p.r * 0.55, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+      p.x += p.vx; p.y += p.vy; p.rot += p.rotV;
+    });
+    frame++;
+    if (frame < 80) requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw();
+}
+
+// ============================================================
+// Confetti (unit complete)
+// ============================================================
+function fireConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const pieces = [];
+  const colors = ['#f472b6','#fbbf24','#34d399','#60a5fa','#a78bfa','#fb7185','#fff'];
+  for (let i = 0; i < 150; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * 300,
+      w: 8 + Math.random() * 10,
+      h: 4 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 5,
+      vy: 3 + Math.random() * 4,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.2
+    });
+  }
+  let frame2 = 0;
+  function draw2() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+      p.x += p.vx; p.y += p.vy; p.rot += p.rotV;
+    });
+    frame2++;
+    if (frame2 < 140) requestAnimationFrame(draw2);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw2();
+}
+
+
+
+// ============================================================
+// Initialize all word banks
+// ============================================================
+
+initMiniBank('f1',1,["上", "下", "浮力", "水", "アルキメデス"],["上", "下", "浮力", "水", "アルキメデス"],[]);
+initMiniBank('f2',1,["100", "100", "1", "7"],["100", "100", "1", "7"],[]);
+initMiniBank('f3',1,["小さい", "大きい", "上", "浮力"],["小さい", "大きい", "上", "浮力"],[]);
+initMiniBank('f3',2,["6"],["6"],[]);
+initMiniBank('f4',3,["15", "5"],["15", "5"],[]);
+initMiniBank('f6',1,["18", "4", "8"],["18", "4", "8"],[]);
+initMiniBank('f7',1,["45", "15", "15"],["45", "15", "15"],[]);
+initMiniBank('f9',1,["0.5", "1.5"],["0.5", "1.5"],[]);
+initMiniBank('f10',3,["6.8", "8.8", "880"],["6.8", "8.8", "880"],[]);
+</script>
+
+</body></html>

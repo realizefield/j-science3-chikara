@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>💧 中学理科 力・圧力・浮力③ 水圧</title>
+<style>
+:root{
+  --pri:#e11d48;--pri-d:#881337;--pri-l:#fecdd3;
+  --pink:#db2777;--pink-d:#9d174d;--pink-bg:#fce7f3;
+  --gray:#6b7280;--light:#f0fdf4;--card:#fff;
+  --radius:14px;--shadow:0 4px 18px rgba(0,0,0,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#fff1f2;font-family:'Helvetica Neue',Arial,'Hiragino Sans',sans-serif;color:#1e293b;}
+header{background:linear-gradient(135deg,var(--pri-d),var(--pri));color:#fff;text-align:center;padding:28px 20px 22px;}
+header h1{font-size:clamp(1.3rem,4vw,2rem);font-weight:900;letter-spacing:.04em;}
+header p{margin-top:6px;font-size:.93rem;opacity:.88;}
+.units{max-width:860px;margin:30px auto;padding:0 16px;}
+.unit-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:32px;overflow:hidden;}
+.unit-header{background:linear-gradient(90deg,var(--pri-d),var(--pri));color:#fff;padding:14px 22px;display:flex;align-items:center;gap:12px;}
+.unit-num{background:#fff;color:var(--pri-d);font-weight:900;font-size:1.1rem;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.unit-header h2{font-size:1.1rem;font-weight:800;}
+.unit-body{padding:22px;}
+.exp-img{margin:14px 0;}
+.exp-text{line-height:1.95;font-size:.97rem;margin:10px 0;}
+.exp-text p{margin-bottom:.85em;}
+.exp-text h3{font-size:.97rem;color:var(--pri-d);margin:1em 0 .5em;border-left:3px solid var(--pri);padding-left:8px;font-weight:800;}
+.pt-box{background:#dcfce7;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.warn-box{background:#fee2e2;border-left:4px solid #dc2626;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.memo-box{background:#fff1f2;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.88rem;line-height:1.8;}
+.amber-box{background:#fef3c7;border-left:4px solid #b45309;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.info-box{background:#f0fdff;border-left:4px solid #0e7490;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.eq-box{background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;margin:10px 0;text-align:center;}
+.eq-box .eq{font-size:1rem;font-weight:800;color:var(--pri-d);letter-spacing:.03em;}
+.exp-tbl{width:100%;border-collapse:collapse;font-size:.85rem;margin:10px 0;}
+.exp-tbl th{background:var(--pri);color:#fff;padding:8px 10px;text-align:left;}
+.exp-tbl td{padding:8px 10px;border-bottom:1px solid #e5e7eb;vertical-align:top;line-height:1.65;}
+.exp-tbl tr:nth-child(even) td{background:#f9fafb;}
+.exp-tbl .nc{font-weight:700;white-space:nowrap;}
+.badge-p{background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:10px;display:inline-block;margin-left:4px;}
+.kw-list{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px;}
+.kw{background:var(--pri-l);color:var(--pri-d);border-radius:20px;padding:4px 14px;font-size:.88rem;font-weight:700;}
+/* mini-test toggle */
+.mini-btn{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;background:var(--pink-bg);border:2.5px solid var(--pink);color:var(--pink-d);font-size:.97rem;font-weight:800;padding:10px 22px;border-radius:40px;margin:14px 0 0;transition:.2s;}
+.mini-btn:hover{background:var(--pink);color:#fff;}
+.mini-section{display:none;margin-top:16px;background:#fdf2f8;border:2px solid #f9a8d4;border-radius:12px;padding:18px;}
+.mini-section.open{display:block;}
+.q-block{margin-bottom:22px;}
+.q-block h4{font-size:.98rem;font-weight:800;color:var(--pri-d);margin-bottom:10px;}
+/* Word bank chips */
+.mchips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.mchip{background:#fff;border:2.5px solid var(--pink);color:var(--pink-d);border-radius:20px;padding:5px 16px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.mchip:hover{background:var(--pink);color:#fff;}
+.mchip.used{opacity:.35;pointer-events:none;}
+/* Blanks */
+.mdz-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0;}
+.mdz{display:inline-flex;align-items:center;justify-content:center;min-width:80px;height:36px;border:2.5px dashed var(--pink);border-radius:8px;padding:0 10px;font-size:.93rem;font-weight:700;cursor:pointer;color:var(--pink-d);transition:.18s;background:#fff;}
+.mdz.filled{border-style:solid;background:#fce7f3;}
+.mdz.correct{border-color:#16a34a;background:#dcfce7;color:#166534;}
+.mdz.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.mdz-label{font-size:.9rem;color:#374151;}
+/* 4択 */
+.choice-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+@media(max-width:480px){.choice-list{grid-template-columns:1fr;}}
+.choice-btn{padding:10px 14px;border:2.5px solid #d1d5db;border-radius:10px;background:#fff;font-size:.93rem;cursor:pointer;text-align:left;transition:.18s;}
+.choice-btn:hover{border-color:var(--pri);background:var(--pri-l);}
+.choice-btn.correct{border-color:#16a34a;background:#dcfce7;color:#166534;font-weight:700;}
+.choice-btn.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.choice-btn:disabled{cursor:default;}
+/* Check / Sample buttons */
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.check-btn{background:var(--pri);color:#fff;border:none;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.check-btn:hover{background:var(--pri-d);}
+.sample-btn{background:#fff;color:var(--gray);border:2px solid #d1d5db;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.sample-btn:hover{background:#f3f4f6;}
+.msample{display:none;background:#fef9c3;border:1.5px solid #fbbf24;border-radius:8px;padding:8px 14px;font-size:.9rem;margin-top:8px;}
+.msample.show{display:block;}
+.fb-msg{font-size:.9rem;margin-top:6px;font-weight:600;}
+/* Score pips */
+.mini-score-row{display:flex;gap:6px;align-items:center;margin-bottom:10px;}
+.mini-score-pip{width:14px;height:14px;border-radius:50%;background:#e5e7eb;border:2px solid #d1d5db;transition:.3s;}
+.mini-score-pip.pass{background:#16a34a;border-color:#166534;}
+/* Pass banner */
+.pass-banner{display:none;background:linear-gradient(90deg,#166534,#16a34a);color:#fff;text-align:center;padding:16px;border-radius:10px;margin-top:16px;font-size:1.1rem;font-weight:900;}
+.pass-banner.show{display:block;}
+canvas#confetti-canvas{position:fixed;top:0;left:0;pointer-events:none;width:100%;height:100%;z-index:9999;}
+
+.q-img{max-width:100%;border-radius:10px;margin:6px auto 10px;display:block;}
+.q-note{font-size:.88rem;color:#555;margin-bottom:6px;line-height:1.8;}
+.src{font-size:.78rem;color:#6b7280;font-weight:600;margin-left:6px;}
+.chap-nav{max-width:860px;margin:0 auto 40px;padding:0 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.chap-nav a{background:#fff;border:2px solid var(--pri);color:var(--pri-d);text-decoration:none;font-weight:800;padding:8px 18px;border-radius:24px;font-size:.92rem;}
+.chap-nav a.now{background:var(--pri);color:#fff;}
+.exp-tbl td b{color:var(--pri-d);}
+</style>
+</head>
+<body>
+<canvas id="confetti-canvas"></canvas>
+<header>
+  <h1>💧 中学理科 力・圧力・浮力③ 水圧</h1>
+  <p>中学理科 物理分野（力・圧力）　図で確認・ミニテストで実力チェック</p>
+</header>
+<div class="units">
+<div class="unit-card" id="card_s1">
+  <div class="unit-header">
+    <div class="unit-num">1</div>
+    <h2>水圧は深さに比例する</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="suiatu1.png" alt="1cm³の水を積み重ねたときの圧力とP点の水圧" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p>1cm³の水は4℃で約1gです。これを図のように1列・2列・3列に積み重ねると、A面（1cm²）には3gの重さ、B面（2cm²）には6gの重さ、C面（3cm²）には9gの重さがかかります。</p>
+<p>このとき、どの面も<b>1cm²あたり3g</b>の重さがかかっているので、水面下3cmの深さでは、どこでも<b>1cm²あたり3g</b>の圧力（水圧）がかかることになります。</p>
+<p>このように、水の重さによって生じる圧力を<b>水圧</b>といい、水圧は<b>水面からの深さに比例</b>します。</p>
+<p>圧力の単位はふつうN/m²を使います。1m²＝10000cm²なので、<b>1g/cm²の圧力は、1m²あたりでは10000g（＝100N）</b>にあたります。つまり 1g/cm²×10000＝10000g/m²＝100N/m²となります。よって、水面下3cmでは1cm²あたり3gの水圧なので、300N/m²の水圧がかかります。</p>
+<div class="pt-box"><b>【重要】</b><br>
+・水圧…水の重さによって生じる圧力。水面からの深さに比例する<br>
+・同じ深さでは、どの向きでも水圧の大きさは等しい<br>
+・1g/cm²＝100N/m²</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('s1')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-s1" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 3</span>
+    </button>
+    <div class="mini-section" id="mini_s1">
+      <div class="mini-score-row" id="pips_s1"><div class="mini-score-pip" id="pip_s1_1"></div><div class="mini-score-pip" id="pip_s1_2"></div><div class="mini-score-pip" id="pip_s1_3"></div></div>
+      <div class="q-block" id="qblock_s1_q1">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  
+  <p class="q-note">A面・B面・C面には、それぞれ1cm²あたり①gの重さがかかり、圧力はすべて等しい。このことから、水圧は②に比例することがわかる。水面下3cmでは、1cm²あたり①gの圧力＝③N/m²の水圧がかかる。</p>
+  <div class="mchips" id="chips_s1_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_s1_q1_0" onclick="returnChip('s1',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_s1_q1_1" onclick="returnChip('s1',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_s1_q1_2" onclick="returnChip('s1',1,2)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('s1',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('s1',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_s1_q1"></div>
+  <div class="msample" id="samp_s1_q1">答え: ①=3 / ②=深さ / ③=300</div>
+</div>
+<div class="q-block" id="qblock_s1_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">図のA・B・C面（どれも水面下3cmの深さにある）にはたらく圧力の大きさを比べると、どうなるか。</p>
+  <div class="choice-list" id="choices_s1_q2">
+    <button class="choice-btn" onclick="pick4('s1',2,0,2,'s1_q2')">ア：Aが最も大きい</button>
+    <button class="choice-btn" onclick="pick4('s1',2,1,2,'s1_q2')">イ：Cが最も大きい</button>
+    <button class="choice-btn" onclick="pick4('s1',2,2,2,'s1_q2')">ウ：A・B・Cすべて等しい</button>
+    <button class="choice-btn" onclick="pick4('s1',2,3,2,'s1_q2')">エ：水面からの深さが同じでも面積によって異なる</button>
+  </div>
+  <div class="fb-msg" id="fb_s1_q2"></div>
+  <div class="msample" id="samp_s1_q2">正解: ウ：A・B・Cすべて等しい　A・B・C面はどれも水面下3cmにあり、1cm²あたりの重さ（圧力）はすべて3gで等しくなります。</div>
+</div>
+<div class="q-block" id="qblock_s1_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">水面からの深さが深くなるほど、水圧はどうなるか。</p>
+  <div class="choice-list" id="choices_s1_q3">
+    <button class="choice-btn" onclick="pick4('s1',3,0,0,'s1_q3')">ア：大きくなる</button>
+    <button class="choice-btn" onclick="pick4('s1',3,1,0,'s1_q3')">イ：小さくなる</button>
+    <button class="choice-btn" onclick="pick4('s1',3,2,0,'s1_q3')">ウ：変わらない</button>
+    <button class="choice-btn" onclick="pick4('s1',3,3,0,'s1_q3')">エ：0になる</button>
+  </div>
+  <div class="fb-msg" id="fb_s1_q3"></div>
+  <div class="msample" id="samp_s1_q3">正解: ア：大きくなる　水圧は水面からの深さに比例して大きくなります。</div>
+</div>
+      <div class="pass-banner" id="pass_s1">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_s2">
+  <div class="unit-header">
+    <div class="unit-num">2</div>
+    <h2>水に加えた圧力は面に垂直にかかる</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="suiatu2.png" alt="水を入れたゴムボールに圧力を加える実験と、垂直にかかる圧力" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p>水を入れたゴムボールに注射器で圧力を加えると、ボールの穴という穴から、どの方向にも同じ勢いで水が飛び出します。</p>
+<p>これは、水に加えた圧力が、<b>面に対して垂直に、同じ大きさで</b>伝わる性質があるためです。水中のある点にはたらく圧力は、あらゆる方向に同じ大きさでかかります。</p>
+<div class="pt-box"><b>【重要】</b><br>
+・水に加えた圧力は、面に対して垂直に、同じ大きさでかかる<br>
+・水中の1点にはたらく圧力は、あらゆる方向に等しい大きさでかかる</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('s2')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-s2" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 2</span>
+    </button>
+    <div class="mini-section" id="mini_s2">
+      <div class="mini-score-row" id="pips_s2"><div class="mini-score-pip" id="pip_s2_1"></div><div class="mini-score-pip" id="pip_s2_2"></div></div>
+      <div class="q-block" id="qblock_s2_q1">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  
+  <p class="q-note">水に加えた圧力は、面に対して①に、②の大きさでかかる。</p>
+  <div class="mchips" id="chips_s2_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_s2_q1_0" onclick="returnChip('s2',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_s2_q1_1" onclick="returnChip('s2',1,1)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('s2',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('s2',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_s2_q1"></div>
+  <div class="msample" id="samp_s2_q1">答え: ①=垂直 / ②=同じ</div>
+</div>
+<div class="q-block" id="qblock_s2_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">水を入れたゴムボールに注射器で圧力を加えると、ボールのたくさんの穴からはどのように水が飛び出すか。</p>
+  <div class="choice-list" id="choices_s2_q2">
+    <button class="choice-btn" onclick="pick4('s2',2,0,1,'s2_q2')">ア：特定の1方向だけに勢いよく飛び出す</button>
+    <button class="choice-btn" onclick="pick4('s2',2,1,1,'s2_q2')">イ：すべての穴から面に垂直に同じ勢いで飛び出す</button>
+    <button class="choice-btn" onclick="pick4('s2',2,2,1,'s2_q2')">ウ：上向きの穴からだけ飛び出す</button>
+    <button class="choice-btn" onclick="pick4('s2',2,3,1,'s2_q2')">エ：下向きの穴からだけ飛び出す</button>
+  </div>
+  <div class="fb-msg" id="fb_s2_q2"></div>
+  <div class="msample" id="samp_s2_q2">正解: イ：すべての穴から面に垂直に同じ勢いで飛び出す　水に加えた圧力は面に垂直に、同じ大きさで伝わるため、どの穴からも同じ勢いで水が飛び出します。</div>
+</div>
+      <div class="pass-banner" id="pass_s2">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_s3">
+  <div class="unit-header">
+    <div class="unit-num">3</div>
+    <h2>水そうの穴からの水の出方（例題）</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="suiatu3.png" alt="水そうのA・B・Cの穴と、水の出方ア・イ・ウ" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p><b>【例題1】</b>水そうに水を入れ、図のA・B・Cのように同じ大きさの穴をあけると、水はどのように飛び出すか。</p>
+<p>水圧は深さに比例して大きくなるので、いちばん深いところにある穴ほど水圧が大きく、水は勢いよく、遠くまで飛び出します。したがって、上のA、真ん中のB、いちばん深いCの順に勢いが強くなり、正解は<b>イ</b>のように、下にいくほど遠くまで水が飛ぶ図になります。</p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('s3')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-s3" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 2</span>
+    </button>
+    <div class="mini-section" id="mini_s3">
+      <div class="mini-score-row" id="pips_s3"><div class="mini-score-pip" id="pip_s3_1"></div><div class="mini-score-pip" id="pip_s3_2"></div></div>
+      <div class="q-block" id="qblock_s3_q1">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">【例題1】水そうに、深さの異なるA・B・Cの穴（同じ大きさ）をあけた。水はどのように飛び出すか、正しいものをア〜ウから選ぼう（Cがいちばん深い穴である）。</p>
+  <img class="q-img" src="suiatu3.png" alt="例題1の図">
+  <div class="choice-list" id="choices_s3_q1">
+    <button class="choice-btn" onclick="pick4('s3',1,0,1,'s3_q1')">ア：いちばん深いCの水が、いちばん近くに落ちる</button>
+    <button class="choice-btn" onclick="pick4('s3',1,1,1,'s3_q1')">イ：いちばん深いCの水が、いちばん遠くまで飛ぶ</button>
+    <button class="choice-btn" onclick="pick4('s3',1,2,1,'s3_q1')">ウ：A・B・Cとも同じ距離まで飛ぶ</button>
+    <button class="choice-btn" onclick="pick4('s3',1,3,1,'s3_q1')">エ：いちばん浅いAの水が、いちばん遠くまで飛ぶ</button>
+  </div>
+  <div class="fb-msg" id="fb_s3_q1"></div>
+  <div class="msample" id="samp_s3_q1">正解: イ　深さが深いところほど水圧が大きく、水は勢いよく遠くまで飛び出します（図のイのように、Cの水がいちばん遠くまで飛ぶ）。</div>
+</div>
+<div class="q-block" id="qblock_s3_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">同じ図のいちばん右にある、三角形に矢印がかかれた模式図を見よう。この矢印は水圧の大きさを表している。矢印が下にいくほど長くなっているのはなぜか。</p>
+  <img class="q-img" src="suiatu3.png" alt="例題1の図（右側の三角形は水圧の模式図）">
+  <div class="choice-list" id="choices_s3_q2">
+    <button class="choice-btn" onclick="pick4('s3',2,0,0,'s3_q2')">ア：深いところほど、上にある水の重さが大きくなり圧力が大きくなるから</button>
+    <button class="choice-btn" onclick="pick4('s3',2,1,0,'s3_q2')">イ：深いところほど、水の温度が下がるから</button>
+    <button class="choice-btn" onclick="pick4('s3',2,2,0,'s3_q2')">ウ：深いところほど、水の量が少なくなるから</button>
+    <button class="choice-btn" onclick="pick4('s3',2,3,0,'s3_q2')">エ：たまたまそうなっているだけで、理由はない</button>
+  </div>
+  <div class="fb-msg" id="fb_s3_q2"></div>
+  <div class="msample" id="samp_s3_q2">正解: ア　水圧は、その場所より上にある水の重さによって生じる圧力です。深いところほど、上にのっている水の量（重さ）が多くなるため、水圧は深さに比例して大きくなります。</div>
+</div>
+      <div class="pass-banner" id="pass_s3">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_s4">
+  <div class="unit-header">
+    <div class="unit-num">4</div>
+    <h2>水そうの穴から出る水の勢い（発展・応用問題）</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-img"><img src="suiatu4.png" alt="円柱形の金属を水中に沈めたときの側面にはたらく水圧の模式図ア〜エ" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+    <div class="exp-text"><p>【宮城県入試・改】糸のついた円柱形の金属全体を水中に沈めた。側面と上下の面にはたらく水圧の向きと大きさを表した模式図はどれか。</p>
+<p>水圧は面に対して<b>垂直</b>にかかり、<b>同じ深さでは同じ大きさ</b>、<b>深いところほど大きく</b>なります。側面では、同じ高さ（＝同じ深さ）にある左右の矢印は同じ長さ・向きになりますが、上の矢印より下の矢印のほうが<b>長く</b>ならなければいけません（深いほど水圧が大きいから）。さらに、いちばん深いところにある底面は、いちばん浅い上面より水圧がずっと大きいので、底面の矢印は上面の矢印よりはっきりと長く描かれる必要があります。この条件をすべて満たすのは<b>イ</b>です。アは側面の矢印は深さに応じて変化していますが、底面の矢印が上面と同じ短さのままになっており、底面のほうが深いことが表せていないので誤りです。ウ・エは側面の3本の矢印の長さがどれも同じで、深さによる違いが表せていないので誤りです。</p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('s4')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-s4" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 2</span>
+    </button>
+    <div class="mini-section" id="mini_s4">
+      <div class="mini-score-row" id="pips_s4"><div class="mini-score-pip" id="pip_s4_1"></div><div class="mini-score-pip" id="pip_s4_2"></div></div>
+      <div class="q-block" id="qblock_s4_q1">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">【宮城県入試・改】糸のついた円柱形の金属全体を水中に沈めた。側面と上下の面にはたらく水圧の向き（矢印の向き）と大きさ（矢印の長さ）を正しく表した模式図は、ア〜エのどれか。</p>
+  <img class="q-img" src="suiatu4.png" alt="水圧の模式図ア〜エ">
+  <div class="choice-list" id="choices_s4_q1">
+    <button class="choice-btn" onclick="pick4('s4',1,0,1,'s4_q1')">ア</button>
+    <button class="choice-btn" onclick="pick4('s4',1,1,1,'s4_q1')">イ</button>
+    <button class="choice-btn" onclick="pick4('s4',1,2,1,'s4_q1')">ウ</button>
+    <button class="choice-btn" onclick="pick4('s4',1,3,1,'s4_q1')">エ</button>
+  </div>
+  <div class="fb-msg" id="fb_s4_q1"></div>
+  <div class="msample" id="samp_s4_q1">正解: イ　水圧は面に垂直にかかり、深いところほど大きくなります。側面の矢印は深さとともに長くなり、いちばん深い底面の矢印は浅い上面の矢印よりはっきり長くなっているイが正解です。アは底面の矢印が上面と同じ短さのままで、底面のほうが深いことが表せていません。</div>
+</div>
+<div class="q-block" id="qblock_s4_q2">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  
+  <p class="q-note">円柱の側面にはたらく水圧は、面に対して①にかかり、同じ深さであれば大きさは②である。深い場所ほど水圧は③。</p>
+  <div class="mchips" id="chips_s4_q2"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_s4_q2_0" onclick="returnChip('s4',2,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_s4_q2_1" onclick="returnChip('s4',2,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_s4_q2_2" onclick="returnChip('s4',2,2)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('s4',2)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('s4',2)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_s4_q2"></div>
+  <div class="msample" id="samp_s4_q2">答え: ①=垂直 / ②=同じ / ③=大きい</div>
+</div>
+      <div class="pass-banner" id="pass_s4">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+<div class="unit-card" id="card_s5">
+  <div class="unit-header">
+    <div class="unit-num">5</div>
+    <h2>入試問題にチャレンジ！水圧</h2>
+  </div>
+  <div class="unit-body">
+    
+    <div class="exp-text"><p>ここまで学んだ「水圧」について、入試問題で確認しましょう。</p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('s5')">
+      🧪 確認問題に挑戦！
+      <span id="mini-badge-s5" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 5</span>
+    </button>
+    <div class="mini-section" id="mini_s5">
+      <div class="mini-score-row" id="pips_s5"><div class="mini-score-pip" id="pip_s5_1"></div><div class="mini-score-pip" id="pip_s5_2"></div><div class="mini-score-pip" id="pip_s5_3"></div><div class="mini-score-pip" id="pip_s5_4"></div><div class="mini-score-pip" id="pip_s5_5"></div></div>
+      <div class="q-block" id="qblock_s5_q1">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">水中の物体にはたらく、水の重さによって生じる圧力を何というか。</p>
+  <div class="choice-list" id="choices_s5_q1">
+    <button class="choice-btn" onclick="pick4('s5',1,0,0,'s5_q1')">ア：水圧</button>
+    <button class="choice-btn" onclick="pick4('s5',1,1,0,'s5_q1')">イ：気圧</button>
+    <button class="choice-btn" onclick="pick4('s5',1,2,0,'s5_q1')">ウ：浮力</button>
+    <button class="choice-btn" onclick="pick4('s5',1,3,0,'s5_q1')">エ：重力</button>
+  </div>
+  <div class="fb-msg" id="fb_s5_q1"></div>
+  <div class="msample" id="samp_s5_q1">正解: ア：水圧　水の重さによって生じる圧力を水圧といいます。</div>
+</div>
+<div class="q-block" id="qblock_s5_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">(1)で答えた水圧は、水面からの深さが深くなるほどどうなるか。</p>
+  <div class="choice-list" id="choices_s5_q2">
+    <button class="choice-btn" onclick="pick4('s5',2,0,0,'s5_q2')">ア：深さに比例して大きくなる</button>
+    <button class="choice-btn" onclick="pick4('s5',2,1,0,'s5_q2')">イ：深さに反比例して小さくなる</button>
+    <button class="choice-btn" onclick="pick4('s5',2,2,0,'s5_q2')">ウ：変化しない</button>
+    <button class="choice-btn" onclick="pick4('s5',2,3,0,'s5_q2')">エ：深さに関係なく一定である</button>
+  </div>
+  <div class="fb-msg" id="fb_s5_q2"></div>
+  <div class="msample" id="samp_s5_q2">正解: ア：深さに比例して大きくなる　水圧は水面からの深さに比例して大きくなります。</div>
+</div>
+<div class="q-block" id="qblock_s5_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">【宮城県入試・改】糸のついた円柱形の金属全体を水中に沈めた。側面と上下の面にはたらく水圧の向きと大きさを正しく表した模式図は、ア〜エのどれか。</p>
+  <img class="q-img" src="suiatu4.png" alt="宮城県入試の図（水圧の模式図）">
+  <div class="choice-list" id="choices_s5_q3">
+    <button class="choice-btn" onclick="pick4('s5',3,0,1,'s5_q3')">ア</button>
+    <button class="choice-btn" onclick="pick4('s5',3,1,1,'s5_q3')">イ</button>
+    <button class="choice-btn" onclick="pick4('s5',3,2,1,'s5_q3')">ウ</button>
+    <button class="choice-btn" onclick="pick4('s5',3,3,1,'s5_q3')">エ</button>
+  </div>
+  <div class="fb-msg" id="fb_s5_q3"></div>
+  <div class="msample" id="samp_s5_q3">正解: イ　水圧は面に垂直にかかり、深いところほど大きくなります。側面の矢印が深さとともに長くなり、いちばん深い底面の矢印が上面の矢印よりはっきり長く描かれているイが正解です。</div>
+</div>
+<div class="q-block" id="qblock_s5_q4">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">【佐賀県入試・改】図のような、うすいゴム膜を上下に2枚つけた筒状の水圧実験装置がある。上のゴム膜の位置をa、下のゴム膜の位置をbとする。この装置を、図のように水中に沈めると、2枚のゴム膜はどうなるか。</p>
+  <img class="q-img" src="suiatu8.png" alt="ゴム膜を上下に2枚つけた水圧実験装置（沈める前）">
+  <img class="q-img" src="suiatu6.png" alt="水圧実験装置を水中に沈めたようす（aは上、bは下の位置）">
+  <div class="choice-list" id="choices_s5_q4">
+    <button class="choice-btn" onclick="pick4('s5',4,0,1,'s5_q4')">ア：上下のゴム膜が同じように内側にへこむ</button>
+    <button class="choice-btn" onclick="pick4('s5',4,1,1,'s5_q4')">イ：下（b）のゴム膜のほうが大きく内側にへこむ</button>
+    <button class="choice-btn" onclick="pick4('s5',4,2,1,'s5_q4')">ウ：上（a）のゴム膜のほうが大きく内側にへこむ</button>
+    <button class="choice-btn" onclick="pick4('s5',4,3,1,'s5_q4')">エ：ゴム膜はどちらも変化しない</button>
+  </div>
+  <div class="fb-msg" id="fb_s5_q4"></div>
+  <div class="msample" id="samp_s5_q4">正解: イ：下のゴム膜のほうが大きく内側にへこむ<br><br><b>【解説】</b>水圧は水面からの深さに比例して大きくなります。図のように、下のゴム膜（bの位置）は上のゴム膜（aの位置）より深い場所にあるので、bにかかる水圧のほうがaより大きくなります。そのため、bのゴム膜のほうが大きく内側にへこみます。</div>
+</div>
+<div class="q-block" id="qblock_s5_q5">
+  <h4>文中の空欄に当てはまる語句を語群から選んで入れよう。</h4>
+  <p class="q-note">図のように、水で満たしたペットボトルの側面に、同じ大きさの穴A・B・Cをあけた（Cがいちばん深い位置にあけた穴である）。水が遠くまで飛んだ順に並べると、①＞②＞③となる。</p>
+  <img class="q-img" src="suiatu7.png" alt="水で満たしたペットボトルの側面にあけた穴A・B・C">
+  <div class="mchips" id="chips_s5_q5"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_s5_q5_0" onclick="returnChip('s5',5,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_s5_q5_1" onclick="returnChip('s5',5,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_s5_q5_2" onclick="returnChip('s5',5,2)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('s5',5)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('s5',5)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_s5_q5"></div>
+  <div class="msample" id="samp_s5_q5">答え: ①=C / ②=B / ③=A<br><br><b>【解説】</b>Cがいちばん深い位置の穴なので、水圧がいちばん大きく、水は最も勢いよく、遠くまで飛びます。逆に、いちばん浅いAは水圧が小さく、いちばん近くにしか飛びません。深いほど水圧が大きい→水は遠くまで飛ぶ、という関係を覚えておきましょう。<img class="q-img" src="suiatu9.png" alt="穴A・B・Cから飛び出す水の距離のちがい（深いほど水圧が大きく、水は遠くまで飛ぶ）" style="margin-top:10px;"></div>
+</div>
+      <div class="pass-banner" id="pass_s5">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="chap-nav">
+<a href="index.html">🏠 目次</a>
+<a href="chikara_ch01.html">① 力の性質</a>
+<a href="atsuryoku_ch01.html">② 圧力</a>
+<a href="suiatsu_ch01.html" class="now">③ 水圧</a>
+<a href="furyoku_ch01.html" class="">④ 浮力</a>
+</div>
+<script>
+// ============================================================
+// State
+// ============================================================
+const miniState = {};
+const miniScore = {};
+const miniTotal = {};
+const miniDone = {};
+
+miniScore['s1'] = 0; miniTotal['s1'] = 3; miniDone['s1'] = [false, false, false];
+miniScore['s2'] = 0; miniTotal['s2'] = 2; miniDone['s2'] = [false, false];
+miniScore['s3'] = 0; miniTotal['s3'] = 2; miniDone['s3'] = [false, false];
+miniScore['s4'] = 0; miniTotal['s4'] = 2; miniDone['s4'] = [false, false];
+miniScore['s5'] = 0; miniTotal['s5'] = 5; miniDone['s5'] = [false, false, false, false, false];
+
+// ============================================================
+// Toggle mini section
+// ============================================================
+function toggleMini(secId) {
+  const el = document.getElementById('mini_' + secId);
+  el.classList.toggle('open');
+}
+
+// ============================================================
+// Word bank: initialize
+// ============================================================
+function initMiniBank(secId, qNum, words, answers, freeGroups) {
+  const key = secId + '_q' + qNum;
+  miniState[key] = {
+    words: [...words],
+    answers: [...answers],
+    filled: new Array(answers.length).fill(null),
+    chipUsed: new Array(words.length).fill(false),
+    freeGroups: freeGroups || []
+  };
+  // Build chips in shuffled order
+  const container = document.getElementById('chips_' + key);
+  if (!container) return;
+  container.innerHTML = '';
+  const order = [...Array(words.length).keys()];
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  order.forEach(i => {
+    const btn = document.createElement('button');
+    btn.className = 'mchip';
+    btn.id = 'chip_' + key + '_' + i;
+    btn.textContent = words[i];
+    btn.onclick = () => fillMDZ(secId, qNum, i);
+    container.appendChild(btn);
+  });
+}
+
+// ============================================================
+// Fill blank
+// ============================================================
+function fillMDZ(secId, qNum, chipIdx) {
+  const key = secId + '_q' + qNum;
+  const st = miniState[key];
+  if (!st || st.chipUsed[chipIdx]) return;
+  // Find first empty blank
+  const emptyIdx = st.filled.findIndex(v => v === null);
+  if (emptyIdx < 0) return;
+  st.filled[emptyIdx] = chipIdx;
+  st.chipUsed[chipIdx] = true;
+  document.getElementById('chip_' + key + '_' + chipIdx).classList.add('used');
+  const mdz = document.getElementById('mdz_' + key + '_' + emptyIdx);
+  if (mdz) { mdz.textContent = st.words[chipIdx]; mdz.classList.add('filled'); }
+}
+
+// ============================================================
+// Return chip (click on filled blank)
+// ============================================================
+function returnChip(secId, qNum, blankIdx) {
+  const key = secId + '_q' + qNum;
+  const st = miniState[key];
+  if (!st || st.filled[blankIdx] === null) return;
+  const chipIdx = st.filled[blankIdx];
+  st.filled[blankIdx] = null;
+  st.chipUsed[chipIdx] = false;
+  document.getElementById('chip_' + key + '_' + chipIdx).classList.remove('used');
+  const mdz = document.getElementById('mdz_' + key + '_' + blankIdx);
+  if (mdz) { mdz.textContent = '\u00a0'; mdz.className = 'mdz'; }
+}
+
+// ============================================================
+// Check word bank answer
+// ============================================================
+function checkMiniBank(secId, qNum) {
+  const key = secId + '_q' + qNum;
+  const st = miniState[key];
+  if (!st) return;
+  // Pre-compute which blank indices belong to freeGroups and whether each group is satisfied
+  const freeBlankSet = new Set();
+  const freeBlankCorrect = {};
+  (st.freeGroups || []).forEach(group => {
+    const filledVals = group.map(bi => st.filled[bi] !== null ? st.words[st.filled[bi]].replace(/（.*?）/,'') : null);
+    const correctVals = group.map(bi => st.answers[bi].replace(/（.*?）/,'')).slice().sort();
+    const filledSorted = [...filledVals].sort();
+    const groupOK = filledVals.every(v => v !== null) && filledSorted.every((v,i) => v === correctVals[i]);
+    group.forEach(bi => { freeBlankSet.add(bi); freeBlankCorrect[bi] = groupOK; });
+  });
+
+  let allCorrect = true;
+  st.filled.forEach((chipIdx, bi) => {
+    const mdz = document.getElementById('mdz_' + key + '_' + bi);
+    if (!mdz) return;
+    if (chipIdx === null) { allCorrect = false; return; }
+    let isCorrect;
+    if (freeBlankSet.has(bi)) {
+      isCorrect = freeBlankCorrect[bi];
+    } else {
+      const word = st.words[chipIdx];
+      const correct = st.answers[bi];
+      isCorrect = (word === correct || word.replace(/（.*?）/,'') === correct.replace(/（.*?）/,''));
+    }
+    if (isCorrect) {
+      mdz.classList.remove('wrong'); mdz.classList.add('correct');
+    } else {
+      mdz.classList.remove('correct'); mdz.classList.add('wrong');
+      allCorrect = false;
+    }
+  });
+  const fb = document.getElementById('fb_' + key);
+  if (allCorrect) {
+    if (fb) fb.textContent = '✅ 正解！すばらしい！';
+    markPass(secId, qNum - 1);
+    flowerPetals();
+  } else {
+    if (fb) fb.textContent = '❌ もう一度確認しよう！';
+  }
+}
+
+// ============================================================
+// Show sample answer
+// ============================================================
+function showSample(secId, qNum) {
+  const key = secId + '_q' + qNum;
+  const el = document.getElementById('samp_' + key);
+  if (el) el.classList.toggle('show');
+}
+
+// ============================================================
+// 4-choice picker
+// ============================================================
+function pick4(secId, qNum, chosen, correct, qid) {
+  const btns = document.querySelectorAll('#choices_' + qid + ' .choice-btn');
+  btns.forEach(b => b.disabled = true);
+  const fb = document.getElementById('fb_' + qid);
+  if (chosen === correct) {
+    btns[chosen].classList.add('correct');
+    if (fb) fb.textContent = '✅ 正解！';
+    markPass(secId, qNum - 1);
+    flowerPetals();
+  } else {
+    btns[chosen].classList.add('wrong');
+    btns[correct].classList.add('correct');
+    if (fb) fb.textContent = '❌ 残念！正解は上の緑のボタンです。';
+    document.getElementById('samp_' + qid).classList.add('show');
+  }
+}
+
+// ============================================================
+// Mark pass & check unit completion
+// ============================================================
+function markPass(secId, qIdx) {
+  if (miniDone[secId][qIdx]) return;
+  miniDone[secId][qIdx] = true;
+  miniScore[secId]++;
+  const pip = document.getElementById('pip_' + secId + '_' + (qIdx + 1));
+  if (pip) pip.classList.add('pass');
+  const badge = document.getElementById('mini-badge-' + secId);
+  if (badge) badge.textContent = miniScore[secId] + ' / ' + miniTotal[secId];
+  if (miniScore[secId] >= miniTotal[secId]) {
+    const banner = document.getElementById('pass_' + secId);
+    if (banner) banner.classList.add('show');
+    fireConfetti();
+  }
+}
+
+// ============================================================
+// Flower petals animation (single question correct)
+// ============================================================
+function flowerPetals() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const petals = [];
+  const colors = ['#f472b6','#fb7185','#fbbf24','#34d399','#60a5fa','#a78bfa'];
+  for (let i = 0; i < 60; i++) {
+    petals.push({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * 200,
+      r: 4 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 3,
+      vy: 2 + Math.random() * 3,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.15
+    });
+  }
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    petals.forEach(p => {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.r, p.r * 0.55, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+      p.x += p.vx; p.y += p.vy; p.rot += p.rotV;
+    });
+    frame++;
+    if (frame < 80) requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw();
+}
+
+// ============================================================
+// Confetti (unit complete)
+// ============================================================
+function fireConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const pieces = [];
+  const colors = ['#f472b6','#fbbf24','#34d399','#60a5fa','#a78bfa','#fb7185','#fff'];
+  for (let i = 0; i < 150; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * 300,
+      w: 8 + Math.random() * 10,
+      h: 4 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 5,
+      vy: 3 + Math.random() * 4,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.2
+    });
+  }
+  let frame2 = 0;
+  function draw2() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+      p.x += p.vx; p.y += p.vy; p.rot += p.rotV;
+    });
+    frame2++;
+    if (frame2 < 140) requestAnimationFrame(draw2);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw2();
+}
+
+
+
+// ============================================================
+// Initialize all word banks
+// ============================================================
+
+initMiniBank('s1',1,["3", "深さ", "300"],["3", "深さ", "300"],[]);
+initMiniBank('s2',1,["垂直", "同じ"],["垂直", "同じ"],[]);
+initMiniBank('s4',2,["垂直", "同じ", "大きい"],["垂直", "同じ", "大きい"],[]);
+initMiniBank('s5',5,["C", "B", "A"],["C", "B", "A"],[]);
+</script>
+
+</body></html>
