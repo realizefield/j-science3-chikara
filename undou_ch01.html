@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🏃 中学理科 運動・力学① 力と運動</title>
+<style>
+:root{
+  --pri:#0d9488;--pri-d:#0f766e;--pri-l:#99f6e4;
+  --pink:#0891b2;--pink-d:#155e75;--pink-bg:#cffafe;
+  --gray:#6b7280;--light:#f0fdf4;--card:#fff;
+  --radius:14px;--shadow:0 4px 18px rgba(0,0,0,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#f0fdfa;font-family:'Helvetica Neue',Arial,'Hiragino Sans',sans-serif;color:#1e293b;}
+header{background:linear-gradient(135deg,var(--pri-d),var(--pri));color:#fff;text-align:center;padding:28px 20px 22px;}
+header h1{font-size:clamp(1.3rem,4vw,2rem);font-weight:900;letter-spacing:.04em;}
+header p{margin-top:6px;font-size:.93rem;opacity:.88;}
+.units{max-width:860px;margin:30px auto;padding:0 16px;}
+.unit-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:32px;overflow:hidden;}
+.unit-header{background:linear-gradient(90deg,var(--pri-d),var(--pri));color:#fff;padding:14px 22px;display:flex;align-items:center;gap:12px;}
+.unit-num{background:#fff;color:var(--pri-d);font-weight:900;font-size:1.1rem;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.unit-header h2{font-size:1.1rem;font-weight:800;}
+.unit-body{padding:22px;}
+.exp-img{margin:14px 0;}
+.exp-text{line-height:1.95;font-size:.97rem;margin:10px 0;}
+.exp-text p{margin-bottom:.85em;}
+.exp-text h3{font-size:.97rem;color:var(--pri-d);margin:1em 0 .5em;border-left:3px solid var(--pri);padding-left:8px;font-weight:800;}
+.pt-box{background:#dcfce7;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.warn-box{background:#fee2e2;border-left:4px solid #dc2626;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.memo-box{background:#f0fdfa;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.88rem;line-height:1.8;}
+.amber-box{background:#fef3c7;border-left:4px solid #b45309;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.info-box{background:#f0fdff;border-left:4px solid #0e7490;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.eq-box{background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;margin:10px 0;text-align:center;}
+.eq-box .eq{font-size:1rem;font-weight:800;color:var(--pri-d);letter-spacing:.03em;}
+.exp-tbl{width:100%;border-collapse:collapse;font-size:.85rem;margin:10px 0;}
+.exp-tbl th{background:var(--pri);color:#fff;padding:8px 10px;text-align:left;}
+.exp-tbl td{padding:8px 10px;border-bottom:1px solid #e5e7eb;vertical-align:top;line-height:1.65;}
+.exp-tbl tr:nth-child(even) td{background:#f9fafb;}
+.exp-tbl .nc{font-weight:700;white-space:nowrap;}
+.badge-p{background:#dcfce7;color:#14532d;border:1px solid #bbf7d0;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:10px;display:inline-block;margin-left:4px;}
+.kw-list{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px;}
+.kw{background:var(--pri-l);color:var(--pri-d);border-radius:20px;padding:4px 14px;font-size:.88rem;font-weight:700;}
+/* mini-test toggle */
+.mini-btn{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;background:var(--pink-bg);border:2.5px solid var(--pink);color:var(--pink-d);font-size:.97rem;font-weight:800;padding:10px 22px;border-radius:40px;margin:14px 0 0;transition:.2s;}
+.mini-btn:hover{background:var(--pink);color:#fff;}
+.mini-section{display:none;margin-top:16px;background:#ecfeff;border:2px solid #67e8f9;border-radius:12px;padding:18px;}
+.mini-section.open{display:block;}
+.q-block{margin-bottom:22px;}
+.q-block h4{font-size:.98rem;font-weight:800;color:var(--pri-d);margin-bottom:10px;}
+/* Word bank chips */
+.mchips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.mchip{background:#fff;border:2.5px solid var(--pink);color:var(--pink-d);border-radius:20px;padding:5px 16px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.mchip:hover{background:var(--pink);color:#fff;}
+.mchip.used{opacity:.35;pointer-events:none;}
+/* Blanks */
+.mdz-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0;}
+.mdz{display:inline-flex;align-items:center;justify-content:center;min-width:80px;height:36px;border:2.5px dashed var(--pink);border-radius:8px;padding:0 10px;font-size:.93rem;font-weight:700;cursor:pointer;color:var(--pink-d);transition:.18s;background:#fff;}
+.mdz.filled{border-style:solid;background:#cffafe;}
+.mdz.correct{border-color:#16a34a;background:#dcfce7;color:#166534;}
+.mdz.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.mdz-label{font-size:.9rem;color:#374151;}
+/* 4択 */
+.choice-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+@media(max-width:480px){.choice-list{grid-template-columns:1fr;}}
+.choice-btn{padding:10px 14px;border:2.5px solid #d1d5db;border-radius:10px;background:#fff;font-size:.93rem;cursor:pointer;text-align:left;transition:.18s;}
+.choice-btn:hover{border-color:var(--pri);background:var(--pri-l);}
+.choice-btn.correct{border-color:#16a34a;background:#dcfce7;color:#166534;font-weight:700;}
+.choice-btn.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.choice-btn:disabled{cursor:default;}
+/* Check / Sample buttons */
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.check-btn{background:var(--pri);color:#fff;border:none;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.check-btn:hover{background:var(--pri-d);}
+.sample-btn{background:#fff;color:var(--gray);border:2px solid #d1d5db;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.sample-btn:hover{background:#f3f4f6;}
+.msample{display:none;background:#fef9c3;border:1.5px solid #fbbf24;border-radius:8px;padding:8px 14px;font-size:.9rem;margin-top:8px;line-height:1.8;}
+.msample.show{display:block;}
+.fb-msg{font-size:.9rem;margin-top:6px;font-weight:600;}
+/* Score pips */
+.mini-score-row{display:flex;gap:6px;align-items:center;margin-bottom:10px;}
+.mini-score-pip{width:14px;height:14px;border-radius:50%;background:#e5e7eb;border:2px solid #d1d5db;transition:.3s;}
+.mini-score-pip.pass{background:#16a34a;border-color:#166534;}
+/* Pass banner */
+.pass-banner{display:none;background:linear-gradient(90deg,#166534,#16a34a);color:#fff;text-align:center;padding:16px;border-radius:10px;margin-top:16px;font-size:1.1rem;font-weight:900;}
+.pass-banner.show{display:block;}
+canvas#confetti-canvas{position:fixed;top:0;left:0;pointer-events:none;width:100%;height:100%;z-index:9999;}
+
+.q-img{max-width:100%;border-radius:10px;margin:6px auto 10px;display:block;}
+.q-note{font-size:.88rem;color:#555;margin-bottom:6px;line-height:1.8;}
+.src{font-size:.78rem;color:#6b7280;font-weight:600;margin-left:6px;}
+.chap-nav{max-width:860px;margin:0 auto 40px;padding:0 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.chap-nav a{background:#fff;border:2px solid var(--pri);color:var(--pri-d);text-decoration:none;font-weight:800;padding:8px 18px;border-radius:24px;font-size:.92rem;}
+.chap-nav a.now{background:var(--pri);color:#fff;}
+.exp-tbl td b{color:var(--pri-d);}
+</style>
+</head>
+<body>
+<canvas id="confetti-canvas"></canvas>
+<header>
+  <h1>🏃 中学理科 運動・力学① 力と運動</h1>
+  <p>中学3年 物理分野（運動）　図で確認・ミニテストで実力チェック</p>
+</header>
+<div class="units">
+
+<div class="unit-card" id="card_u1">
+  <div class="unit-header">
+    <div class="unit-num">1</div>
+    <h2>「平均の速さ」と「瞬間の速さ」</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><p><b>平均の速さ</b>・・・移動距離を、移動にかかった時間で割った値を「平均の速さ」といいます。</p>
+<p><b>瞬間の速さ</b>・・・ごく短い時間に移動した距離を、かかった時間で割った値を「瞬間の速さ」といいます。</p>
+<div class="pt-box"><b>【重要】</b><br>
+・平均の速さ＝移動距離÷かかった時間（全体をならした速さ）<br>
+・瞬間の速さ＝ごく短い時間に進んだ距離÷その時間（その瞬間の速さ）</div>
+<h3>【例題1】</h3>
+<p>Aさんは1800m離れた学校へ7:40に出発し、はじめは80m/分で歩き、あとで100m/分で走り、8:00に着きました。</p>
+<p>(1) 歩いたときの瞬間の速さは<b>80m/分</b>、走ったときの瞬間の速さは<b>100m/分</b>です（歩いている間・走っている間はそれぞれ一定の速さと考えます）。</p>
+<p>(2) 学校に着くまでの平均の速さを求めよう。</p>
+<div class="eq-box"><div class="eq">移動距離は1800m、かかった時間は7:40〜8:00の20分<br>平均の速さ＝1800m÷20分＝<b>90m/分</b></div></div>
+<div class="pt-box"><b>【重要】</b><br>
+・歩いた区間・走った区間それぞれの速さは「瞬間の速さ」（実際には区間ごとの平均）<br>
+・出発から到着までの全体でならした速さが「平均の速さ」</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('u1')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-u1" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 3</span>
+    </button>
+    <div class="mini-section" id="mini_u1">
+      <div class="mini-score-row" id="pips_u1"><div class="mini-score-pip" id="pip_u1_1"></div><div class="mini-score-pip" id="pip_u1_2"></div><div class="mini-score-pip" id="pip_u1_3"></div></div>
+      <div class="q-block" id="qblock_u1_q1">
+  <h4>Q1. 文中の①〜③に当てはまる語句・数値を語群から選んで入れよう。</h4>
+  <p class="q-note">移動距離を、移動にかかった時間で割った値を「①の速さ」という。ごく短い時間に移動した距離を、かかった時間で割った値を「②の速さ」という。Aさんの例では、学校に着くまでの平均の速さは③m/分である。</p>
+  <div class="mchips" id="chips_u1_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_u1_q1_0" onclick="returnChip('u1',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_u1_q1_1" onclick="returnChip('u1',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_u1_q1_2" onclick="returnChip('u1',1,2)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('u1',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('u1',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_u1_q1"></div>
+  <div class="msample" id="samp_u1_q1">答え: ①=平均 / ②=瞬間 / ③=90</div>
+</div>
+<div class="q-block" id="qblock_u1_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">Aさんは7:40に出発し8:00に学校に着いた（移動距離1800m）。学校に着くまでの平均の速さは何m/分か。</p>
+  <div class="choice-list" id="choices_u1_q2">
+    <button class="choice-btn" onclick="pick4('u1',2,0,2,'u1_q2')">ア：60m/分</button>
+    <button class="choice-btn" onclick="pick4('u1',2,1,2,'u1_q2')">イ：80m/分</button>
+    <button class="choice-btn" onclick="pick4('u1',2,2,2,'u1_q2')">ウ：90m/分</button>
+    <button class="choice-btn" onclick="pick4('u1',2,3,2,'u1_q2')">エ：100m/分</button>
+  </div>
+  <div class="fb-msg" id="fb_u1_q2"></div>
+  <div class="msample" id="samp_u1_q2">正解: ウ：90m/分<br>かかった時間は7:40〜8:00の20分。平均の速さ＝1800m÷20分＝90m/分。</div>
+</div>
+<div class="q-block" id="qblock_u1_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">「平均の速さ」と「瞬間の速さ」の説明として正しいものはどれか。</p>
+  <div class="choice-list" id="choices_u1_q3">
+    <button class="choice-btn" onclick="pick4('u1',3,0,1,'u1_q3')">ア：瞬間の速さは、全体の移動距離を全体の時間で割った値である</button>
+    <button class="choice-btn" onclick="pick4('u1',3,1,1,'u1_q3')">イ：平均の速さは、全体の移動距離を全体の時間で割った値である</button>
+    <button class="choice-btn" onclick="pick4('u1',3,2,1,'u1_q3')">ウ：平均の速さと瞬間の速さは、常に同じ値になる</button>
+    <button class="choice-btn" onclick="pick4('u1',3,3,1,'u1_q3')">エ：瞬間の速さは、1時間あたりに進む距離のことである</button>
+  </div>
+  <div class="fb-msg" id="fb_u1_q3"></div>
+  <div class="msample" id="samp_u1_q3">正解: イ　平均の速さ＝移動距離÷かかった時間（全体をならした速さ）。瞬間の速さは、ごく短い時間に進んだ距離から求める、その瞬間ごとの速さです。</div>
+</div>
+      <div class="pass-banner" id="pass_u1">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_u2">
+  <div class="unit-header">
+    <div class="unit-num">2</div>
+    <h2>単位換算　m/sとkm/h</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><p>速さの単位には、m/s（メートル毎秒）、m/分（メートル毎分）、km/h（キロメートル毎時）などがあります。単位を変えるときは、1分＝60秒、1時間＝60分であることを使って、かけ算・わり算で変換します。</p>
+<h3>【練習1】次の秒速を、分速、時速に換算せよ</h3>
+<div class="eq-box"><div class="eq">(1) 秒速10m/s → 10m/s×60＝<b>600m/分</b> → 600m/分×60＝36000m/h＝<b>36km/h</b><br>
+(2) 秒速15m/s → 15m/s×60＝<b>900m/分</b> → 900m/分×60＝45000m/h＝<b>45km/h</b></div></div>
+<h3>【練習2】次の時速を、分速、秒速に換算せよ</h3>
+<div class="eq-box"><div class="eq">(1) 時速36km/h＝36000m/h → 36000m/h÷60＝<b>600m/分</b> → 600m/分÷60＝<b>10m/s</b><br>
+(2) 時速108km/h＝108000m/h → 108000m/h÷60＝<b>1800m/分</b> → 1800m/分÷60＝<b>30m/s</b></div></div>
+<div class="pt-box"><b>【重要】</b><br>
+・秒速→分速：×60　分速→時速：×60<br>
+・時速→分速：÷60　分速→秒速：÷60</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('u2')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-u2" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 4</span>
+    </button>
+    <div class="mini-section" id="mini_u2">
+      <div class="mini-score-row" id="pips_u2"><div class="mini-score-pip" id="pip_u2_1"></div><div class="mini-score-pip" id="pip_u2_2"></div><div class="mini-score-pip" id="pip_u2_3"></div><div class="mini-score-pip" id="pip_u2_4"></div></div>
+      <div class="q-block" id="qblock_u2_q1">
+  <h4>Q1. 文中の①〜④に当てはまる数値を語群から選んで入れよう。</h4>
+  <p class="q-note">秒速10m/sは、分速①m/分、時速②km/hである。秒速15m/sは、分速③m/分、時速④km/hである。</p>
+  <div class="mchips" id="chips_u2_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_u2_q1_0" onclick="returnChip('u2',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_u2_q1_1" onclick="returnChip('u2',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_u2_q1_2" onclick="returnChip('u2',1,2)">&nbsp;</span>
+    <span class="mdz-label">④</span><span class="mdz" id="mdz_u2_q1_3" onclick="returnChip('u2',1,3)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('u2',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('u2',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_u2_q1"></div>
+  <div class="msample" id="samp_u2_q1">答え: ①=600 / ②=36 / ③=900 / ④=45</div>
+</div>
+<div class="q-block" id="qblock_u2_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">秒速10m/sを時速に直すと何km/hか。</p>
+  <div class="choice-list" id="choices_u2_q2">
+    <button class="choice-btn" onclick="pick4('u2',2,0,2,'u2_q2')">ア：6km/h</button>
+    <button class="choice-btn" onclick="pick4('u2',2,1,2,'u2_q2')">イ：10km/h</button>
+    <button class="choice-btn" onclick="pick4('u2',2,2,2,'u2_q2')">ウ：36km/h</button>
+    <button class="choice-btn" onclick="pick4('u2',2,3,2,'u2_q2')">エ：60km/h</button>
+  </div>
+  <div class="fb-msg" id="fb_u2_q2"></div>
+  <div class="msample" id="samp_u2_q2">正解: ウ：36km/h<br>10m/s×60＝600m/分、600m/分×60＝36000m/h＝36km/h。</div>
+</div>
+<div class="q-block" id="qblock_u2_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">時速36km/hを秒速に直すと何m/sか。</p>
+  <div class="choice-list" id="choices_u2_q3">
+    <button class="choice-btn" onclick="pick4('u2',3,0,1,'u2_q3')">ア：6m/s</button>
+    <button class="choice-btn" onclick="pick4('u2',3,1,1,'u2_q3')">イ：10m/s</button>
+    <button class="choice-btn" onclick="pick4('u2',3,2,1,'u2_q3')">ウ：36m/s</button>
+    <button class="choice-btn" onclick="pick4('u2',3,3,1,'u2_q3')">エ：60m/s</button>
+  </div>
+  <div class="fb-msg" id="fb_u2_q3"></div>
+  <div class="msample" id="samp_u2_q3">正解: イ：10m/s<br>36km/h＝36000m/h、36000m/h÷60＝600m/分、600m/分÷60＝10m/s。</div>
+</div>
+<div class="q-block" id="qblock_u2_q4">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">時速108km/hを秒速に直すと何m/sか。</p>
+  <div class="choice-list" id="choices_u2_q4">
+    <button class="choice-btn" onclick="pick4('u2',4,0,3,'u2_q4')">ア：3m/s</button>
+    <button class="choice-btn" onclick="pick4('u2',4,1,3,'u2_q4')">イ：10.8m/s</button>
+    <button class="choice-btn" onclick="pick4('u2',4,2,3,'u2_q4')">ウ：18m/s</button>
+    <button class="choice-btn" onclick="pick4('u2',4,3,3,'u2_q4')">エ：30m/s</button>
+  </div>
+  <div class="fb-msg" id="fb_u2_q4"></div>
+  <div class="msample" id="samp_u2_q4">正解: エ：30m/s<br>108km/h＝108000m/h、108000m/h÷60＝1800m/分、1800m/分÷60＝30m/s。</div>
+</div>
+      <div class="pass-banner" id="pass_u2">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_u3">
+  <div class="unit-header">
+    <div class="unit-num">3</div>
+    <h2>記録タイマーを使った速度の計算</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><p><b>記録タイマー</b>は、一定時間ごとに紙テープに打点を記録する装置です。交流電源の周波数のちがいにより、西日本では1秒間に<b>50回</b>、東日本では1秒間に<b>60回</b>打点します。</p>
+<p>打点の間隔から、テープが進んだ時間を求めることができます。例えば1秒間に60回打点するタイマーなら、1打点ごとの時間は1÷60秒です。テープを6打点ごとに区切ると、その区間にかかった時間は (1÷60)×6＝0.1秒になります。同じように1秒間に50回打点するタイマーでは、5打点ごとに区切ると (1÷50)×5＝0.1秒になります。</p>
+<h3>【例題1】記録タイマーを台車に取り付け、手を離したときの打点を調べた</h3>
+<p>(1) 1秒間に60回打点する記録タイマーで、AB間に6打点分の区間があり、テープの長さが15.0cmであった。AB間の平均の速さを求めよう。</p>
+<div class="eq-box"><div class="eq">6打点にかかる時間＝(1÷60)×6＝0.1秒<br>平均の速さ＝15.0cm÷0.1秒＝<b>150cm/秒</b></div></div>
+<p>(2) 1秒間に50回打点する記録タイマーで、A〜B間に5区間あり、テープの長さが8.0cmであった。A〜B間の平均の速さを求めよう。</p>
+<div class="eq-box"><div class="eq">5区間にかかる時間＝(1÷50)×5＝0.1秒<br>平均の速さ＝8.0cm÷0.1秒＝<b>80cm/秒</b></div></div>
+<div class="pt-box"><b>【重要】</b><br>
+・1秒間に50回打点＝1打点0.02秒、1秒間に60回打点＝1打点ごと1/60秒<br>
+・平均の速さ＝テープの長さ÷かかった時間</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('u3')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-u3" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 4</span>
+    </button>
+    <div class="mini-section" id="mini_u3">
+      <div class="mini-score-row" id="pips_u3"><div class="mini-score-pip" id="pip_u3_1"></div><div class="mini-score-pip" id="pip_u3_2"></div><div class="mini-score-pip" id="pip_u3_3"></div><div class="mini-score-pip" id="pip_u3_4"></div></div>
+      <div class="q-block" id="qblock_u3_q1">
+  <h4>Q1. 文中の①②に当てはまる数値を語群から選んで入れよう。</h4>
+  <p class="q-note">記録タイマーは、西日本では1秒間に①回、東日本では1秒間に②回打点する。</p>
+  <div class="mchips" id="chips_u3_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_u3_q1_0" onclick="returnChip('u3',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_u3_q1_1" onclick="returnChip('u3',1,1)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('u3',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('u3',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_u3_q1"></div>
+  <div class="msample" id="samp_u3_q1">答え: ①=50 / ②=60</div>
+</div>
+<div class="q-block" id="qblock_u3_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">1秒間に50回打点する記録タイマーを使い、台車の運動を調べた。A〜B間に5区間あり、テープの長さは6.0cmであった。A〜B間の平均の速さは何cm/秒か。</p>
+  <div class="choice-list" id="choices_u3_q2">
+    <button class="choice-btn" onclick="pick4('u3',2,0,1,'u3_q2')">ア：6cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u3',2,1,1,'u3_q2')">イ：60cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u3',2,2,1,'u3_q2')">ウ：120cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u3',2,3,1,'u3_q2')">エ：600cm/秒</button>
+  </div>
+  <div class="fb-msg" id="fb_u3_q2"></div>
+  <div class="msample" id="samp_u3_q2">正解: イ：60cm/秒<br>5区間にかかる時間＝(1÷50)×5＝0.1秒。平均の速さ＝6.0cm÷0.1秒＝60cm/秒。</div>
+</div>
+<div class="q-block" id="qblock_u3_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">1秒間に60回打点する記録タイマーを使い、台車の運動を調べた。A〜B間に6打点分の区間があり、テープの長さは7.5cmであった。A〜B間の平均の速さは何cm/秒か。</p>
+  <div class="choice-list" id="choices_u3_q3">
+    <button class="choice-btn" onclick="pick4('u3',3,0,0,'u3_q3')">ア：75cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u3',3,1,0,'u3_q3')">イ：7.5cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u3',3,2,0,'u3_q3')">ウ：150cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u3',3,3,0,'u3_q3')">エ：750cm/秒</button>
+  </div>
+  <div class="fb-msg" id="fb_u3_q3"></div>
+  <div class="msample" id="samp_u3_q3">正解: ア：75cm/秒<br>6打点にかかる時間＝(1÷60)×6＝0.1秒。平均の速さ＝7.5cm÷0.1秒＝75cm/秒。</div>
+</div>
+<div class="q-block" id="qblock_u3_q4">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">台車の運動を記録タイマーで調べたところ、1秒間に60回打点するタイマーで、図のAB間（6区間）の長さが10cmであった。AB間の平均の速さは何cm/秒か。</p>
+  <div class="choice-list" id="choices_u3_q4">
+    <button class="choice-btn" onclick="pick4('u3',4,0,2,'u3_q4')">ア：10cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u3',4,1,2,'u3_q4')">イ：60cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u3',4,2,2,'u3_q4')">ウ：100cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u3',4,3,2,'u3_q4')">エ：600cm/秒</button>
+  </div>
+  <div class="fb-msg" id="fb_u3_q4"></div>
+  <div class="msample" id="samp_u3_q4">正解: ウ：100cm/秒<br>AB間にかかる時間＝(1÷60)×6＝0.1秒。平均の速さ＝10cm÷0.1秒＝100cm/秒。</div>
+</div>
+      <div class="pass-banner" id="pass_u3">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_u4">
+  <div class="unit-header">
+    <div class="unit-num">4</div>
+    <h2>等速直線運動</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><p><b>①進行方向に力が働いていない物体の運動</b></p>
+<div class="exp-img"><img src="undou1.png" alt="風船ロケットが一定の間隔で進むようす" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p>風船から空気が吹き出し、わずかに浮いています。摩擦がない状態で風船を押すと、図のように、一定の速度で動きます。このように力が働いていない状態の運動は、速度が変わらず一直線上を動く「<b>等速直線運動</b>」となります。（例：宇宙空間（無重力）での物体の運動）</p>
+<p><b>②力が釣り合っている物体の運動</b></p>
+<div class="exp-img"><img src="undou2.png" alt="自動車のエンジンの力と摩擦力がつり合っているようす" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p>自動車が40km/hで等速直線運動しているとき、エンジンを止めれば止まります。等速直線運動をしているときは、エンジンの力とタイヤの摩擦力がつり合っています。力がはたらいていても、力がつり合っている物体の運動は「等速直線運動」となります。</p>
+<div class="pt-box"><b>【重要】</b><br>
+・力が働いていない物体、または力がつり合っている物体は、等速直線運動を続ける<br>
+・等速直線運動…速さが変わらず一直線上を動く運動</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('u4')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-u4" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 3</span>
+    </button>
+    <div class="mini-section" id="mini_u4">
+      <div class="mini-score-row" id="pips_u4"><div class="mini-score-pip" id="pip_u4_1"></div><div class="mini-score-pip" id="pip_u4_2"></div><div class="mini-score-pip" id="pip_u4_3"></div></div>
+      <div class="q-block" id="qblock_u4_q1">
+  <h4>Q1. 文中の①②に当てはまる語句を語群から選んで入れよう。</h4>
+  <p class="q-note">力が働いていない物体、または力が①いる物体は、速さが変わらず一直線上を動く「②」運動を続ける。</p>
+  <div class="mchips" id="chips_u4_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_u4_q1_0" onclick="returnChip('u4',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_u4_q1_1" onclick="returnChip('u4',1,1)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('u4',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('u4',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_u4_q1"></div>
+  <div class="msample" id="samp_u4_q1">答え: ①=つり合って / ②=等速直線</div>
+</div>
+<div class="q-block" id="qblock_u4_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">自動車が一定の速さで走っているとき（等速直線運動）、エンジンの力と摩擦力の関係として正しいものはどれか。</p>
+  <div class="choice-list" id="choices_u4_q2">
+    <button class="choice-btn" onclick="pick4('u4',2,0,2,'u4_q2')">ア：エンジンの力の方が大きい</button>
+    <button class="choice-btn" onclick="pick4('u4',2,1,2,'u4_q2')">イ：摩擦力の方が大きい</button>
+    <button class="choice-btn" onclick="pick4('u4',2,2,2,'u4_q2')">ウ：エンジンの力と摩擦力がつり合っている</button>
+    <button class="choice-btn" onclick="pick4('u4',2,3,2,'u4_q2')">エ：どちらの力もはたらいていない</button>
+  </div>
+  <div class="fb-msg" id="fb_u4_q2"></div>
+  <div class="msample" id="samp_u4_q2">正解: ウ　力がはたらいていても、エンジンの力と摩擦力がつり合っていれば、物体は等速直線運動を続けます。</div>
+</div>
+<div class="q-block" id="qblock_u4_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">宇宙空間（無重力・摩擦なし）で一定の速さで飛び続けているロケットの運動を何というか。</p>
+  <div class="choice-list" id="choices_u4_q3">
+    <button class="choice-btn" onclick="pick4('u4',3,0,1,'u4_q3')">ア：自由落下運動</button>
+    <button class="choice-btn" onclick="pick4('u4',3,1,1,'u4_q3')">イ：等速直線運動</button>
+    <button class="choice-btn" onclick="pick4('u4',3,2,1,'u4_q3')">ウ：等加速度運動</button>
+    <button class="choice-btn" onclick="pick4('u4',3,3,1,'u4_q3')">エ：振り子運動</button>
+  </div>
+  <div class="fb-msg" id="fb_u4_q3"></div>
+  <div class="msample" id="samp_u4_q3">正解: イ　進行方向に力がはたらいていないので、速さが変わらず一直線上を進む等速直線運動です。</div>
+</div>
+      <div class="pass-banner" id="pass_u4">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_u5">
+  <div class="unit-header">
+    <div class="unit-num">5</div>
+    <h2>等速直線運動のグラフ（時間と速さ・時間と距離）</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><h3>【例題3】</h3>
+<p>図1は等速直線運動をしている物体（速さ1.0m/s）の時間と速さの関係を示したグラフである。図1をもとに、時間と距離の関係を示したグラフを書こう。</p>
+<div class="exp-img"><img src="undou3.png" alt="等速直線運動の時間と速さ、時間と距離のグラフ" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p>1秒後に1m、2秒後に2m、3秒後に3m進むので、時間と距離の関係のグラフは原点を通る右上がりの直線になります。</p>
+<div class="pt-box"><b>【重要】</b><br>
+・時間と速さのグラフが一定（水平な直線）→等速直線運動<br>
+・このときの時間と距離のグラフは、原点を通る右上がりの直線になる<br>
+・直線の傾きは「速度」を表す</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('u5')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-u5" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 3</span>
+    </button>
+    <div class="mini-section" id="mini_u5">
+      <div class="mini-score-row" id="pips_u5"><div class="mini-score-pip" id="pip_u5_1"></div><div class="mini-score-pip" id="pip_u5_2"></div><div class="mini-score-pip" id="pip_u5_3"></div></div>
+      <div class="q-block" id="qblock_u5_q1">
+  <h4>Q1. 文中の①②に当てはまる語句を語群から選んで入れよう。</h4>
+  <p class="q-note">等速直線運動をしている物体の、時間と速さのグラフは①な直線になる。このとき、時間と距離のグラフは、原点を通る②な直線になる。</p>
+  <div class="mchips" id="chips_u5_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_u5_q1_0" onclick="returnChip('u5',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_u5_q1_1" onclick="returnChip('u5',1,1)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('u5',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('u5',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_u5_q1"></div>
+  <div class="msample" id="samp_u5_q1">答え: ①=水平 / ②=右上がり</div>
+</div>
+<div class="q-block" id="qblock_u5_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">図1のように、速さ2.0m/sで等速直線運動をしている物体がある。3秒後までに進んだ距離は何mか。</p>
+  <div class="choice-list" id="choices_u5_q2">
+    <button class="choice-btn" onclick="pick4('u5',2,0,2,'u5_q2')">ア：2m</button>
+    <button class="choice-btn" onclick="pick4('u5',2,1,2,'u5_q2')">イ：3m</button>
+    <button class="choice-btn" onclick="pick4('u5',2,2,2,'u5_q2')">ウ：6m</button>
+    <button class="choice-btn" onclick="pick4('u5',2,3,2,'u5_q2')">エ：9m</button>
+  </div>
+  <div class="fb-msg" id="fb_u5_q2"></div>
+  <div class="msample" id="samp_u5_q2">正解: ウ：6m<br>速さ×時間＝距離なので、2.0m/s×3秒＝6m。</div>
+</div>
+<div class="q-block" id="qblock_u5_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">時間と速さのグラフの直線の傾きは、何を表しているか。</p>
+  <div class="choice-list" id="choices_u5_q3">
+    <button class="choice-btn" onclick="pick4('u5',3,0,2,'u5_q3')">ア：距離</button>
+    <button class="choice-btn" onclick="pick4('u5',3,1,2,'u5_q3')">イ：時間</button>
+    <button class="choice-btn" onclick="pick4('u5',3,2,2,'u5_q3')">ウ：加速度</button>
+    <button class="choice-btn" onclick="pick4('u5',3,3,2,'u5_q3')">エ：質量</button>
+  </div>
+  <div class="fb-msg" id="fb_u5_q3"></div>
+  <div class="msample" id="samp_u5_q3">正解: ウ：加速度<br>時間と速さのグラフで直線の傾き（速さの変化のしかた）は加速度を表します。なお、等速直線運動では速さ一定（傾き0）なので加速度は0です。</div>
+</div>
+      <div class="pass-banner" id="pass_u5">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_u6">
+  <div class="unit-header">
+    <div class="unit-num">6</div>
+    <h2>一定の力が常に働いている物体の運動</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><p><b>①速度が増す運動</b></p>
+<div class="exp-img"><img src="undou5.png" alt="自由落下運動と斜面上の台車の運動（速度が増す）" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p>（物体の自由落下運動）図のように、100gの物体には1Nの重力がかかっています。この物体を手放し落下させる運動では、物体に常に1Nがかかります。この場合、速度が<b>増える</b>運動（加速度運動）となります。</p>
+<p>（斜面上の物体の運動）斜面上の1kg（10N）の台車には、10Nの重力が常にかかります。台車には斜面に平行な力がかかり、この力の大きさは<b>一定</b>の力でかかり続けます。台車の速さは<b>増え</b>ます（加速度運動）。</p>
+<p><b>②速度が減少する運動</b></p>
+<div class="exp-img"><img src="undou7.png" alt="摩擦がある面での運動と斜面を登る運動（速度が減少）" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p>（摩擦がある面での物体の運動）物体の運動方向と逆向きに、<b>一定</b>の摩擦力が常に働き、速度は<b>減少</b>します。</p>
+<p>（斜面を登る物体の運動）台車にかかる重力の分力のひとつ、斜面に平行な力は、運動方向の逆向きに一定の力ではたらきます。このため台車の速度は<b>減少</b>します。</p>
+<div class="pt-box"><b>【重要】</b><br>
+・一定の力が運動方向と同じ向きにはたらき続けると、速さは増える（自由落下、下り斜面）<br>
+・一定の力が運動方向と逆向きにはたらき続けると、速さは減少する（摩擦、上り斜面）</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('u6')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-u6" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 4</span>
+    </button>
+    <div class="mini-section" id="mini_u6">
+      <div class="mini-score-row" id="pips_u6"><div class="mini-score-pip" id="pip_u6_1"></div><div class="mini-score-pip" id="pip_u6_2"></div><div class="mini-score-pip" id="pip_u6_3"></div><div class="mini-score-pip" id="pip_u6_4"></div></div>
+      <div class="q-block" id="qblock_u6_q1">
+  <h4>Q1. 下の図の①〜③に当てはまる語句を語群から選んで入れよう。</h4>
+  <img class="q-img" src="undou6.png" alt="自由落下運動と斜面上の台車の運動（空欄あり）">
+  <p class="q-note">100gの物体には1Nの重力が常にかかり、この運動は速度が①運動となる。斜面上の台車には、斜面に平行な力が②の力でかかり続け、台車の速さは③ます。</p>
+  <div class="mchips" id="chips_u6_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_u6_q1_0" onclick="returnChip('u6',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_u6_q1_1" onclick="returnChip('u6',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_u6_q1_2" onclick="returnChip('u6',1,2)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('u6',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('u6',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_u6_q1"></div>
+  <div class="msample" id="samp_u6_q1">答え: ①=増える / ②=一定 / ③=増え</div>
+</div>
+<div class="q-block" id="qblock_u6_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">100gの物体（1Nの重力がかかる）を手放し、自由落下させた。この運動について正しいものはどれか。</p>
+  <div class="choice-list" id="choices_u6_q2">
+    <button class="choice-btn" onclick="pick4('u6',2,0,0,'u6_q2')">ア：物体に一定の力（重力）がかかり続け、速さは増え続ける</button>
+    <button class="choice-btn" onclick="pick4('u6',2,1,0,'u6_q2')">イ：物体には力がはたらいていない</button>
+    <button class="choice-btn" onclick="pick4('u6',2,2,0,'u6_q2')">ウ：速さは一定のまま変わらない（等速直線運動）</button>
+    <button class="choice-btn" onclick="pick4('u6',2,3,0,'u6_q2')">エ：速さはだんだん遅くなる</button>
+  </div>
+  <div class="fb-msg" id="fb_u6_q2"></div>
+  <div class="msample" id="samp_u6_q2">正解: ア　物体には常に一定の重力（この場合1N）がかかり続けるので、速さはだんだん増えていく加速度運動になります。</div>
+</div>
+<div class="q-block" id="qblock_u6_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">床の上を滑っている物体には、運動方向と逆向きに一定の摩擦力がはたらき続ける。このとき物体の速さはどうなるか。</p>
+  <div class="choice-list" id="choices_u6_q3">
+    <button class="choice-btn" onclick="pick4('u6',3,0,1,'u6_q3')">ア：増える</button>
+    <button class="choice-btn" onclick="pick4('u6',3,1,1,'u6_q3')">イ：減少する</button>
+    <button class="choice-btn" onclick="pick4('u6',3,2,1,'u6_q3')">ウ：変わらない</button>
+    <button class="choice-btn" onclick="pick4('u6',3,3,1,'u6_q3')">エ：0から急に増える</button>
+  </div>
+  <div class="fb-msg" id="fb_u6_q3"></div>
+  <div class="msample" id="samp_u6_q3">正解: イ：減少する<br>運動方向と逆向きに一定の摩擦力がはたらき続けるため、物体の速さはだんだん小さくなります。</div>
+</div>
+<div class="q-block" id="qblock_u6_q4">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">台車が斜面をのぼっているとき、台車にかかる重力の斜面に平行な分力の向きと、台車の速さの変化として正しいものはどれか。</p>
+  <div class="choice-list" id="choices_u6_q4">
+    <button class="choice-btn" onclick="pick4('u6',4,0,2,'u6_q4')">ア：運動方向と同じ向きにはたらき、速さは増える</button>
+    <button class="choice-btn" onclick="pick4('u6',4,1,2,'u6_q4')">イ：力ははたらかず、速さは変わらない</button>
+    <button class="choice-btn" onclick="pick4('u6',4,2,2,'u6_q4')">ウ：運動方向と逆向きにはたらき、速さは減少する</button>
+    <button class="choice-btn" onclick="pick4('u6',4,3,2,'u6_q4')">エ：運動方向と逆向きにはたらくが、速さは変わらない</button>
+  </div>
+  <div class="fb-msg" id="fb_u6_q4"></div>
+  <div class="msample" id="samp_u6_q4">正解: ウ　斜面を登るとき、重力の斜面に平行な分力は運動方向と逆向きに一定の力ではたらき続けるため、台車の速さはだんだん減少します。</div>
+</div>
+      <div class="pass-banner" id="pass_u6">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_u7">
+  <div class="unit-header">
+    <div class="unit-num">7</div>
+    <h2>一定の力が常に働いている運動の時間と速さ、時間と距離のグラフ</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><div class="info-box"><b>【重要】時間と速さの関係のグラフとχ軸との間の面積＝移動距離</b></div>
+<h3>【例題4】</h3>
+<p>斜面上に置いた台車から手を離した。その後の台車の時間と速さの関係は図1のグラフのようになった。このグラフをもとに、時間と距離の関係を表すグラフを書こう。</p>
+<div class="exp-img"><img src="undou9.png" alt="斜面上の台車の時間と速さ、時間と距離のグラフ（表あり）" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p>この面積が3秒間の移動距離。3×30÷2＝<b>45cm</b>。表を作り、座標を入力してなだらかな曲線でつなぐと、時間と距離の関係は<b>二次関数</b>になります。</p>
+<h3>【例題5】</h3>
+<p>斜面上に置いた台車から手を離した（斜面と水平な面の摩擦は考えない）。</p>
+<div class="exp-img"><img src="undou11.png" alt="斜面から水平面に進む台車の時間と速さ①〜④、時間と距離A〜Dのグラフ" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p>(1) 時間と速さの関係を表したグラフは<b>③</b>（斜面上で速さが増え、水平面に出てからは一定になる）。</p>
+<p>(2) 時間と距離の関係を表したグラフは<b>B</b>（斜面上では二次関数的に、水平面では一直線に増える）。</p>
+<p><b>ヒント</b>：斜面上の台車は速度が増す運動なので時間と距離の関係は二次関数、水平面では等速直線運動になります。</p>
+<h3>【例題6】</h3>
+<p>斜面上に置いた台車から手を離した（斜面と水平な面の摩擦は考えない）。a（斜面上）→b（斜面と水平面の境目）→c（水平面の終わり）→d（上り斜面）の順に進む。</p>
+<div class="exp-img"><img src="undou12.png" alt="下り斜面→水平面→上り斜面の台車の時間と速さのグラフ①〜④" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p>(1) a〜dまでの時間と速さの関係を表したグラフは<b>②</b>（下り斜面で増加→水平面で一定→上り斜面で減少）。</p>
+<p>(2) a〜dまでの移動距離は、②の図より台形の面積を求めればよい。(2＋5)×20÷2＝<b>70cm</b>。</p>
+<div class="pt-box"><b>【重要】</b><br>
+・一定の力が運動方向と同じ向き→速さが増える→時間と距離のグラフは二次関数のカーブ<br>
+・力がつり合っている（またははたらかない）→等速直線運動→時間と距離のグラフは直線<br>
+・時間と速さのグラフとχ軸にはさまれた部分の面積＝移動距離</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('u7')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-u7" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 5</span>
+    </button>
+    <div class="mini-section" id="mini_u7">
+      <div class="mini-score-row" id="pips_u7"><div class="mini-score-pip" id="pip_u7_1"></div><div class="mini-score-pip" id="pip_u7_2"></div><div class="mini-score-pip" id="pip_u7_3"></div><div class="mini-score-pip" id="pip_u7_4"></div><div class="mini-score-pip" id="pip_u7_5"></div></div>
+      <div class="q-block" id="qblock_u7_q1">
+  <h4>Q1. 文中の①②に当てはまる語句を語群から選んで入れよう。</h4>
+  <p class="q-note">時間と速さのグラフとχ軸の間の面積は①を表す。一定の力が運動方向と同じ向きにはたらき続ける運動では、時間と距離の関係は②になる。</p>
+  <div class="mchips" id="chips_u7_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_u7_q1_0" onclick="returnChip('u7',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_u7_q1_1" onclick="returnChip('u7',1,1)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('u7',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('u7',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_u7_q1"></div>
+  <div class="msample" id="samp_u7_q1">答え: ①=移動距離 / ②=二次関数</div>
+</div>
+<div class="q-block" id="qblock_u7_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">【例題4】の斜面上の台車で、時間と速さのグラフは原点から3秒後に30cm/秒まで一直線に増えた。3秒間の移動距離は何cmか（三角形の面積として求めよう）。</p>
+  <div class="choice-list" id="choices_u7_q2">
+    <button class="choice-btn" onclick="pick4('u7',2,0,1,'u7_q2')">ア：30cm</button>
+    <button class="choice-btn" onclick="pick4('u7',2,1,1,'u7_q2')">イ：45cm</button>
+    <button class="choice-btn" onclick="pick4('u7',2,2,1,'u7_q2')">ウ：60cm</button>
+    <button class="choice-btn" onclick="pick4('u7',2,3,1,'u7_q2')">エ：90cm</button>
+  </div>
+  <div class="fb-msg" id="fb_u7_q2"></div>
+  <div class="msample" id="samp_u7_q2">正解: イ：45cm<br>三角形の面積＝底辺（時間）×高さ（速さ）÷2＝3×30÷2＝45cm。</div>
+</div>
+<div class="q-block" id="qblock_u7_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">【例題5】のように、台車が斜面を下って水平面に出た。斜面上での時間と距離の関係のグラフの形として正しいものはどれか。</p>
+  <div class="choice-list" id="choices_u7_q3">
+    <button class="choice-btn" onclick="pick4('u7',3,0,0,'u7_q3')">ア：下にふくらむ曲線（二次関数）</button>
+    <button class="choice-btn" onclick="pick4('u7',3,1,0,'u7_q3')">イ：原点を通る一直線</button>
+    <button class="choice-btn" onclick="pick4('u7',3,2,0,'u7_q3')">ウ：水平な直線（変化しない）</button>
+    <button class="choice-btn" onclick="pick4('u7',3,3,0,'u7_q3')">エ：上にふくらむ曲線</button>
+  </div>
+  <div class="fb-msg" id="fb_u7_q3"></div>
+  <div class="msample" id="samp_u7_q3">正解: ア　斜面上では台車の速さがだんだん増える（加速度運動）ので、時間と距離の関係は二次関数の、下にふくらむ曲線になります。</div>
+</div>
+<div class="q-block" id="qblock_u7_q4">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">【例題6】のように、台車が下り斜面→水平面→上り斜面の順に進んだ。時間と速さの関係のグラフの形として正しいものはどれか。</p>
+  <div class="choice-list" id="choices_u7_q4">
+    <button class="choice-btn" onclick="pick4('u7',4,0,1,'u7_q4')">ア：ずっと一定</button>
+    <button class="choice-btn" onclick="pick4('u7',4,1,1,'u7_q4')">イ：増加→一定→減少（台形の形）</button>
+    <button class="choice-btn" onclick="pick4('u7',4,2,1,'u7_q4')">ウ：減少→一定→増加</button>
+    <button class="choice-btn" onclick="pick4('u7',4,3,1,'u7_q4')">エ：ずっと増加し続ける</button>
+  </div>
+  <div class="fb-msg" id="fb_u7_q4"></div>
+  <div class="msample" id="samp_u7_q4">正解: イ　下り斜面で速さが増え、水平面で一定になり、上り斜面で速さが減少するので、グラフは台形の形になります。</div>
+</div>
+<div class="q-block" id="qblock_u7_q5">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">【例題6】で、a〜dまでの時間と速さのグラフが、速さ2cm/秒から5cm/秒まで増えたあと、5cm/秒から0cm/秒まで減る台形（底辺にあたる時間の合計の目盛りの差が20）になった。a〜dまでの移動距離は何cmか（台形の面積の公式：(上底＋下底)×高さ÷2を使おう）。</p>
+  <div class="choice-list" id="choices_u7_q5">
+    <button class="choice-btn" onclick="pick4('u7',5,0,2,'u7_q5')">ア：35cm</button>
+    <button class="choice-btn" onclick="pick4('u7',5,1,2,'u7_q5')">イ：50cm</button>
+    <button class="choice-btn" onclick="pick4('u7',5,2,2,'u7_q5')">ウ：70cm</button>
+    <button class="choice-btn" onclick="pick4('u7',5,3,2,'u7_q5')">エ：100cm</button>
+  </div>
+  <div class="fb-msg" id="fb_u7_q5"></div>
+  <div class="msample" id="samp_u7_q5">正解: ウ：70cm<br>台形の面積＝(2＋5)×20÷2＝70cm。</div>
+</div>
+      <div class="pass-banner" id="pass_u7">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_u8">
+  <div class="unit-header">
+    <div class="unit-num">8</div>
+    <h2>練習問題：斜面と平面を動く台車のグラフ</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><h3>【練習8】</h3>
+<p>次図のような斜面をもつ平面上に台車を置き、手で押さえた。手を離すと運動をはじめ、A→B→C→D間を動いた（AB間は下り斜面、BC間は水平面、CD間は上り斜面）。</p>
+<div class="exp-img"><img src="undou13.png" alt="A→B→C→Dの斜面・水平面を動く台車と、時間と速さの台形グラフ" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p>(1) 右図は台車の時間と速さの関係グラフである（0〜2秒で0から20cm/秒まで増加、2〜4秒で20cm/秒のまま一定、4〜6秒で20cm/秒から0まで減少）。AからDまでの移動距離を求めよう。</p>
+<div class="eq-box"><div class="eq">時間と速さの関係図では、面積が移動距離である。<br>台形ABCDの面積＝(2＋6)×20÷2＝<b>80cm</b></div></div>
+<p>(2) BC間の、台車の運動を何というか。</p>
+<div class="eq-box"><div class="eq">BC間は速さが一定（20cm/秒のまま）なので、<b>等速直線運動</b>である。</div></div>
+<div class="pt-box"><b>【重要】</b><br>
+・下り斜面：速さが増える（加速度運動）<br>
+・水平面（摩擦なし）：速さ一定（等速直線運動）<br>
+・上り斜面：速さが減る（加速度運動）</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('u8')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-u8" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 3</span>
+    </button>
+    <div class="mini-section" id="mini_u8">
+      <div class="mini-score-row" id="pips_u8"><div class="mini-score-pip" id="pip_u8_1"></div><div class="mini-score-pip" id="pip_u8_2"></div><div class="mini-score-pip" id="pip_u8_3"></div></div>
+      <div class="q-block" id="qblock_u8_q1">
+  <h4>Q1. 文中の①②に当てはまる語句を語群から選んで入れよう。</h4>
+  <p class="q-note">下り斜面では速さが①、水平面（摩擦なし）では速さが一定の②運動になる。</p>
+  <div class="mchips" id="chips_u8_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_u8_q1_0" onclick="returnChip('u8',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_u8_q1_1" onclick="returnChip('u8',1,1)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('u8',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('u8',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_u8_q1"></div>
+  <div class="msample" id="samp_u8_q1">答え: ①=増える / ②=等速直線</div>
+</div>
+<div class="q-block" id="qblock_u8_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">【練習8】の台車（0〜2秒で0→20cm/秒、2〜4秒で20cm/秒一定、4〜6秒で20cm/秒→0）について、AからDまでの移動距離は何cmか。</p>
+  <div class="choice-list" id="choices_u8_q2">
+    <button class="choice-btn" onclick="pick4('u8',2,0,2,'u8_q2')">ア：40cm</button>
+    <button class="choice-btn" onclick="pick4('u8',2,1,2,'u8_q2')">イ：60cm</button>
+    <button class="choice-btn" onclick="pick4('u8',2,2,2,'u8_q2')">ウ：80cm</button>
+    <button class="choice-btn" onclick="pick4('u8',2,3,2,'u8_q2')">エ：120cm</button>
+  </div>
+  <div class="fb-msg" id="fb_u8_q2"></div>
+  <div class="msample" id="samp_u8_q2">正解: ウ：80cm<br>台形の面積＝(上底2秒＋下底6秒)×高さ20cm/秒÷2＝(2＋6)×20÷2＝80cm。</div>
+</div>
+<div class="q-block" id="qblock_u8_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">【練習8】のBC間（水平面、速さが一定）の台車の運動を何というか。</p>
+  <div class="choice-list" id="choices_u8_q3">
+    <button class="choice-btn" onclick="pick4('u8',3,0,1,'u8_q3')">ア：自由落下運動</button>
+    <button class="choice-btn" onclick="pick4('u8',3,1,1,'u8_q3')">イ：等速直線運動</button>
+    <button class="choice-btn" onclick="pick4('u8',3,2,1,'u8_q3')">ウ：加速度運動</button>
+    <button class="choice-btn" onclick="pick4('u8',3,3,1,'u8_q3')">エ：円運動</button>
+  </div>
+  <div class="fb-msg" id="fb_u8_q3"></div>
+  <div class="msample" id="samp_u8_q3">正解: イ：等速直線運動<br>BC間は速さが変わらない（一定）ので、等速直線運動です。</div>
+</div>
+      <div class="pass-banner" id="pass_u8">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_u9">
+  <div class="unit-header">
+    <div class="unit-num">9</div>
+    <h2>練習9：記録タイマーと力学台車・おもりの発展問題</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><p>図1のような装置で、止まっている力学台車から静かに手をはなし、その後の力学台車の運動を調べた。点Pから点Qまでの距離は40cmである。力学台車の質量は1kg、おもりの質量は500gである。図2は、このときの記録テープに、点aから6打点毎にb〜eの記号をつけ、点aからの長さを記入したものである（記録装置は1秒間に60打点記録する。台車と水平面との摩擦はないものとする）。</p>
+<div class="exp-img"><img src="undou14.png" alt="力学台車とおもり、記録テープの図（ab:6.5cm,ac:18.0cm,ad:34.3cm,ae:55.4cm）" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+<p>(1) はじめに手が力学台車に加えている左向きの力の大きさは何Nか。</p>
+<div class="eq-box"><div class="eq">おもりの質量は0.5kg＝500gなので、これを静止させておくためには<b>5N</b>の力が必要である。</div></div>
+<p>(2) 点Pから点Qまでの間の台車の速さは、どのように変化するか。<b>だんだん速くなる</b>（おもりが落下している間は、糸を通じて一定の力がかかり続けるため）。</p>
+<p>(3) 点Qからおもりが床につき、滑車に台車が衝突するまでの間の台車の運動はどんな運動か。</p>
+<div class="eq-box"><div class="eq">Q点でおもりは床についてしまうので、糸はゆるんでしまい、これ以降は台車には力がはたらかない。よって、台車は滑車に衝突するまでの間、<b>等速直線運動</b>をおこなう。</div></div>
+<p>(4) (3)のときの、経過時間と力学台車の移動距離との関係を表すグラフは、原点を通らず、一定の速さで増え続ける直線（<b>イ</b>）になる。</p>
+<p>(5) 点bから点cまでの平均の速さは何cm／秒か。</p>
+<div class="eq-box"><div class="eq">この記録タイマーは1秒間に60回打点するので、1打点の間隔は1÷60秒。6打点の間隔は(1÷60)×6＝0.1秒である。<br>bc間は18.0－6.5＝11.5cmなので、平均の速さ＝11.5cm÷0.1秒＝<b>115cm／秒</b></div></div>
+<p>(6) 点aから点eまでの平均の速さは何cm／秒か。</p>
+<div class="eq-box"><div class="eq">ae間は55.4cmで、ae間の時間は0.1秒×4＝0.4秒なので、平均の速さ＝55.4cm÷0.4秒＝<b>138.5cm／秒</b></div></div>
+</div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('u9')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-u9" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 4</span>
+    </button>
+    <div class="mini-section" id="mini_u9">
+      <div class="mini-score-row" id="pips_u9"><div class="mini-score-pip" id="pip_u9_1"></div><div class="mini-score-pip" id="pip_u9_2"></div><div class="mini-score-pip" id="pip_u9_3"></div><div class="mini-score-pip" id="pip_u9_4"></div></div>
+      <div class="q-block" id="qblock_u9_q1">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">【練習9】で、おもりの質量は500g（＝0.5kg）である。はじめに手が力学台車に加えている左向きの力（おもりを静止させておくための力）の大きさは何Nか。</p>
+  <div class="choice-list" id="choices_u9_q1">
+    <button class="choice-btn" onclick="pick4('u9',1,0,2,'u9_q1')">ア：0.5N</button>
+    <button class="choice-btn" onclick="pick4('u9',1,1,2,'u9_q1')">イ：1N</button>
+    <button class="choice-btn" onclick="pick4('u9',1,2,2,'u9_q1')">ウ：5N</button>
+    <button class="choice-btn" onclick="pick4('u9',1,3,2,'u9_q1')">エ：10N</button>
+  </div>
+  <div class="fb-msg" id="fb_u9_q1"></div>
+  <div class="msample" id="samp_u9_q1">正解: ウ：5N<br>100gが1Nなので、500g（0.5kg）のおもりを静止させておくには5Nの力が必要です。</div>
+</div>
+<div class="q-block" id="qblock_u9_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">点Qでおもりが床につき、それ以降は台車に糸から力がかからなくなった。この後、滑車に衝突するまでの台車の運動は何か。</p>
+  <div class="choice-list" id="choices_u9_q2">
+    <button class="choice-btn" onclick="pick4('u9',2,0,1,'u9_q2')">ア：だんだん速くなる運動</button>
+    <button class="choice-btn" onclick="pick4('u9',2,1,1,'u9_q2')">イ：等速直線運動</button>
+    <button class="choice-btn" onclick="pick4('u9',2,2,1,'u9_q2')">ウ：だんだん遅くなる運動</button>
+    <button class="choice-btn" onclick="pick4('u9',2,3,1,'u9_q2')">エ：すぐに静止する</button>
+  </div>
+  <div class="fb-msg" id="fb_u9_q2"></div>
+  <div class="msample" id="samp_u9_q2">正解: イ：等速直線運動<br>おもりが床についた後は糸がゆるんで台車に力がはたらかなくなるので、台車は等速直線運動を続けます。</div>
+</div>
+<div class="q-block" id="qblock_u9_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">テープで、点a(0cm)から点bまで6.5cm、点cまで18.0cm進んだ。記録タイマーは1秒間に60打点し、6打点ごとにb,cの印をつけている。点bから点cまでの平均の速さは何cm／秒か。</p>
+  <div class="choice-list" id="choices_u9_q3">
+    <button class="choice-btn" onclick="pick4('u9',3,0,2,'u9_q3')">ア：18cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u9',3,1,2,'u9_q3')">イ：65cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u9',3,2,2,'u9_q3')">ウ：115cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u9',3,3,2,'u9_q3')">エ：180cm/秒</button>
+  </div>
+  <div class="fb-msg" id="fb_u9_q3"></div>
+  <div class="msample" id="samp_u9_q3">正解: ウ：115cm/秒<br>bc間の距離＝18.0－6.5＝11.5cm。6打点の時間＝(1÷60)×6＝0.1秒。平均の速さ＝11.5cm÷0.1秒＝115cm/秒。</div>
+</div>
+<div class="q-block" id="qblock_u9_q4">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">点a(0cm)から点eまで55.4cm進んだ。a〜eの間は6打点の区間が4つ分ある。点aから点eまでの平均の速さは何cm／秒か。</p>
+  <div class="choice-list" id="choices_u9_q4">
+    <button class="choice-btn" onclick="pick4('u9',4,0,2,'u9_q4')">ア：55.4cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u9',4,1,2,'u9_q4')">イ：110.8cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u9',4,2,2,'u9_q4')">ウ：138.5cm/秒</button>
+    <button class="choice-btn" onclick="pick4('u9',4,3,2,'u9_q4')">エ：554cm/秒</button>
+  </div>
+  <div class="fb-msg" id="fb_u9_q4"></div>
+  <div class="msample" id="samp_u9_q4">正解: ウ：138.5cm/秒<br>ae間の時間＝0.1秒×4＝0.4秒。平均の速さ＝55.4cm÷0.4秒＝138.5cm/秒。</div>
+</div>
+      <div class="pass-banner" id="pass_u9">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_u10">
+  <div class="unit-header">
+    <div class="unit-num">10</div>
+    <h2>作用・反作用の法則</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><div class="pt-box"><b>【重要】作用反作用の法則</b><br>
+物体Aから物体Bに力がはたらくとき、必ずAに対しても、同じ大きさ・同一直線上・反対方向の力がはたらきます。これを「作用反作用の法則」といい、Aにはたらく力を「作用」、Bにはたらく力を「反作用」といいます（どちらを作用、どちらを反作用と呼ぶかは考える向きによります）。</div>
+<h3>【例題7】</h3>
+<p>ローラースケートをはいた人が、壁を押した場合、人はどのように動くか。</p>
+<div class="eq-box"><div class="eq">壁を押すことで、壁がごくわずかにへこみ、それがもとに戻ろうとする「<b>弾性</b>」力を生じ、その力（反作用）によって、人は押した向きと反対側に動く。</div></div>
+<h3>【練習10】</h3>
+<p>(1) 湖に浮かぶボートで、B君が手でA君のボートを押すと、A君・B君それぞれのボートはどのように動くか。</p>
+<div class="eq-box"><div class="eq">B君がA君のボートを押す力＝作用。A君のボートがB君を押し返す力＝反作用。<br>よって、<b>A君・B君のボートは、互いに反対方向（はなれる向き）に動く</b>。</div></div>
+<p>(2) A君はローラースケートをはいて、壁に固定されたロープを引っ張った。このときA君の体はどのように動くか。</p>
+<div class="eq-box"><div class="eq">A君のロープは壁に固定されている。A君が引っ張るとロープはわずかに伸び、もとに戻ろうとする「弾性」力により、A君は引っ張られる。<br>A君が引く力＝作用、ロープがA君を引く力＝反作用。A君の体は、ロープを引いた方向（壁の方向）へ動く。</div></div>
+<h3>【練習11】</h3>
+<p>(1) 湖上に、A君とB君がボートに乗って、ロープをお互いにもっている。B君がロープを引っ張ると、A君・B君のボートはそれぞれどのように動くか。</p>
+<div class="eq-box"><div class="eq">B君がロープを引く力＝作用。ロープがわずかに伸び、もとに戻ろうとする弾性力によりB君を引く力が生じる＝反作用。よってB君は引いた方向（A君の方向）へ引かれる。<br>同時に、ロープを通じてA君にも反作用の力がはたらき、A君もB君の方向へ引かれる。<br>→<b>A君・B君のボートは、互いに近づく方向に動く</b>。</div></div>
+<p>(2) ロケットが飛ぶのはどうしてか説明しよう。</p>
+<div class="exp-img"><img src="kansei1.png" alt="ロケットが飛ぶ仕組み（作用と反作用）" style="max-width:70%;border-radius:10px;margin:10px auto;display:block;"></div>
+<div class="eq-box"><div class="eq">ロケットは、水素と酸素を爆発的に化合させて（あるいは固形燃料を爆発させて）ガスを噴射する。<br>ガスを噴射する力＝<b>作用</b>。ロケットを上げる力＝<b>反作用</b>。この反作用の力で飛ぶことができる。</div></div>
+</div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('u10')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-u10" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 4</span>
+    </button>
+    <div class="mini-section" id="mini_u10">
+      <div class="mini-score-row" id="pips_u10"><div class="mini-score-pip" id="pip_u10_1"></div><div class="mini-score-pip" id="pip_u10_2"></div><div class="mini-score-pip" id="pip_u10_3"></div><div class="mini-score-pip" id="pip_u10_4"></div></div>
+      <div class="q-block" id="qblock_u10_q1">
+  <h4>Q1. 下の図の①②に当てはまる語句を語群から選んで入れよう。</h4>
+  <img class="q-img" src="kansei1.png" alt="ロケットが飛ぶ仕組み（空欄あり）" style="max-width:70%;">
+  <p class="q-note">ロケットがガスを噴射する力を①、ロケットを上げる力を②という。②の力によってロケットは飛ぶことができる。</p>
+  <div class="mchips" id="chips_u10_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_u10_q1_0" onclick="returnChip('u10',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_u10_q1_1" onclick="returnChip('u10',1,1)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('u10',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('u10',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_u10_q1"></div>
+  <div class="msample" id="samp_u10_q1">答え: ①=作用 / ②=反作用</div>
+</div>
+<div class="q-block" id="qblock_u10_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">ローラースケートをはいた人が、壁を強く押した。このとき、人はどのように動くか。</p>
+  <div class="choice-list" id="choices_u10_q2">
+    <button class="choice-btn" onclick="pick4('u10',2,0,1,'u10_q2')">ア：壁に張り付いたまま動かない</button>
+    <button class="choice-btn" onclick="pick4('u10',2,1,1,'u10_q2')">イ：壁を押した向きと反対側に動く</button>
+    <button class="choice-btn" onclick="pick4('u10',2,2,1,'u10_q2')">ウ：壁を押した向きと同じ側に動く</button>
+    <button class="choice-btn" onclick="pick4('u10',2,3,1,'u10_q2')">エ：真上に飛び上がる</button>
+  </div>
+  <div class="fb-msg" id="fb_u10_q2"></div>
+  <div class="msample" id="samp_u10_q2">正解: イ　壁を押す力（作用）に対して、壁から押し返される力（反作用）がはたらくため、人は押した向きと反対側に動きます。</div>
+</div>
+<div class="q-block" id="qblock_u10_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">湖に浮かぶ2そうのボートがあり、B君が手でA君のボートを押した。A君・B君のボートはどうなるか。</p>
+  <div class="choice-list" id="choices_u10_q3">
+    <button class="choice-btn" onclick="pick4('u10',3,0,0,'u10_q3')">ア：互いに反対方向（はなれる向き）に動く</button>
+    <button class="choice-btn" onclick="pick4('u10',3,1,0,'u10_q3')">イ：互いに近づく方向に動く</button>
+    <button class="choice-btn" onclick="pick4('u10',3,2,0,'u10_q3')">ウ：A君のボートだけが動く</button>
+    <button class="choice-btn" onclick="pick4('u10',3,3,0,'u10_q3')">エ：どちらのボートも動かない</button>
+  </div>
+  <div class="fb-msg" id="fb_u10_q3"></div>
+  <div class="msample" id="samp_u10_q3">正解: ア　B君がA君を押す力（作用）に対して、A君がB君を押し返す力（反作用）がはたらくため、2そうのボートは互いにはなれる方向に動きます。</div>
+</div>
+<div class="q-block" id="qblock_u10_q4">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">湖上でA君とB君がロープを引き合っている。B君がロープを引っ張ると、A君・B君のボートはどうなるか。</p>
+  <div class="choice-list" id="choices_u10_q4">
+    <button class="choice-btn" onclick="pick4('u10',4,0,1,'u10_q4')">ア：互いにはなれる方向に動く</button>
+    <button class="choice-btn" onclick="pick4('u10',4,1,1,'u10_q4')">イ：互いに近づく方向に動く</button>
+    <button class="choice-btn" onclick="pick4('u10',4,2,1,'u10_q4')">ウ：B君のボートだけが動く</button>
+    <button class="choice-btn" onclick="pick4('u10',4,3,1,'u10_q4')">エ：どちらのボートも動かない</button>
+  </div>
+  <div class="fb-msg" id="fb_u10_q4"></div>
+  <div class="msample" id="samp_u10_q4">正解: イ　ロープを引く力（作用）と、ロープがボートを引く力（反作用）により、A君・B君のボートは互いに近づく方向に動きます。</div>
+</div>
+      <div class="pass-banner" id="pass_u10">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_u11">
+  <div class="unit-header">
+    <div class="unit-num">11</div>
+    <h2>慣性の法則</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><div class="pt-box"><b>【重要】慣性の法則</b><br>
+物体に力がはたらかないか、または力がつり合っている状態の場合、物体には次の2つの性質があります。<br>
+①静止している物体は、そのまま静止しつづける。<br>
+②運動している物体は、そのままの速度で等速直線運動をつづける。<br>
+この性質を「<b>慣性</b>」といい、この法則を「<b>慣性の法則</b>」といいます。</div>
+<h3>【例題8】電車のつり革につかまっている人</h3>
+<p>(1) 静止していた電車が急発進すると、人はそのまま静止し続けようとする<b>慣性</b>により、体は電車の進む向きと<b>逆向き</b>に傾く。</p>
+<p>(2) 一定の速度で走っていた電車が急停車すると、人の体はそれまでの等速直線運動を続けようとする<b>慣性</b>により、体は電車の進む向きと<b>同じ向き</b>に傾く。</p>
+<h3>【練習12】</h3>
+<p>(1) 「だるま落とし」で、真ん中のコマをたたき出すと、だるまはそのまま元の位置に落ちる。</p>
+<div class="exp-img"><img src="kansei4.png" alt="だるま落としと50円玉の振り子の実験" style="max-width:100%;border-radius:10px;margin:10px auto;display:block;"></div>
+<div class="eq-box"><div class="eq">だるまは、静止し続けようとする「<b>慣性</b>」があるので、そのまま上のだるまは真下に落ちる。</div></div>
+<p>(2) 図1のような50円玉の振り子を、図2のように台車にのせた。</p>
+<div class="eq-box"><div class="eq">① ⇒方向に一定速度で動いていた台車を急停止させると、50円玉は、それまでの運動を続けようとする慣性により<b>b</b>の方向にゆれる。<br>
+② 静止していた台車を⇒方向に急発進させると、50円玉は、静止し続けようとする慣性により<b>a</b>の方向にゆれる。</div></div>
+<p>(3) (2)のような現象は何が原因で起きたか。→<b>50円玉の慣性</b>により起きた。</p>
+<p>(4) コップの上に紙を置き、その上に10円玉を1枚のせて、紙を勢いよく指ではじくとどうなるか。</p>
+<div class="eq-box"><div class="eq">紙だけが勢いよく飛び出し、10円玉はその場（慣性により静止し続けようとするため、ほとんど動かず）にとどまり、コップの中に落ちる。</div></div>
+<p>(5) 一定の速さで直進している電車とその中の人について、電車がブレーキをかけると、人の体は進行方向と同じ向きに傾く。これは、人の体が「<b>等速直線運動</b>」を続けようとするためである。また、電車が静止状態から急発進したときは、人の体は進行方向と逆向きに傾く。</p>
+<div class="pt-box"><b>【重要】</b><br>
+・静止しているときはいつまでも静止し、運動しているときはいつまでも等速直線運動を続けようとする性質を「慣性」という<br>
+・急発進→体は進行方向と逆向きに傾く／急停車→体は進行方向と同じ向きに傾く</div></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('u11')">
+      🧪 ミニテストに挑戦！
+      <span id="mini-badge-u11" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 4</span>
+    </button>
+    <div class="mini-section" id="mini_u11">
+      <div class="mini-score-row" id="pips_u11"><div class="mini-score-pip" id="pip_u11_1"></div><div class="mini-score-pip" id="pip_u11_2"></div><div class="mini-score-pip" id="pip_u11_3"></div><div class="mini-score-pip" id="pip_u11_4"></div></div>
+      <div class="q-block" id="qblock_u11_q1">
+  <h4>Q1. 下の図の①〜③に当てはまる語句・記号を語群から選んで入れよう。</h4>
+  <img class="q-img" src="kansei4.png" alt="だるま落としと50円玉の振り子の実験（空欄あり）">
+  <p class="q-note">だるまは、静止し続けようとする①があるので、真ん中のコマをたたき出しても上のだるまはそのまま落ちる。台車にのせた50円玉の振り子で、⇒方向に動いていた台車を急停止させると、50円玉は②の方向にゆれる。静止していた台車を⇒方向に急発進させると、50円玉は③の方向にゆれる。</p>
+  <div class="mchips" id="chips_u11_q1"></div>
+  <div class="mdz-row">
+    <span class="mdz-label">①</span><span class="mdz" id="mdz_u11_q1_0" onclick="returnChip('u11',1,0)">&nbsp;</span>
+    <span class="mdz-label">②</span><span class="mdz" id="mdz_u11_q1_1" onclick="returnChip('u11',1,1)">&nbsp;</span>
+    <span class="mdz-label">③</span><span class="mdz" id="mdz_u11_q1_2" onclick="returnChip('u11',1,2)">&nbsp;</span>
+  </div>
+  <div class="btn-row">
+    <button class="check-btn" onclick="checkMiniBank('u11',1)">✔ 答え合わせ</button>
+    <button class="sample-btn" onclick="showSample('u11',1)">💡 答えを見る</button>
+  </div>
+  <div class="fb-msg" id="fb_u11_q1"></div>
+  <div class="msample" id="samp_u11_q1">答え: ①=慣性 / ②=b / ③=a</div>
+</div>
+<div class="q-block" id="qblock_u11_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">電車のつり革につかまって立っている人がいる。静止していた電車が急発進すると、人の体はどちら向きに傾くか。</p>
+  <div class="choice-list" id="choices_u11_q2">
+    <button class="choice-btn" onclick="pick4('u11',2,0,1,'u11_q2')">ア：電車の進む向きと同じ向き</button>
+    <button class="choice-btn" onclick="pick4('u11',2,1,1,'u11_q2')">イ：電車の進む向きと逆向き</button>
+    <button class="choice-btn" onclick="pick4('u11',2,2,1,'u11_q2')">ウ：真上</button>
+    <button class="choice-btn" onclick="pick4('u11',2,3,1,'u11_q2')">エ：傾かない</button>
+  </div>
+  <div class="fb-msg" id="fb_u11_q2"></div>
+  <div class="msample" id="samp_u11_q2">正解: イ　人の体はそのまま静止し続けようとする慣性があるため、電車が急に前へ動き出すと、体は取り残されて進む向きと逆向きに傾きます。</div>
+</div>
+<div class="q-block" id="qblock_u11_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">一定の速さで走っていた電車が急停車すると、つり革につかまっている人の体はどちら向きに傾くか。</p>
+  <div class="choice-list" id="choices_u11_q3">
+    <button class="choice-btn" onclick="pick4('u11',3,0,0,'u11_q3')">ア：電車の進む向きと同じ向き</button>
+    <button class="choice-btn" onclick="pick4('u11',3,1,0,'u11_q3')">イ：電車の進む向きと逆向き</button>
+    <button class="choice-btn" onclick="pick4('u11',3,2,0,'u11_q3')">ウ：真下</button>
+    <button class="choice-btn" onclick="pick4('u11',3,3,0,'u11_q3')">エ：傾かない</button>
+  </div>
+  <div class="fb-msg" id="fb_u11_q3"></div>
+  <div class="msample" id="samp_u11_q3">正解: ア　体はそれまでの等速直線運動を続けようとする慣性があるため、電車が急に止まっても体は進み続けようとして、進行方向と同じ向きに傾きます。</div>
+</div>
+<div class="q-block" id="qblock_u11_q4">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">コップの上に紙を置き、その上に10円玉をのせて、紙だけを勢いよく指ではじいた。10円玉はどうなるか。</p>
+  <div class="choice-list" id="choices_u11_q4">
+    <button class="choice-btn" onclick="pick4('u11',4,0,1,'u11_q4')">ア：紙といっしょに飛んでいく</button>
+    <button class="choice-btn" onclick="pick4('u11',4,1,1,'u11_q4')">イ：その場にとどまり、コップの中に落ちる</button>
+    <button class="choice-btn" onclick="pick4('u11',4,2,1,'u11_q4')">ウ：紙とは逆方向に飛んでいく</button>
+    <button class="choice-btn" onclick="pick4('u11',4,3,1,'u11_q4')">エ：コップごと倒れる</button>
+  </div>
+  <div class="fb-msg" id="fb_u11_q4"></div>
+  <div class="msample" id="samp_u11_q4">正解: イ　10円玉は静止し続けようとする慣性があるため、紙だけが勢いよく飛び出し、10円玉はほとんど動かずその場に残り、コップの中に落ちます。</div>
+</div>
+      <div class="pass-banner" id="pass_u11">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+<div class="unit-card" id="card_u12">
+  <div class="unit-header">
+    <div class="unit-num">12</div>
+    <h2>入試問題にチャレンジ！運動</h2>
+  </div>
+  <div class="unit-body">
+    <div class="exp-text"><p>ここまで学んだ「運動」の内容を使って、入試問題で確認しましょう。</p></div>
+    <div class="kw-list"></div>
+    <button class="mini-btn" onclick="toggleMini('u12')">
+      🧪 確認問題に挑戦！
+      <span id="mini-badge-u12" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 5</span>
+    </button>
+    <div class="mini-section" id="mini_u12">
+      <div class="mini-score-row" id="pips_u12"><div class="mini-score-pip" id="pip_u12_1"></div><div class="mini-score-pip" id="pip_u12_2"></div><div class="mini-score-pip" id="pip_u12_3"></div><div class="mini-score-pip" id="pip_u12_4"></div><div class="mini-score-pip" id="pip_u12_5"></div></div>
+      <div class="q-block" id="qblock_u12_q1">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">900mの道のりを15分かけて歩いた。平均の速さは何m/分か。</p>
+  <div class="choice-list" id="choices_u12_q1">
+    <button class="choice-btn" onclick="pick4('u12',1,0,1,'u12_q1')">ア：15m/分</button>
+    <button class="choice-btn" onclick="pick4('u12',1,1,1,'u12_q1')">イ：60m/分</button>
+    <button class="choice-btn" onclick="pick4('u12',1,2,1,'u12_q1')">ウ：90m/分</button>
+    <button class="choice-btn" onclick="pick4('u12',1,3,1,'u12_q1')">エ：900m/分</button>
+  </div>
+  <div class="fb-msg" id="fb_u12_q1"></div>
+  <div class="msample" id="samp_u12_q1">正解: イ：60m/分<br>平均の速さ＝900m÷15分＝60m/分。</div>
+</div>
+<div class="q-block" id="qblock_u12_q2">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">時速72km/hを秒速に直すと何m/sか。</p>
+  <div class="choice-list" id="choices_u12_q2">
+    <button class="choice-btn" onclick="pick4('u12',2,0,2,'u12_q2')">ア：7.2m/s</button>
+    <button class="choice-btn" onclick="pick4('u12',2,1,2,'u12_q2')">イ：12m/s</button>
+    <button class="choice-btn" onclick="pick4('u12',2,2,2,'u12_q2')">ウ：20m/s</button>
+    <button class="choice-btn" onclick="pick4('u12',2,3,2,'u12_q2')">エ：72m/s</button>
+  </div>
+  <div class="fb-msg" id="fb_u12_q2"></div>
+  <div class="msample" id="samp_u12_q2">正解: ウ：20m/s<br>72km/h＝72000m/h÷60＝1200m/分、1200m/分÷60＝20m/s。</div>
+</div>
+<div class="q-block" id="qblock_u12_q3">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">斜面を下る台車の運動のように、一定の力が運動方向にはたらき続けるとき、台車の時間と距離の関係のグラフはどのようになるか。</p>
+  <div class="choice-list" id="choices_u12_q3">
+    <button class="choice-btn" onclick="pick4('u12',3,0,1,'u12_q3')">ア：原点を通る一直線</button>
+    <button class="choice-btn" onclick="pick4('u12',3,1,1,'u12_q3')">イ：だんだん急になる曲線（二次関数）</button>
+    <button class="choice-btn" onclick="pick4('u12',3,2,1,'u12_q3')">ウ：水平な直線</button>
+    <button class="choice-btn" onclick="pick4('u12',3,3,1,'u12_q3')">エ：だんだんゆるやかになる曲線</button>
+  </div>
+  <div class="fb-msg" id="fb_u12_q3"></div>
+  <div class="msample" id="samp_u12_q3">正解: イ　一定の力が運動方向にはたらき続けると速さがだんだん増えるので、時間と距離のグラフはだんだん急になる二次関数の曲線になります。</div>
+</div>
+<div class="q-block" id="qblock_u12_q4">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">ロケットがガスを噴射して飛ぶ現象を説明するものとして正しいのはどれか。</p>
+  <div class="choice-list" id="choices_u12_q4">
+    <button class="choice-btn" onclick="pick4('u12',4,0,2,'u12_q4')">ア：慣性の法則</button>
+    <button class="choice-btn" onclick="pick4('u12',4,1,2,'u12_q4')">イ：等速直線運動の法則</button>
+    <button class="choice-btn" onclick="pick4('u12',4,2,2,'u12_q4')">ウ：作用・反作用の法則</button>
+    <button class="choice-btn" onclick="pick4('u12',4,3,2,'u12_q4')">エ：フックの法則</button>
+  </div>
+  <div class="fb-msg" id="fb_u12_q4"></div>
+  <div class="msample" id="samp_u12_q4">正解: ウ：作用・反作用の法則<br>ガスを噴射する力（作用）に対する反作用の力で、ロケットは飛ぶことができます。</div>
+</div>
+<div class="q-block" id="qblock_u12_q5">
+  <h4>次の問いに答えよう。</h4>
+  <p class="q-note">バスが急ブレーキをかけて止まったとき、座席に座っている乗客の体が前のめりになった。これを説明する法則は何か。</p>
+  <div class="choice-list" id="choices_u12_q5">
+    <button class="choice-btn" onclick="pick4('u12',5,0,1,'u12_q5')">ア：作用・反作用の法則</button>
+    <button class="choice-btn" onclick="pick4('u12',5,1,1,'u12_q5')">イ：慣性の法則</button>
+    <button class="choice-btn" onclick="pick4('u12',5,2,1,'u12_q5')">ウ：フックの法則</button>
+    <button class="choice-btn" onclick="pick4('u12',5,3,1,'u12_q5')">エ：オームの法則</button>
+  </div>
+  <div class="fb-msg" id="fb_u12_q5"></div>
+  <div class="msample" id="samp_u12_q5">正解: イ：慣性の法則<br>乗客の体は、それまでの運動（等速直線運動）を続けようとする慣性があるため、バスが急に止まると体は進行方向（前）に傾きます。</div>
+</div>
+      <div class="pass-banner" id="pass_u12">🎉 この単元クリア！すばらしい！ 🎉</div>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="chap-nav">
+<a href="index.html">🏠 目次</a>
+<a href="chikara_ch01.html">① 力の性質</a>
+<a href="atsuryoku_ch01.html">② 圧力</a>
+<a href="suiatsu_ch01.html">③ 水圧</a>
+<a href="furyoku_ch01.html">④ 浮力</a>
+<a href="undou_ch01.html" class="now">⑤ 運動</a>
+</div>
+<script>
+// ============================================================
+// State
+// ============================================================
+const miniState = {};
+const miniScore = {};
+const miniTotal = {};
+const miniDone = {};
+
+miniScore['u1'] = 0; miniTotal['u1'] = 3; miniDone['u1'] = [false, false, false];
+miniScore['u2'] = 0; miniTotal['u2'] = 4; miniDone['u2'] = [false, false, false, false];
+miniScore['u3'] = 0; miniTotal['u3'] = 4; miniDone['u3'] = [false, false, false, false];
+miniScore['u4'] = 0; miniTotal['u4'] = 3; miniDone['u4'] = [false, false, false];
+miniScore['u5'] = 0; miniTotal['u5'] = 3; miniDone['u5'] = [false, false, false];
+miniScore['u6'] = 0; miniTotal['u6'] = 4; miniDone['u6'] = [false, false, false, false];
+miniScore['u7'] = 0; miniTotal['u7'] = 5; miniDone['u7'] = [false, false, false, false, false];
+miniScore['u8'] = 0; miniTotal['u8'] = 3; miniDone['u8'] = [false, false, false];
+miniScore['u9'] = 0; miniTotal['u9'] = 4; miniDone['u9'] = [false, false, false, false];
+miniScore['u10'] = 0; miniTotal['u10'] = 4; miniDone['u10'] = [false, false, false, false];
+miniScore['u11'] = 0; miniTotal['u11'] = 4; miniDone['u11'] = [false, false, false, false];
+miniScore['u12'] = 0; miniTotal['u12'] = 5; miniDone['u12'] = [false, false, false, false, false];
+
+
+// ============================================================
+// Toggle mini section
+// ============================================================
+function toggleMini(secId) {
+  const el = document.getElementById('mini_' + secId);
+  el.classList.toggle('open');
+}
+
+// ============================================================
+// Word bank: initialize
+// ============================================================
+function initMiniBank(secId, qNum, words, answers, freeGroups) {
+  const key = secId + '_q' + qNum;
+  miniState[key] = {
+    words: [...words],
+    answers: [...answers],
+    filled: new Array(answers.length).fill(null),
+    chipUsed: new Array(words.length).fill(false),
+    freeGroups: freeGroups || []
+  };
+  // Build chips in shuffled order
+  const container = document.getElementById('chips_' + key);
+  if (!container) return;
+  container.innerHTML = '';
+  const order = [...Array(words.length).keys()];
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  order.forEach(i => {
+    const btn = document.createElement('button');
+    btn.className = 'mchip';
+    btn.id = 'chip_' + key + '_' + i;
+    btn.textContent = words[i];
+    btn.onclick = () => fillMDZ(secId, qNum, i);
+    container.appendChild(btn);
+  });
+}
+
+// ============================================================
+// Fill blank
+// ============================================================
+function fillMDZ(secId, qNum, chipIdx) {
+  const key = secId + '_q' + qNum;
+  const st = miniState[key];
+  if (!st || st.chipUsed[chipIdx]) return;
+  // Find first empty blank
+  const emptyIdx = st.filled.findIndex(v => v === null);
+  if (emptyIdx < 0) return;
+  st.filled[emptyIdx] = chipIdx;
+  st.chipUsed[chipIdx] = true;
+  document.getElementById('chip_' + key + '_' + chipIdx).classList.add('used');
+  const mdz = document.getElementById('mdz_' + key + '_' + emptyIdx);
+  if (mdz) { mdz.textContent = st.words[chipIdx]; mdz.classList.add('filled'); }
+}
+
+// ============================================================
+// Return chip (click on filled blank)
+// ============================================================
+function returnChip(secId, qNum, blankIdx) {
+  const key = secId + '_q' + qNum;
+  const st = miniState[key];
+  if (!st || st.filled[blankIdx] === null) return;
+  const chipIdx = st.filled[blankIdx];
+  st.filled[blankIdx] = null;
+  st.chipUsed[chipIdx] = false;
+  document.getElementById('chip_' + key + '_' + chipIdx).classList.remove('used');
+  const mdz = document.getElementById('mdz_' + key + '_' + blankIdx);
+  if (mdz) { mdz.textContent = ' '; mdz.className = 'mdz'; }
+}
+
+// ============================================================
+// Check word bank answer
+// ============================================================
+function checkMiniBank(secId, qNum) {
+  const key = secId + '_q' + qNum;
+  const st = miniState[key];
+  if (!st) return;
+  // Pre-compute which blank indices belong to freeGroups and whether each group is satisfied
+  const freeBlankSet = new Set();
+  const freeBlankCorrect = {};
+  (st.freeGroups || []).forEach(group => {
+    const filledVals = group.map(bi => st.filled[bi] !== null ? st.words[st.filled[bi]].replace(/（.*?）/,'') : null);
+    const correctVals = group.map(bi => st.answers[bi].replace(/（.*?）/,'')).slice().sort();
+    const filledSorted = [...filledVals].sort();
+    const groupOK = filledVals.every(v => v !== null) && filledSorted.every((v,i) => v === correctVals[i]);
+    group.forEach(bi => { freeBlankSet.add(bi); freeBlankCorrect[bi] = groupOK; });
+  });
+
+  let allCorrect = true;
+  st.filled.forEach((chipIdx, bi) => {
+    const mdz = document.getElementById('mdz_' + key + '_' + bi);
+    if (!mdz) return;
+    if (chipIdx === null) { allCorrect = false; return; }
+    let isCorrect;
+    if (freeBlankSet.has(bi)) {
+      isCorrect = freeBlankCorrect[bi];
+    } else {
+      const word = st.words[chipIdx];
+      const correct = st.answers[bi];
+      isCorrect = (word === correct || word.replace(/（.*?）/,'') === correct.replace(/（.*?）/,''));
+    }
+    if (isCorrect) {
+      mdz.classList.remove('wrong'); mdz.classList.add('correct');
+    } else {
+      mdz.classList.remove('correct'); mdz.classList.add('wrong');
+      allCorrect = false;
+    }
+  });
+  const fb = document.getElementById('fb_' + key);
+  if (allCorrect) {
+    if (fb) fb.textContent = '✅ 正解！すばらしい！';
+    markPass(secId, qNum - 1);
+    flowerPetals();
+    const samp = document.getElementById('samp_' + key);
+    if (samp) samp.classList.add('show');
+  } else {
+    if (fb) fb.textContent = '❌ もう一度確認しよう！';
+  }
+}
+
+// ============================================================
+// Show sample answer
+// ============================================================
+function showSample(secId, qNum) {
+  const key = secId + '_q' + qNum;
+  const el = document.getElementById('samp_' + key);
+  if (el) el.classList.toggle('show');
+}
+
+// ============================================================
+// 4-choice picker
+// ============================================================
+function pick4(secId, qNum, chosen, correct, qid) {
+  const btns = document.querySelectorAll('#choices_' + qid + ' .choice-btn');
+  btns.forEach(b => b.disabled = true);
+  const fb = document.getElementById('fb_' + qid);
+  if (chosen === correct) {
+    btns[chosen].classList.add('correct');
+    if (fb) fb.textContent = '✅ 正解！';
+    markPass(secId, qNum - 1);
+    flowerPetals();
+  } else {
+    btns[chosen].classList.add('wrong');
+    btns[correct].classList.add('correct');
+    if (fb) fb.textContent = '❌ 残念！正解は上の緑のボタンです。';
+  }
+  const samp = document.getElementById('samp_' + qid);
+  if (samp) samp.classList.add('show');
+}
+
+// ============================================================
+// Mark pass & check unit completion
+// ============================================================
+function markPass(secId, qIdx) {
+  if (miniDone[secId][qIdx]) return;
+  miniDone[secId][qIdx] = true;
+  miniScore[secId]++;
+  const pip = document.getElementById('pip_' + secId + '_' + (qIdx + 1));
+  if (pip) pip.classList.add('pass');
+  const badge = document.getElementById('mini-badge-' + secId);
+  if (badge) badge.textContent = miniScore[secId] + ' / ' + miniTotal[secId];
+  if (miniScore[secId] >= miniTotal[secId]) {
+    const banner = document.getElementById('pass_' + secId);
+    if (banner) banner.classList.add('show');
+    fireConfetti();
+  }
+}
+
+// ============================================================
+// Flower petals animation (single question correct)
+// ============================================================
+function flowerPetals() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const petals = [];
+  const colors = ['#f472b6','#fb7185','#fbbf24','#34d399','#60a5fa','#a78bfa'];
+  for (let i = 0; i < 60; i++) {
+    petals.push({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * 200,
+      r: 4 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 3,
+      vy: 2 + Math.random() * 3,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.15
+    });
+  }
+  let frame = 0;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    petals.forEach(p => {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.r, p.r * 0.55, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+      p.x += p.vx; p.y += p.vy; p.rot += p.rotV;
+    });
+    frame++;
+    if (frame < 80) requestAnimationFrame(draw);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw();
+}
+
+// ============================================================
+// Confetti (unit complete)
+// ============================================================
+function fireConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+  const pieces = [];
+  const colors = ['#f472b6','#fbbf24','#34d399','#60a5fa','#a78bfa','#fb7185','#fff'];
+  for (let i = 0; i < 150; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * 300,
+      w: 8 + Math.random() * 10,
+      h: 4 + Math.random() * 6,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 5,
+      vy: 3 + Math.random() * 4,
+      rot: Math.random() * Math.PI * 2,
+      rotV: (Math.random() - 0.5) * 0.2
+    });
+  }
+  let frame2 = 0;
+  function draw2() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+      p.x += p.vx; p.y += p.vy; p.rot += p.rotV;
+    });
+    frame2++;
+    if (frame2 < 140) requestAnimationFrame(draw2);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  draw2();
+}
+
+
+
+// ============================================================
+// Initialize all word banks
+// ============================================================
+
+initMiniBank('u1',1,["平均", "瞬間", "90"],["平均", "瞬間", "90"],[]);
+initMiniBank('u2',1,["600", "36", "900", "45"],["600", "36", "900", "45"],[]);
+initMiniBank('u3',1,["50", "60"],["50", "60"],[]);
+initMiniBank('u4',1,["つり合って", "等速直線"],["つり合って", "等速直線"],[]);
+initMiniBank('u5',1,["水平", "右上がり"],["水平", "右上がり"],[]);
+initMiniBank('u6',1,["増える", "一定", "増え"],["増える", "一定", "増え"],[]);
+initMiniBank('u7',1,["移動距離", "二次関数"],["移動距離", "二次関数"],[]);
+initMiniBank('u8',1,["増える", "等速直線"],["増える", "等速直線"],[]);
+initMiniBank('u10',1,["作用", "反作用"],["作用", "反作用"],[]);
+initMiniBank('u11',1,["慣性", "b", "a"],["慣性", "b", "a"],[]);
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.renderMathInElement) {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},
+        {left: '\\(', right: '\\)', display: false}
+      ]
+    });
+  }
+});
+</script>
+
+</body></html>
