@@ -100,6 +100,10 @@ canvas#confetti-canvas{position:fixed;top:0;left:0;pointer-events:none;width:100
 .bd-pass{display:none;text-align:center;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:12px;margin-bottom:10px;font-weight:900;color:#92400e;}
 @keyframes bdpulse{0%{r:10;opacity:.9}100%{r:26;opacity:0}}
 .bd-ring{animation:bdpulse 1.2s infinite;}
+.bd-guide{margin-top:10px;background:#fff;border:2px solid #fde68a;border-radius:10px;padding:9px 14px;font-size:.9rem;line-height:1.9;text-align:left;}
+.bd-guide:empty{display:none;}
+.bd-dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;}
+.bd-small{font-size:.8rem;color:#64748b;}
 </style>
 </head>
 <body>
@@ -278,7 +282,7 @@ class Board{
   constructor(root,type,probs,opt){
     this.root=root;this.type=type;this.probs=probs;this.idx=0;this.opt=opt||{};
     this.done=probs.map(()=>false);this.hint=false;this.solved=false;this.drag=null;
-    root.innerHTML=`<div class="bd-pips"></div><div class="bd-pass"></div><div class="bd-board"><svg viewBox="0 0 640 440"></svg></div><div class="bd-msg info"></div><div class="bd-btns"><button class="bd-btn sub bd-hint">💡 ヒント（数えかた）</button><button class="bd-btn sub bd-model">👀 お手本を見る</button><button class="bd-btn sub bd-reset">↺ やり直し</button><button class="bd-btn bd-next" disabled>次の問題 ▶</button></div>`;
+    root.innerHTML=`<div class="bd-pips"></div><div class="bd-pass"></div><div class="bd-board"><svg viewBox="0 0 640 440"></svg></div><div class="bd-guide"></div><div class="bd-msg info"></div><div class="bd-btns"><button class="bd-btn sub bd-hint">💡 ヒント（数えかた）</button><button class="bd-btn sub bd-model">👀 お手本を見る</button><button class="bd-btn sub bd-reset">↺ やり直し</button><button class="bd-btn bd-next" disabled>次の問題 ▶</button></div>`;
     this.svg=root.querySelector('svg');this.msg=root.querySelector('.bd-msg');
     this.nextB=root.querySelector('.bd-next');
     root.querySelector('.bd-hint').onclick=()=>{this.hint=!this.hint;root.querySelector('.bd-hint').textContent=this.hint?'💡 ヒントを消す':'💡 ヒント（数えかた）';this.draw();};
@@ -298,9 +302,9 @@ class Board{
   lines(){
     const p=this.p,t=this.type;
     if(t==='opp')return[];
-    if(t==='par')return[{key:'a',tip:p.P,dir:p.A}];
-    if(t==='sum'||t==='bal')return[{key:'a',tip:vadd(p.O,p.A),dir:p.B},{key:'b',tip:vadd(p.O,p.B),dir:p.A}];
-    const F=vadd(p.O,p.F);return[{key:'a',tip:F,dir:p.M},{key:'b',tip:F,dir:p.L}];
+    if(t==='par')return[{key:'a',tip:p.P,dir:p.A,col:'#e11d48',nm:'お手本の向き'}];
+    if(t==='sum'||t==='bal')return[{key:'a',tip:vadd(p.O,p.A),dir:p.B,col:'#ea580c',nm:'力Bの向き'},{key:'b',tip:vadd(p.O,p.B),dir:p.A,col:'#2563eb',nm:'力Aの向き'}];
+    const F=vadd(p.O,p.F),sl=t==='slope';return[{key:'a',tip:F,dir:p.M,col:'#0d9488',nm:sl?'斜面に垂直な向き':'mの向き'},{key:'b',tip:F,dir:p.L,col:'#7c3aed',nm:sl?'斜面に平行な向き':'ℓの向き'}];
   }
   isPar(l){const d=vsub(this.H[l.key],l.tip);return(d[0]!==0||d[1]!==0)&&vcross(d,l.dir)===0;}
   linesDone(){return this.lines().every(l=>this.isPar(l));}
@@ -320,9 +324,15 @@ class Board{
     if(this.type==='opp'){this.H.c=this.cStart();this.H.moved=false;}
     this.nextB.disabled=!this.done[this.idx];
     this.root.querySelector('.bd-hint').textContent='💡 ヒント（数えかた）';
-    this.pips();this.draw();this.status();
+    this.pips();this.draw();this.status();this.guide();
     this.root.querySelector('.bd-pass').style.display=this.done.every(Boolean)?'block':'none';
     if(this.done.every(Boolean))this.root.querySelector('.bd-pass').textContent='🏆 この作図トレーニング 全問クリア！';
+  }
+  guide(){
+    const g=this.root.querySelector('.bd-guide');
+    if(this.type==='opp'){g.innerHTML='';return;}
+    if(this.stage===2){const R=vadd(this.p.A,this.p.B);g.innerHTML='合力は「<b>'+vtext(R)+'</b>」。つり合う力は、<b>反対向きに同じだけ</b>進んだ点が先端です。';return;}
+    g.innerHTML='次の向きと同じ線を、同じ色の●から引こう（反対向きでもOK）<br>'+this.lines().map(l=>'<span class="bd-dot" style="background:'+l.col+'"></span> <b style="color:'+l.col+'">'+l.nm+'</b> ＝ <b>'+vtext(l.dir)+'</b>').join('<br>')+'<br><span class="bd-small">※向きが合えば、線の長さは自由です。●が動いた量は、●のそばに表示されます。</span>';
   }
   pips(){
     const box=this.root.querySelector('.bd-pips');box.innerHTML='';
@@ -335,20 +345,20 @@ class Board{
     else if(t==='opp'){m.className='bd-msg info';m.textContent='🎯 赤い力につり合う力を、青い●をドラッグしてかこう（大きさが同じで、向きが反対）';}
     else if(this.stage===2){m.className='bd-msg info';m.textContent='🎯 合力と「大きさが同じで向きが反対」の矢印になるように、青い●をドラッグしよう';}
     else if(t==='sum'||t==='bal')m.textContent=n===0?'矢印の先から出ている●をドラッグして、もう一方の力と平行な線を引こう':(n===1?'1本できました！（緑色＝平行）もう1本も引こう':'');
-    else m.textContent=n===0?'力Fの先から出ている●2つを動かして、点線ℓ・mと平行な線を引こう（平行四辺形をつくる）':(n===1?'1本できました！もう1本も引こう':'');
+    else m.textContent=n===0?'●を動かして、下に書いてある向きと平行な線を2本引こう（平行四辺形をつくる）':(n===1?'1本できました！もう1本も引こう':'');
   }
   showModel(){
     if(this.solved)return;
     this.model=true;this.hint=false;this.H.moved=true;
     for(const l of this.lines())this.H[l.key]=[l.tip[0]+l.dir[0],l.tip[1]+l.dir[1]];
     if(this.type==='bal'){this.stage=2;this.H.c=this.target();}
-    this.draw();this.msg.className='bd-msg info';
+    this.draw();this.guide();this.msg.className='bd-msg info';
     this.msg.textContent='👀 これがお手本です。「↺ やり直し」を押して、自分でもかいてみよう！';
     this.nextB.disabled=false;
   }
   check(){
     if(this.stage===1&&this.type!=='opp'&&this.linesDone()){
-      if(this.type==='bal'){this.stage=2;this.H.c=this.cStart();this.H.moved=true;this.draw();this.status();this.msg.className='bd-msg ok';this.msg.textContent='✅ 平行線が2本できて、交点（合力の先）が出ました。次は合力とつり合う力をかこう！青い●をドラッグ';return;}
+      if(this.type==='bal'){this.stage=2;this.H.c=this.cStart();this.H.moved=true;this.draw();this.status();this.guide();this.msg.className='bd-msg ok';this.msg.textContent='✅ 平行線が2本できて、交点（合力の先）が出ました。次は合力とつり合う力をかこう！青い●をドラッグ';return;}
       this.finish();
     }else if(this.stage===2){
       const T=this.target(),c=this.H.c;if(c[0]===T[0]&&c[1]===T[1])this.finish();
@@ -424,7 +434,7 @@ class Board{
     }
     // 引く線
     for(const l of LS){
-      const h=this.H[l.key],ok=this.isPar(l),col=ok?'#16a34a':'#64748b';
+      const h=this.H[l.key],ok=this.isPar(l),col=ok?'#16a34a':l.col;
       if(ok){const k=40;bEl('line',{x1:bX(l.tip[0]-l.dir[0]*k),y1:bY(l.tip[1]-l.dir[1]*k),x2:bX(l.tip[0]+l.dir[0]*k),y2:bY(l.tip[1]+l.dir[1]*k),stroke:col,'stroke-width':3.5,'stroke-dasharray':'9 6'},svg);}
       else bEl('line',{x1:bX(l.tip[0]),y1:bY(l.tip[1]),x2:bX(h[0]),y2:bY(h[1]),stroke:col,'stroke-width':3.5,'stroke-dasharray':'9 6','stroke-linecap':'round'},svg);
     }
@@ -452,8 +462,8 @@ class Board{
     // つまみ
     if(!SH){
       const hl=[];
-      if(this.stage===2)hl.push({key:'c',col:'#7c3aed'});
-      else for(const l of LS)hl.push({key:l.key,col:this.isPar(l)?'#16a34a':'#e11d48'});
+      if(this.stage===2)hl.push({key:'c',col:'#7c3aed',tip:O});
+      else for(const l of LS)hl.push({key:l.key,col:this.isPar(l)?'#16a34a':l.col,tip:l.tip});
       for(const x of hl){
         const h=this.H[x.key];
         if(!this.H.moved)bEl('circle',{cx:bX(h[0]),cy:bY(h[1]),r:10,fill:'none',stroke:x.col,'stroke-width':3,class:'bd-ring'},svg);
@@ -461,6 +471,7 @@ class Board{
         bEl('circle',{cx:bX(h[0]),cy:bY(h[1]),r:30,fill:'transparent'},g);
         bEl('circle',{cx:bX(h[0]),cy:bY(h[1]),r:12,fill:'#fff',stroke:x.col,'stroke-width':5},g);
         bEl('circle',{cx:bX(h[0]),cy:bY(h[1]),r:4,fill:x.col},g);
+        const dv=vsub(h,x.tip);if(dv[0]!==0||dv[1]!==0)bText(svg,bX(h[0])+(h[0]>BC-4?-16:16),bY(h[1])+(x.key==='b'?36:-18),'いま '+vtext(dv),x.col,14).setAttribute('text-anchor',h[0]>BC-4?'end':'start');
       }
     }
   }
