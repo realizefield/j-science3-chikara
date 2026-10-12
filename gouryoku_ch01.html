@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中3理科 力の合成と分解</title>
+<style>
+:root{--pri:#e11d48;--pri-d:#881337;--pri-l:#fecdd3;--pink:#db2777;--pink-d:#9d174d;--pink-bg:#fce7f3;--gray:#6b7280;--card:#fff;--radius:14px;--shadow:0 4px 18px rgba(0,0,0,.10);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#fff1f2;font-family:'Helvetica Neue',Arial,'Hiragino Sans','Noto Sans JP',sans-serif;color:#1e293b;}
+header{background:linear-gradient(135deg,var(--pri-d),var(--pri));color:#fff;text-align:center;padding:28px 20px 22px;}
+header h1{font-size:clamp(1.3rem,4vw,2rem);font-weight:900;letter-spacing:.04em;}
+header p{margin-top:6px;font-size:.93rem;opacity:.88;}
+.topnav{background:#fff;border-bottom:2px solid var(--pri-l);padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;font-size:.9rem;}
+.topnav a{color:var(--pri-d);text-decoration:none;font-weight:700;padding:5px 14px;border-radius:20px;border:2px solid var(--pri-l);}
+.topnav a:hover,.topnav a.cur{background:var(--pri);color:#fff;border-color:var(--pri);}
+.units{max-width:860px;margin:30px auto;padding:0 16px;}
+.unit-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:32px;overflow:hidden;}
+.unit-header{background:linear-gradient(90deg,var(--pri-d),var(--pri));color:#fff;padding:14px 22px;display:flex;align-items:center;gap:12px;}
+.unit-num{background:#fff;color:var(--pri-d);font-weight:900;font-size:1.1rem;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.unit-header h2{font-size:1.1rem;font-weight:800;}
+.unit-body{padding:22px;}
+.exp-img{margin:14px 0;text-align:center;}
+.exp-img img{max-width:100%;max-height:420px;width:auto;height:auto;border-radius:10px;margin:6px auto;display:block;background:#fff;}
+.exp-img .cap{font-size:.8rem;color:var(--gray);margin-top:2px;}
+.img-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:flex-end;}
+.img-row .exp-img{margin:8px 0;}
+.exp-text{line-height:1.95;font-size:.97rem;margin:10px 0;}
+.exp-text p{margin-bottom:.85em;}
+.exp-text h3{font-size:.97rem;color:var(--pri-d);margin:1em 0 .5em;border-left:3px solid var(--pri);padding-left:8px;font-weight:800;}
+.pt-box{background:#dcfce7;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.warn-box{background:#fee2e2;border-left:4px solid #dc2626;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.info-box{background:#f0fdff;border-left:4px solid #0e7490;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.eq-box{background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;margin:10px 0;text-align:center;}
+.eq-box .eq{font-size:1rem;font-weight:800;color:var(--pri-d);letter-spacing:.03em;}
+.exp-tbl{width:100%;border-collapse:collapse;font-size:.88rem;margin:10px 0;}
+.exp-tbl th{background:var(--pri);color:#fff;padding:8px 10px;text-align:left;}
+.exp-tbl td{padding:8px 10px;border-bottom:1px solid #e5e7eb;vertical-align:top;line-height:1.65;}
+.exp-tbl tr:nth-child(even) td{background:#f9fafb;}
+.exp-tbl .nc{font-weight:700;white-space:nowrap;}
+.mini-btn{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;background:var(--pink-bg);border:2.5px solid var(--pink);color:var(--pink-d);font-size:.97rem;font-weight:800;padding:10px 22px;border-radius:40px;margin:14px 0 0;transition:.2s;}
+.mini-btn:hover{background:var(--pink);color:#fff;}
+.mini-section{display:none;margin-top:16px;background:#fdf2f8;border:2px solid #f9a8d4;border-radius:12px;padding:18px;}
+.mini-section.open{display:block;}
+.q-block{margin-bottom:22px;}
+.q-block h4{font-size:.98rem;font-weight:800;color:var(--pri-d);margin-bottom:10px;line-height:1.7;}
+.q-note{font-size:.88rem;color:#555;margin-bottom:6px;line-height:1.8;}
+.mchips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.mchip{background:#fff;border:2.5px solid var(--pink);color:var(--pink-d);border-radius:20px;padding:5px 16px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.mchip:hover{background:var(--pink);color:#fff;}
+.mchip.used{opacity:.35;pointer-events:none;}
+.mdz-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0;}
+.mdz{display:inline-flex;align-items:center;justify-content:center;min-width:80px;height:36px;border:2.5px dashed var(--pink);border-radius:8px;padding:0 10px;font-size:.93rem;font-weight:700;cursor:pointer;color:var(--pink-d);transition:.18s;background:#fff;}
+.mdz.filled{border-style:solid;background:#fce7f3;}
+.mdz.correct{border-color:#16a34a;background:#dcfce7;color:#166534;}
+.mdz.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.mdz-label{font-size:.9rem;color:#374151;}
+.choice-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+@media(max-width:480px){.choice-list{grid-template-columns:1fr;}}
+.choice-btn{padding:10px 14px;border:2.5px solid #d1d5db;border-radius:10px;background:#fff;font-size:.93rem;cursor:pointer;text-align:left;transition:.18s;}
+.choice-btn:hover{border-color:var(--pri);background:var(--pri-l);}
+.choice-btn.correct{border-color:#16a34a;background:#dcfce7;color:#166534;font-weight:700;}
+.choice-btn.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.choice-btn:disabled{cursor:default;}
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.check-btn{background:var(--pri);color:#fff;border:none;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.check-btn:hover{background:var(--pri-d);}
+.sample-btn{background:#fff;color:var(--gray);border:2px solid #d1d5db;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.sample-btn:hover{background:#f3f4f6;}
+.msample{display:none;background:#fef9c3;border:1.5px solid #fbbf24;border-radius:8px;padding:8px 14px;font-size:.9rem;margin-top:8px;line-height:1.8;}
+.msample.show{display:block;}
+.fb-msg{font-size:.9rem;margin-top:6px;font-weight:600;}
+.mini-score-row{display:flex;gap:6px;align-items:center;margin-bottom:10px;flex-wrap:wrap;}
+.mini-score-pip{width:14px;height:14px;border-radius:50%;background:#e5e7eb;border:2px solid #d1d5db;transition:.3s;}
+.mini-score-pip.pass{background:#16a34a;border-color:#166534;}
+.score-line{font-size:.88rem;font-weight:700;color:var(--pink-d);margin-bottom:8px;}
+.pass-banner{display:none;background:linear-gradient(90deg,#166534,#16a34a);color:#fff;text-align:center;padding:16px;border-radius:10px;margin-top:16px;font-size:1.1rem;font-weight:900;}
+.pass-banner.show{display:block;}
+.group-title{font-weight:800;color:var(--pink-d);margin:20px 0 6px;font-size:.98rem;border-bottom:2px dashed #f9a8d4;padding-bottom:4px;}
+.src-note{background:#fff7ed;border-left:4px solid #f97316;border-radius:0 8px 8px 0;padding:9px 14px;margin:10px 0 14px;font-size:.88rem;line-height:1.7;color:#7c2d12;}
+.foot-nav{max-width:860px;margin:0 auto 40px;padding:0 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.foot-nav a{background:var(--pri);color:#fff;text-decoration:none;font-weight:800;padding:10px 22px;border-radius:30px;font-size:.93rem;}
+.foot-nav a:hover{background:var(--pri-d);}
+canvas#confetti-canvas{position:fixed;top:0;left:0;pointer-events:none;width:100%;height:100%;z-index:9999;}
+
+.exp-img svg{max-width:100%;height:auto;max-height:300px;background:#fff;border-radius:10px;}
+.bd-wrap{margin:18px 0;background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:14px;}
+.bd-wrap h3{font-size:1rem;color:#9a3412;margin-bottom:6px;}
+.bd-wrap p.bd-how{font-size:.9rem;line-height:1.8;margin-bottom:8px;}
+.bd-pips{display:flex;gap:8px;justify-content:center;margin:4px 0 10px;}
+.bd-pip{width:26px;height:26px;border-radius:50%;background:#e5e7eb;border:2px solid #d1d5db;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:#9ca3af;cursor:pointer;}
+.bd-pip.cur{border-color:#e11d48;color:#e11d48;background:#fff;}
+.bd-pip.done{background:#16a34a;border-color:#16a34a;color:#fff;}
+.bd-board{background:#fff;border:3px solid #cbd5e1;border-radius:10px;overflow:hidden;touch-action:none;user-select:none;}
+.bd-board svg{display:block;width:100%;height:auto;touch-action:none;}
+.bd-msg{min-height:3.2em;margin-top:10px;font-weight:800;font-size:.95rem;text-align:center;line-height:1.6;}
+.bd-msg.ok{color:#16a34a;} .bd-msg.info{color:#475569;font-weight:700;}
+.bd-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px;}
+.bd-btn{border:none;border-radius:30px;padding:9px 20px;font-weight:800;font-size:.92rem;cursor:pointer;background:#e11d48;color:#fff;font-family:inherit;}
+.bd-btn.sub{background:#fff;color:#881337;border:2px solid #fecdd3;}
+.bd-btn:disabled{opacity:.4;cursor:default;}
+.bd-pass{display:none;text-align:center;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:12px;margin-bottom:10px;font-weight:900;color:#92400e;}
+@keyframes bdpulse{0%{r:10;opacity:.9}100%{r:26;opacity:0}}
+.bd-ring{animation:bdpulse 1.2s infinite;}
+</style>
+</head>
+<body>
+<canvas id="confetti-canvas"></canvas>
+<header><h1>中3理科 力の合成と分解</h1><p>中学3年 理科　力と運動(1)-2　作図でマスター・ミニテストで実力チェック</p></header>
+<nav class="topnav"><a href="index.html">🏠 目次</a><a href="gouryoku_ch01.html" class="cur">📖 レッスン</a><a href="gouryoku_practice.html">📝 練習問題</a><a href="gouryoku_check.html">🏆 確認問題</a></nav>
+<div class="units">
+<div class="unit-card" id="card_gr1"><div class="unit-header"><div class="unit-num">1</div><h2>力のつり合い</h2></div><div class="unit-body">
+<div class="exp-text"><p>物体に力がはたらいているのに、物体が動かないことがあります。たとえば、綱引きで両方のチームが同じ強さで引き合うと、綱は動きません。このように、物体に2つの力がはたらいていても動かないとき、「2つの力は<b>つり合っている</b>」といいます。</p>
+<div class="img-row"><div class="exp-img"><svg viewBox="0 0 320 190" xmlns="http://www.w3.org/2000/svg" role="img"><line x1="10" y1="150" x2="310" y2="150" stroke="#334155" stroke-width="3"/><line x1="30" y1="150" x2="20" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="50" y1="150" x2="40" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="70" y1="150" x2="60" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="90" y1="150" x2="80" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="110" y1="150" x2="100" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="130" y1="150" x2="120" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="150" y1="150" x2="140" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="170" y1="150" x2="160" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="190" y1="150" x2="180" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="210" y1="150" x2="200" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="230" y1="150" x2="220" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="250" y1="150" x2="240" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="270" y1="150" x2="260" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="290" y1="150" x2="280" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="310" y1="150" x2="300" y2="162" stroke="#94a3b8" stroke-width="2"/><rect x="125" y="95" width="70" height="55" fill="#dbeafe" stroke="#334155" stroke-width="3"/><line x1="125" y1="122" x2="54" y2="122" stroke="#e11d48" stroke-width="5" stroke-linecap="round"/><polygon points="40,122 56,114 56,130" fill="#e11d48"/><line x1="195" y1="122" x2="266" y2="122" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/><polygon points="280,122 264,130 264,114" fill="#2563eb"/><text x="75" y="105" font-size="17" font-weight="800" fill="#e11d48" text-anchor="middle">5N</text><text x="245" y="105" font-size="17" font-weight="800" fill="#2563eb" text-anchor="middle">5N</text><text x="160" y="40" font-size="15" font-weight="800" fill="#166534" text-anchor="middle">大きさ等しい・一直線・向き反対</text><text x="160" y="64" font-size="17" font-weight="800" fill="#166534" text-anchor="middle">→ つり合っている</text></svg></div></div>
+<div class="eq-box"><span class="eq">【2つの力がつり合う条件】</span><br>① 2力の<b>大きさ</b>が等しい<br>② 2力が<b>一直線上</b>にある<br>③ 2力の<b>向き</b>が反対である</div>
+<p>3つの条件のうち、1つでも欠けると、2つの力はつり合いません。たとえば、大きさが同じで向きが反対でも、一直線上になければ、物体は回りはじめます。</p><div class="pt-box"><b>★ 覚えよう！</b><br>つり合いの3条件：①大きさが等しい　②一直線上　③向きが反対<br>物体が動かない（静止している）とき、はたらく力はつり合っている</div></div>
+
+<button class="mini-btn" onclick="toggleMini('gr1')">🧪 ミニテストに挑戦！<span id="mini-badge-gr1" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 6</span></button>
+<div class="mini-section" id="mini_gr1"><div class="mini-score-row" id="pips_gr1"><div class="mini-score-pip" id="pip_gr1_1"></div><div class="mini-score-pip" id="pip_gr1_2"></div><div class="mini-score-pip" id="pip_gr1_3"></div><div class="mini-score-pip" id="pip_gr1_4"></div><div class="mini-score-pip" id="pip_gr1_5"></div><div class="mini-score-pip" id="pip_gr1_6"></div></div><div class="q-block" id="qblock_gr1_q1"><h4>Q1. 文中の①〜⑤に当てはまる語句を語群から選んで入れよう。</h4><p class="q-note">2つの力がつり合う条件は、2力の①が等しいこと、2力が②上にあること、2力の③が反対であること、の3つです。2つの力がはたらいていても物体が④とき、2力は⑤といいます。</p><div class="mchips" id="chips_gr1_q1"></div><div class="mdz-row"><span class="mdz-label">①</span><span class="mdz" id="mdz_gr1_q1_0" onclick="returnChip('gr1',1,0)">&nbsp;</span><span class="mdz-label">②</span><span class="mdz" id="mdz_gr1_q1_1" onclick="returnChip('gr1',1,1)">&nbsp;</span><span class="mdz-label">③</span><span class="mdz" id="mdz_gr1_q1_2" onclick="returnChip('gr1',1,2)">&nbsp;</span><span class="mdz-label">④</span><span class="mdz" id="mdz_gr1_q1_3" onclick="returnChip('gr1',1,3)">&nbsp;</span><span class="mdz-label">⑤</span><span class="mdz" id="mdz_gr1_q1_4" onclick="returnChip('gr1',1,4)">&nbsp;</span></div><div class="btn-row"><button class="check-btn" onclick="checkMiniBank('gr1',1)">✔ 答え合わせ</button><button class="sample-btn" onclick="showSample('gr1',1)">💡 答えを見る</button></div><div class="fb-msg" id="fb_gr1_q1"></div><div class="msample" id="samp_gr1_q1">答え：①＝大きさ / ②＝一直線 / ③＝向き / ④＝動かない / ⑤＝つり合っている</div></div><div class="q-block" id="qblock_gr1_q2"><h4>Q2. 次のうち、2つの力がつり合う条件でないものはどれか。</h4><div class="choice-list" id="choices_gr1_q2"><button class="choice-btn" onclick="pick4('gr1',2,0,2,'gr1_q2')">ア：2力の大きさが等しい</button><button class="choice-btn" onclick="pick4('gr1',2,1,2,'gr1_q2')">イ：2力が一直線上にある</button><button class="choice-btn" onclick="pick4('gr1',2,2,2,'gr1_q2')">ウ：2力の大きさが2：1である</button><button class="choice-btn" onclick="pick4('gr1',2,3,2,'gr1_q2')">エ：2力の向きが反対である</button></div><div class="fb-msg" id="fb_gr1_q2"></div><div class="msample" id="samp_gr1_q2">正解：ウ：2力の大きさが2：1である　つり合うには、2力の大きさが等しいことが必要です。2：1ではつり合いません。</div></div><div class="q-block" id="qblock_gr1_q3"><h4>Q3. 物体に、右向きに6Nと左向きに6Nの力が一直線上にはたらいている。この2力について正しいものはどれか。</h4><div class="choice-list" id="choices_gr1_q3"><button class="choice-btn" onclick="pick4('gr1',3,0,1,'gr1_q3')">ア：つり合っていない</button><button class="choice-btn" onclick="pick4('gr1',3,1,1,'gr1_q3')">イ：つり合っている</button><button class="choice-btn" onclick="pick4('gr1',3,2,1,'gr1_q3')">ウ：物体は右へ動く</button><button class="choice-btn" onclick="pick4('gr1',3,3,1,'gr1_q3')">エ：2力の大きさが違う</button></div><div class="fb-msg" id="fb_gr1_q3"></div><div class="msample" id="samp_gr1_q3">正解：イ：つり合っている　大きさが等しく、一直線上で、向きが反対なので、つり合っています。</div></div><div class="q-block" id="qblock_gr1_q4"><h4>Q4. 静止している物体に、右向きに9Nの力がはたらいている。この力につり合う力はどれか。</h4><div class="choice-list" id="choices_gr1_q4"><button class="choice-btn" onclick="pick4('gr1',4,0,3,'gr1_q4')">ア：右向きに9N</button><button class="choice-btn" onclick="pick4('gr1',4,1,3,'gr1_q4')">イ：左向きに4.5N</button><button class="choice-btn" onclick="pick4('gr1',4,2,3,'gr1_q4')">ウ：左向きに18N</button><button class="choice-btn" onclick="pick4('gr1',4,3,3,'gr1_q4')">エ：左向きに9N</button></div><div class="fb-msg" id="fb_gr1_q4"></div><div class="msample" id="samp_gr1_q4">正解：エ：左向きに9N　つり合う力は、大きさが等しく向きが反対です。左向きに9Nです。</div></div><div class="q-block" id="qblock_gr1_q5"><h4>Q5. 同じ大きさで反対向きの2つの力が、一直線上にないとき、物体はどうなるか。</h4><div class="choice-list" id="choices_gr1_q5"><button class="choice-btn" onclick="pick4('gr1',5,0,0,'gr1_q5')">ア：回りはじめる</button><button class="choice-btn" onclick="pick4('gr1',5,1,0,'gr1_q5')">イ：動かない</button><button class="choice-btn" onclick="pick4('gr1',5,2,0,'gr1_q5')">ウ：まっすぐ進む</button><button class="choice-btn" onclick="pick4('gr1',5,3,0,'gr1_q5')">エ：つり合っている</button></div><div class="fb-msg" id="fb_gr1_q5"></div><div class="msample" id="samp_gr1_q5">正解：ア：回りはじめる　一直線上にないと、2力はつり合わず、物体は回りはじめます。</div></div><div class="q-block" id="qblock_gr1_q6"><h4>Q6. ✏️ 作図：つり合う力をかこう</h4><p class="q-note">赤い力につり合う力を、青い●をドラッグしてかきます。<b>大きさが同じで、向きが反対</b>になるようにします。方眼の数えかたを使いましょう。</p><div id="mt_gr1"></div></div><div class="pass-banner" id="pass_gr1">🎉 この単元クリア！すばらしい！ 🎉</div></div>
+</div></div>
+<div class="unit-card" id="card_gr2"><div class="unit-header"><div class="unit-num">2</div><h2>つり合う2つの力（重力・垂直抗力・摩擦力）</h2></div><div class="unit-body">
+<div class="exp-text"><h3>(1) 重力と垂直抗力（弾性力）</h3>
+<p>スポンジの上にりんごがのって、静止しています。スポンジは、へこんで元に戻ろうとするので、りんごを押し上げます。この力が<b>弾性力</b>です。りんごには、下向きに<b>重力</b>もはたらいています。この2力がつり合っているので、りんごは静止しています。</p>
+<div class="img-row"><div class="exp-img"><svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" role="img"><rect x="40" y="130" width="240" height="22" fill="#d6b88a" stroke="#334155" stroke-width="3"/><rect x="70" y="152" width="14" height="50" fill="#d6b88a" stroke="#334155" stroke-width="2"/><rect x="236" y="152" width="14" height="50" fill="#d6b88a" stroke="#334155" stroke-width="2"/><circle cx="160" cy="100" r="30" fill="#f87171" stroke="#7f1d1d" stroke-width="3"/><path d="M160 70 q6 -16 18 -18" stroke="#166534" stroke-width="4" fill="none"/><line x1="160" y1="130" x2="160" y2="72" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/><polygon points="160,58 168,74 152,74" fill="#2563eb"/><line x1="160" y1="100" x2="160" y2="171" stroke="#e11d48" stroke-width="5" stroke-linecap="round"/><polygon points="160,185 152,169 168,169" fill="#e11d48"/><text x="222" y="80" font-size="17" font-weight="800" fill="#2563eb" text-anchor="middle">垂直抗力</text><text x="224" y="175" font-size="17" font-weight="800" fill="#e11d48" text-anchor="middle">重力</text></svg></div></div>
+<p>かたい机でも同じです。理科では、かたい物体もほんのわずかにへこみ、元に戻ろうとする弾性力が生じると考えます。面に接した物体が面を押すとき、面から物体を<b>垂直に押し返す弾性力</b>を、<b>垂直抗力</b>といいます。</p>
+<div class="info-box">「抗」は「あらがう」と読み、「さからう・抵抗する」という意味です。</div>
+<h3>(2) 摩擦力</h3>
+<p>床の上の物体を横に引くと、物体と床がふれ合う面で、引く力と<b>逆向き</b>の力が生じます。これが<b>摩擦力</b>です。</p>
+<div class="img-row"><div class="exp-img"><svg viewBox="0 0 320 190" xmlns="http://www.w3.org/2000/svg" role="img"><line x1="10" y1="150" x2="310" y2="150" stroke="#334155" stroke-width="3"/><line x1="30" y1="150" x2="20" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="50" y1="150" x2="40" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="70" y1="150" x2="60" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="90" y1="150" x2="80" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="110" y1="150" x2="100" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="130" y1="150" x2="120" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="150" y1="150" x2="140" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="170" y1="150" x2="160" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="190" y1="150" x2="180" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="210" y1="150" x2="200" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="230" y1="150" x2="220" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="250" y1="150" x2="240" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="270" y1="150" x2="260" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="290" y1="150" x2="280" y2="162" stroke="#94a3b8" stroke-width="2"/><line x1="310" y1="150" x2="300" y2="162" stroke="#94a3b8" stroke-width="2"/><rect x="115" y="95" width="80" height="55" fill="#e2e8f0" stroke="#334155" stroke-width="3"/><line x1="195" y1="115" x2="276" y2="115" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/><polygon points="290,115 274,123 274,107" fill="#2563eb"/><line x1="195" y1="145" x2="134" y2="145" stroke="#e11d48" stroke-width="5" stroke-linecap="round"/><polygon points="120,145 136,137 136,153" fill="#e11d48"/><text x="245" y="100" font-size="16" font-weight="800" fill="#2563eb" text-anchor="middle">加えた力</text><text x="120" y="176" font-size="16" font-weight="800" fill="#e11d48" text-anchor="start">摩擦力（逆向き）</text></svg></div></div>
+<p>物体が動かないとき、<b>加えた力＝摩擦力</b>です。物体が一定の速さでまっすぐ動いている（等速直線運動）ときも、同じです。</p><div class="pt-box"><b>★ 覚えよう！</b><br>弾性力：ばねやスポンジが元に戻ろうとする力<br>垂直抗力：面が物体を垂直に押し返す力（重力とつり合う）<br>摩擦力：動きをさまたげる、逆向きの力。動かない・等速のとき「加えた力＝摩擦力」</div></div>
+
+<button class="mini-btn" onclick="toggleMini('gr2')">🧪 ミニテストに挑戦！<span id="mini-badge-gr2" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 6</span></button>
+<div class="mini-section" id="mini_gr2"><div class="mini-score-row" id="pips_gr2"><div class="mini-score-pip" id="pip_gr2_1"></div><div class="mini-score-pip" id="pip_gr2_2"></div><div class="mini-score-pip" id="pip_gr2_3"></div><div class="mini-score-pip" id="pip_gr2_4"></div><div class="mini-score-pip" id="pip_gr2_5"></div><div class="mini-score-pip" id="pip_gr2_6"></div></div><div class="q-block" id="qblock_gr2_q1"><h4>Q1. 文中の①〜⑤に当てはまる語句を語群から選んで入れよう。</h4><p class="q-note">スポンジの上のりんごが静止しているのは、スポンジが元に戻ろうとする①と、りんごにはたらく②がつり合っているからです。面に接した物体が面を押すとき、面から物体を垂直に押し返す力を③といいます。物体が動かないとき、加えた力と④は等しくなります。⑤のときも同様です。</p><div class="mchips" id="chips_gr2_q1"></div><div class="mdz-row"><span class="mdz-label">①</span><span class="mdz" id="mdz_gr2_q1_0" onclick="returnChip('gr2',1,0)">&nbsp;</span><span class="mdz-label">②</span><span class="mdz" id="mdz_gr2_q1_1" onclick="returnChip('gr2',1,1)">&nbsp;</span><span class="mdz-label">③</span><span class="mdz" id="mdz_gr2_q1_2" onclick="returnChip('gr2',1,2)">&nbsp;</span><span class="mdz-label">④</span><span class="mdz" id="mdz_gr2_q1_3" onclick="returnChip('gr2',1,3)">&nbsp;</span><span class="mdz-label">⑤</span><span class="mdz" id="mdz_gr2_q1_4" onclick="returnChip('gr2',1,4)">&nbsp;</span></div><div class="btn-row"><button class="check-btn" onclick="checkMiniBank('gr2',1)">✔ 答え合わせ</button><button class="sample-btn" onclick="showSample('gr2',1)">💡 答えを見る</button></div><div class="fb-msg" id="fb_gr2_q1"></div><div class="msample" id="samp_gr2_q1">答え：①＝弾性力 / ②＝重力 / ③＝垂直抗力 / ④＝摩擦力 / ⑤＝等速直線運動</div></div><div class="q-block" id="qblock_gr2_q2"><h4>Q2. 机の上でりんごが静止している。りんごにはたらく重力とつり合っている力はどれか。</h4><div class="choice-list" id="choices_gr2_q2"><button class="choice-btn" onclick="pick4('gr2',2,0,1,'gr2_q2')">ア：摩擦力</button><button class="choice-btn" onclick="pick4('gr2',2,1,1,'gr2_q2')">イ：垂直抗力</button><button class="choice-btn" onclick="pick4('gr2',2,2,1,'gr2_q2')">ウ：浮力</button><button class="choice-btn" onclick="pick4('gr2',2,3,1,'gr2_q2')">エ：磁力</button></div><div class="fb-msg" id="fb_gr2_q2"></div><div class="msample" id="samp_gr2_q2">正解：イ：垂直抗力　机がりんごを垂直に押し返す力（垂直抗力）が、重力とつり合っています。</div></div><div class="q-block" id="qblock_gr2_q3"><h4>Q3. 床の上の物体を7Nの力で引いたが、動かなかった。摩擦力は何Nか。</h4><div class="choice-list" id="choices_gr2_q3"><button class="choice-btn" onclick="pick4('gr2',3,0,3,'gr2_q3')">ア：0N</button><button class="choice-btn" onclick="pick4('gr2',3,1,3,'gr2_q3')">イ：3.5N</button><button class="choice-btn" onclick="pick4('gr2',3,2,3,'gr2_q3')">ウ：14N</button><button class="choice-btn" onclick="pick4('gr2',3,3,3,'gr2_q3')">エ：7N</button></div><div class="fb-msg" id="fb_gr2_q3"></div><div class="msample" id="samp_gr2_q3">正解：エ：7N　動かないとき、加えた力＝摩擦力なので、7Nです。</div></div><div class="q-block" id="qblock_gr2_q4"><h4>Q4. 床の上の物体を、一定の速さで引いている。引く力が18Nのとき、摩擦力は何Nか。</h4><div class="choice-list" id="choices_gr2_q4"><button class="choice-btn" onclick="pick4('gr2',4,0,2,'gr2_q4')">ア：0N</button><button class="choice-btn" onclick="pick4('gr2',4,1,2,'gr2_q4')">イ：9N</button><button class="choice-btn" onclick="pick4('gr2',4,2,2,'gr2_q4')">ウ：18N</button><button class="choice-btn" onclick="pick4('gr2',4,3,2,'gr2_q4')">エ：36N</button></div><div class="fb-msg" id="fb_gr2_q4"></div><div class="msample" id="samp_gr2_q4">正解：ウ：18N　一定の速さで動くとき（等速直線運動）も、加えた力＝摩擦力なので、18Nです。</div></div><div class="q-block" id="qblock_gr2_q5"><h4>Q5. 摩擦力の向きは、物体が動く向きに対してどうなっているか。</h4><div class="choice-list" id="choices_gr2_q5"><button class="choice-btn" onclick="pick4('gr2',5,0,0,'gr2_q5')">ア：反対向き</button><button class="choice-btn" onclick="pick4('gr2',5,1,0,'gr2_q5')">イ：同じ向き</button><button class="choice-btn" onclick="pick4('gr2',5,2,0,'gr2_q5')">ウ：垂直な向き</button><button class="choice-btn" onclick="pick4('gr2',5,3,0,'gr2_q5')">エ：決まっていない</button></div><div class="fb-msg" id="fb_gr2_q5"></div><div class="msample" id="samp_gr2_q5">正解：ア：反対向き　摩擦力は、物体の動きをさまたげる向き（逆向き）にはたらきます。</div></div><div class="q-block" id="qblock_gr2_q6"><h4>Q6. ✏️ 作図：重力・摩擦力につり合う力をかこう</h4><p class="q-note">赤い力につり合う力（垂直抗力・摩擦力）を、青い●をドラッグしてかきます。<b>大きさが同じで、向きが反対</b>です。</p><div id="mt_gr2"></div></div><div class="pass-banner" id="pass_gr2">🎉 この単元クリア！すばらしい！ 🎉</div></div>
+</div></div>
+<div class="unit-card" id="card_gr3"><div class="unit-header"><div class="unit-num">3</div><h2>力の合成（平行四辺形）</h2></div><div class="unit-body">
+<div class="exp-text"><p>物体に2つ以上の力がはたらくとき、それらを1つにまとめた力を<b>合力</b>といいます。合力を求めることを、力の<b>合成</b>といいます。</p>
+<h3>一直線上の2力の合力</h3>
+<p>同じ向きの2力の合力は、2力の<b>和</b>です（3Nと4Nなら7N）。反対向きの2力の合力は、2力の<b>差</b>で、向きは大きいほうの力と同じです（3Nと4Nなら1N）。</p>
+<h3>一直線上にない2力の合力</h3>
+<p>2力を2辺とする<b>平行四辺形</b>（力の平行四辺形）をかきます。そのときできる<b>対角線</b>が、合力です。</p>
+<div class="img-row"><div class="exp-img"><svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img"><polygon points="60,170 170,148 192,60 82,82" fill="#fef9c3" opacity=".7"/><line x1="170" y1="148" x2="192" y2="60" stroke="#16a34a" stroke-width="3" stroke-dasharray="7 5"/><line x1="82" y1="82" x2="192" y2="60" stroke="#16a34a" stroke-width="3" stroke-dasharray="7 5"/><line x1="60" y1="170" x2="156.272" y2="150.746" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/><polygon points="170,148 155.88,158.983 152.742,143.293" fill="#2563eb"/><line x1="60" y1="170" x2="78.6045" y2="95.582" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/><polygon points="82,82 85.8806,99.4626 70.3583,95.582" fill="#ea580c"/><line x1="60" y1="170" x2="181.245" y2="68.9626" stroke="#e11d48" stroke-width="6" stroke-linecap="round"/><polygon points="192,60 184.83,76.3887 174.587,64.0972" fill="#e11d48"/><text x="176" y="170" font-size="16" font-weight="800" fill="#2563eb" text-anchor="start">力A</text><text x="74" y="74" font-size="16" font-weight="800" fill="#ea580c" text-anchor="end">力B</text><text x="200" y="56" font-size="18" font-weight="800" fill="#e11d48" text-anchor="start">合力</text></svg></div></div>
+<div class="eq-box"><span class="eq">合力の作図の手順</span><br>① 力Aの先から、力Bと<b>平行</b>な線を引く<br>② 力Bの先から、力Aと<b>平行</b>な線を引く<br>③ 2本の線の交点と、はじめの点を結ぶ → <b>合力</b></div>
+<h3>平行線がうまく引けないときのコツ</h3>
+<p>方眼を使うと、定規がなくても平行線が引けます。矢印が「右3・上2」進んでいるなら、別の点からも<b>同じ向きに、同じ数だけ</b>「右3・上2」進んだ点をとります。2つの点を結ぶと、平行な線になります。</p>
+<div class="pt-box"><b>★ 覚えよう！</b><br>合力：2力を1つにまとめた力　　合成：合力を求めること<br>一直線上：同じ向き→和、反対向き→差（大きいほうの向き）<br>一直線上にない：平行四辺形の<b>対角線</b>が合力</div></div>
+<div class="bd-wrap"><h3>✏️ 作図に挑戦！ 平行線の練習</h3><p class="bd-how">お手本の矢印と<b>平行</b>な線を、赤い●の点から引きます。●をドラッグして動かし、平行になると線が<b>緑色</b>に変わります。</p><div id="bd_par"></div></div><div class="bd-wrap"><h3>✏️ 作図に挑戦！ 合力を求めよう</h3><p class="bd-how">力Aの先の●を力Bと平行に、力Bの先の●を力Aと平行にドラッグします。2本の線の交点が出ると、<b>合力</b>の矢印が現れます。</p><div id="bd_sum"></div></div>
+<button class="mini-btn" onclick="toggleMini('gr3')">🧪 ミニテストに挑戦！<span id="mini-badge-gr3" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 7</span></button>
+<div class="mini-section" id="mini_gr3"><div class="mini-score-row" id="pips_gr3"><div class="mini-score-pip" id="pip_gr3_1"></div><div class="mini-score-pip" id="pip_gr3_2"></div><div class="mini-score-pip" id="pip_gr3_3"></div><div class="mini-score-pip" id="pip_gr3_4"></div><div class="mini-score-pip" id="pip_gr3_5"></div><div class="mini-score-pip" id="pip_gr3_6"></div><div class="mini-score-pip" id="pip_gr3_7"></div></div><div class="q-block" id="qblock_gr3_q1"><h4>Q1. 文中の①〜⑤に当てはまる語句を語群から選んで入れよう。</h4><p class="q-note">2つの力を1つにまとめた力を①といい、①を求めることを力の②といいます。2つの力が一直線上にないときは、2力を2辺とする③をかき、その④が合力になります。2力が同じ向きのとき、合力の大きさは2力の⑤になります。</p><div class="mchips" id="chips_gr3_q1"></div><div class="mdz-row"><span class="mdz-label">①</span><span class="mdz" id="mdz_gr3_q1_0" onclick="returnChip('gr3',1,0)">&nbsp;</span><span class="mdz-label">②</span><span class="mdz" id="mdz_gr3_q1_1" onclick="returnChip('gr3',1,1)">&nbsp;</span><span class="mdz-label">③</span><span class="mdz" id="mdz_gr3_q1_2" onclick="returnChip('gr3',1,2)">&nbsp;</span><span class="mdz-label">④</span><span class="mdz" id="mdz_gr3_q1_3" onclick="returnChip('gr3',1,3)">&nbsp;</span><span class="mdz-label">⑤</span><span class="mdz" id="mdz_gr3_q1_4" onclick="returnChip('gr3',1,4)">&nbsp;</span></div><div class="btn-row"><button class="check-btn" onclick="checkMiniBank('gr3',1)">✔ 答え合わせ</button><button class="sample-btn" onclick="showSample('gr3',1)">💡 答えを見る</button></div><div class="fb-msg" id="fb_gr3_q1"></div><div class="msample" id="samp_gr3_q1">答え：①＝合力 / ②＝合成 / ③＝平行四辺形 / ④＝対角線 / ⑤＝和</div></div><div class="q-block" id="qblock_gr3_q2"><h4>Q2. 3Nと4Nの2力が、同じ向きに一直線上にはたらいている。合力の大きさは何Nか。</h4><div class="choice-list" id="choices_gr3_q2"><button class="choice-btn" onclick="pick4('gr3',2,0,2,'gr3_q2')">ア：1N</button><button class="choice-btn" onclick="pick4('gr3',2,1,2,'gr3_q2')">イ：12N</button><button class="choice-btn" onclick="pick4('gr3',2,2,2,'gr3_q2')">ウ：7N</button><button class="choice-btn" onclick="pick4('gr3',2,3,2,'gr3_q2')">エ：3.5N</button></div><div class="fb-msg" id="fb_gr3_q2"></div><div class="msample" id="samp_gr3_q2">正解：ウ：7N　同じ向きの2力の合力は和です。3N＋4N＝7Nです。</div></div><div class="q-block" id="qblock_gr3_q3"><h4>Q3. 3Nと4Nの2力が、反対向きに一直線上にはたらいている。合力の大きさと向きは？</h4><div class="choice-list" id="choices_gr3_q3"><button class="choice-btn" onclick="pick4('gr3',3,0,1,'gr3_q3')">ア：7Nで、大きいほうの力の向き</button><button class="choice-btn" onclick="pick4('gr3',3,1,1,'gr3_q3')">イ：1Nで、大きいほうの力の向き</button><button class="choice-btn" onclick="pick4('gr3',3,2,1,'gr3_q3')">ウ：1Nで、小さいほうの力の向き</button><button class="choice-btn" onclick="pick4('gr3',3,3,1,'gr3_q3')">エ：0N</button></div><div class="fb-msg" id="fb_gr3_q3"></div><div class="msample" id="samp_gr3_q3">正解：イ：1Nで、大きいほうの力の向き　反対向きの2力の合力は差です。4N－3N＝1Nで、向きは大きいほうの力と同じです。</div></div><div class="q-block" id="qblock_gr3_q4"><h4>Q4. 一直線上にない2力の合力を作図するとき、使う図形はどれか。</h4><div class="choice-list" id="choices_gr3_q4"><button class="choice-btn" onclick="pick4('gr3',4,0,3,'gr3_q4')">ア：円</button><button class="choice-btn" onclick="pick4('gr3',4,1,3,'gr3_q4')">イ：直角三角形の高さ</button><button class="choice-btn" onclick="pick4('gr3',4,2,3,'gr3_q4')">ウ：ばねののびのグラフ</button><button class="choice-btn" onclick="pick4('gr3',4,3,3,'gr3_q4')">エ：力の平行四辺形</button></div><div class="fb-msg" id="fb_gr3_q4"></div><div class="msample" id="samp_gr3_q4">正解：エ：力の平行四辺形　2力を2辺とする平行四辺形をかき、その対角線が合力です。</div></div><div class="q-block" id="qblock_gr3_q5"><h4>Q5. 方眼で、矢印が「右4・上2」進んでいるとき、平行な線の引きかたとして正しいものはどれか。</h4><div class="choice-list" id="choices_gr3_q5"><button class="choice-btn" onclick="pick4('gr3',5,0,0,'gr3_q5')">ア：別の点から、右4・上2進んだ点と結ぶ</button><button class="choice-btn" onclick="pick4('gr3',5,1,0,'gr3_q5')">イ：別の点から、右2・上4進んだ点と結ぶ</button><button class="choice-btn" onclick="pick4('gr3',5,2,0,'gr3_q5')">ウ：別の点から、右4・下2進んだ点と結ぶ</button><button class="choice-btn" onclick="pick4('gr3',5,3,0,'gr3_q5')">エ：別の点から、右4・上4進んだ点と結ぶ</button></div><div class="fb-msg" id="fb_gr3_q5"></div><div class="msample" id="samp_gr3_q5">正解：ア：別の点から、右4・上2進んだ点と結ぶ　平行にするには、同じ向きに同じ数だけ進みます。「右4・上2」と同じにします。</div></div><div class="q-block" id="qblock_gr3_q6"><h4>Q6. ✏️ 作図：平行線を引こう</h4><p class="q-note">赤い●の点から、お手本と<b>平行</b>な線を引きます。</p><div id="mt_gr3a"></div></div><div class="q-block" id="qblock_gr3_q7"><h4>Q7. ✏️ 作図：合力を求めよう</h4><p class="q-note">2本の平行線を引いて、<b>合力</b>を出しましょう。</p><div id="mt_gr3b"></div></div><div class="pass-banner" id="pass_gr3">🎉 この単元クリア！すばらしい！ 🎉</div></div>
+</div></div>
+<div class="unit-card" id="card_gr4"><div class="unit-header"><div class="unit-num">4</div><h2>合力につり合う力の作図</h2></div><div class="unit-body">
+<div class="exp-text"><p>ある力とつり合う力は、その力と<b>大きさが同じで、向きが反対</b>で、一直線上にある力です。</p>
+<p>2つの力につり合う力を求めるときは、次の2段階で考えます。</p>
+<div class="eq-box"><span class="eq">① 2力の合力を求める　→　② その合力とつり合う力（逆向き）をかく</span></div>
+<p>3つの力がつり合って物体が静止しているとき、2つの力の合力は、残りの1つの力とつり合っています。たとえば、力A・Bの合力が上向きに5Nなら、残りの力Cは下向きに5Nです。</p>
+<div class="pt-box"><b>★ 覚えよう！</b><br>つり合う力：大きさが同じ・向きが反対・一直線上<br>2力につり合う力は、まず<b>合力</b>を求めて、その<b>逆向き</b>の矢印をかく</div></div>
+<div class="bd-wrap"><h3>✏️ 作図に挑戦！ つり合う力をかこう</h3><p class="bd-how">平行線を2本引くと合力が出ます。そのあと、青い●をドラッグして、合力と<b>大きさが同じで向きが反対</b>の矢印をかきます。</p><div id="bd_bal"></div></div>
+<button class="mini-btn" onclick="toggleMini('gr4')">🧪 ミニテストに挑戦！<span id="mini-badge-gr4" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 6</span></button>
+<div class="mini-section" id="mini_gr4"><div class="mini-score-row" id="pips_gr4"><div class="mini-score-pip" id="pip_gr4_1"></div><div class="mini-score-pip" id="pip_gr4_2"></div><div class="mini-score-pip" id="pip_gr4_3"></div><div class="mini-score-pip" id="pip_gr4_4"></div><div class="mini-score-pip" id="pip_gr4_5"></div><div class="mini-score-pip" id="pip_gr4_6"></div></div><div class="q-block" id="qblock_gr4_q1"><h4>Q1. 文中の①〜⑤に当てはまる語句を語群から選んで入れよう。</h4><p class="q-note">ある力とつり合う力は、その力と①が同じで、向きが②の力です。2つの力につり合う力を求めるには、まず2力の③を求め、その③と④上で逆向きの矢印を⑤します。</p><div class="mchips" id="chips_gr4_q1"></div><div class="mdz-row"><span class="mdz-label">①</span><span class="mdz" id="mdz_gr4_q1_0" onclick="returnChip('gr4',1,0)">&nbsp;</span><span class="mdz-label">②</span><span class="mdz" id="mdz_gr4_q1_1" onclick="returnChip('gr4',1,1)">&nbsp;</span><span class="mdz-label">③</span><span class="mdz" id="mdz_gr4_q1_2" onclick="returnChip('gr4',1,2)">&nbsp;</span><span class="mdz-label">④</span><span class="mdz" id="mdz_gr4_q1_3" onclick="returnChip('gr4',1,3)">&nbsp;</span><span class="mdz-label">⑤</span><span class="mdz" id="mdz_gr4_q1_4" onclick="returnChip('gr4',1,4)">&nbsp;</span></div><div class="btn-row"><button class="check-btn" onclick="checkMiniBank('gr4',1)">✔ 答え合わせ</button><button class="sample-btn" onclick="showSample('gr4',1)">💡 答えを見る</button></div><div class="fb-msg" id="fb_gr4_q1"></div><div class="msample" id="samp_gr4_q1">答え：①＝大きさ / ②＝反対 / ③＝合力 / ④＝一直線 / ⑤＝作図</div></div><div class="q-block" id="qblock_gr4_q2"><h4>Q2. 2力の合力が、右向きに8Nだった。この2力につり合う力はどれか。</h4><div class="choice-list" id="choices_gr4_q2"><button class="choice-btn" onclick="pick4('gr4',2,0,1,'gr4_q2')">ア：右向きに8N</button><button class="choice-btn" onclick="pick4('gr4',2,1,1,'gr4_q2')">イ：左向きに8N</button><button class="choice-btn" onclick="pick4('gr4',2,2,1,'gr4_q2')">ウ：左向きに4N</button><button class="choice-btn" onclick="pick4('gr4',2,3,1,'gr4_q2')">エ：右向きに16N</button></div><div class="fb-msg" id="fb_gr4_q2"></div><div class="msample" id="samp_gr4_q2">正解：イ：左向きに8N　つり合う力は、合力と大きさが同じで向きが反対です。左向きに8Nです。</div></div><div class="q-block" id="qblock_gr4_q3"><h4>Q3. 3つの力がつり合って、物体が静止している。力Aと力Bの合力が上向きに5Nのとき、残りの力Cはどれか。</h4><div class="choice-list" id="choices_gr4_q3"><button class="choice-btn" onclick="pick4('gr4',3,0,3,'gr4_q3')">ア：上向きに5N</button><button class="choice-btn" onclick="pick4('gr4',3,1,3,'gr4_q3')">イ：下向きに10N</button><button class="choice-btn" onclick="pick4('gr4',3,2,3,'gr4_q3')">ウ：下向きに2.5N</button><button class="choice-btn" onclick="pick4('gr4',3,3,3,'gr4_q3')">エ：下向きに5N</button></div><div class="fb-msg" id="fb_gr4_q3"></div><div class="msample" id="samp_gr4_q3">正解：エ：下向きに5N　AとBの合力は、Cとつり合っています。Cは下向きに5Nです。</div></div><div class="q-block" id="qblock_gr4_q4"><h4>Q4. 2力につり合う力を作図する手順として、正しいものはどれか。</h4><div class="choice-list" id="choices_gr4_q4"><button class="choice-btn" onclick="pick4('gr4',4,0,2,'gr4_q4')">ア：それぞれの力の逆向きの矢印を2本かく</button><button class="choice-btn" onclick="pick4('gr4',4,1,2,'gr4_q4')">イ：大きいほうの力と同じ矢印をかく</button><button class="choice-btn" onclick="pick4('gr4',4,2,2,'gr4_q4')">ウ：合力を求めて、その逆向きの矢印をかく</button><button class="choice-btn" onclick="pick4('gr4',4,3,2,'gr4_q4')">エ：2力の中点に矢印をかく</button></div><div class="fb-msg" id="fb_gr4_q4"></div><div class="msample" id="samp_gr4_q4">正解：ウ：合力を求めて、その逆向きの矢印をかく　まず2力の合力を求めます。つり合う力は、その合力と逆向きで同じ大きさの矢印です。</div></div><div class="q-block" id="qblock_gr4_q5"><h4>Q5. おもり（重さ10N）を1本の糸でつるして、静止させた。糸がおもりを引く力は何Nか。</h4><div class="choice-list" id="choices_gr4_q5"><button class="choice-btn" onclick="pick4('gr4',5,0,0,'gr4_q5')">ア：10N</button><button class="choice-btn" onclick="pick4('gr4',5,1,0,'gr4_q5')">イ：5N</button><button class="choice-btn" onclick="pick4('gr4',5,2,0,'gr4_q5')">ウ：20N</button><button class="choice-btn" onclick="pick4('gr4',5,3,0,'gr4_q5')">エ：0N</button></div><div class="fb-msg" id="fb_gr4_q5"></div><div class="msample" id="samp_gr4_q5">正解：ア：10N　重力10Nとつり合うので、糸がおもりを引く力（張力）は10Nです。</div></div><div class="q-block" id="qblock_gr4_q6"><h4>Q6. ✏️ 作図：合力につり合う力をかこう</h4><p class="q-note">平行線を2本引いて合力を出したあと、つり合う力をかきます。</p><div id="mt_gr4"></div></div><div class="pass-banner" id="pass_gr4">🎉 この単元クリア！すばらしい！ 🎉</div></div>
+</div></div>
+<div class="unit-card" id="card_gr5"><div class="unit-header"><div class="unit-num">5</div><h2>力の分解</h2></div><div class="unit-body">
+<div class="exp-text"><p>合成とは反対に、1つの力を、同じはたらきをする2つの力に分けることを、力の<b>分解</b>といいます。分けてできた力を<b>分力</b>といいます。</p>
+<p>分解するときは、もとの力を<b>対角線</b>とする<b>平行四辺形</b>をかきます。分ける方向は、<b>点線</b>（下の図ではℓとm）で示されます。</p>
+<div class="eq-box"><span class="eq">力の分解の手順</span><br>① 力Fの先から、<b>m</b>と平行な線を引く（ℓにぶつかる）<br>② 力Fの先から、<b>ℓ</b>と平行な線を引く（mにぶつかる）<br>③ はじめの点から、ぶつかった2つの点への矢印が<b>分力</b></div>
+<p>平行線は、方眼で「右○・上○」と数えて引きます。分力は、合成の逆の操作なので、2つの分力を合成すると、もとの力にもどります。</p>
+<div class="pt-box"><b>★ 覚えよう！</b><br>分解：1つの力を、同じはたらきをする2つの力に分けること　　分力：分けてできた力<br>もとの力を対角線とする平行四辺形をかく（点線の方向に平行な線を引く）</div></div>
+<div class="bd-wrap"><h3>✏️ 作図に挑戦！ 力を2つの方向に分解しよう</h3><p class="bd-how">力Fの先から出ている●を2つ動かして、点線ℓ・mと平行な線を引きます。平行四辺形ができると、<b>分力</b>の矢印が現れます。</p><div id="bd_dec"></div></div>
+<button class="mini-btn" onclick="toggleMini('gr5')">🧪 ミニテストに挑戦！<span id="mini-badge-gr5" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 6</span></button>
+<div class="mini-section" id="mini_gr5"><div class="mini-score-row" id="pips_gr5"><div class="mini-score-pip" id="pip_gr5_1"></div><div class="mini-score-pip" id="pip_gr5_2"></div><div class="mini-score-pip" id="pip_gr5_3"></div><div class="mini-score-pip" id="pip_gr5_4"></div><div class="mini-score-pip" id="pip_gr5_5"></div><div class="mini-score-pip" id="pip_gr5_6"></div></div><div class="q-block" id="qblock_gr5_q1"><h4>Q1. 文中の①〜⑤に当てはまる語句を語群から選んで入れよう。</h4><p class="q-note">1つの力を、同じはたらきをする2つの力に分けることを力の①といい、分けてできた力を②といいます。もとの力を③とする④をかくと、分力が求められます。分ける方向は⑤で示されます。</p><div class="mchips" id="chips_gr5_q1"></div><div class="mdz-row"><span class="mdz-label">①</span><span class="mdz" id="mdz_gr5_q1_0" onclick="returnChip('gr5',1,0)">&nbsp;</span><span class="mdz-label">②</span><span class="mdz" id="mdz_gr5_q1_1" onclick="returnChip('gr5',1,1)">&nbsp;</span><span class="mdz-label">③</span><span class="mdz" id="mdz_gr5_q1_2" onclick="returnChip('gr5',1,2)">&nbsp;</span><span class="mdz-label">④</span><span class="mdz" id="mdz_gr5_q1_3" onclick="returnChip('gr5',1,3)">&nbsp;</span><span class="mdz-label">⑤</span><span class="mdz" id="mdz_gr5_q1_4" onclick="returnChip('gr5',1,4)">&nbsp;</span></div><div class="btn-row"><button class="check-btn" onclick="checkMiniBank('gr5',1)">✔ 答え合わせ</button><button class="sample-btn" onclick="showSample('gr5',1)">💡 答えを見る</button></div><div class="fb-msg" id="fb_gr5_q1"></div><div class="msample" id="samp_gr5_q1">答え：①＝分解 / ②＝分力 / ③＝対角線 / ④＝平行四辺形 / ⑤＝点線</div></div><div class="q-block" id="qblock_gr5_q2"><h4>Q2. 力の分解で、もとの力は平行四辺形のどこにあたるか。</h4><div class="choice-list" id="choices_gr5_q2"><button class="choice-btn" onclick="pick4('gr5',2,0,2,'gr5_q2')">ア：となり合う辺</button><button class="choice-btn" onclick="pick4('gr5',2,1,2,'gr5_q2')">イ：高さ</button><button class="choice-btn" onclick="pick4('gr5',2,2,2,'gr5_q2')">ウ：対角線</button><button class="choice-btn" onclick="pick4('gr5',2,3,2,'gr5_q2')">エ：底辺</button></div><div class="fb-msg" id="fb_gr5_q2"></div><div class="msample" id="samp_gr5_q2">正解：ウ：対角線　もとの力が対角線になるように平行四辺形をかき、となり合う2辺が分力になります。</div></div><div class="q-block" id="qblock_gr5_q3"><h4>Q3. 1つの力を分解してできた2つの力を、何というか。</h4><div class="choice-list" id="choices_gr5_q3"><button class="choice-btn" onclick="pick4('gr5',3,0,1,'gr5_q3')">ア：合力</button><button class="choice-btn" onclick="pick4('gr5',3,1,1,'gr5_q3')">イ：分力</button><button class="choice-btn" onclick="pick4('gr5',3,2,1,'gr5_q3')">ウ：張力</button><button class="choice-btn" onclick="pick4('gr5',3,3,1,'gr5_q3')">エ：弾性力</button></div><div class="fb-msg" id="fb_gr5_q3"></div><div class="msample" id="samp_gr5_q3">正解：イ：分力　分解してできた力は、分力といいます。</div></div><div class="q-block" id="qblock_gr5_q4"><h4>Q4. 力Fを方向ℓとmに分解するとき、力Fの先から引く線として正しいものはどれか。</h4><div class="choice-list" id="choices_gr5_q4"><button class="choice-btn" onclick="pick4('gr5',4,0,3,'gr5_q4')">ア：ℓに垂直な線と、mに垂直な線</button><button class="choice-btn" onclick="pick4('gr5',4,1,3,'gr5_q4')">イ：ℓと同じ線と、mと同じ線</button><button class="choice-btn" onclick="pick4('gr5',4,2,3,'gr5_q4')">ウ：Fと平行な線を2本</button><button class="choice-btn" onclick="pick4('gr5',4,3,3,'gr5_q4')">エ：ℓに平行な線と、mに平行な線</button></div><div class="fb-msg" id="fb_gr5_q4"></div><div class="msample" id="samp_gr5_q4">正解：エ：ℓに平行な線と、mに平行な線　力Fの先から、ℓに平行な線とmに平行な線を引くと、平行四辺形ができます。</div></div><div class="q-block" id="qblock_gr5_q5"><h4>Q5. 分力と合力の関係で、正しいものはどれか。</h4><div class="choice-list" id="choices_gr5_q5"><button class="choice-btn" onclick="pick4('gr5',5,0,0,'gr5_q5')">ア：2つの分力を合成すると、もとの力になる</button><button class="choice-btn" onclick="pick4('gr5',5,1,0,'gr5_q5')">イ：分力は、もとの力より必ず大きい</button><button class="choice-btn" onclick="pick4('gr5',5,2,0,'gr5_q5')">ウ：2つの分力は、つり合っている</button><button class="choice-btn" onclick="pick4('gr5',5,3,0,'gr5_q5')">エ：分力の和は、必ずもとの力の2倍になる</button></div><div class="fb-msg" id="fb_gr5_q5"></div><div class="msample" id="samp_gr5_q5">正解：ア：2つの分力を合成すると、もとの力になる　分解は合成の逆の操作です。2つの分力の合力は、もとの力になります。</div></div><div class="q-block" id="qblock_gr5_q6"><h4>Q6. ✏️ 作図：力を分解しよう</h4><p class="q-note">力Fを、点線ℓ・mの方向に分解します。</p><div id="mt_gr5"></div></div><div class="pass-banner" id="pass_gr5">🎉 この単元クリア！すばらしい！ 🎉</div></div>
+</div></div>
+<div class="unit-card" id="card_gr6"><div class="unit-header"><div class="unit-num">6</div><h2>斜面上の物体にかかる力</h2></div><div class="unit-body">
+<div class="exp-text"><p>斜面の上にある物体には、<b>重力</b>が真下にはたらいています。この重力を、斜面に<b>平行</b>な方向と、斜面に<b>垂直</b>な方向に分解します。</p>
+<ul style="margin:0 0 .85em 1.4em;line-height:1.9;">
+<li><b>斜面に平行な分力</b>：物体を斜面にそって下へ動かそうとする力です。物体が斜面をすべり降りるのは、この力がはたらくからです。</li>
+<li><b>斜面に垂直な分力</b>：物体が斜面を押す力です。斜面からの垂直抗力とつり合います。</li>
+</ul>
+<h3>斜面の角度を大きくすると？</h3>
+<p>重力の大きさは変わりませんが、斜面に平行な分力は<b>大きく</b>なり、斜面に垂直な分力は<b>小さく</b>なります。斜面が急になるほど、物体は下に動きやすくなります。</p>
+<div class="pt-box"><b>★ 覚えよう！</b><br>斜面上の物体の重力は「斜面に平行な力」と「斜面に垂直な力」に分解<br>角度が大きくなると：平行な力は大きく、垂直な力は小さく、重力は変わらない</div></div>
+<div class="bd-wrap"><h3>✏️ 作図に挑戦！ 重力を斜面に平行・垂直に分解しよう</h3><p class="bd-how">赤い矢印が<b>重力</b>です。重力の先の●を2つ動かして、斜面に<b>平行</b>な線と<b>垂直</b>な線を引きます。</p><div id="bd_slope"></div></div>
+<button class="mini-btn" onclick="toggleMini('gr6')">🧪 ミニテストに挑戦！<span id="mini-badge-gr6" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 6</span></button>
+<div class="mini-section" id="mini_gr6"><div class="mini-score-row" id="pips_gr6"><div class="mini-score-pip" id="pip_gr6_1"></div><div class="mini-score-pip" id="pip_gr6_2"></div><div class="mini-score-pip" id="pip_gr6_3"></div><div class="mini-score-pip" id="pip_gr6_4"></div><div class="mini-score-pip" id="pip_gr6_5"></div><div class="mini-score-pip" id="pip_gr6_6"></div></div><div class="q-block" id="qblock_gr6_q1"><h4>Q1. 文中の①〜⑤に当てはまる語句を語群から選んで入れよう。</h4><p class="q-note">斜面上の物体にはたらく重力は、斜面に①な力と、斜面に②な力に分解できます。物体が斜面を下るのは、斜面に平行な③がはたらくからです。斜面の角度を大きくすると、斜面に平行な力は④なり、斜面に垂直な力は⑤なります。</p><div class="mchips" id="chips_gr6_q1"></div><div class="mdz-row"><span class="mdz-label">①</span><span class="mdz" id="mdz_gr6_q1_0" onclick="returnChip('gr6',1,0)">&nbsp;</span><span class="mdz-label">②</span><span class="mdz" id="mdz_gr6_q1_1" onclick="returnChip('gr6',1,1)">&nbsp;</span><span class="mdz-label">③</span><span class="mdz" id="mdz_gr6_q1_2" onclick="returnChip('gr6',1,2)">&nbsp;</span><span class="mdz-label">④</span><span class="mdz" id="mdz_gr6_q1_3" onclick="returnChip('gr6',1,3)">&nbsp;</span><span class="mdz-label">⑤</span><span class="mdz" id="mdz_gr6_q1_4" onclick="returnChip('gr6',1,4)">&nbsp;</span></div><div class="btn-row"><button class="check-btn" onclick="checkMiniBank('gr6',1)">✔ 答え合わせ</button><button class="sample-btn" onclick="showSample('gr6',1)">💡 答えを見る</button></div><div class="fb-msg" id="fb_gr6_q1"></div><div class="msample" id="samp_gr6_q1">答え：①＝平行 / ②＝垂直 / ③＝分力 / ④＝大きく / ⑤＝小さく</div></div><div class="q-block" id="qblock_gr6_q2"><h4>Q2. 斜面上の物体にはたらく重力を分解した、斜面に垂直な分力は、何とつり合っているか。</h4><div class="choice-list" id="choices_gr6_q2"><button class="choice-btn" onclick="pick4('gr6',2,0,1,'gr6_q2')">ア：摩擦力</button><button class="choice-btn" onclick="pick4('gr6',2,1,1,'gr6_q2')">イ：斜面からの垂直抗力</button><button class="choice-btn" onclick="pick4('gr6',2,2,1,'gr6_q2')">ウ：重力</button><button class="choice-btn" onclick="pick4('gr6',2,3,1,'gr6_q2')">エ：引く力</button></div><div class="fb-msg" id="fb_gr6_q2"></div><div class="msample" id="samp_gr6_q2">正解：イ：斜面からの垂直抗力　斜面に垂直な分力は、斜面が物体を押し返す垂直抗力とつり合っています。</div></div><div class="q-block" id="qblock_gr6_q3"><h4>Q3. 斜面の角度を大きくしたとき、斜面に平行な分力はどうなるか。</h4><div class="choice-list" id="choices_gr6_q3"><button class="choice-btn" onclick="pick4('gr6',3,0,3,'gr6_q3')">ア：小さくなる</button><button class="choice-btn" onclick="pick4('gr6',3,1,3,'gr6_q3')">イ：変わらない</button><button class="choice-btn" onclick="pick4('gr6',3,2,3,'gr6_q3')">ウ：0になる</button><button class="choice-btn" onclick="pick4('gr6',3,3,3,'gr6_q3')">エ：大きくなる</button></div><div class="fb-msg" id="fb_gr6_q3"></div><div class="msample" id="samp_gr6_q3">正解：エ：大きくなる　斜面が急になるほど、斜面に平行な分力は大きくなります。</div></div><div class="q-block" id="qblock_gr6_q4"><h4>Q4. 斜面の角度を大きくしたとき、斜面に垂直な分力はどうなるか。</h4><div class="choice-list" id="choices_gr6_q4"><button class="choice-btn" onclick="pick4('gr6',4,0,2,'gr6_q4')">ア：大きくなる</button><button class="choice-btn" onclick="pick4('gr6',4,1,2,'gr6_q4')">イ：変わらない</button><button class="choice-btn" onclick="pick4('gr6',4,2,2,'gr6_q4')">ウ：小さくなる</button><button class="choice-btn" onclick="pick4('gr6',4,3,2,'gr6_q4')">エ：0になる</button></div><div class="fb-msg" id="fb_gr6_q4"></div><div class="msample" id="samp_gr6_q4">正解：ウ：小さくなる　角度が大きくなると、斜面に垂直な分力は小さくなります。</div></div><div class="q-block" id="qblock_gr6_q5"><h4>Q5. 斜面の角度を大きくしたとき、物体にはたらく重力の大きさはどうなるか。</h4><div class="choice-list" id="choices_gr6_q5"><button class="choice-btn" onclick="pick4('gr6',5,0,0,'gr6_q5')">ア：変わらない</button><button class="choice-btn" onclick="pick4('gr6',5,1,0,'gr6_q5')">イ：大きくなる</button><button class="choice-btn" onclick="pick4('gr6',5,2,0,'gr6_q5')">ウ：小さくなる</button><button class="choice-btn" onclick="pick4('gr6',5,3,0,'gr6_q5')">エ：0になる</button></div><div class="fb-msg" id="fb_gr6_q5"></div><div class="msample" id="samp_gr6_q5">正解：ア：変わらない　重力は地球が引く力なので、斜面の角度が変わっても、大きさは変わりません。</div></div><div class="q-block" id="qblock_gr6_q6"><h4>Q6. ✏️ 作図：重力を分解しよう</h4><p class="q-note">重力を、斜面に平行・垂直な力に分解します。</p><div id="mt_gr6"></div></div><div class="pass-banner" id="pass_gr6">🎉 この単元クリア！すばらしい！ 🎉</div></div>
+</div></div>
+
+</div>
+<div class="foot-nav"><a href="gouryoku_practice.html">📝 練習問題 ▶</a></div>
+<script>
+
+const miniState={},miniScore={},miniTotal={},miniDone={};
+function registerSec(id,n){miniScore[id]=0;miniTotal[id]=n;miniDone[id]=new Array(n).fill(false);}
+function toggleMini(id){document.getElementById('mini_'+id).classList.toggle('open');}
+function initMiniBank(secId,qNum,words,answers){
+  const key=secId+'_q'+qNum;
+  miniState[key]={words:[...words],answers:[...answers],filled:new Array(answers.length).fill(null),chipUsed:new Array(words.length).fill(false)};
+  const c=document.getElementById('chips_'+key); if(!c)return; c.innerHTML='';
+  const order=[...Array(words.length).keys()];
+  for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
+  order.forEach(i=>{const b=document.createElement('button');b.className='mchip';b.id='chip_'+key+'_'+i;b.textContent=words[i];b.onclick=()=>fillMDZ(secId,qNum,i);c.appendChild(b);});
+}
+function fillMDZ(secId,qNum,ci){
+  const key=secId+'_q'+qNum,st=miniState[key]; if(!st||st.chipUsed[ci])return;
+  const e=st.filled.findIndex(v=>v===null); if(e<0)return;
+  st.filled[e]=ci;st.chipUsed[ci]=true;
+  document.getElementById('chip_'+key+'_'+ci).classList.add('used');
+  const m=document.getElementById('mdz_'+key+'_'+e); if(m){m.textContent=st.words[ci];m.classList.add('filled');}
+}
+function returnChip(secId,qNum,bi){
+  const key=secId+'_q'+qNum,st=miniState[key]; if(!st||st.filled[bi]===null)return;
+  const ci=st.filled[bi];st.filled[bi]=null;st.chipUsed[ci]=false;
+  document.getElementById('chip_'+key+'_'+ci).classList.remove('used');
+  const m=document.getElementById('mdz_'+key+'_'+bi); if(m){m.textContent=' ';m.className='mdz';}
+}
+function checkMiniBank(secId,qNum){
+  const key=secId+'_q'+qNum,st=miniState[key]; if(!st)return;
+  let all=true;
+  st.filled.forEach((ci,bi)=>{
+    const m=document.getElementById('mdz_'+key+'_'+bi); if(!m)return;
+    if(ci===null){all=false;return;}
+    if(st.words[ci]===st.answers[bi]){m.classList.remove('wrong');m.classList.add('correct');}
+    else{m.classList.remove('correct');m.classList.add('wrong');all=false;}
+  });
+  const fb=document.getElementById('fb_'+key);
+  if(all){if(fb)fb.textContent='✅ 正解！すばらしい！';markPass(secId,qNum-1);flowerPetals();}
+  else{if(fb)fb.textContent='❌ もう一度確認しよう！（まちがった所は、クリックで戻せます）';}
+}
+function showSample(secId,qNum){const e=document.getElementById('samp_'+secId+'_q'+qNum);if(e)e.classList.toggle('show');}
+function pick4(secId,qNum,chosen,correct,qid){
+  const btns=document.querySelectorAll('#choices_'+qid+' .choice-btn');
+  btns.forEach(b=>b.disabled=true);
+  const fb=document.getElementById('fb_'+qid);
+  if(chosen===correct){btns[chosen].classList.add('correct');if(fb)fb.textContent='✅ 正解！';markPass(secId,qNum-1);flowerPetals();}
+  else{btns[chosen].classList.add('wrong');btns[correct].classList.add('correct');if(fb)fb.textContent='❌ 残念！正解は緑のボタンです。解説を読んでみよう。';}
+  const s=document.getElementById('samp_'+qid); if(s)s.classList.add('show');
+}
+function markPass(secId,qIdx){
+  if(miniDone[secId][qIdx])return;
+  miniDone[secId][qIdx]=true;miniScore[secId]++;
+  const pip=document.getElementById('pip_'+secId+'_'+(qIdx+1)); if(pip)pip.classList.add('pass');
+  const badge=document.getElementById('mini-badge-'+secId); if(badge)badge.textContent=miniScore[secId]+' / '+miniTotal[secId];
+  const sl=document.getElementById('score_'+secId); if(sl)sl.textContent='正解 '+miniScore[secId]+' / '+miniTotal[secId]+' 問';
+  if(miniScore[secId]>=miniTotal[secId]){const b=document.getElementById('pass_'+secId);if(b)b.classList.add('show');fireConfetti();}
+}
+function flowerPetals(){
+  const cv=document.getElementById('confetti-canvas'),ctx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#f472b6','#fb7185','#fbbf24','#34d399','#60a5fa','#a78bfa'],ps=[];
+  for(let i=0;i<60;i++)ps.push({x:Math.random()*cv.width,y:-20-Math.random()*200,r:4+Math.random()*6,c:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*3,vy:2+Math.random()*3,rot:Math.random()*6.28,rv:(Math.random()-.5)*.15});
+  let f=0;(function d(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.beginPath();ctx.ellipse(0,0,p.r,p.r*.55,0,0,6.28);ctx.fill();ctx.restore();p.x+=p.vx;p.y+=p.vy;p.rot+=p.rv;});if(++f<80)requestAnimationFrame(d);else ctx.clearRect(0,0,cv.width,cv.height);})();
+}
+function fireConfetti(){
+  const cv=document.getElementById('confetti-canvas'),ctx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#f472b6','#fbbf24','#34d399','#60a5fa','#a78bfa','#fb7185','#fff'],ps=[];
+  for(let i=0;i<150;i++)ps.push({x:Math.random()*cv.width,y:-20-Math.random()*300,w:8+Math.random()*10,h:4+Math.random()*6,c:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*5,vy:3+Math.random()*4,rot:Math.random()*6.28,rv:(Math.random()-.5)*.2});
+  let f=0;(function d(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();p.x+=p.vx;p.y+=p.vy;p.rot+=p.rv;});if(++f<140)requestAnimationFrame(d);else ctx.clearRect(0,0,cv.width,cv.height);})();
+}
+
+/* 作図ボード：平行線(par) / 合成(sum) / つり合う力(bal) / 分解(dec) / 斜面(slope) */
+const BS=40,BC=16,BR=11,BNS='http://www.w3.org/2000/svg';
+const bX=x=>x*BS, bY=y=>(BR-y)*BS;
+const vadd=(a,b)=>[a[0]+b[0],a[1]+b[1]], vsub=(a,b)=>[a[0]-b[0],a[1]-b[1]], vcross=(a,b)=>a[0]*b[1]-a[1]*b[0];
+const vmul=(a,k)=>[a[0]*k,a[1]*k];
+function vtext(v){
+  const h=v[0]>0?'右'+v[0]:(v[0]<0?'左'+(-v[0]):''), t=v[1]>0?'上'+v[1]:(v[1]<0?'下'+(-v[1]):'');
+  return [h,t].filter(Boolean).join('・');
+}
+function bEl(n,at,par){const e=document.createElementNS(BNS,n);for(const k in at)e.setAttribute(k,at[k]);par.appendChild(e);return e;}
+function bArrow(par,p,q,color,w){
+  const x1=bX(p[0]),y1=bY(p[1]),x2=bX(q[0]),y2=bY(q[1]);
+  const L=Math.hypot(x2-x1,y2-y1); if(L<1)return null;
+  const ux=(x2-x1)/L,uy=(y2-y1)/L,hl=14+w*1.5,hw=7+w,bx=x2-ux*hl,by=y2-uy*hl;
+  const g=bEl('g',{},par);
+  bEl('line',{x1,y1,x2:bx+ux*2,y2:by+uy*2,stroke:color,'stroke-width':w,'stroke-linecap':'round'},g);
+  bEl('polygon',{points:`${x2},${y2} ${bx-uy*hw},${by+ux*hw} ${bx+uy*hw},${by-ux*hw}`,fill:color},g);
+  return g;
+}
+function bText(par,x,y,s,color,size){const t=bEl('text',{x,y,'font-size':size||18,'font-weight':800,fill:color,'paint-order':'stroke',stroke:'#fff','stroke-width':4},par);t.textContent=s;return t;}
+function edgePoint(O,d){ // O から d 方向へ、方眼内に収まる最も遠い点（少し内側）
+  let t=0;for(let k=0;k<400;k++){const q=vadd(O,vmul(d,k*.05));if(q[0]<.4||q[0]>BC-.4||q[1]<.4||q[1]>BR-.4)break;t=k*.05;}
+  return vadd(O,vmul(d,t));
+}
+class Board{
+  constructor(root,type,probs,opt){
+    this.root=root;this.type=type;this.probs=probs;this.idx=0;this.opt=opt||{};
+    this.done=probs.map(()=>false);this.hint=false;this.solved=false;this.drag=null;
+    root.innerHTML=`<div class="bd-pips"></div><div class="bd-pass"></div><div class="bd-board"><svg viewBox="0 0 640 440"></svg></div><div class="bd-msg info"></div><div class="bd-btns"><button class="bd-btn sub bd-hint">💡 ヒント（数えかた）</button><button class="bd-btn sub bd-model">👀 お手本を見る</button><button class="bd-btn sub bd-reset">↺ やり直し</button><button class="bd-btn bd-next" disabled>次の問題 ▶</button></div>`;
+    this.svg=root.querySelector('svg');this.msg=root.querySelector('.bd-msg');
+    this.nextB=root.querySelector('.bd-next');
+    root.querySelector('.bd-hint').onclick=()=>{this.hint=!this.hint;root.querySelector('.bd-hint').textContent=this.hint?'💡 ヒントを消す':'💡 ヒント（数えかた）';this.draw();};
+    root.querySelector('.bd-reset').onclick=()=>this.load();
+    root.querySelector('.bd-model').onclick=()=>this.showModel();
+    this.nextB.onclick=()=>{this.idx=(this.idx+1)%this.probs.length;this.load();};
+    const s=this.svg;
+    s.addEventListener('pointerdown',ev=>{if(this.solved||this.model)return;const g=ev.target.closest('[data-k]');if(!g)return;this.drag=g.getAttribute('data-k');s.setPointerCapture(ev.pointerId);ev.preventDefault();});
+    s.addEventListener('pointermove',ev=>{if(!this.drag)return;const q=this.gridPt(ev),h=this.H[this.drag];if(q[0]!==h[0]||q[1]!==h[1]){this.H[this.drag]=q;this.H.moved=true;this.draw();this.status();}});
+    const end=()=>{if(!this.drag)return;this.drag=null;this.check();};
+    s.addEventListener('pointerup',end);s.addEventListener('pointercancel',end);
+    this.load();
+  }
+  gridPt(ev){const r=this.svg.getBoundingClientRect();const gx=(ev.clientX-r.left)/r.width*BC,gy=BR-(ev.clientY-r.top)/r.height*BR;return[Math.max(0,Math.min(BC,Math.round(gx))),Math.max(0,Math.min(BR,Math.round(gy)))];}
+  get p(){return this.probs[this.idx];}
+  // 引く線の情報
+  lines(){
+    const p=this.p,t=this.type;
+    if(t==='opp')return[];
+    if(t==='par')return[{key:'a',tip:p.P,dir:p.A}];
+    if(t==='sum'||t==='bal')return[{key:'a',tip:vadd(p.O,p.A),dir:p.B},{key:'b',tip:vadd(p.O,p.B),dir:p.A}];
+    const F=vadd(p.O,p.F);return[{key:'a',tip:F,dir:p.M},{key:'b',tip:F,dir:p.L}];
+  }
+  isPar(l){const d=vsub(this.H[l.key],l.tip);return(d[0]!==0||d[1]!==0)&&vcross(d,l.dir)===0;}
+  linesDone(){return this.lines().every(l=>this.isPar(l));}
+  target(){ // bal / opp の答え
+    const p=this.p;if(this.type==='opp')return vsub(p.O,p.F);return vsub(p.O,vadd(p.A,p.B));
+  }
+  load(){
+    const p=this.p;this.solved=false;this.model=false;this.hint=false;this.stage=1;
+    if(this.type==='slope'){const d=p.dir;p.L=d;p.M=[-d[1],d[0]];}
+    this.H={moved:false};if(this.type==='opp'){this.stage=2;}
+    const used=[];
+    for(const l of this.lines()){
+      const c=[[1,0],[0,1],[-1,0],[0,-1],[1,1],[-1,1],[2,0],[0,2],[-2,0],[0,-2]];let h=vadd(l.tip,[1,0]);
+      for(const d of c){const q=vadd(l.tip,d);if(vcross(d,l.dir)!==0&&q[0]>=0&&q[0]<=BC&&q[1]>=0&&q[1]<=BR&&!used.some(u=>u[0]===q[0]&&u[1]===q[1])){h=q;break;}}
+      this.H[l.key]=h;used.push(h);
+    }
+    if(this.type==='opp'){this.H.c=this.cStart();this.H.moved=false;}
+    this.nextB.disabled=!this.done[this.idx];
+    this.root.querySelector('.bd-hint').textContent='💡 ヒント（数えかた）';
+    this.pips();this.draw();this.status();
+    this.root.querySelector('.bd-pass').style.display=this.done.every(Boolean)?'block':'none';
+    if(this.done.every(Boolean))this.root.querySelector('.bd-pass').textContent='🏆 この作図トレーニング 全問クリア！';
+  }
+  pips(){
+    const box=this.root.querySelector('.bd-pips');box.innerHTML='';
+    this.done.forEach((d,i)=>{const b=document.createElement('div');b.className='bd-pip'+(d?' done':'')+(i===this.idx?' cur':'');b.textContent=d?'✓':(i+1);b.onclick=()=>{this.idx=i;this.load();};box.appendChild(b);});
+  }
+  status(){
+    if(this.solved)return;const m=this.msg,LS=this.lines(),n=LS.filter(l=>this.isPar(l)).length,t=this.type;
+    m.className='bd-msg '+(n?'ok':'info');
+    if(t==='par')m.textContent=n?'平行になりました！線が緑色になったよ':'赤い●をドラッグして、お手本と平行な線を引こう';
+    else if(t==='opp'){m.className='bd-msg info';m.textContent='🎯 赤い力につり合う力を、青い●をドラッグしてかこう（大きさが同じで、向きが反対）';}
+    else if(this.stage===2){m.className='bd-msg info';m.textContent='🎯 合力と「大きさが同じで向きが反対」の矢印になるように、青い●をドラッグしよう';}
+    else if(t==='sum'||t==='bal')m.textContent=n===0?'矢印の先から出ている●をドラッグして、もう一方の力と平行な線を引こう':(n===1?'1本できました！（緑色＝平行）もう1本も引こう':'');
+    else m.textContent=n===0?'力Fの先から出ている●2つを動かして、点線ℓ・mと平行な線を引こう（平行四辺形をつくる）':(n===1?'1本できました！もう1本も引こう':'');
+  }
+  showModel(){
+    if(this.solved)return;
+    this.model=true;this.hint=false;this.H.moved=true;
+    for(const l of this.lines())this.H[l.key]=[l.tip[0]+l.dir[0],l.tip[1]+l.dir[1]];
+    if(this.type==='bal'){this.stage=2;this.H.c=this.target();}
+    this.draw();this.msg.className='bd-msg info';
+    this.msg.textContent='👀 これがお手本です。「↺ やり直し」を押して、自分でもかいてみよう！';
+    this.nextB.disabled=false;
+  }
+  check(){
+    if(this.stage===1&&this.type!=='opp'&&this.linesDone()){
+      if(this.type==='bal'){this.stage=2;this.H.c=this.cStart();this.H.moved=true;this.draw();this.status();this.msg.className='bd-msg ok';this.msg.textContent='✅ 平行線が2本できて、交点（合力の先）が出ました。次は合力とつり合う力をかこう！青い●をドラッグ';return;}
+      this.finish();
+    }else if(this.stage===2){
+      const T=this.target(),c=this.H.c;if(c[0]===T[0]&&c[1]===T[1])this.finish();
+    }
+  }
+  cStart(){const p=this.p,T=this.target();if(this.type==='opp'){for(const d of[[1,0],[0,1],[-1,0],[0,-1],[1,1]]){const q=vadd(p.O,d);if((q[0]!==T[0]||q[1]!==T[1])&&q[0]>=0&&q[0]<=BC&&q[1]>=0&&q[1]<=BR)return q;}}for(const d of[[1,0],[0,1],[-1,0],[0,-1],[1,1]]){const q=vadd(p.O,d);if(q[0]!==T[0]||q[1]!==T[1])return q;}return vadd(p.O,[1,0]);}
+  finish(){
+    this.solved=true;this.done[this.idx]=true;this.draw();this.msg.className='bd-msg ok';
+    const t=this.type;
+    if(t==='par'){this.msg.textContent='🌸 ぴったり平行！「右に○・上に○」を同じにすると平行線になります';flowerPetals();}
+    else if(t==='sum')this.msg.textContent='🎉 2本の平行線の交点が出ました！原点から交点への矢印が合力です';
+    else if(t==='opp')this.msg.textContent='🎉 大きさが同じで、向きが反対の力がかけました！2力はつり合っています';
+    else if(t==='bal')this.msg.textContent='🎉 合力と一直線上で、大きさが同じで向きが反対の力がかけました！これがつり合う力です';
+    else if(t==='dec')this.msg.textContent='🎉 平行四辺形ができました！原点から2つの点線へのびた矢印が分力です';
+    else this.msg.textContent='🎉 重力が「斜面に平行な力」と「斜面を垂直に押す力」に分解できました！';
+    if(t!=='par')fireConfetti();
+    this.nextB.disabled=false;this.pips();
+    if(this.done.every(Boolean)){const pb=this.root.querySelector('.bd-pass');pb.style.display='block';pb.textContent='🏆 この作図トレーニング 全問クリア！';}
+    if(this.opt.onDone)this.opt.onDone(this);
+  }
+  draw(){
+    const svg=this.svg,p=this.p,t=this.type,SH=this.solved||this.model;svg.innerHTML='';
+    const bg=bEl('g',{},svg);
+    if(t==='slope'){ // 斜面（先に描く）
+      const L=p.L,len=Math.hypot(L[0],L[1]),lh=vmul(L,1/len),nh=[-L[1]/len,L[0]/len];
+      const S0=vsub(p.O,vmul(nh,.95)),P1=vsub(S0,vmul(lh,25)),P2=vadd(S0,vmul(lh,25));
+      bEl('polygon',{points:`${bX(P1[0])},${bY(P1[1])} ${bX(P2[0])},${bY(P2[1])} ${bX(P2[0])},${bY(P1[1])}`,fill:'#f3e3c3',stroke:'#92400e','stroke-width':3},bg);
+    }
+    for(let i=0;i<=BC;i++)bEl('line',{x1:bX(i),y1:0,x2:bX(i),y2:BR*BS,stroke:i%5?'#d6dde6':'#8fa0b5','stroke-width':i%5?1:1.6},svg);
+    for(let j=0;j<=BR;j++)bEl('line',{x1:0,y1:bY(j),x2:BC*BS,y2:bY(j),stroke:j%5?'#d6dde6':'#8fa0b5','stroke-width':j%5?1:1.6},svg);
+    const LS=this.lines(),O=p.O;
+    if(t==='slope'){ // 物体
+      const L=p.L,len=Math.hypot(L[0],L[1]),lh=vmul(L,1/len),nh=[-L[1]/len,L[0]/len],a=.95,b=.8;
+      const pts=[vadd(vadd(O,vmul(lh,-a)),vmul(nh,-.95)),vadd(vadd(O,vmul(lh,a)),vmul(nh,-.95)),vadd(vadd(O,vmul(lh,a)),vmul(nh,.65)),vadd(vadd(O,vmul(lh,-a)),vmul(nh,.65))];
+      bEl('polygon',{points:pts.map(q=>bX(q[0])+','+bY(q[1])).join(' '),fill:'#cbd5e1',stroke:'#334155','stroke-width':3},svg);
+    }
+    if(t==='par'){
+      bArrow(svg,p.O,vadd(p.O,p.A),'#2563eb',4);bText(svg,bX(p.O[0]+p.A[0]/2)-40,bY(p.O[1]+p.A[1]/2)+34,'お手本','#2563eb');
+      bEl('circle',{cx:bX(p.P[0]),cy:bY(p.P[1]),r:7,fill:'#e11d48'},svg);bText(svg,bX(p.P[0])+10,bY(p.P[1])+24,'この点から','#e11d48',16);
+    }else if(t==='opp'){
+      bEl('circle',{cx:bX(O[0]),cy:bY(O[1]),r:6,fill:'#334155'},svg);
+      const F=vadd(O,p.F);bArrow(svg,O,F,'#e11d48',6);bText(svg,bX(F[0])+(p.F[0]>=0?10:-70),bY(F[1])+(p.F[1]>=0?-12:26),p.lbl1,'#e11d48',19);
+    }else if(t==='sum'||t==='bal'){
+      bEl('circle',{cx:bX(O[0]),cy:bY(O[1]),r:6,fill:'#334155'},svg);
+      bArrow(svg,O,vadd(O,p.A),'#2563eb',4);bArrow(svg,O,vadd(O,p.B),'#ea580c',4);
+      const ta=vadd(O,p.A),tb=vadd(O,p.B);
+      bText(svg,bX(ta[0])+(p.A[0]>=0?8:-40),bY(ta[1])-22,'力A','#2563eb');bText(svg,bX(tb[0])+(p.B[0]>=0?8:-40),bY(tb[1])-22,'力B','#ea580c');
+    }else{ // dec / slope
+      const lp=edgePoint(O,p.L),ln=edgePoint(O,vmul(p.L,-1)),mp=edgePoint(O,p.M),mn=edgePoint(O,vmul(p.M,-1));
+      if(t==='dec'){
+        bEl('line',{x1:bX(ln[0]),y1:bY(ln[1]),x2:bX(lp[0]),y2:bY(lp[1]),stroke:'#7c3aed','stroke-width':3,'stroke-dasharray':'3 7','stroke-linecap':'round'},svg);
+        bEl('line',{x1:bX(mn[0]),y1:bY(mn[1]),x2:bX(mp[0]),y2:bY(mp[1]),stroke:'#0d9488','stroke-width':3,'stroke-dasharray':'3 7','stroke-linecap':'round'},svg);
+        bText(svg,bX(lp[0])-(p.L[0]>0?28:-6),bY(lp[1])+(p.L[1]>0?20:-6),'ℓ','#7c3aed',22);bText(svg,bX(mp[0])-(p.M[0]>0?28:-6),bY(mp[1])+(p.M[1]>0?20:-6),'m','#0d9488',22);
+      }else{
+        bEl('line',{x1:bX(mn[0]),y1:bY(mn[1]),x2:bX(mp[0]),y2:bY(mp[1]),stroke:'#0d9488','stroke-width':3,'stroke-dasharray':'3 7','stroke-linecap':'round'},svg);
+        bText(svg,bX(mp[0])-(p.M[0]>0?60:-6),bY(mp[1])+(p.M[1]>0?20:-6),'垂直','#0d9488',17);
+      }
+      bEl('circle',{cx:bX(O[0]),cy:bY(O[1]),r:6,fill:'#334155'},svg);
+      const F=vadd(O,p.F);bArrow(svg,O,F,'#e11d48',5);
+      bText(svg,bX(F[0])+10,bY(F[1])+6,t==='slope'?'重力':'力F','#e11d48',20);
+    }
+    // ヒント
+    if(this.hint&&!SH){
+      const hs=[];
+      if(this.stage===2){const T=this.target(),d=vsub(T,O);hs.push({a:O,d:d});}
+      else for(const l of LS)hs.push({a:l.tip,d:l.dir});
+      for(const h of hs){
+        const a=h.a,b=[a[0]+h.d[0],a[1]],c=[a[0]+h.d[0],a[1]+h.d[1]];
+        bEl('polyline',{points:`${bX(a[0])},${bY(a[1])} ${bX(b[0])},${bY(b[1])} ${bX(c[0])},${bY(c[1])}`,fill:'none',stroke:'#f59e0b','stroke-width':3,'stroke-dasharray':'3 6','stroke-linecap':'round'},svg);
+        bEl('circle',{cx:bX(c[0]),cy:bY(c[1]),r:6,fill:'#f59e0b'},svg);
+        bText(svg,bX(b[0])-6,bY(b[1])+(h.d[1]>=0?26:-14),vtext(h.d),'#b45309',15);
+      }
+    }
+    // 引く線
+    for(const l of LS){
+      const h=this.H[l.key],ok=this.isPar(l),col=ok?'#16a34a':'#64748b';
+      if(ok){const k=40;bEl('line',{x1:bX(l.tip[0]-l.dir[0]*k),y1:bY(l.tip[1]-l.dir[1]*k),x2:bX(l.tip[0]+l.dir[0]*k),y2:bY(l.tip[1]+l.dir[1]*k),stroke:col,'stroke-width':3.5,'stroke-dasharray':'9 6'},svg);}
+      else bEl('line',{x1:bX(l.tip[0]),y1:bY(l.tip[1]),x2:bX(h[0]),y2:bY(h[1]),stroke:col,'stroke-width':3.5,'stroke-dasharray':'9 6','stroke-linecap':'round'},svg);
+    }
+    // 結果
+    const Rv=(t==='sum'||t==='bal')?vadd(p.A,p.B):null;
+    if((t==='sum'&&SH)||(t==='bal'&&this.stage===2)){
+      const R=vadd(O,Rv);bEl('circle',{cx:bX(R[0]),cy:bY(R[1]),r:9,fill:'#fff',stroke:'#e11d48','stroke-width':4},svg);
+      bArrow(svg,O,R,t==='bal'?'#fca5a5':'#e11d48',t==='bal'?5:7);
+      bText(svg,bX((O[0]+R[0])/2)+12,bY((O[1]+R[1])/2)+4,'合力','#e11d48',t==='bal'?18:22);
+    }
+    if((t==='bal'||t==='opp')&&this.stage===2){
+      const c=this.H.c;
+      if(this.solved||(c[0]===this.target()[0]&&c[1]===this.target()[1])){}
+      bArrow(svg,O,c,SH?'#16a34a':'#7c3aed',7);
+      if(SH)bText(svg,bX((O[0]+c[0])/2)+12,bY((O[1]+c[1])/2)+4,t==='opp'?p.lbl2:'つり合う力','#16a34a',20);
+    }
+    if(SH&&(t==='dec'||t==='slope')){
+      const L=p.L,M=p.M,s=vcross(p.F,M)/vcross(L,M),tt=vcross(L,p.F)/vcross(L,M);
+      const F1=vadd(O,vmul(L,s)),F2=vadd(O,vmul(M,tt));
+      bArrow(svg,O,F1,'#7c3aed',6);bArrow(svg,O,F2,'#0d9488',6);
+      bEl('circle',{cx:bX(F1[0]),cy:bY(F1[1]),r:7,fill:'#fff',stroke:'#7c3aed','stroke-width':3},svg);bEl('circle',{cx:bX(F2[0]),cy:bY(F2[1]),r:7,fill:'#fff',stroke:'#0d9488','stroke-width':3},svg);
+      bText(svg,bX(F1[0])+(F1[0]>=O[0]?10:-70),bY(F1[1])+(F1[1]>=O[1]?-10:24),t==='slope'?'①平行':'分力①','#7c3aed',18);
+      bText(svg,bX(F2[0])+(F2[0]>=O[0]?10:-70),bY(F2[1])+(F2[1]>=O[1]?-10:24),t==='slope'?'②垂直':'分力②','#0d9488',18);
+    }
+    // つまみ
+    if(!SH){
+      const hl=[];
+      if(this.stage===2)hl.push({key:'c',col:'#7c3aed'});
+      else for(const l of LS)hl.push({key:l.key,col:this.isPar(l)?'#16a34a':'#e11d48'});
+      for(const x of hl){
+        const h=this.H[x.key];
+        if(!this.H.moved)bEl('circle',{cx:bX(h[0]),cy:bY(h[1]),r:10,fill:'none',stroke:x.col,'stroke-width':3,class:'bd-ring'},svg);
+        const g=bEl('g',{'data-k':x.key,style:'cursor:grab'},svg);
+        bEl('circle',{cx:bX(h[0]),cy:bY(h[1]),r:30,fill:'transparent'},g);
+        bEl('circle',{cx:bX(h[0]),cy:bY(h[1]),r:12,fill:'#fff',stroke:x.col,'stroke-width':5},g);
+        bEl('circle',{cx:bX(h[0]),cy:bY(h[1]),r:4,fill:x.col},g);
+      }
+    }
+  }
+}
+// ---- 花吹雪 ----
+function flowerPetals(){
+  const cv=document.getElementById('confetti-canvas'),ctx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#f472b6','#fb7185','#fbbf24','#34d399','#60a5fa','#a78bfa'],ps=[];
+  for(let i=0;i<60;i++)ps.push({x:Math.random()*cv.width,y:-20-Math.random()*200,r:4+Math.random()*6,c:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*3,vy:2+Math.random()*3,rot:Math.random()*6.28,rv:(Math.random()-.5)*.15});
+  let f=0;(function d(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.beginPath();ctx.ellipse(0,0,p.r,p.r*.55,0,0,6.28);ctx.fill();ctx.restore();p.x+=p.vx;p.y+=p.vy;p.rot+=p.rv;});if(++f<80)requestAnimationFrame(d);else ctx.clearRect(0,0,cv.width,cv.height);})();
+}
+
+registerSec('gr1',6);
+registerSec('gr2',6);
+registerSec('gr3',7);
+registerSec('gr4',6);
+registerSec('gr5',6);
+registerSec('gr6',6);
+initMiniBank('gr1',1,["大きさ", "一直線", "向き", "動かない", "つり合っている"],["大きさ", "一直線", "向き", "動かない", "つり合っている"]);
+initMiniBank('gr2',1,["弾性力", "重力", "垂直抗力", "摩擦力", "等速直線運動"],["弾性力", "重力", "垂直抗力", "摩擦力", "等速直線運動"]);
+initMiniBank('gr3',1,["合力", "合成", "平行四辺形", "対角線", "和"],["合力", "合成", "平行四辺形", "対角線", "和"]);
+initMiniBank('gr4',1,["大きさ", "反対", "合力", "一直線", "作図"],["大きさ", "反対", "合力", "一直線", "作図"]);
+initMiniBank('gr5',1,["分解", "分力", "対角線", "平行四辺形", "点線"],["分解", "分力", "対角線", "平行四辺形", "点線"]);
+initMiniBank('gr6',1,["平行", "垂直", "分力", "大きく", "小さく"],["平行", "垂直", "分力", "大きく", "小さく"]);
+window.BOARDS=window.BOARDS||{};BOARDS['mt_gr1']=new Board(document.getElementById('mt_gr1'),'opp',[{"O": [8, 5], "F": [4, 0], "lbl1": "\u529b", "lbl2": "\u3064\u308a\u5408\u3046\u529b"}, {"O": [7, 6], "F": [-2, 3], "lbl1": "\u529b", "lbl2": "\u3064\u308a\u5408\u3046\u529b"}],{onDone:B=>{if(B.done.every(Boolean))markPass('gr1',5);}});
+window.BOARDS=window.BOARDS||{};BOARDS['mt_gr2']=new Board(document.getElementById('mt_gr2'),'opp',[{"O": [8, 6], "F": [0, -4], "lbl1": "\u91cd\u529b", "lbl2": "\u5782\u76f4\u6297\u529b"}, {"O": [9, 5], "F": [-5, 0], "lbl1": "\u52a0\u3048\u305f\u529b", "lbl2": "\u6469\u64e6\u529b"}],{onDone:B=>{if(B.done.every(Boolean))markPass('gr2',5);}});
+window.BOARDS=window.BOARDS||{};BOARDS['bd_par']=new Board(document.getElementById('bd_par'),'par',[{"O": [2, 2], "A": [3, 2], "P": [9, 3]}, {"O": [3, 9], "A": [2, -3], "P": [10, 8]}, {"O": [8, 2], "A": [-3, 3], "P": [5, 8]}]);
+window.BOARDS=window.BOARDS||{};BOARDS['bd_sum']=new Board(document.getElementById('bd_sum'),'sum',[{"O": [8, 2], "A": [-3, 3], "B": [3, 3]}, {"O": [3, 3], "A": [5, 0], "B": [-1, 3]}, {"O": [3, 2], "A": [4, 1], "B": [2, 4]}, {"O": [8, 8], "A": [-4, -2], "B": [2, -4]}]);
+window.BOARDS=window.BOARDS||{};BOARDS['mt_gr3a']=new Board(document.getElementById('mt_gr3a'),'par',[{"O": [2, 3], "A": [2, 3], "P": [8, 2]}, {"O": [9, 9], "A": [-3, -2], "P": [4, 8]}],{onDone:B=>{if(B.done.every(Boolean))markPass('gr3',5);}});
+window.BOARDS=window.BOARDS||{};BOARDS['mt_gr3b']=new Board(document.getElementById('mt_gr3b'),'sum',[{"O": [7, 3], "A": [-2, 4], "B": [4, 2]}, {"O": [2, 6], "A": [3, -3], "B": [2, 3]}],{onDone:B=>{if(B.done.every(Boolean))markPass('gr3',6);}});
+window.BOARDS=window.BOARDS||{};BOARDS['bd_bal']=new Board(document.getElementById('bd_bal'),'bal',[{"O": [8, 6], "A": [-3, 2], "B": [4, 2]}, {"O": [9, 6], "A": [4, 0], "B": [0, 3]}, {"O": [7, 7], "A": [-3, -2], "B": [5, -1]}]);
+window.BOARDS=window.BOARDS||{};BOARDS['mt_gr4']=new Board(document.getElementById('mt_gr4'),'bal',[{"O": [8, 6], "A": [-2, -3], "B": [4, -1]}, {"O": [6, 6], "A": [3, 1], "B": [1, 4]}],{onDone:B=>{if(B.done.every(Boolean))markPass('gr4',5);}});
+window.BOARDS=window.BOARDS||{};BOARDS['bd_dec']=new Board(document.getElementById('bd_dec'),'dec',[{"O": [5, 3], "F": [3, 4], "L": [2, 1], "M": [-1, 2]}, {"O": [3, 2], "F": [6, 4], "L": [3, 1], "M": [0, 1]}, {"O": [8, 3], "F": [0, 4], "L": [1, 1], "M": [-1, 1]}, {"O": [3, 3], "F": [5, 5], "L": [2, -1], "M": [1, 2]}]);
+window.BOARDS=window.BOARDS||{};BOARDS['mt_gr5']=new Board(document.getElementById('mt_gr5'),'dec',[{"O": [7, 3], "F": [0, 3], "L": [1, 1], "M": [-1, 2]}, {"O": [5, 3], "F": [2, 4], "L": [3, 1], "M": [-1, 3]}],{onDone:B=>{if(B.done.every(Boolean))markPass('gr5',5);}});
+window.BOARDS=window.BOARDS||{};BOARDS['bd_slope']=new Board(document.getElementById('bd_slope'),'slope',[{"O": [8, 6], "dir": [4, 3], "F": [0, -5]}, {"O": [7, 7], "dir": [3, 4], "F": [0, -6]}, {"O": [6, 7], "dir": [4, 3], "F": [0, -6]}]);
+window.BOARDS=window.BOARDS||{};BOARDS['mt_gr6']=new Board(document.getElementById('mt_gr6'),'slope',[{"O": [7, 6], "dir": [4, 3], "F": [0, -4]}, {"O": [8, 7], "dir": [3, 4], "F": [0, -5]}],{onDone:B=>{if(B.done.every(Boolean))markPass('gr6',5);}});
+</script>
+</body></html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中3理科 力の合成と分解 確認問題</title>
+<style>
+:root{--pri:#e11d48;--pri-d:#881337;--pri-l:#fecdd3;--pink:#db2777;--pink-d:#9d174d;--pink-bg:#fce7f3;--gray:#6b7280;--card:#fff;--radius:14px;--shadow:0 4px 18px rgba(0,0,0,.10);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#fff1f2;font-family:'Helvetica Neue',Arial,'Hiragino Sans','Noto Sans JP',sans-serif;color:#1e293b;}
+header{background:linear-gradient(135deg,var(--pri-d),var(--pri));color:#fff;text-align:center;padding:28px 20px 22px;}
+header h1{font-size:clamp(1.3rem,4vw,2rem);font-weight:900;letter-spacing:.04em;}
+header p{margin-top:6px;font-size:.93rem;opacity:.88;}
+.topnav{background:#fff;border-bottom:2px solid var(--pri-l);padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;font-size:.9rem;}
+.topnav a{color:var(--pri-d);text-decoration:none;font-weight:700;padding:5px 14px;border-radius:20px;border:2px solid var(--pri-l);}
+.topnav a:hover,.topnav a.cur{background:var(--pri);color:#fff;border-color:var(--pri);}
+.units{max-width:860px;margin:30px auto;padding:0 16px;}
+.unit-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:32px;overflow:hidden;}
+.unit-header{background:linear-gradient(90deg,var(--pri-d),var(--pri));color:#fff;padding:14px 22px;display:flex;align-items:center;gap:12px;}
+.unit-num{background:#fff;color:var(--pri-d);font-weight:900;font-size:1.1rem;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.unit-header h2{font-size:1.1rem;font-weight:800;}
+.unit-body{padding:22px;}
+.exp-img{margin:14px 0;text-align:center;}
+.exp-img img{max-width:100%;max-height:420px;width:auto;height:auto;border-radius:10px;margin:6px auto;display:block;background:#fff;}
+.exp-img .cap{font-size:.8rem;color:var(--gray);margin-top:2px;}
+.img-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:flex-end;}
+.img-row .exp-img{margin:8px 0;}
+.exp-text{line-height:1.95;font-size:.97rem;margin:10px 0;}
+.exp-text p{margin-bottom:.85em;}
+.exp-text h3{font-size:.97rem;color:var(--pri-d);margin:1em 0 .5em;border-left:3px solid var(--pri);padding-left:8px;font-weight:800;}
+.pt-box{background:#dcfce7;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.warn-box{background:#fee2e2;border-left:4px solid #dc2626;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.info-box{background:#f0fdff;border-left:4px solid #0e7490;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.eq-box{background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;margin:10px 0;text-align:center;}
+.eq-box .eq{font-size:1rem;font-weight:800;color:var(--pri-d);letter-spacing:.03em;}
+.exp-tbl{width:100%;border-collapse:collapse;font-size:.88rem;margin:10px 0;}
+.exp-tbl th{background:var(--pri);color:#fff;padding:8px 10px;text-align:left;}
+.exp-tbl td{padding:8px 10px;border-bottom:1px solid #e5e7eb;vertical-align:top;line-height:1.65;}
+.exp-tbl tr:nth-child(even) td{background:#f9fafb;}
+.exp-tbl .nc{font-weight:700;white-space:nowrap;}
+.mini-btn{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;background:var(--pink-bg);border:2.5px solid var(--pink);color:var(--pink-d);font-size:.97rem;font-weight:800;padding:10px 22px;border-radius:40px;margin:14px 0 0;transition:.2s;}
+.mini-btn:hover{background:var(--pink);color:#fff;}
+.mini-section{display:none;margin-top:16px;background:#fdf2f8;border:2px solid #f9a8d4;border-radius:12px;padding:18px;}
+.mini-section.open{display:block;}
+.q-block{margin-bottom:22px;}
+.q-block h4{font-size:.98rem;font-weight:800;color:var(--pri-d);margin-bottom:10px;line-height:1.7;}
+.q-note{font-size:.88rem;color:#555;margin-bottom:6px;line-height:1.8;}
+.mchips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.mchip{background:#fff;border:2.5px solid var(--pink);color:var(--pink-d);border-radius:20px;padding:5px 16px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.mchip:hover{background:var(--pink);color:#fff;}
+.mchip.used{opacity:.35;pointer-events:none;}
+.mdz-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0;}
+.mdz{display:inline-flex;align-items:center;justify-content:center;min-width:80px;height:36px;border:2.5px dashed var(--pink);border-radius:8px;padding:0 10px;font-size:.93rem;font-weight:700;cursor:pointer;color:var(--pink-d);transition:.18s;background:#fff;}
+.mdz.filled{border-style:solid;background:#fce7f3;}
+.mdz.correct{border-color:#16a34a;background:#dcfce7;color:#166534;}
+.mdz.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.mdz-label{font-size:.9rem;color:#374151;}
+.choice-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+@media(max-width:480px){.choice-list{grid-template-columns:1fr;}}
+.choice-btn{padding:10px 14px;border:2.5px solid #d1d5db;border-radius:10px;background:#fff;font-size:.93rem;cursor:pointer;text-align:left;transition:.18s;}
+.choice-btn:hover{border-color:var(--pri);background:var(--pri-l);}
+.choice-btn.correct{border-color:#16a34a;background:#dcfce7;color:#166534;font-weight:700;}
+.choice-btn.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.choice-btn:disabled{cursor:default;}
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.check-btn{background:var(--pri);color:#fff;border:none;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.check-btn:hover{background:var(--pri-d);}
+.sample-btn{background:#fff;color:var(--gray);border:2px solid #d1d5db;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.sample-btn:hover{background:#f3f4f6;}
+.msample{display:none;background:#fef9c3;border:1.5px solid #fbbf24;border-radius:8px;padding:8px 14px;font-size:.9rem;margin-top:8px;line-height:1.8;}
+.msample.show{display:block;}
+.fb-msg{font-size:.9rem;margin-top:6px;font-weight:600;}
+.mini-score-row{display:flex;gap:6px;align-items:center;margin-bottom:10px;flex-wrap:wrap;}
+.mini-score-pip{width:14px;height:14px;border-radius:50%;background:#e5e7eb;border:2px solid #d1d5db;transition:.3s;}
+.mini-score-pip.pass{background:#16a34a;border-color:#166534;}
+.score-line{font-size:.88rem;font-weight:700;color:var(--pink-d);margin-bottom:8px;}
+.pass-banner{display:none;background:linear-gradient(90deg,#166534,#16a34a);color:#fff;text-align:center;padding:16px;border-radius:10px;margin-top:16px;font-size:1.1rem;font-weight:900;}
+.pass-banner.show{display:block;}
+.group-title{font-weight:800;color:var(--pink-d);margin:20px 0 6px;font-size:.98rem;border-bottom:2px dashed #f9a8d4;padding-bottom:4px;}
+.src-note{background:#fff7ed;border-left:4px solid #f97316;border-radius:0 8px 8px 0;padding:9px 14px;margin:10px 0 14px;font-size:.88rem;line-height:1.7;color:#7c2d12;}
+.foot-nav{max-width:860px;margin:0 auto 40px;padding:0 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.foot-nav a{background:var(--pri);color:#fff;text-decoration:none;font-weight:800;padding:10px 22px;border-radius:30px;font-size:.93rem;}
+.foot-nav a:hover{background:var(--pri-d);}
+canvas#confetti-canvas{position:fixed;top:0;left:0;pointer-events:none;width:100%;height:100%;z-index:9999;}
+
+.exp-img svg{max-width:100%;height:auto;max-height:300px;background:#fff;border-radius:10px;}
+.bd-wrap{margin:18px 0;background:#fff7ed;border:2px solid #fdba74;border-radius:12px;padding:14px;}
+.bd-wrap h3{font-size:1rem;color:#9a3412;margin-bottom:6px;}
+.bd-wrap p.bd-how{font-size:.9rem;line-height:1.8;margin-bottom:8px;}
+.bd-pips{display:flex;gap:8px;justify-content:center;margin:4px 0 10px;}
+.bd-pip{width:26px;height:26px;border-radius:50%;background:#e5e7eb;border:2px solid #d1d5db;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:#9ca3af;cursor:pointer;}
+.bd-pip.cur{border-color:#e11d48;color:#e11d48;background:#fff;}
+.bd-pip.done{background:#16a34a;border-color:#16a34a;color:#fff;}
+.bd-board{background:#fff;border:3px solid #cbd5e1;border-radius:10px;overflow:hidden;touch-action:none;user-select:none;}
+.bd-board svg{display:block;width:100%;height:auto;touch-action:none;}
+.bd-msg{min-height:3.2em;margin-top:10px;font-weight:800;font-size:.95rem;text-align:center;line-height:1.6;}
+.bd-msg.ok{color:#16a34a;} .bd-msg.info{color:#475569;font-weight:700;}
+.bd-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px;}
+.bd-btn{border:none;border-radius:30px;padding:9px 20px;font-weight:800;font-size:.92rem;cursor:pointer;background:#e11d48;color:#fff;font-family:inherit;}
+.bd-btn.sub{background:#fff;color:#881337;border:2px solid #fecdd3;}
+.bd-btn:disabled{opacity:.4;cursor:default;}
+.bd-pass{display:none;text-align:center;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:12px;margin-bottom:10px;font-weight:900;color:#92400e;}
+@keyframes bdpulse{0%{r:10;opacity:.9}100%{r:26;opacity:0}}
+.bd-ring{animation:bdpulse 1.2s infinite;}
+</style>
+</head>
+<body>
+<canvas id="confetti-canvas"></canvas>
+<header><h1>中3理科 力の合成と分解 確認問題</h1><p>総まとめ。入試で出る形の問題にチャレンジしよう</p></header>
+<nav class="topnav"><a href="index.html">🏠 目次</a><a href="gouryoku_ch01.html">📖 レッスン</a><a href="gouryoku_practice.html">📝 練習問題</a><a href="gouryoku_check.html" class="cur">🏆 確認問題</a></nav>
+<div class="units">
+<div class="unit-card" id="card_ck1"><div class="unit-header"><div class="unit-num">1</div><h2>作図の確認（方眼を読む）</h2></div><div class="unit-body">
+<div class="src-note">📖 方眼の数え方で、合成・つり合い・分解を確かめます</div>
+<div class="score-line" id="score_ck1">正解 0 / 7 問</div>
+<div class="mini-section open" id="mini_ck1"><div class="mini-score-row" id="pips_ck1"><div class="mini-score-pip" id="pip_ck1_1"></div><div class="mini-score-pip" id="pip_ck1_2"></div><div class="mini-score-pip" id="pip_ck1_3"></div><div class="mini-score-pip" id="pip_ck1_4"></div><div class="mini-score-pip" id="pip_ck1_5"></div><div class="mini-score-pip" id="pip_ck1_6"></div><div class="mini-score-pip" id="pip_ck1_7"></div></div><div class="group-title">合力・つり合う力</div><div class="q-block" id="qblock_ck1_q1"><h4>Q1. 力Aが「右3・上1」、力Bが「右1・上3」を表す矢印のとき、合力は「右何・上何」か。</h4><div class="choice-list" id="choices_ck1_q1"><button class="choice-btn" onclick="pick4('ck1',1,0,1,'ck1_q1')">ア：右3・上3</button><button class="choice-btn" onclick="pick4('ck1',1,1,1,'ck1_q1')">イ：右4・上4</button><button class="choice-btn" onclick="pick4('ck1',1,2,1,'ck1_q1')">ウ：右2・上2</button><button class="choice-btn" onclick="pick4('ck1',1,3,1,'ck1_q1')">エ：右4・上2</button></div><div class="fb-msg" id="fb_ck1_q1"></div><div class="msample" id="samp_ck1_q1">正解：イ：右4・上4　右：3＋1＝4、上：1＋3＝4 なので、合力は「右4・上4」です。</div></div><div class="q-block" id="qblock_ck1_q2"><h4>Q2. 力Aが「右5」、力Bが「左2・上3」を表す矢印のとき、合力は「右何・上何」か。</h4><div class="choice-list" id="choices_ck1_q2"><button class="choice-btn" onclick="pick4('ck1',2,0,3,'ck1_q2')">ア：右7・上3</button><button class="choice-btn" onclick="pick4('ck1',2,1,3,'ck1_q2')">イ：右3・上0</button><button class="choice-btn" onclick="pick4('ck1',2,2,3,'ck1_q2')">ウ：右5・上3</button><button class="choice-btn" onclick="pick4('ck1',2,3,3,'ck1_q2')">エ：右3・上3</button></div><div class="fb-msg" id="fb_ck1_q2"></div><div class="msample" id="samp_ck1_q2">正解：エ：右3・上3　右左は 5－2＝3（右）、上は 0＋3＝3 です。</div></div><div class="q-block" id="qblock_ck1_q3"><h4>Q3. 2力の合力が「右2・上3」のとき、つり合う力はどれか。</h4><div class="choice-list" id="choices_ck1_q3"><button class="choice-btn" onclick="pick4('ck1',3,0,0,'ck1_q3')">ア：左2・下3</button><button class="choice-btn" onclick="pick4('ck1',3,1,0,'ck1_q3')">イ：右2・下3</button><button class="choice-btn" onclick="pick4('ck1',3,2,0,'ck1_q3')">ウ：左3・下2</button><button class="choice-btn" onclick="pick4('ck1',3,3,0,'ck1_q3')">エ：左2・上3</button></div><div class="fb-msg" id="fb_ck1_q3"></div><div class="msample" id="samp_ck1_q3">正解：ア：左2・下3　合力と大きさが同じで、向きが反対です。</div></div><div class="q-block" id="qblock_ck1_q4"><h4>Q4. 平行四辺形で合力を求める手順として、正しい順番はどれか。</h4><div class="choice-list" id="choices_ck1_q4"><button class="choice-btn" onclick="pick4('ck1',4,0,1,'ck1_q4')">ア：始点と2力の先を結ぶ → 中点をとる → 矢印をかく</button><button class="choice-btn" onclick="pick4('ck1',4,1,1,'ck1_q4')">イ：力Aの先から力Bに平行な線 → 力Bの先から力Aに平行な線 → 交点と始点を結ぶ</button><button class="choice-btn" onclick="pick4('ck1',4,2,1,'ck1_q4')">ウ：2力を足して2で割る → 矢印をかく</button><button class="choice-btn" onclick="pick4('ck1',4,3,1,'ck1_q4')">エ：力Aの先から力Aに平行な線 → 交点を求める → 矢印をかく</button></div><div class="fb-msg" id="fb_ck1_q4"></div><div class="msample" id="samp_ck1_q4">正解：イ：力Aの先から力Bに平行な線 → 力Bの先から力Aに平行な線 → 交点と始点を結ぶ　2力の先から、それぞれ他方の力と平行な線を引き、交点と始点を結びます。</div></div><div class="group-title">力の分解</div><div class="q-block" id="qblock_ck1_q5"><h4>Q5. 力Fが「右3・上2」を表す。真横（ℓ）と真上（m）に分解すると、分力は何か。</h4><div class="choice-list" id="choices_ck1_q5"><button class="choice-btn" onclick="pick4('ck1',5,0,3,'ck1_q5')">ア：右2と上3</button><button class="choice-btn" onclick="pick4('ck1',5,1,3,'ck1_q5')">イ：右5と上0</button><button class="choice-btn" onclick="pick4('ck1',5,2,3,'ck1_q5')">ウ：右3と下2</button><button class="choice-btn" onclick="pick4('ck1',5,3,3,'ck1_q5')">エ：右3と上2</button></div><div class="fb-msg" id="fb_ck1_q5"></div><div class="msample" id="samp_ck1_q5">正解：エ：右3と上2　ℓ方向（右）は3、m方向（上）は2です。</div></div><div class="q-block" id="qblock_ck1_q6"><h4>Q6. 力Fが「右6」を表す矢印を、ななめ右上（右1・上1の方向）とななめ右下（右1・下1の方向）に分解した。分力は何か。</h4><div class="choice-list" id="choices_ck1_q6"><button class="choice-btn" onclick="pick4('ck1',6,0,2,'ck1_q6')">ア：右6・上6 と 右6・下6</button><button class="choice-btn" onclick="pick4('ck1',6,1,2,'ck1_q6')">イ：右3・上3 と 右3・上3</button><button class="choice-btn" onclick="pick4('ck1',6,2,2,'ck1_q6')">ウ：右3・上3 と 右3・下3</button><button class="choice-btn" onclick="pick4('ck1',6,3,2,'ck1_q6')">エ：右2・上2 と 右4・下4</button></div><div class="fb-msg" id="fb_ck1_q6"></div><div class="msample" id="samp_ck1_q6">正解：ウ：右3・上3 と 右3・下3　2つの分力の上下は打ち消し合い、右の成分が足されて右6になります。右3・上3＋右3・下3＝右6です。</div></div><div class="q-block" id="qblock_ck1_q7"><h4>Q7. 分解してできた2つの分力を合成すると、どうなるか。</h4><div class="choice-list" id="choices_ck1_q7"><button class="choice-btn" onclick="pick4('ck1',7,0,0,'ck1_q7')">ア：もとの力にもどる</button><button class="choice-btn" onclick="pick4('ck1',7,1,0,'ck1_q7')">イ：0になる</button><button class="choice-btn" onclick="pick4('ck1',7,2,0,'ck1_q7')">ウ：もとの力の2倍になる</button><button class="choice-btn" onclick="pick4('ck1',7,3,0,'ck1_q7')">エ：もとの力の半分になる</button></div><div class="fb-msg" id="fb_ck1_q7"></div><div class="msample" id="samp_ck1_q7">正解：ア：もとの力にもどる　分解は合成の逆の操作なので、合成すればもとの力になります。</div></div><div class="pass-banner" id="pass_ck1">🎉 全問正解！すばらしい！ 🎉</div></div>
+</div></div>
+<div class="unit-card" id="card_ck2"><div class="unit-header"><div class="unit-num">2</div><h2>総合問題</h2></div><div class="unit-body">
+<div class="src-note">📖 入試で出る形の問題にチャレンジ</div>
+<div class="score-line" id="score_ck2">正解 0 / 7 問</div>
+<div class="mini-section open" id="mini_ck2"><div class="mini-score-row" id="pips_ck2"><div class="mini-score-pip" id="pip_ck2_1"></div><div class="mini-score-pip" id="pip_ck2_2"></div><div class="mini-score-pip" id="pip_ck2_3"></div><div class="mini-score-pip" id="pip_ck2_4"></div><div class="mini-score-pip" id="pip_ck2_5"></div><div class="mini-score-pip" id="pip_ck2_6"></div><div class="mini-score-pip" id="pip_ck2_7"></div></div><div class="group-title">合力の大きさ</div><div class="q-block" id="qblock_ck2_q1"><h4>Q1. 3Nと4Nの2力が、直角にはたらいている。合力の大きさは何Nか（直角三角形の辺の比 3：4：5 を使う）。</h4><div class="choice-list" id="choices_ck2_q1"><button class="choice-btn" onclick="pick4('ck2',1,0,2,'ck2_q1')">ア：7N</button><button class="choice-btn" onclick="pick4('ck2',1,1,2,'ck2_q1')">イ：1N</button><button class="choice-btn" onclick="pick4('ck2',1,2,2,'ck2_q1')">ウ：5N</button><button class="choice-btn" onclick="pick4('ck2',1,3,2,'ck2_q1')">エ：3.5N</button></div><div class="fb-msg" id="fb_ck2_q1"></div><div class="msample" id="samp_ck2_q1">正解：ウ：5N　2力を2辺とする平行四辺形は長方形になります。対角線（合力）は、3：4：5 の直角三角形の斜辺で、5Nです。</div></div><div class="q-block" id="qblock_ck2_q2"><h4>Q2. 6Nと8Nの2力が、直角にはたらいている。合力の大きさは何Nか。</h4><div class="choice-list" id="choices_ck2_q2"><button class="choice-btn" onclick="pick4('ck2',2,0,1,'ck2_q2')">ア：14N</button><button class="choice-btn" onclick="pick4('ck2',2,1,1,'ck2_q2')">イ：10N</button><button class="choice-btn" onclick="pick4('ck2',2,2,1,'ck2_q2')">ウ：2N</button><button class="choice-btn" onclick="pick4('ck2',2,3,1,'ck2_q2')">エ：7N</button></div><div class="fb-msg" id="fb_ck2_q2"></div><div class="msample" id="samp_ck2_q2">正解：イ：10N　6：8：10（3：4：5の2倍）の直角三角形なので、合力は10Nです。</div></div><div class="q-block" id="qblock_ck2_q3"><h4>Q3. 5Nの2つの力が、反対向きに一直線上にはたらいている。合力の大きさは何Nか。</h4><div class="choice-list" id="choices_ck2_q3"><button class="choice-btn" onclick="pick4('ck2',3,0,3,'ck2_q3')">ア：10N</button><button class="choice-btn" onclick="pick4('ck2',3,1,3,'ck2_q3')">イ：5N</button><button class="choice-btn" onclick="pick4('ck2',3,2,3,'ck2_q3')">ウ：2.5N</button><button class="choice-btn" onclick="pick4('ck2',3,3,3,'ck2_q3')">エ：0N</button></div><div class="fb-msg" id="fb_ck2_q3"></div><div class="msample" id="samp_ck2_q3">正解：エ：0N　反対向きの同じ大きさの力は、つり合っていて、合力は0Nです。</div></div><div class="group-title">斜面と力のつり合い</div><div class="q-block" id="qblock_ck2_q4"><h4>Q4. 斜面の角度を小さくしていって、水平（0°）にした。このとき、斜面に平行な分力は何になるか。</h4><div class="choice-list" id="choices_ck2_q4"><button class="choice-btn" onclick="pick4('ck2',4,0,0,'ck2_q4')">ア：0（なくなる）</button><button class="choice-btn" onclick="pick4('ck2',4,1,0,'ck2_q4')">イ：重力と同じ大きさ</button><button class="choice-btn" onclick="pick4('ck2',4,2,0,'ck2_q4')">ウ：重力の半分</button><button class="choice-btn" onclick="pick4('ck2',4,3,0,'ck2_q4')">エ：重力の2倍</button></div><div class="fb-msg" id="fb_ck2_q4"></div><div class="msample" id="samp_ck2_q4">正解：ア：0（なくなる）　水平になると、物体をすべらせる力（斜面に平行な分力）はなくなります。</div></div><div class="q-block" id="qblock_ck2_q5"><h4>Q5. 上の問題で、水平にしたとき、斜面に垂直な分力の大きさはどうなるか。</h4><div class="choice-list" id="choices_ck2_q5"><button class="choice-btn" onclick="pick4('ck2',5,0,1,'ck2_q5')">ア：0</button><button class="choice-btn" onclick="pick4('ck2',5,1,1,'ck2_q5')">イ：重力と同じ大きさ</button><button class="choice-btn" onclick="pick4('ck2',5,2,1,'ck2_q5')">ウ：重力の半分</button><button class="choice-btn" onclick="pick4('ck2',5,3,1,'ck2_q5')">エ：重力の2倍</button></div><div class="fb-msg" id="fb_ck2_q5"></div><div class="msample" id="samp_ck2_q5">正解：イ：重力と同じ大きさ　水平な面では、重力すべてが面を押す力になります。</div></div><div class="q-block" id="qblock_ck2_q6"><h4>Q6. 斜面上で、静止している物体にはたらく力として、正しいものはどれか。</h4><div class="choice-list" id="choices_ck2_q6"><button class="choice-btn" onclick="pick4('ck2',6,0,3,'ck2_q6')">ア：重力だけがはたらいている</button><button class="choice-btn" onclick="pick4('ck2',6,1,3,'ck2_q6')">イ：重力と垂直抗力だけで、摩擦力ははたらかない</button><button class="choice-btn" onclick="pick4('ck2',6,2,3,'ck2_q6')">ウ：つり合っている力はない</button><button class="choice-btn" onclick="pick4('ck2',6,3,3,'ck2_q6')">エ：重力、垂直抗力、摩擦力などがつり合っている</button></div><div class="fb-msg" id="fb_ck2_q6"></div><div class="msample" id="samp_ck2_q6">正解：エ：重力、垂直抗力、摩擦力などがつり合っている　斜面上で静止している物体には、重力・垂直抗力・摩擦力がつり合ってはたらいています。</div></div><div class="q-block" id="qblock_ck2_q7"><h4>Q7. 斜面上の物体にはたらく重力を、斜面に平行・垂直に分解したとき、2つの分力と重力の関係はどれか。</h4><div class="choice-list" id="choices_ck2_q7"><button class="choice-btn" onclick="pick4('ck2',7,0,2,'ck2_q7')">ア：2つの分力の大きさの和が、重力の大きさになる</button><button class="choice-btn" onclick="pick4('ck2',7,1,2,'ck2_q7')">イ：2つの分力は、つり合っている</button><button class="choice-btn" onclick="pick4('ck2',7,2,2,'ck2_q7')">ウ：2つの分力を合成すると、重力になる</button><button class="choice-btn" onclick="pick4('ck2',7,3,2,'ck2_q7')">エ：分力は、重力より必ず大きい</button></div><div class="fb-msg" id="fb_ck2_q7"></div><div class="msample" id="samp_ck2_q7">正解：ウ：2つの分力を合成すると、重力になる　分力の合力が重力になります。分力の大きさを単に足したものではありません。</div></div><div class="pass-banner" id="pass_ck2">🎉 全問正解！すばらしい！ 🎉</div></div>
+</div></div>
+
+</div>
+<div class="foot-nav"><a href="gouryoku_practice.html">◀ 📝 練習問題</a></div>
+<script>
+
+const miniState={},miniScore={},miniTotal={},miniDone={};
+function registerSec(id,n){miniScore[id]=0;miniTotal[id]=n;miniDone[id]=new Array(n).fill(false);}
+function toggleMini(id){document.getElementById('mini_'+id).classList.toggle('open');}
+function initMiniBank(secId,qNum,words,answers){
+  const key=secId+'_q'+qNum;
+  miniState[key]={words:[...words],answers:[...answers],filled:new Array(answers.length).fill(null),chipUsed:new Array(words.length).fill(false)};
+  const c=document.getElementById('chips_'+key); if(!c)return; c.innerHTML='';
+  const order=[...Array(words.length).keys()];
+  for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
+  order.forEach(i=>{const b=document.createElement('button');b.className='mchip';b.id='chip_'+key+'_'+i;b.textContent=words[i];b.onclick=()=>fillMDZ(secId,qNum,i);c.appendChild(b);});
+}
+function fillMDZ(secId,qNum,ci){
+  const key=secId+'_q'+qNum,st=miniState[key]; if(!st||st.chipUsed[ci])return;
+  const e=st.filled.findIndex(v=>v===null); if(e<0)return;
+  st.filled[e]=ci;st.chipUsed[ci]=true;
+  document.getElementById('chip_'+key+'_'+ci).classList.add('used');
+  const m=document.getElementById('mdz_'+key+'_'+e); if(m){m.textContent=st.words[ci];m.classList.add('filled');}
+}
+function returnChip(secId,qNum,bi){
+  const key=secId+'_q'+qNum,st=miniState[key]; if(!st||st.filled[bi]===null)return;
+  const ci=st.filled[bi];st.filled[bi]=null;st.chipUsed[ci]=false;
+  document.getElementById('chip_'+key+'_'+ci).classList.remove('used');
+  const m=document.getElementById('mdz_'+key+'_'+bi); if(m){m.textContent=' ';m.className='mdz';}
+}
+function checkMiniBank(secId,qNum){
+  const key=secId+'_q'+qNum,st=miniState[key]; if(!st)return;
+  let all=true;
+  st.filled.forEach((ci,bi)=>{
+    const m=document.getElementById('mdz_'+key+'_'+bi); if(!m)return;
+    if(ci===null){all=false;return;}
+    if(st.words[ci]===st.answers[bi]){m.classList.remove('wrong');m.classList.add('correct');}
+    else{m.classList.remove('correct');m.classList.add('wrong');all=false;}
+  });
+  const fb=document.getElementById('fb_'+key);
+  if(all){if(fb)fb.textContent='✅ 正解！すばらしい！';markPass(secId,qNum-1);flowerPetals();}
+  else{if(fb)fb.textContent='❌ もう一度確認しよう！（まちがった所は、クリックで戻せます）';}
+}
+function showSample(secId,qNum){const e=document.getElementById('samp_'+secId+'_q'+qNum);if(e)e.classList.toggle('show');}
+function pick4(secId,qNum,chosen,correct,qid){
+  const btns=document.querySelectorAll('#choices_'+qid+' .choice-btn');
+  btns.forEach(b=>b.disabled=true);
+  const fb=document.getElementById('fb_'+qid);
+  if(chosen===correct){btns[chosen].classList.add('correct');if(fb)fb.textContent='✅ 正解！';markPass(secId,qNum-1);flowerPetals();}
+  else{btns[chosen].classList.add('wrong');btns[correct].classList.add('correct');if(fb)fb.textContent='❌ 残念！正解は緑のボタンです。解説を読んでみよう。';}
+  const s=document.getElementById('samp_'+qid); if(s)s.classList.add('show');
+}
+function markPass(secId,qIdx){
+  if(miniDone[secId][qIdx])return;
+  miniDone[secId][qIdx]=true;miniScore[secId]++;
+  const pip=document.getElementById('pip_'+secId+'_'+(qIdx+1)); if(pip)pip.classList.add('pass');
+  const badge=document.getElementById('mini-badge-'+secId); if(badge)badge.textContent=miniScore[secId]+' / '+miniTotal[secId];
+  const sl=document.getElementById('score_'+secId); if(sl)sl.textContent='正解 '+miniScore[secId]+' / '+miniTotal[secId]+' 問';
+  if(miniScore[secId]>=miniTotal[secId]){const b=document.getElementById('pass_'+secId);if(b)b.classList.add('show');fireConfetti();}
+}
+function flowerPetals(){
+  const cv=document.getElementById('confetti-canvas'),ctx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#f472b6','#fb7185','#fbbf24','#34d399','#60a5fa','#a78bfa'],ps=[];
+  for(let i=0;i<60;i++)ps.push({x:Math.random()*cv.width,y:-20-Math.random()*200,r:4+Math.random()*6,c:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*3,vy:2+Math.random()*3,rot:Math.random()*6.28,rv:(Math.random()-.5)*.15});
+  let f=0;(function d(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.beginPath();ctx.ellipse(0,0,p.r,p.r*.55,0,0,6.28);ctx.fill();ctx.restore();p.x+=p.vx;p.y+=p.vy;p.rot+=p.rv;});if(++f<80)requestAnimationFrame(d);else ctx.clearRect(0,0,cv.width,cv.height);})();
+}
+function fireConfetti(){
+  const cv=document.getElementById('confetti-canvas'),ctx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#f472b6','#fbbf24','#34d399','#60a5fa','#a78bfa','#fb7185','#fff'],ps=[];
+  for(let i=0;i<150;i++)ps.push({x:Math.random()*cv.width,y:-20-Math.random()*300,w:8+Math.random()*10,h:4+Math.random()*6,c:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*5,vy:3+Math.random()*4,rot:Math.random()*6.28,rv:(Math.random()-.5)*.2});
+  let f=0;(function d(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();p.x+=p.vx;p.y+=p.vy;p.rot+=p.rv;});if(++f<140)requestAnimationFrame(d);else ctx.clearRect(0,0,cv.width,cv.height);})();
+}
+
+registerSec('ck1',7);
+registerSec('ck2',7);
+</script>
+</body></html>
