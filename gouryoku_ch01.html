@@ -291,7 +291,7 @@ class Board{
     this.nextB.onclick=()=>{this.idx=(this.idx+1)%this.probs.length;this.load();};
     const s=this.svg;
     s.addEventListener('pointerdown',ev=>{if(this.solved||this.model)return;const g=ev.target.closest('[data-k]');if(!g)return;this.drag=g.getAttribute('data-k');s.setPointerCapture(ev.pointerId);ev.preventDefault();});
-    s.addEventListener('pointermove',ev=>{if(!this.drag)return;const q=this.gridPt(ev),h=this.H[this.drag];if(q[0]!==h[0]||q[1]!==h[1]){this.H[this.drag]=q;this.H.moved=true;this.draw();this.status();}});
+    s.addEventListener('pointermove',ev=>{if(!this.drag)return;const q=this.gridPt(ev),h=this.H[this.drag];if(q[0]!==h[0]||q[1]!==h[1]){this.H[this.drag]=q;this.H.moved=true;this.draw();this.status();this.petals();}});
     const end=()=>{if(!this.drag)return;this.drag=null;this.check();};
     s.addEventListener('pointerup',end);s.addEventListener('pointercancel',end);
     this.load();
@@ -304,15 +304,17 @@ class Board{
     if(t==='opp')return[];
     if(t==='par')return[{key:'a',tip:p.P,dir:p.A,col:'#e11d48',nm:'お手本の向き'}];
     if(t==='sum'||t==='bal')return[{key:'a',tip:vadd(p.O,p.A),dir:p.B,col:'#ea580c',nm:'力Bの向き'},{key:'b',tip:vadd(p.O,p.B),dir:p.A,col:'#2563eb',nm:'力Aの向き'}];
-    const F=vadd(p.O,p.F),sl=t==='slope';return[{key:'a',tip:F,dir:p.M,col:'#0d9488',nm:sl?'斜面に垂直な向き':'mの向き'},{key:'b',tip:F,dir:p.L,col:'#7c3aed',nm:sl?'斜面に平行な向き':'ℓの向き'}];
+    const F=vadd(p.O,p.F),sl=t==='slope';return[{key:'a',tip:F,dir:p.M,col:sl?'#2563eb':'#0d9488',nm:sl?'斜面に垂直な向き':'mの向き'},{key:'b',tip:F,dir:p.L,col:sl?'#16a34a':'#7c3aed',nm:sl?'斜面に平行な向き':'ℓの向き'}];
   }
+  okCol(){return this.type==='slope'?'#f97316':'#16a34a';}
+  petals(){if(this.type!=='slope'||this.solved||this.model)return;this.fired=this.fired||{};for(const l of this.lines()){if(this.isPar(l)){if(!this.fired[l.key]){this.fired[l.key]=1;flowerPetals();}}else this.fired[l.key]=0;}}
   isPar(l){const d=vsub(this.H[l.key],l.tip);return(d[0]!==0||d[1]!==0)&&vcross(d,l.dir)===0;}
   linesDone(){return this.lines().every(l=>this.isPar(l));}
   target(){ // bal / opp の答え
     const p=this.p;if(this.type==='opp')return vsub(p.O,p.F);return vsub(p.O,vadd(p.A,p.B));
   }
   load(){
-    const p=this.p;this.solved=false;this.model=false;this.hint=false;this.stage=1;
+    const p=this.p;this.solved=false;this.model=false;this.hint=false;this.stage=1;this.fired={};
     if(this.type==='slope'){const d=p.dir;p.L=d;p.M=[-d[1],d[0]];}
     this.H={moved:false};if(this.type==='opp'){this.stage=2;}
     const used=[];
@@ -332,6 +334,7 @@ class Board{
     const g=this.root.querySelector('.bd-guide');
     if(this.type==='opp'){g.innerHTML='';return;}
     if(this.stage===2){const R=vadd(this.p.A,this.p.B);g.innerHTML='合力は「<b>'+vtext(R)+'</b>」。つり合う力は、<b>反対向きに同じだけ</b>進んだ点が先端です。';return;}
+    if(this.type==='slope'){g.innerHTML='<span class="bd-dot" style="background:#16a34a"></span> <b style="color:#16a34a">緑の破線</b>を、<b>斜面と平行</b>になるように動かそう<br><span class="bd-dot" style="background:#2563eb"></span> <b style="color:#2563eb">青の破線</b>を、<b>青い点線（斜面に垂直）と平行</b>になるように動かそう<br><span class="bd-small">※平行になると、その線の色が<b style="color:#f97316">オレンジ</b>にかわって花吹雪が出ます。線の長さは自由です。</span>';return;}
     g.innerHTML='次の向きと同じ線を、同じ色の●から引こう（反対向きでもOK）<br>'+this.lines().map(l=>'<span class="bd-dot" style="background:'+l.col+'"></span> <b style="color:'+l.col+'">'+l.nm+'</b> ＝ <b>'+vtext(l.dir)+'</b>').join('<br>')+'<br><span class="bd-small">※向きが合えば、線の長さは自由です。●が動いた量は、●のそばに表示されます。</span>';
   }
   pips(){
@@ -345,6 +348,7 @@ class Board{
     else if(t==='opp'){m.className='bd-msg info';m.textContent='🎯 赤い力につり合う力を、青い●をドラッグしてかこう（大きさが同じで、向きが反対）';}
     else if(this.stage===2){m.className='bd-msg info';m.textContent='🎯 合力と「大きさが同じで向きが反対」の矢印になるように、青い●をドラッグしよう';}
     else if(t==='sum'||t==='bal')m.textContent=n===0?'矢印の先から出ている●をドラッグして、もう一方の力と平行な線を引こう':(n===1?'1本できました！（緑色＝平行）もう1本も引こう':'');
+    else if(t==='slope')m.textContent=n===0?'緑と青の●を動かそう。線が平行になると色がかわります':(n===1?'1本できました！（オレンジ＝平行）もう1本も合わせよう':'');
     else m.textContent=n===0?'●を動かして、下に書いてある向きと平行な線を2本引こう（平行四辺形をつくる）':(n===1?'1本できました！もう1本も引こう':'');
   }
   showModel(){
@@ -413,8 +417,8 @@ class Board{
         bEl('line',{x1:bX(mn[0]),y1:bY(mn[1]),x2:bX(mp[0]),y2:bY(mp[1]),stroke:'#0d9488','stroke-width':3,'stroke-dasharray':'3 7','stroke-linecap':'round'},svg);
         bText(svg,bX(lp[0])-(p.L[0]>0?28:-6),bY(lp[1])+(p.L[1]>0?20:-6),'ℓ','#7c3aed',22);bText(svg,bX(mp[0])-(p.M[0]>0?28:-6),bY(mp[1])+(p.M[1]>0?20:-6),'m','#0d9488',22);
       }else{
-        bEl('line',{x1:bX(mn[0]),y1:bY(mn[1]),x2:bX(mp[0]),y2:bY(mp[1]),stroke:'#0d9488','stroke-width':3,'stroke-dasharray':'3 7','stroke-linecap':'round'},svg);
-        bText(svg,bX(mp[0])-(p.M[0]>0?60:-6),bY(mp[1])+(p.M[1]>0?20:-6),'垂直','#0d9488',17);
+        bEl('line',{x1:bX(mn[0]),y1:bY(mn[1]),x2:bX(mp[0]),y2:bY(mp[1]),stroke:'#2563eb','stroke-width':3,'stroke-dasharray':'3 7','stroke-linecap':'round'},svg);
+        bText(svg,bX(mp[0])-(p.M[0]>0?60:-6),bY(mp[1])+(p.M[1]>0?20:-6),'垂直','#2563eb',17);
       }
       bEl('circle',{cx:bX(O[0]),cy:bY(O[1]),r:6,fill:'#334155'},svg);
       const F=vadd(O,p.F);bArrow(svg,O,F,'#e11d48',5);
@@ -434,7 +438,7 @@ class Board{
     }
     // 引く線
     for(const l of LS){
-      const h=this.H[l.key],ok=this.isPar(l),col=ok?'#16a34a':l.col;
+      const h=this.H[l.key],ok=this.isPar(l),col=ok?this.okCol():l.col;
       if(ok){const k=40;bEl('line',{x1:bX(l.tip[0]-l.dir[0]*k),y1:bY(l.tip[1]-l.dir[1]*k),x2:bX(l.tip[0]+l.dir[0]*k),y2:bY(l.tip[1]+l.dir[1]*k),stroke:col,'stroke-width':3.5,'stroke-dasharray':'9 6'},svg);}
       else bEl('line',{x1:bX(l.tip[0]),y1:bY(l.tip[1]),x2:bX(h[0]),y2:bY(h[1]),stroke:col,'stroke-width':3.5,'stroke-dasharray':'9 6','stroke-linecap':'round'},svg);
     }
@@ -463,7 +467,7 @@ class Board{
     if(!SH){
       const hl=[];
       if(this.stage===2)hl.push({key:'c',col:'#7c3aed',tip:O});
-      else for(const l of LS)hl.push({key:l.key,col:this.isPar(l)?'#16a34a':l.col,tip:l.tip});
+      else for(const l of LS)hl.push({key:l.key,col:this.isPar(l)?this.okCol():l.col,tip:l.tip});
       for(const x of hl){
         const h=this.H[x.key];
         if(!this.H.moved)bEl('circle',{cx:bX(h[0]),cy:bY(h[1]),r:10,fill:'none',stroke:x.col,'stroke-width':3,class:'bd-ring'},svg);
@@ -471,7 +475,7 @@ class Board{
         bEl('circle',{cx:bX(h[0]),cy:bY(h[1]),r:30,fill:'transparent'},g);
         bEl('circle',{cx:bX(h[0]),cy:bY(h[1]),r:12,fill:'#fff',stroke:x.col,'stroke-width':5},g);
         bEl('circle',{cx:bX(h[0]),cy:bY(h[1]),r:4,fill:x.col},g);
-        const dv=vsub(h,x.tip);if(dv[0]!==0||dv[1]!==0)bText(svg,bX(h[0])+(h[0]>BC-4?-16:16),bY(h[1])+(x.key==='b'?36:-18),'いま '+vtext(dv),x.col,14).setAttribute('text-anchor',h[0]>BC-4?'end':'start');
+        const dv=vsub(h,x.tip);if(this.type!=='slope'&&(dv[0]!==0||dv[1]!==0))bText(svg,bX(h[0])+(h[0]>BC-4?-16:16),bY(h[1])+(x.key==='b'?36:-18),'いま '+vtext(dv),x.col,14).setAttribute('text-anchor',h[0]>BC-4?'end':'start');
       }
     }
   }
