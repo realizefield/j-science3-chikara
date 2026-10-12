@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中3理科 仕事</title>
+<style>
+:root{--pri:#e11d48;--pri-d:#881337;--pri-l:#fecdd3;--pink:#db2777;--pink-d:#9d174d;--pink-bg:#fce7f3;--gray:#6b7280;--card:#fff;--radius:14px;--shadow:0 4px 18px rgba(0,0,0,.10);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#fff1f2;font-family:'Helvetica Neue',Arial,'Hiragino Sans','Noto Sans JP',sans-serif;color:#1e293b;}
+header{background:linear-gradient(135deg,var(--pri-d),var(--pri));color:#fff;text-align:center;padding:28px 20px 22px;}
+header h1{font-size:clamp(1.3rem,4vw,2rem);font-weight:900;letter-spacing:.04em;}
+header p{margin-top:6px;font-size:.93rem;opacity:.88;}
+.topnav{background:#fff;border-bottom:2px solid var(--pri-l);padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;font-size:.9rem;}
+.topnav a{color:var(--pri-d);text-decoration:none;font-weight:700;padding:5px 14px;border-radius:20px;border:2px solid var(--pri-l);}
+.topnav a:hover,.topnav a.cur{background:var(--pri);color:#fff;border-color:var(--pri);}
+.units{max-width:860px;margin:30px auto;padding:0 16px;}
+.unit-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:32px;overflow:hidden;}
+.unit-header{background:linear-gradient(90deg,var(--pri-d),var(--pri));color:#fff;padding:14px 22px;display:flex;align-items:center;gap:12px;}
+.unit-num{background:#fff;color:var(--pri-d);font-weight:900;font-size:1.1rem;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.unit-header h2{font-size:1.1rem;font-weight:800;}
+.unit-body{padding:22px;}
+.exp-img{margin:14px 0;text-align:center;}
+.exp-img img{max-width:100%;max-height:420px;width:auto;height:auto;border-radius:10px;margin:6px auto;display:block;background:#fff;}
+.exp-img .cap{font-size:.8rem;color:var(--gray);margin-top:2px;}
+.img-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:flex-end;}
+.img-row .exp-img{margin:8px 0;}
+.exp-text{line-height:1.95;font-size:.97rem;margin:10px 0;}
+.exp-text p{margin-bottom:.85em;}
+.exp-text h3{font-size:.97rem;color:var(--pri-d);margin:1em 0 .5em;border-left:3px solid var(--pri);padding-left:8px;font-weight:800;}
+.pt-box{background:#dcfce7;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.warn-box{background:#fee2e2;border-left:4px solid #dc2626;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.info-box{background:#f0fdff;border-left:4px solid #0e7490;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.eq-box{background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;margin:10px 0;text-align:center;}
+.eq-box .eq{font-size:1rem;font-weight:800;color:var(--pri-d);letter-spacing:.03em;}
+.exp-tbl{width:100%;border-collapse:collapse;font-size:.88rem;margin:10px 0;}
+.exp-tbl th{background:var(--pri);color:#fff;padding:8px 10px;text-align:left;}
+.exp-tbl td{padding:8px 10px;border-bottom:1px solid #e5e7eb;vertical-align:top;line-height:1.65;}
+.exp-tbl tr:nth-child(even) td{background:#f9fafb;}
+.exp-tbl .nc{font-weight:700;white-space:nowrap;}
+.mini-btn{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;background:var(--pink-bg);border:2.5px solid var(--pink);color:var(--pink-d);font-size:.97rem;font-weight:800;padding:10px 22px;border-radius:40px;margin:14px 0 0;transition:.2s;}
+.mini-btn:hover{background:var(--pink);color:#fff;}
+.mini-section{display:none;margin-top:16px;background:#fdf2f8;border:2px solid #f9a8d4;border-radius:12px;padding:18px;}
+.mini-section.open{display:block;}
+.q-block{margin-bottom:22px;}
+.q-block h4{font-size:.98rem;font-weight:800;color:var(--pri-d);margin-bottom:10px;line-height:1.7;}
+.q-note{font-size:.88rem;color:#555;margin-bottom:6px;line-height:1.8;}
+.mchips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.mchip{background:#fff;border:2.5px solid var(--pink);color:var(--pink-d);border-radius:20px;padding:5px 16px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.mchip:hover{background:var(--pink);color:#fff;}
+.mchip.used{opacity:.35;pointer-events:none;}
+.mdz-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0;}
+.mdz{display:inline-flex;align-items:center;justify-content:center;min-width:80px;height:36px;border:2.5px dashed var(--pink);border-radius:8px;padding:0 10px;font-size:.93rem;font-weight:700;cursor:pointer;color:var(--pink-d);transition:.18s;background:#fff;}
+.mdz.filled{border-style:solid;background:#fce7f3;}
+.mdz.correct{border-color:#16a34a;background:#dcfce7;color:#166534;}
+.mdz.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.mdz-label{font-size:.9rem;color:#374151;}
+.choice-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+@media(max-width:480px){.choice-list{grid-template-columns:1fr;}}
+.choice-btn{padding:10px 14px;border:2.5px solid #d1d5db;border-radius:10px;background:#fff;font-size:.93rem;cursor:pointer;text-align:left;transition:.18s;}
+.choice-btn:hover{border-color:var(--pri);background:var(--pri-l);}
+.choice-btn.correct{border-color:#16a34a;background:#dcfce7;color:#166534;font-weight:700;}
+.choice-btn.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.choice-btn:disabled{cursor:default;}
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.check-btn{background:var(--pri);color:#fff;border:none;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.check-btn:hover{background:var(--pri-d);}
+.sample-btn{background:#fff;color:var(--gray);border:2px solid #d1d5db;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.sample-btn:hover{background:#f3f4f6;}
+.msample{display:none;background:#fef9c3;border:1.5px solid #fbbf24;border-radius:8px;padding:8px 14px;font-size:.9rem;margin-top:8px;line-height:1.8;}
+.msample.show{display:block;}
+.fb-msg{font-size:.9rem;margin-top:6px;font-weight:600;}
+.mini-score-row{display:flex;gap:6px;align-items:center;margin-bottom:10px;flex-wrap:wrap;}
+.mini-score-pip{width:14px;height:14px;border-radius:50%;background:#e5e7eb;border:2px solid #d1d5db;transition:.3s;}
+.mini-score-pip.pass{background:#16a34a;border-color:#166534;}
+.score-line{font-size:.88rem;font-weight:700;color:var(--pink-d);margin-bottom:8px;}
+.pass-banner{display:none;background:linear-gradient(90deg,#166534,#16a34a);color:#fff;text-align:center;padding:16px;border-radius:10px;margin-top:16px;font-size:1.1rem;font-weight:900;}
+.pass-banner.show{display:block;}
+.group-title{font-weight:800;color:var(--pink-d);margin:20px 0 6px;font-size:.98rem;border-bottom:2px dashed #f9a8d4;padding-bottom:4px;}
+.src-note{background:#fff7ed;border-left:4px solid #f97316;border-radius:0 8px 8px 0;padding:9px 14px;margin:10px 0 14px;font-size:.88rem;line-height:1.7;color:#7c2d12;}
+.foot-nav{max-width:860px;margin:0 auto 40px;padding:0 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.foot-nav a{background:var(--pri);color:#fff;text-decoration:none;font-weight:800;padding:10px 22px;border-radius:30px;font-size:.93rem;}
+.foot-nav a:hover{background:var(--pri-d);}
+canvas#confetti-canvas{position:fixed;top:0;left:0;pointer-events:none;width:100%;height:100%;z-index:9999;}
+</style>
+</head>
+<body>
+<canvas id="confetti-canvas"></canvas>
+<header><h1>中3理科 仕事</h1><p>中学3年 理科　力と運動(2)　図で確認・ミニテストで実力チェック</p></header>
+<nav class="topnav"><a href="index.html">🏠 目次</a><a href="shigoto_ch01.html" class="cur">📖 レッスン</a><a href="shigoto_practice.html">📝 練習問題</a><a href="shigoto_check.html">🏆 確認問題</a></nav>
+<div class="units">
+<div class="unit-card" id="card_sg1"><div class="unit-header"><div class="unit-num">1</div><h2>仕事とは（仕事の求め方）</h2></div><div class="unit-body">
+<div class="exp-text"><p>ふだん「仕事」というと、会社で働くことを思い浮かべますよね。でも理科でいう<b>仕事</b>には、はっきりした決まりがあります。</p>
+<p>物体に<b>力</b>を加えて、その<b>力の向きに物体を動かした</b>とき、「仕事をした」といいます。仕事の大きさは、力の大きさと動かした距離をかけ算して求めます。</p>
+<div class="eq-box"><span class="eq">仕事(J) ＝ 力の大きさ(N) × 力の向きに動いた距離(m)</span></div>
+<p>仕事の単位は<b>J(ジュール)</b>です。1Nの力で物体を力の向きに1m動かしたときの仕事が、1Jです。</p>
+<h3>例で考えてみよう（図1・図2）</h3><div class="img-row"><div class="exp-img"><img src="shigoto_fig01.png" alt="図"></div></div>
+<p><b>図1</b>：人が1kgの物体を4mの高さまで引き上げます。理科では、100gの物体にはたらく重力を1Nと考えます。1kg＝1000gなので、1kgの物体にはたらく重力は<b>10N</b>です。物体を引き上げるには10Nの力が必要なので、仕事は 10N×4m＝<b>40J</b> です。</p>
+<p><b>図2</b>：人が50Nの力で物体を2.0m引っ張りました。仕事は 50N×2.0m＝<b>100J</b> です。物体を一定の速さで引いているとき、引く力と摩擦力は同じ大きさなので、この物体にはたらく摩擦力は<b>50N</b>です。</p>
+<div class="warn-box"><b>⚠️ 注意しよう！</b><br>距離は必ず「m」にそろえて計算します。150cmのときは1.5mに直してから、力とかけ算しましょう。</div><div class="pt-box"><b>★ 覚えよう！</b><br>仕事(J)＝力の大きさ(N)×力の向きに動いた距離(m)<br>単位は J(ジュール)　／　1Nの力で1m動かすと1J<br>1kgの物体にはたらく重力＝10N（100gで1N）<br>距離はmにそろえる（150cm＝1.5m）</div></div>
+<button class="mini-btn" onclick="toggleMini('sg1')">🧪 ミニテストに挑戦！<span id="mini-badge-sg1" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 5</span></button>
+<div class="mini-section" id="mini_sg1"><div class="mini-score-row" id="pips_sg1"><div class="mini-score-pip" id="pip_sg1_1"></div><div class="mini-score-pip" id="pip_sg1_2"></div><div class="mini-score-pip" id="pip_sg1_3"></div><div class="mini-score-pip" id="pip_sg1_4"></div><div class="mini-score-pip" id="pip_sg1_5"></div></div><div class="q-block" id="qblock_sg1_q1"><h4>Q1. 文中の①〜⑤に当てはまる語句を語群から選んで入れよう。</h4><p class="q-note">仕事(J)＝①(N)×力の向きに動いた②(m)。仕事の単位は③(記号J)で、1Nの力で物体を④m動かしたときの仕事が1Jである。1kgの物体にはたらく重力は⑤Nである。</p><div class="mchips" id="chips_sg1_q1"></div><div class="mdz-row"><span class="mdz-label">①</span><span class="mdz" id="mdz_sg1_q1_0" onclick="returnChip('sg1',1,0)">&nbsp;</span><span class="mdz-label">②</span><span class="mdz" id="mdz_sg1_q1_1" onclick="returnChip('sg1',1,1)">&nbsp;</span><span class="mdz-label">③</span><span class="mdz" id="mdz_sg1_q1_2" onclick="returnChip('sg1',1,2)">&nbsp;</span><span class="mdz-label">④</span><span class="mdz" id="mdz_sg1_q1_3" onclick="returnChip('sg1',1,3)">&nbsp;</span><span class="mdz-label">⑤</span><span class="mdz" id="mdz_sg1_q1_4" onclick="returnChip('sg1',1,4)">&nbsp;</span></div><div class="btn-row"><button class="check-btn" onclick="checkMiniBank('sg1',1)">✔ 答え合わせ</button><button class="sample-btn" onclick="showSample('sg1',1)">💡 答えを見る</button></div><div class="fb-msg" id="fb_sg1_q1"></div><div class="msample" id="samp_sg1_q1">答え：①＝力の大きさ / ②＝距離 / ③＝ジュール / ④＝1 / ⑤＝10</div></div><div class="q-block" id="qblock_sg1_q2"><h4>Q2. 仕事の単位として正しいものはどれか。</h4><div class="choice-list" id="choices_sg1_q2"><button class="choice-btn" onclick="pick4('sg1',2,0,2,'sg1_q2')">ア：N（ニュートン）</button><button class="choice-btn" onclick="pick4('sg1',2,1,2,'sg1_q2')">イ：W（ワット）</button><button class="choice-btn" onclick="pick4('sg1',2,2,2,'sg1_q2')">ウ：J（ジュール）</button><button class="choice-btn" onclick="pick4('sg1',2,3,2,'sg1_q2')">エ：g（グラム）</button></div><div class="fb-msg" id="fb_sg1_q2"></div><div class="msample" id="samp_sg1_q2">正解：ウ：J（ジュール）　仕事の単位はJ（ジュール）です。Nは力、Wは仕事率の単位です。</div></div><div class="q-block" id="qblock_sg1_q3"><h4>Q3. 20Nの力で物体を力の向きに4m動かした。このときの仕事は何Jか。</h4><div class="choice-list" id="choices_sg1_q3"><button class="choice-btn" onclick="pick4('sg1',3,0,1,'sg1_q3')">ア：24J</button><button class="choice-btn" onclick="pick4('sg1',3,1,1,'sg1_q3')">イ：80J</button><button class="choice-btn" onclick="pick4('sg1',3,2,1,'sg1_q3')">ウ：5J</button><button class="choice-btn" onclick="pick4('sg1',3,3,1,'sg1_q3')">エ：16J</button></div><div class="fb-msg" id="fb_sg1_q3"></div><div class="msample" id="samp_sg1_q3">正解：イ：80J　仕事＝力×距離＝20N×4m＝80J です。</div></div><div class="q-block" id="qblock_sg1_q4"><h4>Q4. 60Nの力で物体を力の向きに150cm動かした。このときの仕事は何Jか。</h4><div class="choice-list" id="choices_sg1_q4"><button class="choice-btn" onclick="pick4('sg1',4,0,3,'sg1_q4')">ア：9000J</button><button class="choice-btn" onclick="pick4('sg1',4,1,3,'sg1_q4')">イ：210J</button><button class="choice-btn" onclick="pick4('sg1',4,2,3,'sg1_q4')">ウ：60J</button><button class="choice-btn" onclick="pick4('sg1',4,3,3,'sg1_q4')">エ：90J</button></div><div class="fb-msg" id="fb_sg1_q4"></div><div class="msample" id="samp_sg1_q4">正解：エ：90J　150cm＝1.5m に直します。60N×1.5m＝90J です。</div></div><div class="q-block" id="qblock_sg1_q5"><h4>Q5. 5kgの物体を2mの高さまで引き上げた。人がした仕事は何Jか。</h4><div class="choice-list" id="choices_sg1_q5"><button class="choice-btn" onclick="pick4('sg1',5,0,0,'sg1_q5')">ア：100J</button><button class="choice-btn" onclick="pick4('sg1',5,1,0,'sg1_q5')">イ：10J</button><button class="choice-btn" onclick="pick4('sg1',5,2,0,'sg1_q5')">ウ：25J</button><button class="choice-btn" onclick="pick4('sg1',5,3,0,'sg1_q5')">エ：1000J</button></div><div class="fb-msg" id="fb_sg1_q5"></div><div class="msample" id="samp_sg1_q5">正解：ア：100J　5kg＝5000gなので重力は50N。50N×2m＝100J です。</div></div><div class="pass-banner" id="pass_sg1">🎉 この単元クリア！すばらしい！ 🎉</div></div>
+</div></div>
+<div class="unit-card" id="card_sg2"><div class="unit-header"><div class="unit-num">2</div><h2>仕事の種類と、仕事にならない場合</h2></div><div class="unit-body">
+<div class="exp-text"><p>仕事には、次の<b>2つの種類</b>があります。</p>
+<p>① <b>重力</b>に対して行う仕事 … 物体を持ち上げるときの仕事です。<br>② <b>摩擦力</b>に対して行う仕事 … 物体を床の上でひきずるときの仕事です。</p><div class="img-row"><div class="exp-img"><img src="shigoto_fig02.png" alt="図"></div><div class="exp-img"><img src="shigoto_fig03.png" alt="図"></div></div>
+<h3>仕事にならない場合（仕事が0Jになる）</h3>
+<p>① <b>物体を持って水平に移動したとき</b>（例：2kgの物体を持って2m歩く）。手が物体にはたらかせる力は<b>上向き</b>ですが、物体は<b>水平</b>に動いています。力の向きには動いていないので、仕事は<b>0J</b>です。</p><div class="img-row"><div class="exp-img"><img src="shigoto_fig04.png" alt="図"></div></div>
+<p>② <b>力を加えても物体が動かなかったとき</b>。100Nで物体を押しても動かなければ、動いた距離は0mなので、100N×0m＝<b>0J</b>です。</p><div class="img-row"><div class="exp-img"><img src="shigoto_fig05.png" alt="図"></div></div>
+<p>③ <b>摩擦のない氷の上で物体を動かすとき</b>。すでに動いている物体は、摩擦がなければ動かし続けるのに力がいりません。力が0Nなので、仕事は<b>0J</b>です。</p><div class="pt-box"><b>★ 覚えよう！</b><br>仕事になるのは「力を加える」＋「力の向きに動く」とき<br>物体を持ち上げる仕事 → 重力に対する仕事／物体をひきずる仕事 → 摩擦力に対する仕事<br>仕事が0Jになる例：持って水平に移動／力を加えても動かない／摩擦のない面で動かし続ける</div></div>
+<button class="mini-btn" onclick="toggleMini('sg2')">🧪 ミニテストに挑戦！<span id="mini-badge-sg2" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 5</span></button>
+<div class="mini-section" id="mini_sg2"><div class="mini-score-row" id="pips_sg2"><div class="mini-score-pip" id="pip_sg2_1"></div><div class="mini-score-pip" id="pip_sg2_2"></div><div class="mini-score-pip" id="pip_sg2_3"></div><div class="mini-score-pip" id="pip_sg2_4"></div><div class="mini-score-pip" id="pip_sg2_5"></div></div><div class="q-block" id="qblock_sg2_q1"><h4>Q1. 文中の①〜⑤に当てはまる語句を語群から選んで入れよう。</h4><p class="q-note">力を加えても物体が①場合、動いた距離が0mなので、仕事は③Jである。物体を持って②方向に移動した場合も、力の向きには動いていないので、仕事は0Jとなる。物体を持ち上げる仕事は④に対する仕事、床の上でひきずる仕事は⑤に対する仕事である。</p><div class="mchips" id="chips_sg2_q1"></div><div class="mdz-row"><span class="mdz-label">①</span><span class="mdz" id="mdz_sg2_q1_0" onclick="returnChip('sg2',1,0)">&nbsp;</span><span class="mdz-label">②</span><span class="mdz" id="mdz_sg2_q1_1" onclick="returnChip('sg2',1,1)">&nbsp;</span><span class="mdz-label">③</span><span class="mdz" id="mdz_sg2_q1_2" onclick="returnChip('sg2',1,2)">&nbsp;</span><span class="mdz-label">④</span><span class="mdz" id="mdz_sg2_q1_3" onclick="returnChip('sg2',1,3)">&nbsp;</span><span class="mdz-label">⑤</span><span class="mdz" id="mdz_sg2_q1_4" onclick="returnChip('sg2',1,4)">&nbsp;</span></div><div class="btn-row"><button class="check-btn" onclick="checkMiniBank('sg2',1)">✔ 答え合わせ</button><button class="sample-btn" onclick="showSample('sg2',1)">💡 答えを見る</button></div><div class="fb-msg" id="fb_sg2_q1"></div><div class="msample" id="samp_sg2_q1">答え：①＝動かない / ②＝水平 / ③＝0 / ④＝重力 / ⑤＝摩擦力</div></div><div class="q-block" id="qblock_sg2_q2"><h4>Q2. 次のア〜エのうち、理科でいう「仕事」をしているものはどれか。</h4><div class="choice-list" id="choices_sg2_q2"><button class="choice-btn" onclick="pick4('sg2',2,0,1,'sg2_q2')">ア：重いカバンを手に持って、水平に移動した</button><button class="choice-btn" onclick="pick4('sg2',2,1,1,'sg2_q2')">イ：肩車をして人を持ち上げた</button><button class="choice-btn" onclick="pick4('sg2',2,2,1,'sg2_q2')">ウ：大きい岩を押したが、動かなかった</button><button class="choice-btn" onclick="pick4('sg2',2,3,1,'sg2_q2')">エ：数学の計算問題をした</button></div><div class="fb-msg" id="fb_sg2_q2"></div><div class="msample" id="samp_sg2_q2">正解：イ：肩車をして人を持ち上げた　肩車は、上向きの力を加え、その向きに人が動いているので仕事をしています。カバンを持って水平に歩く場合は力の向きに動かず、岩が動かないときは距離が0なので、どちらも0Jです。計算問題は物体に力を加えていません。</div></div><div class="q-block" id="qblock_sg2_q3"><h4>Q3. 100Nの力で物体を押したが、物体は動かなかった。このときの仕事は何Jか。</h4><div class="choice-list" id="choices_sg2_q3"><button class="choice-btn" onclick="pick4('sg2',3,0,3,'sg2_q3')">ア：100J</button><button class="choice-btn" onclick="pick4('sg2',3,1,3,'sg2_q3')">イ：10J</button><button class="choice-btn" onclick="pick4('sg2',3,2,3,'sg2_q3')">ウ：1J</button><button class="choice-btn" onclick="pick4('sg2',3,3,3,'sg2_q3')">エ：0J</button></div><div class="fb-msg" id="fb_sg2_q3"></div><div class="msample" id="samp_sg2_q3">正解：エ：0J　動いた距離が0mなので、100N×0m＝0J です。</div></div><div class="q-block" id="qblock_sg2_q4"><h4>Q4. 2kgの物体を手に持って、水平に2m移動した。このときの仕事は何Jか。</h4><div class="choice-list" id="choices_sg2_q4"><button class="choice-btn" onclick="pick4('sg2',4,0,2,'sg2_q4')">ア：40J</button><button class="choice-btn" onclick="pick4('sg2',4,1,2,'sg2_q4')">イ：20J</button><button class="choice-btn" onclick="pick4('sg2',4,2,2,'sg2_q4')">ウ：0J</button><button class="choice-btn" onclick="pick4('sg2',4,3,2,'sg2_q4')">エ：4J</button></div><div class="fb-msg" id="fb_sg2_q4"></div><div class="msample" id="samp_sg2_q4">正解：ウ：0J　力は上向き、動いた向きは水平で、力の向きには動いていないので、仕事は0Jです。</div></div><div class="q-block" id="qblock_sg2_q5"><h4>Q5. 物体を床の上でひきずるとき、この仕事は何に対して行う仕事か。</h4><div class="choice-list" id="choices_sg2_q5"><button class="choice-btn" onclick="pick4('sg2',5,0,0,'sg2_q5')">ア：摩擦力</button><button class="choice-btn" onclick="pick4('sg2',5,1,0,'sg2_q5')">イ：重力</button><button class="choice-btn" onclick="pick4('sg2',5,2,0,'sg2_q5')">ウ：磁力</button><button class="choice-btn" onclick="pick4('sg2',5,3,0,'sg2_q5')">エ：弾性力</button></div><div class="fb-msg" id="fb_sg2_q5"></div><div class="msample" id="samp_sg2_q5">正解：ア：摩擦力　床の上でひきずるときは、物体と床の間にはたらく摩擦力に逆らって引いています。持ち上げる仕事は、重力に逆らう仕事です。</div></div><div class="pass-banner" id="pass_sg2">🎉 この単元クリア！すばらしい！ 🎉</div></div>
+</div></div>
+<div class="unit-card" id="card_sg3"><div class="unit-header"><div class="unit-num">3</div><h2>定滑車と動滑車</h2></div><div class="unit-body">
+<div class="exp-text"><p>重い物体を楽に持ち上げる道具のひとつが<b>滑車</b>です。滑車には2種類あります。ひもや滑車の重さは考えないものとします。</p>
+<p><b>定滑車</b> … 軸が動かない滑車です。ひもを引く向きを変えるだけなので、引く力は物体にはたらく重力と同じ大きさです。ひもを引く距離も、物体を持ち上げる距離と同じです。</p><div class="img-row"><div class="exp-img"><img src="shigoto_fig11.png" alt="図"></div></div>
+<p><b>動滑車</b> … ひもを引くと、滑車ごと上に上がる滑車です。物体を2本のひもで支えるので、引く力は<b>半分</b>になります。そのかわり、ひもを引く距離は<b>2倍</b>になります。</p><div class="img-row"><div class="exp-img"><img src="shigoto_fig12.png" alt="図"></div></div>
+<table class="exp-tbl"><thead><tr><th></th><th>定滑車</th><th>動滑車（1個）</th></tr></thead><tbody>
+<tr><td class="nc">引く力</td><td>物体の重さと同じ</td><td>物体の重さの<b>半分</b></td></tr>
+<tr><td class="nc">ひもを引く距離</td><td>物体を上げた距離と同じ</td><td>物体を上げた距離の<b>2倍</b></td></tr></tbody></table>
+<h3>例：18kgの物体を動滑車で1.5m引き上げる</h3>
+<p>18kg＝18000gなので、重力は180N。動滑車を使うと引く力は半分の<b>90N</b>。物体を1.5m上げるには、ひもを2倍の<b>3m</b>引きます。人がした仕事は 90N×3m＝<b>270J</b> です。</p>
+<h3>動滑車を2個使うと</h3>
+<p>80kgの物体（800N）を動滑車2個で持ち上げると、引く力は 800÷2÷2＝<b>200N</b>。物体を1m上げるには、ひもを 1m×2×2＝<b>4m</b>引きます。仕事は 200N×4m＝<b>800J</b> です。</p><div class="pt-box"><b>★ 覚えよう！</b><br>定滑車：力も距離も変わらない（向きを変えるだけ）<br>動滑車1個：力は半分、ひもを引く距離は2倍<br>動滑車2個：力は4分の1、ひもを引く距離は4倍</div></div>
+<button class="mini-btn" onclick="toggleMini('sg3')">🧪 ミニテストに挑戦！<span id="mini-badge-sg3" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 5</span></button>
+<div class="mini-section" id="mini_sg3"><div class="mini-score-row" id="pips_sg3"><div class="mini-score-pip" id="pip_sg3_1"></div><div class="mini-score-pip" id="pip_sg3_2"></div><div class="mini-score-pip" id="pip_sg3_3"></div><div class="mini-score-pip" id="pip_sg3_4"></div><div class="mini-score-pip" id="pip_sg3_5"></div></div><div class="q-block" id="qblock_sg3_q1"><h4>Q1. 文中の①〜⑤に当てはまる語句を語群から選んで入れよう。</h4><p class="q-note">軸が動かない滑車を①、物体といっしょに動く滑車を②という。①を使うと、引く力は物体の重さと③大きさである。②を1個使うと、引く力は④になるが、ひもを引く距離は⑤になる。</p><div class="mchips" id="chips_sg3_q1"></div><div class="mdz-row"><span class="mdz-label">①</span><span class="mdz" id="mdz_sg3_q1_0" onclick="returnChip('sg3',1,0)">&nbsp;</span><span class="mdz-label">②</span><span class="mdz" id="mdz_sg3_q1_1" onclick="returnChip('sg3',1,1)">&nbsp;</span><span class="mdz-label">③</span><span class="mdz" id="mdz_sg3_q1_2" onclick="returnChip('sg3',1,2)">&nbsp;</span><span class="mdz-label">④</span><span class="mdz" id="mdz_sg3_q1_3" onclick="returnChip('sg3',1,3)">&nbsp;</span><span class="mdz-label">⑤</span><span class="mdz" id="mdz_sg3_q1_4" onclick="returnChip('sg3',1,4)">&nbsp;</span></div><div class="btn-row"><button class="check-btn" onclick="checkMiniBank('sg3',1)">✔ 答え合わせ</button><button class="sample-btn" onclick="showSample('sg3',1)">💡 答えを見る</button></div><div class="fb-msg" id="fb_sg3_q1"></div><div class="msample" id="samp_sg3_q1">答え：①＝定滑車 / ②＝動滑車 / ③＝同じ / ④＝半分 / ⑤＝2倍</div></div><div class="q-block" id="qblock_sg3_q2"><h4>Q2. 12kgの物体を、動滑車1個を使って引き上げる。ひもを引く力は何Nか。</h4><div class="choice-list" id="choices_sg3_q2"><button class="choice-btn" onclick="pick4('sg3',2,0,2,'sg3_q2')">ア：120N</button><button class="choice-btn" onclick="pick4('sg3',2,1,2,'sg3_q2')">イ：12N</button><button class="choice-btn" onclick="pick4('sg3',2,2,2,'sg3_q2')">ウ：60N</button><button class="choice-btn" onclick="pick4('sg3',2,3,2,'sg3_q2')">エ：30N</button></div><div class="fb-msg" id="fb_sg3_q2"></div><div class="msample" id="samp_sg3_q2">正解：ウ：60N　12kg＝12000gなので重力は120N。動滑車1個で半分になるので60Nです。</div></div><div class="q-block" id="qblock_sg3_q3"><h4>Q3. 動滑車1個を使って、物体を3m引き上げる。ひもを何m引けばよいか。</h4><div class="choice-list" id="choices_sg3_q3"><button class="choice-btn" onclick="pick4('sg3',3,0,1,'sg3_q3')">ア：3m</button><button class="choice-btn" onclick="pick4('sg3',3,1,1,'sg3_q3')">イ：6m</button><button class="choice-btn" onclick="pick4('sg3',3,2,1,'sg3_q3')">ウ：1.5m</button><button class="choice-btn" onclick="pick4('sg3',3,3,1,'sg3_q3')">エ：12m</button></div><div class="fb-msg" id="fb_sg3_q3"></div><div class="msample" id="samp_sg3_q3">正解：イ：6m　動滑車を使うと、ひもを引く距離は2倍になります。3m×2＝6m です。</div></div><div class="q-block" id="qblock_sg3_q4"><h4>Q4. 80kgの物体を、動滑車2個を使って引き上げる。ひもを引く力は何Nか。</h4><div class="choice-list" id="choices_sg3_q4"><button class="choice-btn" onclick="pick4('sg3',4,0,3,'sg3_q4')">ア：800N</button><button class="choice-btn" onclick="pick4('sg3',4,1,3,'sg3_q4')">イ：400N</button><button class="choice-btn" onclick="pick4('sg3',4,2,3,'sg3_q4')">ウ：100N</button><button class="choice-btn" onclick="pick4('sg3',4,3,3,'sg3_q4')">エ：200N</button></div><div class="fb-msg" id="fb_sg3_q4"></div><div class="msample" id="samp_sg3_q4">正解：エ：200N　80kg＝80000gなので重力は800N。動滑車1個ごとに半分になるので、800÷2÷2＝200N です。</div></div><div class="q-block" id="qblock_sg3_q5"><h4>Q5. 定滑車を使って10kgの物体を2.0m引き上げた。人がした仕事は何Jか。</h4><div class="choice-list" id="choices_sg3_q5"><button class="choice-btn" onclick="pick4('sg3',5,0,0,'sg3_q5')">ア：200J</button><button class="choice-btn" onclick="pick4('sg3',5,1,0,'sg3_q5')">イ：100J</button><button class="choice-btn" onclick="pick4('sg3',5,2,0,'sg3_q5')">ウ：20J</button><button class="choice-btn" onclick="pick4('sg3',5,3,0,'sg3_q5')">エ：400J</button></div><div class="fb-msg" id="fb_sg3_q5"></div><div class="msample" id="samp_sg3_q5">正解：ア：200J　10kg＝100N。定滑車では力も距離も変わらないので、100N×2.0m＝200J です。</div></div><div class="pass-banner" id="pass_sg3">🎉 この単元クリア！すばらしい！ 🎉</div></div>
+</div></div>
+<div class="unit-card" id="card_sg4"><div class="unit-header"><div class="unit-num">4</div><h2>仕事の原理（滑車・斜面）</h2></div><div class="unit-body">
+<div class="exp-text"><p>5kg（50N）の物体を2m引き上げる場合を、道具ごとに比べてみましょう。ひもや滑車の重さ、摩擦は考えません。</p>
+<p>① 定滑車を使う … 引く力50N、引く距離2m。仕事は 50N×2m＝<b>100J</b><br>② 手で直接持ち上げる … 力50N、距離2m。仕事は 50N×2m＝<b>100J</b><br>③ 動滑車を使う … 引く力は半分の25N、引く距離は2倍の4m。仕事は 25N×4m＝<b>100J</b></p><div class="img-row"><div class="exp-img"><img src="shigoto_fig17.png" alt="図"></div><div class="exp-img"><img src="shigoto_fig18.png" alt="図"></div></div>
+<p>どの方法でも仕事は同じ100Jです。動滑車を使うと力は小さくなりますが、そのぶんひもを長く引くので、仕事の大きさは変わりません。</p>
+<p>このように、<b>道具を使っても、仕事の量は変わりません</b>。これを<b>仕事の原理</b>といいます。（摩擦がある場合は別です）</p>
+<h3>斜面でも同じ</h3><div class="img-row"><div class="exp-img"><img src="shigoto_fig23.png" alt="図"></div></div>
+<p>20Nの物体を、高さ3mのCまで引き上げます（図の下の斜面ABの長さは6m）。まっすぐ持ち上げる仕事は 20N×3m＝<b>60J</b>。斜面ABを使っても仕事は同じ60Jなので、斜面を引く力をxNとすると、x×6m＝60J。したがって、<b>x＝10N</b>です。斜面を使うと力は半分で済みますが、引く距離は長くなります。</p><div class="pt-box"><b>★ 覚えよう！</b><br>道具を使っても、仕事の量は変わらない ＝ <b>仕事の原理</b><br>力が小さくなると、そのぶん引く距離が長くなる<br>斜面：（斜面の長さ）×（引く力）＝（物体の重さ）×（高さ）</div></div>
+<button class="mini-btn" onclick="toggleMini('sg4')">🧪 ミニテストに挑戦！<span id="mini-badge-sg4" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 5</span></button>
+<div class="mini-section" id="mini_sg4"><div class="mini-score-row" id="pips_sg4"><div class="mini-score-pip" id="pip_sg4_1"></div><div class="mini-score-pip" id="pip_sg4_2"></div><div class="mini-score-pip" id="pip_sg4_3"></div><div class="mini-score-pip" id="pip_sg4_4"></div><div class="mini-score-pip" id="pip_sg4_5"></div></div><div class="q-block" id="qblock_sg4_q1"><h4>Q1. 文中の①〜⑤に当てはまる語句を語群から選んで入れよう。</h4><p class="q-note">道具を使っても仕事の大きさは④である。これを①という。動滑車や斜面を使うと、必要な力は②なるが、そのぶん引く距離は③なる。ただし、⑤がある場合は仕事の原理はそのまま成り立たない。</p><div class="mchips" id="chips_sg4_q1"></div><div class="mdz-row"><span class="mdz-label">①</span><span class="mdz" id="mdz_sg4_q1_0" onclick="returnChip('sg4',1,0)">&nbsp;</span><span class="mdz-label">②</span><span class="mdz" id="mdz_sg4_q1_1" onclick="returnChip('sg4',1,1)">&nbsp;</span><span class="mdz-label">③</span><span class="mdz" id="mdz_sg4_q1_2" onclick="returnChip('sg4',1,2)">&nbsp;</span><span class="mdz-label">④</span><span class="mdz" id="mdz_sg4_q1_3" onclick="returnChip('sg4',1,3)">&nbsp;</span><span class="mdz-label">⑤</span><span class="mdz" id="mdz_sg4_q1_4" onclick="returnChip('sg4',1,4)">&nbsp;</span></div><div class="btn-row"><button class="check-btn" onclick="checkMiniBank('sg4',1)">✔ 答え合わせ</button><button class="sample-btn" onclick="showSample('sg4',1)">💡 答えを見る</button></div><div class="fb-msg" id="fb_sg4_q1"></div><div class="msample" id="samp_sg4_q1">答え：①＝仕事の原理 / ②＝小さく / ③＝長く / ④＝同じ / ⑤＝摩擦</div></div><div class="q-block" id="qblock_sg4_q2"><h4>Q2. 5kgの物体を、動滑車1個を使って2m引き上げた。ひもを引く力は何Nか。</h4><div class="choice-list" id="choices_sg4_q2"><button class="choice-btn" onclick="pick4('sg4',2,0,1,'sg4_q2')">ア：50N</button><button class="choice-btn" onclick="pick4('sg4',2,1,1,'sg4_q2')">イ：25N</button><button class="choice-btn" onclick="pick4('sg4',2,2,1,'sg4_q2')">ウ：12.5N</button><button class="choice-btn" onclick="pick4('sg4',2,3,1,'sg4_q2')">エ：100N</button></div><div class="fb-msg" id="fb_sg4_q2"></div><div class="msample" id="samp_sg4_q2">正解：イ：25N　5kg＝50N。動滑車1個で半分になるので25Nです。</div></div><div class="q-block" id="qblock_sg4_q3"><h4>Q3. 上の問題で、ひもを何m引く必要があるか。</h4><div class="choice-list" id="choices_sg4_q3"><button class="choice-btn" onclick="pick4('sg4',3,0,3,'sg4_q3')">ア：2m</button><button class="choice-btn" onclick="pick4('sg4',3,1,3,'sg4_q3')">イ：1m</button><button class="choice-btn" onclick="pick4('sg4',3,2,3,'sg4_q3')">ウ：8m</button><button class="choice-btn" onclick="pick4('sg4',3,3,3,'sg4_q3')">エ：4m</button></div><div class="fb-msg" id="fb_sg4_q3"></div><div class="msample" id="samp_sg4_q3">正解：エ：4m　動滑車を使うと、ひもを引く距離は2倍になります。2m×2＝4m です。</div></div><div class="img-row"><div class="exp-img"><img src="shigoto_fig23.png" alt="図"></div></div><div class="q-block" id="qblock_sg4_q4"><h4>Q4. 20Nの物体を、図の斜面ABで高さ3mのCまで引き上げる（AB＝6m）。斜面にそって引く力は何Nか。</h4><div class="choice-list" id="choices_sg4_q4"><button class="choice-btn" onclick="pick4('sg4',4,0,2,'sg4_q4')">ア：20N</button><button class="choice-btn" onclick="pick4('sg4',4,1,2,'sg4_q4')">イ：5N</button><button class="choice-btn" onclick="pick4('sg4',4,2,2,'sg4_q4')">ウ：10N</button><button class="choice-btn" onclick="pick4('sg4',4,3,2,'sg4_q4')">エ：40N</button></div><div class="fb-msg" id="fb_sg4_q4"></div><div class="msample" id="samp_sg4_q4">正解：ウ：10N　まっすぐ持ち上げる仕事は20N×3m＝60J。仕事の原理より、x×6m＝60J なので x＝10N です。</div></div><div class="q-block" id="qblock_sg4_q5"><h4>Q5. 滑車や斜面などの道具を使っても、仕事の大きさはどうなるか（摩擦は考えない）。</h4><div class="choice-list" id="choices_sg4_q5"><button class="choice-btn" onclick="pick4('sg4',5,0,0,'sg4_q5')">ア：変わらない</button><button class="choice-btn" onclick="pick4('sg4',5,1,0,'sg4_q5')">イ：半分になる</button><button class="choice-btn" onclick="pick4('sg4',5,2,0,'sg4_q5')">ウ：2倍になる</button><button class="choice-btn" onclick="pick4('sg4',5,3,0,'sg4_q5')">エ：0Jになる</button></div><div class="fb-msg" id="fb_sg4_q5"></div><div class="msample" id="samp_sg4_q5">正解：ア：変わらない　道具を使うと力は小さくなりますが、そのぶん距離が長くなるので、仕事の量は変わりません。これを仕事の原理といいます。</div></div><div class="pass-banner" id="pass_sg4">🎉 この単元クリア！すばらしい！ 🎉</div></div>
+</div></div>
+<div class="unit-card" id="card_sg5"><div class="unit-header"><div class="unit-num">5</div><h2>てこと仕事の原理</h2></div><div class="unit-body">
+<div class="exp-text"><p>てこは、支点を中心に棒を回して、小さな力で重い物体を動かす道具です。力を加える点を<b>力点</b>、物体が棒にふれる点を<b>作用点</b>といいます。</p>
+<div class="eq-box"><span class="eq">（物体の重さ）×（支点から作用点までの距離）＝（力）×（支点から力点までの距離）</span><br><span style="font-size:.85rem;color:#6b7280;">これを「てこの原理」といいます</span></div>
+<h3>例：20Nの力でてこをおして物体を持ち上げる（PQ＝60cm、QR＝120cm）</h3><div class="img-row"><div class="exp-img"><img src="shigoto_fig19.png" alt="図"></div></div>
+<p>持ち上げられる物体の重さをxNとすると、xN×0.6m＝20N×1.2m より、x＝<b>40N</b> です。</p>
+<p>物体を20cm上げるとき、棒のRの側は、てこの腕の長さの比（60：120＝1：2）から<b>40cm</b>動きます。人がした仕事は 20N×0.4m＝<b>8J</b> です。</p><div class="img-row"><div class="exp-img"><img src="shigoto_fig20.png" alt="図"></div></div>
+<p>この40Nの物体を手で直接20cm持ち上げる場合の仕事は 40N×0.2m＝<b>8J</b>。どちらも同じです。てこを使っても、<b>仕事の原理</b>が成り立ちます。</p><div class="pt-box"><b>★ 覚えよう！</b><br>てこの原理：重さ×（支点〜作用点）＝力×（支点〜力点）<br>力は小さくなるが、力点を動かす距離は長くなる<br>てこを使っても仕事の量は変わらない（仕事の原理）</div></div>
+<button class="mini-btn" onclick="toggleMini('sg5')">🧪 ミニテストに挑戦！<span id="mini-badge-sg5" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 5</span></button>
+<div class="mini-section" id="mini_sg5"><div class="mini-score-row" id="pips_sg5"><div class="mini-score-pip" id="pip_sg5_1"></div><div class="mini-score-pip" id="pip_sg5_2"></div><div class="mini-score-pip" id="pip_sg5_3"></div><div class="mini-score-pip" id="pip_sg5_4"></div><div class="mini-score-pip" id="pip_sg5_5"></div></div><div class="q-block" id="qblock_sg5_q1"><h4>Q1. 文中の①〜⑤に当てはまる語句を語群から選んで入れよう。</h4><p class="q-note">てこの原理は、(物体の重さ)×(支点から①までの距離)＝②×(支点から③までの距離)と表せる。てこを使っても、人がした仕事は使わないときと④。この法則を⑤という。</p><div class="mchips" id="chips_sg5_q1"></div><div class="mdz-row"><span class="mdz-label">①</span><span class="mdz" id="mdz_sg5_q1_0" onclick="returnChip('sg5',1,0)">&nbsp;</span><span class="mdz-label">②</span><span class="mdz" id="mdz_sg5_q1_1" onclick="returnChip('sg5',1,1)">&nbsp;</span><span class="mdz-label">③</span><span class="mdz" id="mdz_sg5_q1_2" onclick="returnChip('sg5',1,2)">&nbsp;</span><span class="mdz-label">④</span><span class="mdz" id="mdz_sg5_q1_3" onclick="returnChip('sg5',1,3)">&nbsp;</span><span class="mdz-label">⑤</span><span class="mdz" id="mdz_sg5_q1_4" onclick="returnChip('sg5',1,4)">&nbsp;</span></div><div class="btn-row"><button class="check-btn" onclick="checkMiniBank('sg5',1)">✔ 答え合わせ</button><button class="sample-btn" onclick="showSample('sg5',1)">💡 答えを見る</button></div><div class="fb-msg" id="fb_sg5_q1"></div><div class="msample" id="samp_sg5_q1">答え：①＝作用点 / ②＝力 / ③＝力点 / ④＝変わらない / ⑤＝仕事の原理</div></div><div class="q-block" id="qblock_sg5_q2"><h4>Q2. 支点から物体まで0.5m、支点から力点まで1.5mのてこで、力点を10Nの力でおす。持ち上げられる物体の重さは何Nか。</h4><div class="choice-list" id="choices_sg5_q2"><button class="choice-btn" onclick="pick4('sg5',2,0,2,'sg5_q2')">ア：3.3N</button><button class="choice-btn" onclick="pick4('sg5',2,1,2,'sg5_q2')">イ：10N</button><button class="choice-btn" onclick="pick4('sg5',2,2,2,'sg5_q2')">ウ：30N</button><button class="choice-btn" onclick="pick4('sg5',2,3,2,'sg5_q2')">エ：15N</button></div><div class="fb-msg" id="fb_sg5_q2"></div><div class="msample" id="samp_sg5_q2">正解：ウ：30N　xN×0.5m＝10N×1.5m より、x＝30N です。</div></div><div class="q-block" id="qblock_sg5_q3"><h4>Q3. 上のてこで、物体を10cm持ち上げるとき、力点は何cm動くか。</h4><div class="choice-list" id="choices_sg5_q3"><button class="choice-btn" onclick="pick4('sg5',3,0,1,'sg5_q3')">ア：10cm</button><button class="choice-btn" onclick="pick4('sg5',3,1,1,'sg5_q3')">イ：30cm</button><button class="choice-btn" onclick="pick4('sg5',3,2,1,'sg5_q3')">ウ：3cm</button><button class="choice-btn" onclick="pick4('sg5',3,3,1,'sg5_q3')">エ：15cm</button></div><div class="fb-msg" id="fb_sg5_q3"></div><div class="msample" id="samp_sg5_q3">正解：イ：30cm　腕の長さの比は1：3なので、力点は3倍の30cm動きます。</div></div><div class="q-block" id="qblock_sg5_q4"><h4>Q4. 上のてこで、人が10Nの力で力点を30cm（0.3m）動かしたとき、人がした仕事は何Jか。</h4><div class="choice-list" id="choices_sg5_q4"><button class="choice-btn" onclick="pick4('sg5',4,0,3,'sg5_q4')">ア：30J</button><button class="choice-btn" onclick="pick4('sg5',4,1,3,'sg5_q4')">イ：1.5J</button><button class="choice-btn" onclick="pick4('sg5',4,2,3,'sg5_q4')">ウ：0.3J</button><button class="choice-btn" onclick="pick4('sg5',4,3,3,'sg5_q4')">エ：3J</button></div><div class="fb-msg" id="fb_sg5_q4"></div><div class="msample" id="samp_sg5_q4">正解：エ：3J　仕事＝力×距離＝10N×0.3m＝3J です。物体を手で直接10cm持ち上げる仕事（30N×0.1m＝3J）と同じです。</div></div><div class="q-block" id="qblock_sg5_q5"><h4>Q5. 12kgの物体を、てこ（短い腕0.3m、長い腕1.5m）で持ち上げる。必要な力は何N以上か。</h4><div class="choice-list" id="choices_sg5_q5"><button class="choice-btn" onclick="pick4('sg5',5,0,0,'sg5_q5')">ア：24N</button><button class="choice-btn" onclick="pick4('sg5',5,1,0,'sg5_q5')">イ：120N</button><button class="choice-btn" onclick="pick4('sg5',5,2,0,'sg5_q5')">ウ：12N</button><button class="choice-btn" onclick="pick4('sg5',5,3,0,'sg5_q5')">エ：60N</button></div><div class="fb-msg" id="fb_sg5_q5"></div><div class="msample" id="samp_sg5_q5">正解：ア：24N　12kg＝120N。120N×0.3m＝xN×1.5m より、x＝24N です。</div></div><div class="pass-banner" id="pass_sg5">🎉 この単元クリア！すばらしい！ 🎉</div></div>
+</div></div>
+<div class="unit-card" id="card_sg6"><div class="unit-header"><div class="unit-num">6</div><h2>仕事率</h2></div><div class="unit-body">
+<div class="exp-text"><p>同じ仕事でも、短い時間で終わらせる方が「パワーが大きい」といえます。<b>1秒間あたりにする仕事</b>を<b>仕事率</b>といいます。</p>
+<div class="eq-box"><span class="eq">仕事率(W) ＝ 仕事(J) ÷ かかった時間(s)</span></div>
+<p>単位は <b>W(ワット)</b> です。J/s（ジュール毎秒）と同じ意味で、1Wは「1秒間に1Jの仕事をする」ことを表します。</p>
+<h3>例：AモーターとBモーターで物体を引き上げる</h3><div class="img-row"><div class="exp-img"><img src="shigoto_fig24.png" alt="図"></div></div>
+<p>Aは1kg（10N）の物体を2m引き上げるのに5秒。仕事は 10N×2m＝20J、仕事率は 20J÷5s＝<b>4W</b> です。<br>Bは2kg（20N）の物体を3m引き上げるのに12秒。仕事は 20N×3m＝60J、仕事率は 60J÷12s＝<b>5W</b> です。<br>仕事率が大きいのは<b>Bのモーター</b>です。</p><div class="pt-box"><b>★ 覚えよう！</b><br>仕事率(W)＝仕事(J)÷時間(s)<br>単位 W(ワット)＝J/s<br>仕事率が大きい ＝ 同じ時間でたくさん仕事ができる（同じ仕事なら短い時間で終わる）</div></div>
+<button class="mini-btn" onclick="toggleMini('sg6')">🧪 ミニテストに挑戦！<span id="mini-badge-sg6" style="background:#fff;color:var(--pink-d);border-radius:12px;padding:2px 10px;font-size:.82rem;margin-left:8px;">0 / 5</span></button>
+<div class="mini-section" id="mini_sg6"><div class="mini-score-row" id="pips_sg6"><div class="mini-score-pip" id="pip_sg6_1"></div><div class="mini-score-pip" id="pip_sg6_2"></div><div class="mini-score-pip" id="pip_sg6_3"></div><div class="mini-score-pip" id="pip_sg6_4"></div><div class="mini-score-pip" id="pip_sg6_5"></div></div><div class="q-block" id="qblock_sg6_q1"><h4>Q1. 文中の①〜⑤に当てはまる語句を語群から選んで入れよう。</h4><p class="q-note">1秒間あたりにする仕事を①という。①＝仕事(J)÷②(s)で求める。単位はワットで、記号は③と書き、④と同じ意味である。10N×2mの仕事を5秒でしたときの①は⑤Wである。</p><div class="mchips" id="chips_sg6_q1"></div><div class="mdz-row"><span class="mdz-label">①</span><span class="mdz" id="mdz_sg6_q1_0" onclick="returnChip('sg6',1,0)">&nbsp;</span><span class="mdz-label">②</span><span class="mdz" id="mdz_sg6_q1_1" onclick="returnChip('sg6',1,1)">&nbsp;</span><span class="mdz-label">③</span><span class="mdz" id="mdz_sg6_q1_2" onclick="returnChip('sg6',1,2)">&nbsp;</span><span class="mdz-label">④</span><span class="mdz" id="mdz_sg6_q1_3" onclick="returnChip('sg6',1,3)">&nbsp;</span><span class="mdz-label">⑤</span><span class="mdz" id="mdz_sg6_q1_4" onclick="returnChip('sg6',1,4)">&nbsp;</span></div><div class="btn-row"><button class="check-btn" onclick="checkMiniBank('sg6',1)">✔ 答え合わせ</button><button class="sample-btn" onclick="showSample('sg6',1)">💡 答えを見る</button></div><div class="fb-msg" id="fb_sg6_q1"></div><div class="msample" id="samp_sg6_q1">答え：①＝仕事率 / ②＝時間 / ③＝W / ④＝J/s / ⑤＝4</div></div><div class="q-block" id="qblock_sg6_q2"><h4>Q2. 仕事率の単位として正しいものはどれか。</h4><div class="choice-list" id="choices_sg6_q2"><button class="choice-btn" onclick="pick4('sg6',2,0,1,'sg6_q2')">ア：J（ジュール）</button><button class="choice-btn" onclick="pick4('sg6',2,1,1,'sg6_q2')">イ：W（ワット）</button><button class="choice-btn" onclick="pick4('sg6',2,2,1,'sg6_q2')">ウ：N（ニュートン）</button><button class="choice-btn" onclick="pick4('sg6',2,3,1,'sg6_q2')">エ：m（メートル）</button></div><div class="fb-msg" id="fb_sg6_q2"></div><div class="msample" id="samp_sg6_q2">正解：イ：W（ワット）　仕事率の単位はW（ワット）で、J/sと同じ意味です。Jは仕事の単位です。</div></div><div class="q-block" id="qblock_sg6_q3"><h4>Q3. 60Jの仕事を12秒でした。仕事率は何Wか。</h4><div class="choice-list" id="choices_sg6_q3"><button class="choice-btn" onclick="pick4('sg6',3,0,3,'sg6_q3')">ア：72W</button><button class="choice-btn" onclick="pick4('sg6',3,1,3,'sg6_q3')">イ：48W</button><button class="choice-btn" onclick="pick4('sg6',3,2,3,'sg6_q3')">ウ：0.2W</button><button class="choice-btn" onclick="pick4('sg6',3,3,3,'sg6_q3')">エ：5W</button></div><div class="fb-msg" id="fb_sg6_q3"></div><div class="msample" id="samp_sg6_q3">正解：エ：5W　仕事率＝60J÷12s＝5W です。</div></div><div class="q-block" id="qblock_sg6_q4"><h4>Q4. 20kgの物体を10mの高さまで引き上げるのに、モーターで30秒かかった。モーターの仕事率は約何Wか。</h4><div class="choice-list" id="choices_sg6_q4"><button class="choice-btn" onclick="pick4('sg6',4,0,2,'sg6_q4')">ア：6.7W</button><button class="choice-btn" onclick="pick4('sg6',4,1,2,'sg6_q4')">イ：200W</button><button class="choice-btn" onclick="pick4('sg6',4,2,2,'sg6_q4')">ウ：66.7W</button><button class="choice-btn" onclick="pick4('sg6',4,3,2,'sg6_q4')">エ：2000W</button></div><div class="fb-msg" id="fb_sg6_q4"></div><div class="msample" id="samp_sg6_q4">正解：ウ：66.7W　20kg＝200N。仕事＝200N×10m＝2000J。仕事率＝2000J÷30s≒66.7W です。</div></div><div class="q-block" id="qblock_sg6_q5"><h4>Q5. 同じ物体を同じ高さまで引き上げるのに、人は3分（180秒）、モーターは30秒かかった。モーターの仕事率は人の何倍か。</h4><div class="choice-list" id="choices_sg6_q5"><button class="choice-btn" onclick="pick4('sg6',5,0,0,'sg6_q5')">ア：6倍</button><button class="choice-btn" onclick="pick4('sg6',5,1,0,'sg6_q5')">イ：3倍</button><button class="choice-btn" onclick="pick4('sg6',5,2,0,'sg6_q5')">ウ：30倍</button><button class="choice-btn" onclick="pick4('sg6',5,3,0,'sg6_q5')">エ：180倍</button></div><div class="fb-msg" id="fb_sg6_q5"></div><div class="msample" id="samp_sg6_q5">正解：ア：6倍　仕事は同じなので、仕事率は時間に反比例します。180秒÷30秒＝6倍です。</div></div><div class="pass-banner" id="pass_sg6">🎉 この単元クリア！すばらしい！ 🎉</div></div>
+</div></div>
+
+</div>
+<div class="foot-nav"><a href="shigoto_practice.html">📝 練習問題 ▶</a></div>
+<script>
+
+const miniState={},miniScore={},miniTotal={},miniDone={};
+function registerSec(id,n){miniScore[id]=0;miniTotal[id]=n;miniDone[id]=new Array(n).fill(false);}
+function toggleMini(id){document.getElementById('mini_'+id).classList.toggle('open');}
+function initMiniBank(secId,qNum,words,answers){
+  const key=secId+'_q'+qNum;
+  miniState[key]={words:[...words],answers:[...answers],filled:new Array(answers.length).fill(null),chipUsed:new Array(words.length).fill(false)};
+  const c=document.getElementById('chips_'+key); if(!c)return; c.innerHTML='';
+  const order=[...Array(words.length).keys()];
+  for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
+  order.forEach(i=>{const b=document.createElement('button');b.className='mchip';b.id='chip_'+key+'_'+i;b.textContent=words[i];b.onclick=()=>fillMDZ(secId,qNum,i);c.appendChild(b);});
+}
+function fillMDZ(secId,qNum,ci){
+  const key=secId+'_q'+qNum,st=miniState[key]; if(!st||st.chipUsed[ci])return;
+  const e=st.filled.findIndex(v=>v===null); if(e<0)return;
+  st.filled[e]=ci;st.chipUsed[ci]=true;
+  document.getElementById('chip_'+key+'_'+ci).classList.add('used');
+  const m=document.getElementById('mdz_'+key+'_'+e); if(m){m.textContent=st.words[ci];m.classList.add('filled');}
+}
+function returnChip(secId,qNum,bi){
+  const key=secId+'_q'+qNum,st=miniState[key]; if(!st||st.filled[bi]===null)return;
+  const ci=st.filled[bi];st.filled[bi]=null;st.chipUsed[ci]=false;
+  document.getElementById('chip_'+key+'_'+ci).classList.remove('used');
+  const m=document.getElementById('mdz_'+key+'_'+bi); if(m){m.textContent=' ';m.className='mdz';}
+}
+function checkMiniBank(secId,qNum){
+  const key=secId+'_q'+qNum,st=miniState[key]; if(!st)return;
+  let all=true;
+  st.filled.forEach((ci,bi)=>{
+    const m=document.getElementById('mdz_'+key+'_'+bi); if(!m)return;
+    if(ci===null){all=false;return;}
+    if(st.words[ci]===st.answers[bi]){m.classList.remove('wrong');m.classList.add('correct');}
+    else{m.classList.remove('correct');m.classList.add('wrong');all=false;}
+  });
+  const fb=document.getElementById('fb_'+key);
+  if(all){if(fb)fb.textContent='✅ 正解！すばらしい！';markPass(secId,qNum-1);flowerPetals();}
+  else{if(fb)fb.textContent='❌ もう一度確認しよう！（まちがった所は、クリックで戻せます）';}
+}
+function showSample(secId,qNum){const e=document.getElementById('samp_'+secId+'_q'+qNum);if(e)e.classList.toggle('show');}
+function pick4(secId,qNum,chosen,correct,qid){
+  const btns=document.querySelectorAll('#choices_'+qid+' .choice-btn');
+  btns.forEach(b=>b.disabled=true);
+  const fb=document.getElementById('fb_'+qid);
+  if(chosen===correct){btns[chosen].classList.add('correct');if(fb)fb.textContent='✅ 正解！';markPass(secId,qNum-1);flowerPetals();}
+  else{btns[chosen].classList.add('wrong');btns[correct].classList.add('correct');if(fb)fb.textContent='❌ 残念！正解は緑のボタンです。解説を読んでみよう。';}
+  const s=document.getElementById('samp_'+qid); if(s)s.classList.add('show');
+}
+function markPass(secId,qIdx){
+  if(miniDone[secId][qIdx])return;
+  miniDone[secId][qIdx]=true;miniScore[secId]++;
+  const pip=document.getElementById('pip_'+secId+'_'+(qIdx+1)); if(pip)pip.classList.add('pass');
+  const badge=document.getElementById('mini-badge-'+secId); if(badge)badge.textContent=miniScore[secId]+' / '+miniTotal[secId];
+  const sl=document.getElementById('score_'+secId); if(sl)sl.textContent='正解 '+miniScore[secId]+' / '+miniTotal[secId]+' 問';
+  if(miniScore[secId]>=miniTotal[secId]){const b=document.getElementById('pass_'+secId);if(b)b.classList.add('show');fireConfetti();}
+}
+function flowerPetals(){
+  const cv=document.getElementById('confetti-canvas'),ctx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#f472b6','#fb7185','#fbbf24','#34d399','#60a5fa','#a78bfa'],ps=[];
+  for(let i=0;i<60;i++)ps.push({x:Math.random()*cv.width,y:-20-Math.random()*200,r:4+Math.random()*6,c:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*3,vy:2+Math.random()*3,rot:Math.random()*6.28,rv:(Math.random()-.5)*.15});
+  let f=0;(function d(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.beginPath();ctx.ellipse(0,0,p.r,p.r*.55,0,0,6.28);ctx.fill();ctx.restore();p.x+=p.vx;p.y+=p.vy;p.rot+=p.rv;});if(++f<80)requestAnimationFrame(d);else ctx.clearRect(0,0,cv.width,cv.height);})();
+}
+function fireConfetti(){
+  const cv=document.getElementById('confetti-canvas'),ctx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#f472b6','#fbbf24','#34d399','#60a5fa','#a78bfa','#fb7185','#fff'],ps=[];
+  for(let i=0;i<150;i++)ps.push({x:Math.random()*cv.width,y:-20-Math.random()*300,w:8+Math.random()*10,h:4+Math.random()*6,c:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*5,vy:3+Math.random()*4,rot:Math.random()*6.28,rv:(Math.random()-.5)*.2});
+  let f=0;(function d(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();p.x+=p.vx;p.y+=p.vy;p.rot+=p.rv;});if(++f<140)requestAnimationFrame(d);else ctx.clearRect(0,0,cv.width,cv.height);})();
+}
+
+registerSec('sg1',5);
+registerSec('sg2',5);
+registerSec('sg3',5);
+registerSec('sg4',5);
+registerSec('sg5',5);
+registerSec('sg6',5);
+initMiniBank('sg1',1,["力の大きさ", "距離", "ジュール", "1", "10"],["力の大きさ", "距離", "ジュール", "1", "10"]);
+initMiniBank('sg2',1,["動かない", "水平", "0", "重力", "摩擦力"],["動かない", "水平", "0", "重力", "摩擦力"]);
+initMiniBank('sg3',1,["定滑車", "動滑車", "同じ", "半分", "2倍"],["定滑車", "動滑車", "同じ", "半分", "2倍"]);
+initMiniBank('sg4',1,["仕事の原理", "小さく", "長く", "同じ", "摩擦"],["仕事の原理", "小さく", "長く", "同じ", "摩擦"]);
+initMiniBank('sg5',1,["作用点", "力", "力点", "変わらない", "仕事の原理"],["作用点", "力", "力点", "変わらない", "仕事の原理"]);
+initMiniBank('sg6',1,["仕事率", "時間", "W", "J/s", "4"],["仕事率", "時間", "W", "J/s", "4"]);
+</script>
+</body></html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中3理科 仕事 確認問題</title>
+<style>
+:root{--pri:#e11d48;--pri-d:#881337;--pri-l:#fecdd3;--pink:#db2777;--pink-d:#9d174d;--pink-bg:#fce7f3;--gray:#6b7280;--card:#fff;--radius:14px;--shadow:0 4px 18px rgba(0,0,0,.10);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#fff1f2;font-family:'Helvetica Neue',Arial,'Hiragino Sans','Noto Sans JP',sans-serif;color:#1e293b;}
+header{background:linear-gradient(135deg,var(--pri-d),var(--pri));color:#fff;text-align:center;padding:28px 20px 22px;}
+header h1{font-size:clamp(1.3rem,4vw,2rem);font-weight:900;letter-spacing:.04em;}
+header p{margin-top:6px;font-size:.93rem;opacity:.88;}
+.topnav{background:#fff;border-bottom:2px solid var(--pri-l);padding:10px 16px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;font-size:.9rem;}
+.topnav a{color:var(--pri-d);text-decoration:none;font-weight:700;padding:5px 14px;border-radius:20px;border:2px solid var(--pri-l);}
+.topnav a:hover,.topnav a.cur{background:var(--pri);color:#fff;border-color:var(--pri);}
+.units{max-width:860px;margin:30px auto;padding:0 16px;}
+.unit-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:32px;overflow:hidden;}
+.unit-header{background:linear-gradient(90deg,var(--pri-d),var(--pri));color:#fff;padding:14px 22px;display:flex;align-items:center;gap:12px;}
+.unit-num{background:#fff;color:var(--pri-d);font-weight:900;font-size:1.1rem;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.unit-header h2{font-size:1.1rem;font-weight:800;}
+.unit-body{padding:22px;}
+.exp-img{margin:14px 0;text-align:center;}
+.exp-img img{max-width:100%;max-height:420px;width:auto;height:auto;border-radius:10px;margin:6px auto;display:block;background:#fff;}
+.exp-img .cap{font-size:.8rem;color:var(--gray);margin-top:2px;}
+.img-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:flex-end;}
+.img-row .exp-img{margin:8px 0;}
+.exp-text{line-height:1.95;font-size:.97rem;margin:10px 0;}
+.exp-text p{margin-bottom:.85em;}
+.exp-text h3{font-size:.97rem;color:var(--pri-d);margin:1em 0 .5em;border-left:3px solid var(--pri);padding-left:8px;font-weight:800;}
+.pt-box{background:#dcfce7;border-left:4px solid #16a34a;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.warn-box{background:#fee2e2;border-left:4px solid #dc2626;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.info-box{background:#f0fdff;border-left:4px solid #0e7490;border-radius:0 8px 8px 0;padding:11px 15px;margin:10px 0;font-size:.91rem;line-height:1.8;}
+.eq-box{background:#f8fafc;border:1.5px solid #e2e8f0;border-radius:10px;padding:14px;margin:10px 0;text-align:center;}
+.eq-box .eq{font-size:1rem;font-weight:800;color:var(--pri-d);letter-spacing:.03em;}
+.exp-tbl{width:100%;border-collapse:collapse;font-size:.88rem;margin:10px 0;}
+.exp-tbl th{background:var(--pri);color:#fff;padding:8px 10px;text-align:left;}
+.exp-tbl td{padding:8px 10px;border-bottom:1px solid #e5e7eb;vertical-align:top;line-height:1.65;}
+.exp-tbl tr:nth-child(even) td{background:#f9fafb;}
+.exp-tbl .nc{font-weight:700;white-space:nowrap;}
+.mini-btn{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;background:var(--pink-bg);border:2.5px solid var(--pink);color:var(--pink-d);font-size:.97rem;font-weight:800;padding:10px 22px;border-radius:40px;margin:14px 0 0;transition:.2s;}
+.mini-btn:hover{background:var(--pink);color:#fff;}
+.mini-section{display:none;margin-top:16px;background:#fdf2f8;border:2px solid #f9a8d4;border-radius:12px;padding:18px;}
+.mini-section.open{display:block;}
+.q-block{margin-bottom:22px;}
+.q-block h4{font-size:.98rem;font-weight:800;color:var(--pri-d);margin-bottom:10px;line-height:1.7;}
+.q-note{font-size:.88rem;color:#555;margin-bottom:6px;line-height:1.8;}
+.mchips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.mchip{background:#fff;border:2.5px solid var(--pink);color:var(--pink-d);border-radius:20px;padding:5px 16px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.mchip:hover{background:var(--pink);color:#fff;}
+.mchip.used{opacity:.35;pointer-events:none;}
+.mdz-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:8px 0;}
+.mdz{display:inline-flex;align-items:center;justify-content:center;min-width:80px;height:36px;border:2.5px dashed var(--pink);border-radius:8px;padding:0 10px;font-size:.93rem;font-weight:700;cursor:pointer;color:var(--pink-d);transition:.18s;background:#fff;}
+.mdz.filled{border-style:solid;background:#fce7f3;}
+.mdz.correct{border-color:#16a34a;background:#dcfce7;color:#166534;}
+.mdz.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.mdz-label{font-size:.9rem;color:#374151;}
+.choice-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;}
+@media(max-width:480px){.choice-list{grid-template-columns:1fr;}}
+.choice-btn{padding:10px 14px;border:2.5px solid #d1d5db;border-radius:10px;background:#fff;font-size:.93rem;cursor:pointer;text-align:left;transition:.18s;}
+.choice-btn:hover{border-color:var(--pri);background:var(--pri-l);}
+.choice-btn.correct{border-color:#16a34a;background:#dcfce7;color:#166534;font-weight:700;}
+.choice-btn.wrong{border-color:#dc2626;background:#fee2e2;color:#991b1b;}
+.choice-btn:disabled{cursor:default;}
+.btn-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.check-btn{background:var(--pri);color:#fff;border:none;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.check-btn:hover{background:var(--pri-d);}
+.sample-btn{background:#fff;color:var(--gray);border:2px solid #d1d5db;border-radius:22px;padding:8px 22px;font-size:.93rem;font-weight:700;cursor:pointer;transition:.18s;}
+.sample-btn:hover{background:#f3f4f6;}
+.msample{display:none;background:#fef9c3;border:1.5px solid #fbbf24;border-radius:8px;padding:8px 14px;font-size:.9rem;margin-top:8px;line-height:1.8;}
+.msample.show{display:block;}
+.fb-msg{font-size:.9rem;margin-top:6px;font-weight:600;}
+.mini-score-row{display:flex;gap:6px;align-items:center;margin-bottom:10px;flex-wrap:wrap;}
+.mini-score-pip{width:14px;height:14px;border-radius:50%;background:#e5e7eb;border:2px solid #d1d5db;transition:.3s;}
+.mini-score-pip.pass{background:#16a34a;border-color:#166534;}
+.score-line{font-size:.88rem;font-weight:700;color:var(--pink-d);margin-bottom:8px;}
+.pass-banner{display:none;background:linear-gradient(90deg,#166534,#16a34a);color:#fff;text-align:center;padding:16px;border-radius:10px;margin-top:16px;font-size:1.1rem;font-weight:900;}
+.pass-banner.show{display:block;}
+.group-title{font-weight:800;color:var(--pink-d);margin:20px 0 6px;font-size:.98rem;border-bottom:2px dashed #f9a8d4;padding-bottom:4px;}
+.src-note{background:#fff7ed;border-left:4px solid #f97316;border-radius:0 8px 8px 0;padding:9px 14px;margin:10px 0 14px;font-size:.88rem;line-height:1.7;color:#7c2d12;}
+.foot-nav{max-width:860px;margin:0 auto 40px;padding:0 16px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.foot-nav a{background:var(--pri);color:#fff;text-decoration:none;font-weight:800;padding:10px 22px;border-radius:30px;font-size:.93rem;}
+.foot-nav a:hover{background:var(--pri-d);}
+canvas#confetti-canvas{position:fixed;top:0;left:0;pointer-events:none;width:100%;height:100%;z-index:9999;}
+</style>
+</head>
+<body>
+<canvas id="confetti-canvas"></canvas>
+<header><h1>中3理科 仕事 確認問題</h1><p>総まとめ。入試で出る形の問題にチャレンジしよう</p></header>
+<nav class="topnav"><a href="index.html">🏠 目次</a><a href="shigoto_ch01.html">📖 レッスン</a><a href="shigoto_practice.html">📝 練習問題</a><a href="shigoto_check.html" class="cur">🏆 確認問題</a></nav>
+<div class="units">
+<div class="unit-card" id="card_ck1"><div class="unit-header"><div class="unit-num">1</div><h2>確認問題①　仕事と仕事率</h2></div><div class="unit-body">
+<div class="src-note">📖 江原予備校テキスト 練習6（1）〜（4）、（8）より</div>
+<div class="score-line" id="score_ck1">正解 0 / 9 問</div>
+<div class="mini-section open" id="mini_ck1"><div class="mini-score-row" id="pips_ck1"><div class="mini-score-pip" id="pip_ck1_1"></div><div class="mini-score-pip" id="pip_ck1_2"></div><div class="mini-score-pip" id="pip_ck1_3"></div><div class="mini-score-pip" id="pip_ck1_4"></div><div class="mini-score-pip" id="pip_ck1_5"></div><div class="mini-score-pip" id="pip_ck1_6"></div><div class="mini-score-pip" id="pip_ck1_7"></div><div class="mini-score-pip" id="pip_ck1_8"></div><div class="mini-score-pip" id="pip_ck1_9"></div></div><div class="group-title">（1）20kgの物体を高さ10mの屋上まで上げる</div><div class="q-block" id="qblock_ck1_q1"><h4>Q1. 20kgの物体を、高さ10mの屋上まで上げようと思う。人がロープで引き上げたら3分かかった。モーターを使って引き上げたら30秒で引き上げることができた。人とモーターがした仕事は、それぞれいくらか。</h4><div class="choice-list" id="choices_ck1_q1"><button class="choice-btn" onclick="pick4('ck1',1,0,3,'ck1_q1')">ア：人は2000J、モーターは400J</button><button class="choice-btn" onclick="pick4('ck1',1,1,3,'ck1_q1')">イ：人は200J、モーターは2000J</button><button class="choice-btn" onclick="pick4('ck1',1,2,3,'ck1_q1')">ウ：人は11.1J、モーターは66.7J</button><button class="choice-btn" onclick="pick4('ck1',1,3,3,'ck1_q1')">エ：人も2000J、モーターも2000J</button></div><div class="fb-msg" id="fb_ck1_q1"></div><div class="msample" id="samp_ck1_q1">正解：エ：人も2000J、モーターも2000J　20kg＝200N。仕事＝200N×10m＝2000J。人が引き上げても、モーターを使っても、仕事は同じ2000Jです。</div></div><div class="q-block" id="qblock_ck1_q2"><h4>Q2. 人の仕事率はいくらか（3分＝180秒）。</h4><div class="choice-list" id="choices_ck1_q2"><button class="choice-btn" onclick="pick4('ck1',2,0,2,'ck1_q2')">ア：約66.7W</button><button class="choice-btn" onclick="pick4('ck1',2,1,2,'ck1_q2')">イ：約0.09W</button><button class="choice-btn" onclick="pick4('ck1',2,2,2,'ck1_q2')">ウ：約11.1W</button><button class="choice-btn" onclick="pick4('ck1',2,3,2,'ck1_q2')">エ：2000W</button></div><div class="fb-msg" id="fb_ck1_q2"></div><div class="msample" id="samp_ck1_q2">正解：ウ：約11.1W　2000J÷180s≒11.1W です。</div></div><div class="q-block" id="qblock_ck1_q3"><h4>Q3. モーターの仕事率はいくらか。</h4><div class="choice-list" id="choices_ck1_q3"><button class="choice-btn" onclick="pick4('ck1',3,0,0,'ck1_q3')">ア：約66.7W</button><button class="choice-btn" onclick="pick4('ck1',3,1,0,'ck1_q3')">イ：約11.1W</button><button class="choice-btn" onclick="pick4('ck1',3,2,0,'ck1_q3')">ウ：約0.015W</button><button class="choice-btn" onclick="pick4('ck1',3,3,0,'ck1_q3')">エ：2000W</button></div><div class="fb-msg" id="fb_ck1_q3"></div><div class="msample" id="samp_ck1_q3">正解：ア：約66.7W　2000J÷30s≒66.7W です。</div></div><div class="group-title">（2）仕事をしているもの</div><div class="q-block" id="qblock_ck1_q4"><h4>Q4. 次のア〜エのうち、仕事をしているものを1つ選びなさい。ア：重いカバンを手に持って水平に移動した　イ：大きい岩を押したが動かなかった　ウ：肩車をして人を持ち上げた　エ：数学の計算問題をした</h4><div class="choice-list" id="choices_ck1_q4"><button class="choice-btn" onclick="pick4('ck1',4,0,2,'ck1_q4')">ア：ア</button><button class="choice-btn" onclick="pick4('ck1',4,1,2,'ck1_q4')">イ：イ</button><button class="choice-btn" onclick="pick4('ck1',4,2,2,'ck1_q4')">ウ：ウ</button><button class="choice-btn" onclick="pick4('ck1',4,3,2,'ck1_q4')">エ：エ</button></div><div class="fb-msg" id="fb_ck1_q4"></div><div class="msample" id="samp_ck1_q4">正解：ウ：ウ　アは力の向き（上向き）に動いておらず0J、イは動いていないので0J、エは物体に力を加えていません。ウは上向きの力で人が上に動くので、仕事をしています。</div></div><div class="group-title">（3）仕事をしていないもの</div><div class="q-block" id="qblock_ck1_q5"><h4>Q5. 次のア〜オのうち、理科でいう「仕事」をしていないものが2つある。それはどれとどれか。ア：重い荷物を動かそうとして大きな力を出したが、荷物は動かなかった　イ：滑車を使って重い荷物を高いところまで引き上げた　ウ：重い荷物をもったまま、長い時間動かずに立っていた　エ：シャープペンシルを3cmもち上げた　オ：床の上で軽い荷物をひきずった</h4><div class="choice-list" id="choices_ck1_q5"><button class="choice-btn" onclick="pick4('ck1',5,0,1,'ck1_q5')">ア：アとイ</button><button class="choice-btn" onclick="pick4('ck1',5,1,1,'ck1_q5')">イ：アとウ</button><button class="choice-btn" onclick="pick4('ck1',5,2,1,'ck1_q5')">ウ：ウとエ</button><button class="choice-btn" onclick="pick4('ck1',5,3,1,'ck1_q5')">エ：イとオ</button></div><div class="fb-msg" id="fb_ck1_q5"></div><div class="msample" id="samp_ck1_q5">正解：イ：アとウ　アもウも、荷物が動いていない（距離が0）ので、仕事は0Jです。イ・エ・オは力の向きに物体が動いているので仕事をしています。</div></div><div class="group-title">（4）質量500gの物体を引く</div><div class="img-row"><div class="exp-img"><img src="shigoto_fig10.png" alt="図"></div></div><div class="q-block" id="qblock_ck1_q6"><h4>Q6. 図のように質量500gの物体を水平な台の上で一定の速さで引いたところ、ばねばかりは2.5Nを示していた。台と物体の間の摩擦力は何Nか。</h4><div class="choice-list" id="choices_ck1_q6"><button class="choice-btn" onclick="pick4('ck1',6,0,3,'ck1_q6')">ア：5N</button><button class="choice-btn" onclick="pick4('ck1',6,1,3,'ck1_q6')">イ：0N</button><button class="choice-btn" onclick="pick4('ck1',6,2,3,'ck1_q6')">ウ：25N</button><button class="choice-btn" onclick="pick4('ck1',6,3,3,'ck1_q6')">エ：2.5N</button></div><div class="fb-msg" id="fb_ck1_q6"></div><div class="msample" id="samp_ck1_q6">正解：エ：2.5N　一定の速さなので、引く力と摩擦力は同じ大きさ。摩擦力は2.5Nです。</div></div><div class="q-block" id="qblock_ck1_q7"><h4>Q7. 30cm動かしたときの仕事は何Jか。</h4><div class="choice-list" id="choices_ck1_q7"><button class="choice-btn" onclick="pick4('ck1',7,0,0,'ck1_q7')">ア：0.75J</button><button class="choice-btn" onclick="pick4('ck1',7,1,0,'ck1_q7')">イ：7.5J</button><button class="choice-btn" onclick="pick4('ck1',7,2,0,'ck1_q7')">ウ：75J</button><button class="choice-btn" onclick="pick4('ck1',7,3,0,'ck1_q7')">エ：0.075J</button></div><div class="fb-msg" id="fb_ck1_q7"></div><div class="msample" id="samp_ck1_q7">正解：ア：0.75J　30cm＝0.3m。2.5N×0.3m＝0.75J です。</div></div><div class="q-block" id="qblock_ck1_q8"><h4>Q8. 仕事が2Jになるのは、この物体を何cm引いたときか。</h4><div class="choice-list" id="choices_ck1_q8"><button class="choice-btn" onclick="pick4('ck1',8,0,1,'ck1_q8')">ア：8cm</button><button class="choice-btn" onclick="pick4('ck1',8,1,1,'ck1_q8')">イ：80cm</button><button class="choice-btn" onclick="pick4('ck1',8,2,1,'ck1_q8')">ウ：125cm</button><button class="choice-btn" onclick="pick4('ck1',8,3,1,'ck1_q8')">エ：0.8cm</button></div><div class="fb-msg" id="fb_ck1_q8"></div><div class="msample" id="samp_ck1_q8">正解：イ：80cm　2J＝2.5N×xm より、x＝0.8m＝80cm です。</div></div><div class="group-title">（8）水平面上で物体を引く</div><div class="q-block" id="qblock_ck1_q9"><h4>Q9. 水平面上で、物体にばねばかりをつけて水平に引いたら、ばねばかりの読みがつねに10Nを示していた。この物体を1秒間に2mの速さで動かす人の仕事率はいくらか。</h4><div class="choice-list" id="choices_ck1_q9"><button class="choice-btn" onclick="pick4('ck1',9,0,3,'ck1_q9')">ア：5W</button><button class="choice-btn" onclick="pick4('ck1',9,1,3,'ck1_q9')">イ：10W</button><button class="choice-btn" onclick="pick4('ck1',9,2,3,'ck1_q9')">ウ：2W</button><button class="choice-btn" onclick="pick4('ck1',9,3,3,'ck1_q9')">エ：20W</button></div><div class="fb-msg" id="fb_ck1_q9"></div><div class="msample" id="samp_ck1_q9">正解：エ：20W　1秒間に動く距離は2m。1秒間の仕事は 10N×2m＝20J なので、仕事率は 20J÷1s＝20W です。</div></div><div class="pass-banner" id="pass_ck1">🎉 全問正解！すばらしい！ 🎉</div></div>
+</div></div>
+<div class="unit-card" id="card_ck2"><div class="unit-header"><div class="unit-num">2</div><h2>確認問題②　滑車・斜面と仕事の原理</h2></div><div class="unit-body">
+<div class="src-note">📖 江原予備校テキスト 練習6（5）〜（7）、（9）より</div>
+<div class="score-line" id="score_ck2">正解 0 / 18 問</div>
+<div class="mini-section open" id="mini_ck2"><div class="mini-score-row" id="pips_ck2"><div class="mini-score-pip" id="pip_ck2_1"></div><div class="mini-score-pip" id="pip_ck2_2"></div><div class="mini-score-pip" id="pip_ck2_3"></div><div class="mini-score-pip" id="pip_ck2_4"></div><div class="mini-score-pip" id="pip_ck2_5"></div><div class="mini-score-pip" id="pip_ck2_6"></div><div class="mini-score-pip" id="pip_ck2_7"></div><div class="mini-score-pip" id="pip_ck2_8"></div><div class="mini-score-pip" id="pip_ck2_9"></div><div class="mini-score-pip" id="pip_ck2_10"></div><div class="mini-score-pip" id="pip_ck2_11"></div><div class="mini-score-pip" id="pip_ck2_12"></div><div class="mini-score-pip" id="pip_ck2_13"></div><div class="mini-score-pip" id="pip_ck2_14"></div><div class="mini-score-pip" id="pip_ck2_15"></div><div class="mini-score-pip" id="pip_ck2_16"></div><div class="mini-score-pip" id="pip_ck2_17"></div><div class="mini-score-pip" id="pip_ck2_18"></div></div><div class="group-title">（5）斜面と滑車で60kgの物体を2mの高さへ</div><div class="img-row"><div class="exp-img"><img src="shigoto_fig25.png" alt="図"></div></div><div class="q-block" id="qblock_ck2_q1"><h4>Q1. 図のように、Aは斜面にそって、Bは滑車を使って、質量60kgの物体を2mの高さまで上げようとしている（斜面の長さ4m）。ひもの重さや摩擦は考えない。Bが引き上げる力はいくらか。</h4><div class="choice-list" id="choices_ck2_q1"><button class="choice-btn" onclick="pick4('ck2',1,0,2,'ck2_q1')">ア：300N</button><button class="choice-btn" onclick="pick4('ck2',1,1,2,'ck2_q1')">イ：60N</button><button class="choice-btn" onclick="pick4('ck2',1,2,2,'ck2_q1')">ウ：600N</button><button class="choice-btn" onclick="pick4('ck2',1,3,2,'ck2_q1')">エ：1200N</button></div><div class="fb-msg" id="fb_ck2_q1"></div><div class="msample" id="samp_ck2_q1">正解：ウ：600N　60kg＝600N。Bの滑車は物体を直接引き上げるのと同じ力が必要です。</div></div><div class="q-block" id="qblock_ck2_q2"><h4>Q2. 引き上げるのに必要な力は、AとBのどちらが大きいか。</h4><div class="choice-list" id="choices_ck2_q2"><button class="choice-btn" onclick="pick4('ck2',2,0,0,'ck2_q2')">ア：B</button><button class="choice-btn" onclick="pick4('ck2',2,1,0,'ck2_q2')">イ：A</button><button class="choice-btn" onclick="pick4('ck2',2,2,0,'ck2_q2')">ウ：同じ</button><button class="choice-btn" onclick="pick4('ck2',2,3,0,'ck2_q2')">エ：比べられない</button></div><div class="fb-msg" id="fb_ck2_q2"></div><div class="msample" id="samp_ck2_q2">正解：ア：B　Aは斜面を使うので必要な力は小さくなります（仕事の原理より 力×4m＝600N×2m、力＝300N）。Bのほうが大きいです。</div></div><div class="q-block" id="qblock_ck2_q3"><h4>Q3. AとBが、質量60kgの物体を2m引き上げた仕事の大きさは、それぞれいくらか。</h4><div class="choice-list" id="choices_ck2_q3"><button class="choice-btn" onclick="pick4('ck2',3,0,2,'ck2_q3')">ア：Aは1200J、Bは600J</button><button class="choice-btn" onclick="pick4('ck2',3,1,2,'ck2_q3')">イ：Aは600J、Bは1200J</button><button class="choice-btn" onclick="pick4('ck2',3,2,2,'ck2_q3')">ウ：どちらも1200J</button><button class="choice-btn" onclick="pick4('ck2',3,3,2,'ck2_q3')">エ：どちらも600J</button></div><div class="fb-msg" id="fb_ck2_q3"></div><div class="msample" id="samp_ck2_q3">正解：ウ：どちらも1200J　B：600N×2m＝1200J。A：300N×4m＝1200J。仕事の原理より、どちらも同じ1200Jです。</div></div><div class="q-block" id="qblock_ck2_q4"><h4>Q4. 2mの高さにあるこの物体がもつ位置エネルギーはいくらか。ただし、最初の位置の位置エネルギーを0Jとする。</h4><div class="choice-list" id="choices_ck2_q4"><button class="choice-btn" onclick="pick4('ck2',4,0,1,'ck2_q4')">ア：600J</button><button class="choice-btn" onclick="pick4('ck2',4,1,1,'ck2_q4')">イ：1200J</button><button class="choice-btn" onclick="pick4('ck2',4,2,1,'ck2_q4')">ウ：0J</button><button class="choice-btn" onclick="pick4('ck2',4,3,1,'ck2_q4')">エ：2400J</button></div><div class="fb-msg" id="fb_ck2_q4"></div><div class="msample" id="samp_ck2_q4">正解：イ：1200J　物体を2m持ち上げるのにした仕事（1200J）が、位置エネルギーとして物体にたくわえられます。</div></div><div class="group-title">（6）斜面を使って35kgの物体を3mの高さへ</div><div class="img-row"><div class="exp-img"><img src="shigoto_fig26.png" alt="図"></div></div><div class="q-block" id="qblock_ck2_q5"><h4>Q5. 図のような斜面を使って、質量35kgの物体を3mの高さまで引き上げた。ひもの重さ、斜面や滑車の摩擦はない。物体がされた仕事はいくらか。</h4><div class="choice-list" id="choices_ck2_q5"><button class="choice-btn" onclick="pick4('ck2',5,0,3,'ck2_q5')">ア：105J</button><button class="choice-btn" onclick="pick4('ck2',5,1,3,'ck2_q5')">イ：350J</button><button class="choice-btn" onclick="pick4('ck2',5,2,3,'ck2_q5')">ウ：10500J</button><button class="choice-btn" onclick="pick4('ck2',5,3,3,'ck2_q5')">エ：1050J</button></div><div class="fb-msg" id="fb_ck2_q5"></div><div class="msample" id="samp_ck2_q5">正解：エ：1050J　35kg＝350N。350N×3m＝1050J です（単位はJです）。</div></div><div class="q-block" id="qblock_ck2_q6"><h4>Q6. このとき、ひもを何m引かなければならないか。</h4><div class="choice-list" id="choices_ck2_q6"><button class="choice-btn" onclick="pick4('ck2',6,0,0,'ck2_q6')">ア：7m</button><button class="choice-btn" onclick="pick4('ck2',6,1,0,'ck2_q6')">イ：3m</button><button class="choice-btn" onclick="pick4('ck2',6,2,0,'ck2_q6')">ウ：3.5m</button><button class="choice-btn" onclick="pick4('ck2',6,3,0,'ck2_q6')">エ：14m</button></div><div class="fb-msg" id="fb_ck2_q6"></div><div class="msample" id="samp_ck2_q6">正解：ア：7m　斜面の長さが7mなので、ひもを7m引きます。</div></div><div class="q-block" id="qblock_ck2_q7"><h4>Q7. ひもを引く力Fの大きさは、ある原理を利用して求められる。その原理とは何か。</h4><div class="choice-list" id="choices_ck2_q7"><button class="choice-btn" onclick="pick4('ck2',7,0,1,'ck2_q7')">ア：てこの原理</button><button class="choice-btn" onclick="pick4('ck2',7,1,1,'ck2_q7')">イ：仕事の原理</button><button class="choice-btn" onclick="pick4('ck2',7,2,1,'ck2_q7')">ウ：慣性の法則</button><button class="choice-btn" onclick="pick4('ck2',7,3,1,'ck2_q7')">エ：フックの法則</button></div><div class="fb-msg" id="fb_ck2_q7"></div><div class="msample" id="samp_ck2_q7">正解：イ：仕事の原理　道具を使っても仕事の量が変わらないことを利用します。</div></div><div class="q-block" id="qblock_ck2_q8"><h4>Q8. ひもを引く力Fがした仕事はいくらか。</h4><div class="choice-list" id="choices_ck2_q8"><button class="choice-btn" onclick="pick4('ck2',8,0,3,'ck2_q8')">ア：150J</button><button class="choice-btn" onclick="pick4('ck2',8,1,3,'ck2_q8')">イ：350J</button><button class="choice-btn" onclick="pick4('ck2',8,2,3,'ck2_q8')">ウ：7350J</button><button class="choice-btn" onclick="pick4('ck2',8,3,3,'ck2_q8')">エ：1050J</button></div><div class="fb-msg" id="fb_ck2_q8"></div><div class="msample" id="samp_ck2_q8">正解：エ：1050J　仕事の原理より、斜面を使った仕事は、35kgの物体を鉛直に3m上げる仕事＝350N×3m＝1050J と同じです。</div></div><div class="q-block" id="qblock_ck2_q9"><h4>Q9. ひもを引く力Fの大きさはいくらか。</h4><div class="choice-list" id="choices_ck2_q9"><button class="choice-btn" onclick="pick4('ck2',9,0,2,'ck2_q9')">ア：350N</button><button class="choice-btn" onclick="pick4('ck2',9,1,2,'ck2_q9')">イ：1050N</button><button class="choice-btn" onclick="pick4('ck2',9,2,2,'ck2_q9')">ウ：150N</button><button class="choice-btn" onclick="pick4('ck2',9,3,2,'ck2_q9')">エ：50N</button></div><div class="fb-msg" id="fb_ck2_q9"></div><div class="msample" id="samp_ck2_q9">正解：ウ：150N　F×7m＝1050J より、F＝1050÷7＝150N です。</div></div><div class="q-block" id="qblock_ck2_q10"><h4>Q10. 斜面を使うと210秒かかり、35kgの物体を鉛直に3m引き上げるのに70秒かかった。それぞれの仕事率を求めよ。</h4><div class="choice-list" id="choices_ck2_q10"><button class="choice-btn" onclick="pick4('ck2',10,0,0,'ck2_q10')">ア：斜面：5W　鉛直：15W</button><button class="choice-btn" onclick="pick4('ck2',10,1,0,'ck2_q10')">イ：斜面：15W　鉛直：5W</button><button class="choice-btn" onclick="pick4('ck2',10,2,0,'ck2_q10')">ウ：斜面：5W　鉛直：5W</button><button class="choice-btn" onclick="pick4('ck2',10,3,0,'ck2_q10')">エ：斜面：210W　鉛直：70W</button></div><div class="fb-msg" id="fb_ck2_q10"></div><div class="msample" id="samp_ck2_q10">正解：ア：斜面：5W　鉛直：15W　斜面：1050J÷210s＝5W。鉛直：1050J÷70s＝15W。仕事は同じでも、時間が短いほうが仕事率は大きくなります。</div></div><div class="group-title">（7）滑車とばねばかり（30kgの物体）</div><div class="img-row"><div class="exp-img"><img src="shigoto_fig27.png" alt="図"></div></div><div class="q-block" id="qblock_ck2_q11"><h4>Q11. 図のようにして、ばねばかりを真上に引き上げた。物体の質量は30kgである。ひも・滑車・ばねばかりの重さや摩擦は考えない。A点にかかる力の大きさはいくらか。</h4><div class="choice-list" id="choices_ck2_q11"><button class="choice-btn" onclick="pick4('ck2',11,0,2,'ck2_q11')">ア：300N</button><button class="choice-btn" onclick="pick4('ck2',11,1,2,'ck2_q11')">イ：30N</button><button class="choice-btn" onclick="pick4('ck2',11,2,2,'ck2_q11')">ウ：150N</button><button class="choice-btn" onclick="pick4('ck2',11,3,2,'ck2_q11')">エ：75N</button></div><div class="fb-msg" id="fb_ck2_q11"></div><div class="msample" id="samp_ck2_q11">正解：ウ：150N　30kg＝300N。この物体は動滑車で2本のひもに支えられているので、A点にかかる力は半分の150Nです。</div></div><div class="q-block" id="qblock_ck2_q12"><h4>Q12. ばねばかりを6秒間で2m移動させたとき、手がした仕事はいくらか。</h4><div class="choice-list" id="choices_ck2_q12"><button class="choice-btn" onclick="pick4('ck2',12,0,1,'ck2_q12')">ア：150J</button><button class="choice-btn" onclick="pick4('ck2',12,1,1,'ck2_q12')">イ：300J</button><button class="choice-btn" onclick="pick4('ck2',12,2,1,'ck2_q12')">ウ：900J</button><button class="choice-btn" onclick="pick4('ck2',12,3,1,'ck2_q12')">エ：50J</button></div><div class="fb-msg" id="fb_ck2_q12"></div><div class="msample" id="samp_ck2_q12">正解：イ：300J　手が引く力は150N、動いた距離は2mなので、150N×2m＝300J です。</div></div><div class="q-block" id="qblock_ck2_q13"><h4>Q13. 2）のとき、物体は何m引き上げられたか。</h4><div class="choice-list" id="choices_ck2_q13"><button class="choice-btn" onclick="pick4('ck2',13,0,3,'ck2_q13')">ア：2m</button><button class="choice-btn" onclick="pick4('ck2',13,1,3,'ck2_q13')">イ：0.5m</button><button class="choice-btn" onclick="pick4('ck2',13,2,3,'ck2_q13')">ウ：4m</button><button class="choice-btn" onclick="pick4('ck2',13,3,3,'ck2_q13')">エ：1m</button></div><div class="fb-msg" id="fb_ck2_q13"></div><div class="msample" id="samp_ck2_q13">正解：エ：1m　仕事の原理より、物体を持ち上げた仕事も300J。300N×xm＝300J より、x＝1m です。（動滑車なので、手の移動距離2mの半分でもあります）</div></div><div class="group-title">（9）定滑車と動滑車（6kgの物体を50cm引き上げる）</div><div class="img-row"><div class="exp-img"><img src="shigoto_fig28.png" alt="図"></div></div><div class="q-block" id="qblock_ck2_q14"><h4>Q14. 図1は定滑車、図2は動滑車を使い、重さ6kgの物体を同じ速さで50cm引き上げる。ひもや滑車の重さ、摩擦は考えない。図1で物体がされた仕事はいくらか。単位もつけて答えよ。</h4><div class="choice-list" id="choices_ck2_q14"><button class="choice-btn" onclick="pick4('ck2',14,0,0,'ck2_q14')">ア：30J</button><button class="choice-btn" onclick="pick4('ck2',14,1,0,'ck2_q14')">イ：300J</button><button class="choice-btn" onclick="pick4('ck2',14,2,0,'ck2_q14')">ウ：3J</button><button class="choice-btn" onclick="pick4('ck2',14,3,0,'ck2_q14')">エ：60J</button></div><div class="fb-msg" id="fb_ck2_q14"></div><div class="msample" id="samp_ck2_q14">正解：ア：30J　6kg＝60N。50cm＝0.5m。60N×0.5m＝30J です。</div></div><div class="q-block" id="qblock_ck2_q15"><h4>Q15. 図2で物体が静止しているとき、ひもが天井を引く力はいくらか。</h4><div class="choice-list" id="choices_ck2_q15"><button class="choice-btn" onclick="pick4('ck2',15,0,1,'ck2_q15')">ア：60N</button><button class="choice-btn" onclick="pick4('ck2',15,1,1,'ck2_q15')">イ：30N</button><button class="choice-btn" onclick="pick4('ck2',15,2,1,'ck2_q15')">ウ：120N</button><button class="choice-btn" onclick="pick4('ck2',15,3,1,'ck2_q15')">エ：15N</button></div><div class="fb-msg" id="fb_ck2_q15"></div><div class="msample" id="samp_ck2_q15">正解：イ：30N　物体と動滑車の重さは60N。動滑車を支える2本のひもで分けあうので、ひもが天井を引く力は半分の30Nです。</div></div><div class="q-block" id="qblock_ck2_q16"><h4>Q16. 動滑車で引き上げるとき、手がひもを引く力は、定滑車で引き上げる場合の何倍になるか。</h4><div class="choice-list" id="choices_ck2_q16"><button class="choice-btn" onclick="pick4('ck2',16,0,3,'ck2_q16')">ア：1倍</button><button class="choice-btn" onclick="pick4('ck2',16,1,3,'ck2_q16')">イ：2倍</button><button class="choice-btn" onclick="pick4('ck2',16,2,3,'ck2_q16')">ウ：4倍</button><button class="choice-btn" onclick="pick4('ck2',16,3,3,'ck2_q16')">エ：1/2倍</button></div><div class="fb-msg" id="fb_ck2_q16"></div><div class="msample" id="samp_ck2_q16">正解：エ：1/2倍　動滑車では、手がひもを引く力は半分（1/2倍）になります。</div></div><div class="q-block" id="qblock_ck2_q17"><h4>Q17. 動滑車で引き上げるとき、手がひもを引く距離は、定滑車で引き上げる場合の何倍になるか。</h4><div class="choice-list" id="choices_ck2_q17"><button class="choice-btn" onclick="pick4('ck2',17,0,2,'ck2_q17')">ア：1/2倍</button><button class="choice-btn" onclick="pick4('ck2',17,1,2,'ck2_q17')">イ：1倍</button><button class="choice-btn" onclick="pick4('ck2',17,2,2,'ck2_q17')">ウ：2倍</button><button class="choice-btn" onclick="pick4('ck2',17,3,2,'ck2_q17')">エ：4倍</button></div><div class="fb-msg" id="fb_ck2_q17"></div><div class="msample" id="samp_ck2_q17">正解：ウ：2倍　動滑車では、ひもを引く距離は2倍になります。力が1/2倍、距離が2倍なので、仕事は同じになります。</div></div><div class="q-block" id="qblock_ck2_q18"><h4>Q18. 図1は50cm上げるのに4秒、図2は50cm上げるのに6秒かかった。それぞれの仕事率を求めよ。</h4><div class="choice-list" id="choices_ck2_q18"><button class="choice-btn" onclick="pick4('ck2',18,0,0,'ck2_q18')">ア：図1：7.5W　図2：5W</button><button class="choice-btn" onclick="pick4('ck2',18,1,0,'ck2_q18')">イ：図1：5W　図2：7.5W</button><button class="choice-btn" onclick="pick4('ck2',18,2,0,'ck2_q18')">ウ：図1：30W　図2：30W</button><button class="choice-btn" onclick="pick4('ck2',18,3,0,'ck2_q18')">エ：図1：7.5W　図2：7.5W</button></div><div class="fb-msg" id="fb_ck2_q18"></div><div class="msample" id="samp_ck2_q18">正解：ア：図1：7.5W　図2：5W　仕事の原理より、どちらの仕事も30J。図1：30J÷4s＝7.5W、図2：30J÷6s＝5W です。</div></div><div class="pass-banner" id="pass_ck2">🎉 全問正解！すばらしい！ 🎉</div></div>
+</div></div>
+
+</div>
+<div class="foot-nav"><a href="shigoto_practice.html">◀ 📝 練習問題</a></div>
+<script>
+
+const miniState={},miniScore={},miniTotal={},miniDone={};
+function registerSec(id,n){miniScore[id]=0;miniTotal[id]=n;miniDone[id]=new Array(n).fill(false);}
+function toggleMini(id){document.getElementById('mini_'+id).classList.toggle('open');}
+function initMiniBank(secId,qNum,words,answers){
+  const key=secId+'_q'+qNum;
+  miniState[key]={words:[...words],answers:[...answers],filled:new Array(answers.length).fill(null),chipUsed:new Array(words.length).fill(false)};
+  const c=document.getElementById('chips_'+key); if(!c)return; c.innerHTML='';
+  const order=[...Array(words.length).keys()];
+  for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
+  order.forEach(i=>{const b=document.createElement('button');b.className='mchip';b.id='chip_'+key+'_'+i;b.textContent=words[i];b.onclick=()=>fillMDZ(secId,qNum,i);c.appendChild(b);});
+}
+function fillMDZ(secId,qNum,ci){
+  const key=secId+'_q'+qNum,st=miniState[key]; if(!st||st.chipUsed[ci])return;
+  const e=st.filled.findIndex(v=>v===null); if(e<0)return;
+  st.filled[e]=ci;st.chipUsed[ci]=true;
+  document.getElementById('chip_'+key+'_'+ci).classList.add('used');
+  const m=document.getElementById('mdz_'+key+'_'+e); if(m){m.textContent=st.words[ci];m.classList.add('filled');}
+}
+function returnChip(secId,qNum,bi){
+  const key=secId+'_q'+qNum,st=miniState[key]; if(!st||st.filled[bi]===null)return;
+  const ci=st.filled[bi];st.filled[bi]=null;st.chipUsed[ci]=false;
+  document.getElementById('chip_'+key+'_'+ci).classList.remove('used');
+  const m=document.getElementById('mdz_'+key+'_'+bi); if(m){m.textContent=' ';m.className='mdz';}
+}
+function checkMiniBank(secId,qNum){
+  const key=secId+'_q'+qNum,st=miniState[key]; if(!st)return;
+  let all=true;
+  st.filled.forEach((ci,bi)=>{
+    const m=document.getElementById('mdz_'+key+'_'+bi); if(!m)return;
+    if(ci===null){all=false;return;}
+    if(st.words[ci]===st.answers[bi]){m.classList.remove('wrong');m.classList.add('correct');}
+    else{m.classList.remove('correct');m.classList.add('wrong');all=false;}
+  });
+  const fb=document.getElementById('fb_'+key);
+  if(all){if(fb)fb.textContent='✅ 正解！すばらしい！';markPass(secId,qNum-1);flowerPetals();}
+  else{if(fb)fb.textContent='❌ もう一度確認しよう！（まちがった所は、クリックで戻せます）';}
+}
+function showSample(secId,qNum){const e=document.getElementById('samp_'+secId+'_q'+qNum);if(e)e.classList.toggle('show');}
+function pick4(secId,qNum,chosen,correct,qid){
+  const btns=document.querySelectorAll('#choices_'+qid+' .choice-btn');
+  btns.forEach(b=>b.disabled=true);
+  const fb=document.getElementById('fb_'+qid);
+  if(chosen===correct){btns[chosen].classList.add('correct');if(fb)fb.textContent='✅ 正解！';markPass(secId,qNum-1);flowerPetals();}
+  else{btns[chosen].classList.add('wrong');btns[correct].classList.add('correct');if(fb)fb.textContent='❌ 残念！正解は緑のボタンです。解説を読んでみよう。';}
+  const s=document.getElementById('samp_'+qid); if(s)s.classList.add('show');
+}
+function markPass(secId,qIdx){
+  if(miniDone[secId][qIdx])return;
+  miniDone[secId][qIdx]=true;miniScore[secId]++;
+  const pip=document.getElementById('pip_'+secId+'_'+(qIdx+1)); if(pip)pip.classList.add('pass');
+  const badge=document.getElementById('mini-badge-'+secId); if(badge)badge.textContent=miniScore[secId]+' / '+miniTotal[secId];
+  const sl=document.getElementById('score_'+secId); if(sl)sl.textContent='正解 '+miniScore[secId]+' / '+miniTotal[secId]+' 問';
+  if(miniScore[secId]>=miniTotal[secId]){const b=document.getElementById('pass_'+secId);if(b)b.classList.add('show');fireConfetti();}
+}
+function flowerPetals(){
+  const cv=document.getElementById('confetti-canvas'),ctx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#f472b6','#fb7185','#fbbf24','#34d399','#60a5fa','#a78bfa'],ps=[];
+  for(let i=0;i<60;i++)ps.push({x:Math.random()*cv.width,y:-20-Math.random()*200,r:4+Math.random()*6,c:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*3,vy:2+Math.random()*3,rot:Math.random()*6.28,rv:(Math.random()-.5)*.15});
+  let f=0;(function d(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.beginPath();ctx.ellipse(0,0,p.r,p.r*.55,0,0,6.28);ctx.fill();ctx.restore();p.x+=p.vx;p.y+=p.vy;p.rot+=p.rv;});if(++f<80)requestAnimationFrame(d);else ctx.clearRect(0,0,cv.width,cv.height);})();
+}
+function fireConfetti(){
+  const cv=document.getElementById('confetti-canvas'),ctx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;
+  const cols=['#f472b6','#fbbf24','#34d399','#60a5fa','#a78bfa','#fb7185','#fff'],ps=[];
+  for(let i=0;i<150;i++)ps.push({x:Math.random()*cv.width,y:-20-Math.random()*300,w:8+Math.random()*10,h:4+Math.random()*6,c:cols[Math.floor(Math.random()*cols.length)],vx:(Math.random()-.5)*5,vy:3+Math.random()*4,rot:Math.random()*6.28,rv:(Math.random()-.5)*.2});
+  let f=0;(function d(){ctx.clearRect(0,0,cv.width,cv.height);ps.forEach(p=>{ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);ctx.restore();p.x+=p.vx;p.y+=p.vy;p.rot+=p.rv;});if(++f<140)requestAnimationFrame(d);else ctx.clearRect(0,0,cv.width,cv.height);})();
+}
+
+registerSec('ck1',9);
+registerSec('ck2',18);
+</script>
+</body></html>
